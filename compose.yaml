@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    image: sarwatch-nisar:local
+    ports:
+      - "127.0.0.1:${PORT:-8080}:8080"
+    environment:
+      PORT: "8080"
+      DATA_DIR: /app/data
+    volumes:
+      - ./data:/app/data:ro
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL

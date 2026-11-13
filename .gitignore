@@ -1,0 +1,21 @@
+# Datos y productos locales
+data/
+*.h5
+*.tif
+*.tiff
+*.nc
+*.npz
+# Credenciales y entornos
+.env
+.env.*
+!.env.example
+.netrc
+_netrc
+.urs_cookies
+.streamlit/secrets.toml
+.venv/
+__pycache__/
+*.pyc
+# Temporales
+work/
+.DS_Store

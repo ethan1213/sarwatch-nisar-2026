@@ -1,0 +1,12 @@
+.git
+.venv
+data
+work
+__pycache__
+*.h5
+.env
+.env.*
+!.env.example
+.netrc
+_netrc
+outputs
