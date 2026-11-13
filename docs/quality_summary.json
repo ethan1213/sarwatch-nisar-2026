@@ -1,0 +1,77 @@
+{
+  "grid": {
+    "epsg": 32721,
+    "height": 2769,
+    "width": 2661,
+    "transform": [
+      20.0,
+      0.0,
+      446780.0,
+      0.0,
+      -20.0,
+      8120440.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "quality_status": "Exploratorio: solo finitos positivos y fill values; evaluaci\u00f3n de m\u00e1scaras QA pendiente",
+  "coverage": [
+    {
+      "id": "G4249081225-ASF",
+      "date": "2026-07-05T09:42:27.000Z",
+      "fractions": {
+        "HH": 1.0450158917059531e-05,
+        "HV": 1.0450158917059531e-05
+      }
+    },
+    {
+      "id": "G4254665779-ASF",
+      "date": "2026-07-17T09:42:27.000Z",
+      "fractions": {
+        "HH": 1.0,
+        "HV": 1.0
+      }
+    },
+    {
+      "id": "G4278808808-ASF",
+      "date": "2026-08-10T09:42:25.000Z",
+      "fractions": {
+        "HH": 1.0,
+        "HV": 1.0
+      }
+    },
+    {
+      "id": "G4288574282-ASF",
+      "date": "2026-08-22T09:42:25.000Z",
+      "fractions": {
+        "HH": 1.0,
+        "HV": 1.0
+      }
+    },
+    {
+      "id": "G4298917803-ASF",
+      "date": "2026-09-03T09:42:25.000Z",
+      "fractions": {
+        "HH": 1.0,
+        "HV": 1.0
+      }
+    },
+    {
+      "id": "G4314009366-ASF",
+      "date": "2026-09-15T09:42:24.000Z",
+      "fractions": {
+        "HH": 1.0,
+        "HV": 1.0
+      }
+    },
+    {
+      "id": "G4327697742-ASF",
+      "date": "2026-09-27T09:42:24.000Z",
+      "fractions": {
+        "HH": 1.0,
+        "HV": 1.0
+      }
+    }
+  ]
+}
