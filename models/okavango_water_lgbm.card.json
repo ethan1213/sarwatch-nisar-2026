@@ -1,0 +1,88 @@
+{
+  "name": "okavango_water_lgbm",
+  "task": "agua abierta por pixel (binario) en NISAR GCOV HH/HV + terreno",
+  "created_utc": "2026-11-14T16:30:10.241493+00:00",
+  "data": {
+    "aoi": "okavango",
+    "dates": [
+      "2026-06-26",
+      "2026-07-08",
+      "2026-07-20",
+      "2026-08-13",
+      "2026-08-25",
+      "2026-09-06",
+      "2026-09-18",
+      "2026-09-30"
+    ],
+    "labels": "MNDWI > 0.0",
+    "label_window_days": 3
+  },
+  "split": {
+    "block_pixels": 64,
+    "test_fraction": 0.25,
+    "buffer_blocks": 1,
+    "rule": "bloques completos en un solo conjunto; anillo de bloques excluido alrededor de la prueba; fecha final retenida para la prueba temporal"
+  },
+  "metrics": {
+    "spatial_block_holdout": {
+      "n": 38144768,
+      "tp": 107968,
+      "fp": 767780,
+      "fn": 239065,
+      "tn": 37029955,
+      "precision": 0.12328660756290623,
+      "recall": 0.31111738653096394,
+      "f1": 0.1765941734456129,
+      "iou": 0.09684852975342052,
+      "positive_fraction": 0.009097787670382475
+    },
+    "temporal_holdout": {
+      "test_date": "2026-09-30",
+      "train_dates": [
+        "2026-06-26",
+        "2026-07-08",
+        "2026-07-20",
+        "2026-08-13",
+        "2026-08-25",
+        "2026-09-06",
+        "2026-09-18"
+      ],
+      "n": 19052781,
+      "tp": 31474,
+      "fp": 1560743,
+      "fn": 8070,
+      "tn": 17452494,
+      "precision": 0.019767406075930603,
+      "recall": 0.7959235282217277,
+      "f1": 0.03857672784188371,
+      "iou": 0.019667722102347893,
+      "positive_fraction": 0.002075497534979277
+    }
+  },
+  "features": [
+    "hh_db",
+    "hv_db",
+    "ratio_db",
+    "texture_hh",
+    "slope",
+    "hand_proxy",
+    "dist_water",
+    "jrc_occurrence"
+  ],
+  "limits": [
+    "Etiquetas opticas de agua abierta: el agua bajo vegetacion no esta etiquetada y no se evalua.",
+    "Un solo AOI y una temporada: no demuestra generalizacion a otras cuencas.",
+    "La prueba temporal usa una unica fecha retenida.",
+    "No es un detector de inundacion ni de riesgo; describe agua abierta observada."
+  ],
+  "feature_importance_gain": {
+    "hh_db": 0.4659835090029501,
+    "dist_water": 0.18708344351719572,
+    "hand_proxy": 0.11777186486568565,
+    "hv_db": 0.08619425746897216,
+    "texture_hh": 0.07746575980623385,
+    "jrc_occurrence": 0.04135502394476095,
+    "slope": 0.022310549892808857,
+    "ratio_db": 0.001835591501392728
+  }
+}

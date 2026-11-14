@@ -1,5 +1,12 @@
 # Estado de entrega — 14 noviembre 2026
 
+## Cuarto sitio: delta del Okavango (Botsuana) — resultado negativo
+
+- Nueve escenas NISAR GCOV (26 jun a 12 oct 2026, geometría 172_A_168, 17 GB) descargadas y verificadas con el MD5 oficial de CMR (`catalog/okavango_verified.json`); preparadas en 79 s con cobertura válida completa en HH y HV. `scripts/request_aoi.py` ahora conserva solo la versión de producto más reciente de cada adquisición.
+- Etiquetas Sentinel-2 en 8 de 9 fechas (el 12 de octubre queda con 48 % de cobertura válida). El agua óptica etiquetada oscila entre 16 y 137 km² entre fechas consecutivas.
+- Detección de agua abierta (`docs/okavango_detection_benchmark.json`, tarjeta en `models/okavango_water_lgbm.card.json`): LightGBM propio del sitio F1 0,18 en bloques retenidos (IoU 0,10) y 0,04 en la fecha retenida (30 sep); Kittler-Illingworth entre 0,03 y 0,29; Otsu por debajo de 0,08. **Ninguna capa del Okavango cumple la regla de publicación; no entra al visor.**
+- No se probó la transferencia del modelo del Pantanal: su archivo (`models/pantanal_water_lgbm.txt`) no está en el repositorio. Causa del mal resultado sin diagnosticar; hipótesis a comprobar: etiquetas MNDWI inestables (cicatrices de quema, vegetación húmeda) y agua bajo vegetación, que en banda L aumenta la retrodispersión en vez de reducirla.
+
 ## Actualización nocturna: disco externo, nueve fechas en Pantanal, índice mundial y nube
 
 - Los HDF5 originales se movieron a `D:/NISAR/raw` (9 de Pantanal, 2 de Chile); C quedó con 30 GB libres. `SARWATCH_RAW` apunta ahí por defecto.
