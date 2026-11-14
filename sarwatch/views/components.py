@@ -13,11 +13,28 @@ def _load(path):
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else None
 
 
+MONTHS = ("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic")
+MODEL_NAMES = {"climatology": "promedio de las fechas anteriores", "persistence": "repetir el valor anterior", "ridge": "regresión lineal"}
+
+
+def short_date(iso):
+    """'2026-10-05' -> '5 oct 2026'; anything else is returned unchanged."""
+    try:
+        year, month, day = (int(part) for part in iso[:10].split("-"))
+        return f"{day} {MONTHS[month - 1]} {year}"
+    except (ValueError, IndexError):
+        return iso
+
+
+def percent(fraction, digits=0):
+    return f"{100 * fraction:.{digits}f}".replace(".", ",") + " %"
+
+
 def evidence_board(items):
-    """items: list of (level, text). Renders one line per item with a labelled level."""
+    """items: list of (level, text). Each entry is labelled with how much we know about it."""
     for level, text in items:
         label, color = EVIDENCE_LEVELS[level]
-        st.markdown(f"<div style='border-left:4px solid {color};padding:.3rem .8rem;margin:.25rem 0;background:white;border-radius:4px'><span style='color:{color};font-weight:600;font-size:.8rem;letter-spacing:.04em'>{label.upper()}</span><br>{text}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='sw-evidence' style='--sw-level:{color}'><span class='sw-level'>{label}</span><p>{text}</p></div>", unsafe_allow_html=True)
 
 
 def story(region, before, after, polarization, statistics, profile):
@@ -25,13 +42,13 @@ def story(region, before, after, polarization, statistics, profile):
     detection = _load("catalog/detection_reference.json") or {}
     forecast = _load("catalog/prediction_reference.json") or {}
     slug = AOI_SLUGS.get(region, region)
-    st.subheader(f"{region}: {before} → {after}")
+    st.markdown(f"#### {short_date(before)} → {short_date(after)}")
     items = []
     if statistics.get("median_db") is None:
         items.append(("ausente", "No hay píxeles comparables entre estas fechas; no describimos el cambio."))
     else:
         move = "aumentó" if statistics["median_db"] > 0 else "disminuyó" if statistics["median_db"] < 0 else "se mantuvo"
-        items.append(("observado", f"La respuesta típica del radar ({polarization}) {move}: diferencia mediana {statistics['median_db']:+.2f} dB sobre el {statistics['coverage']:.1%} del recorte con dato válido en ambas fechas."))
+        items.append(("observado", f"La respuesta típica del radar ({polarization}) {move}: diferencia mediana {statistics['median_db']:+.2f} dB sobre el {percent(statistics['coverage'])} del recorte con dato válido en ambas fechas."))
     water = (detection.get("water") or {}).get(slug)
     if water:
         area = next((a for a in water["areas"] if a["date"] == after), None)
@@ -42,11 +59,11 @@ def story(region, before, after, polarization, statistics, profile):
     if change:
         land = change["land"]
         pct = 100 * ((land.get("increase") or 0) + (land.get("decrease") or 0))
-        items.append(("estimado", f"El {pct:.2f} % de los píxeles de tierra cambió de forma estadísticamente significativa entre ambas fechas (prueba de Conradsen, α = {change['alpha']}). Sobre el mar y embalses el cambio refleja viento y oleaje."))
+        items.append(("estimado", f"El {percent(pct / 100, 2)} de los píxeles de tierra cambió de forma estadísticamente significativa entre ambas fechas (prueba de Conradsen, α = {change['alpha']}). Sobre el mar y embalses el cambio refleja viento y oleaje."))
     items.append(("hipotesis", "Un cambio de señal puede deberse a humedad, vegetación, construcción, viento sobre el agua o geometría. La causa no se confirma con radar solo."))
     decision = forecast.get("best_model") or {}
     if decision.get("publishable"):
-        items.append(("estimado", f"Pronóstico de referencia disponible para la mediana del recorte ({decision['model']}); no es un pronóstico de inundación."))
+        items.append(("estimado", f"Pronóstico de referencia disponible para la mediana del recorte ({MODEL_NAMES.get(decision['model'], decision['model'])}); no es un pronóstico de inundación."))
     else:
         items.append(("ausente", "No hay pronóstico publicable: ningún modelo superó a repetir el valor anterior con intervalos calibrados. No anticipamos inundaciones ni daños."))
     items.append(("ausente", "Falta validación con observaciones de terreno y pruebas con personas de cada perfil."))

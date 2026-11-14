@@ -1,0 +1,28 @@
+[server]
+enableStaticServing = true
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+primaryColor = "#c6601c"
+backgroundColor = "#f4f6f3"
+secondaryBackgroundColor = "#e7ece9"
+textColor = "#10293a"
+borderColor = "#d4dcd9"
+font = "'Atkinson Hyperlegible Next', sans-serif"
+headingFont = "'Bricolage Grotesque', 'Atkinson Hyperlegible Next', sans-serif"
+baseRadius = "4px"
+
+[[theme.fontFaces]]
+family = "Atkinson Hyperlegible Next"
+url = "app/static/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2"
+weight = "200 800"
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Bricolage Grotesque"
+url = "app/static/fonts/bricolage-grotesque-latin-wght-normal.woff2"
+weight = "200 800"
+style = "normal"

@@ -46,6 +46,20 @@ def display_grid(mask, transform, crs, nodata=255, size=600):
     return output, [[south, west], [north, east]]
 
 
+def image_overlay(rgba, bounds, name, opacity=1.0):
+    """RGBA uint8 image in WGS84 as a Leaflet overlay with the colours exactly as given.
+
+    folium's own mercator_project returns floats and then rescales every channel to its maximum,
+    which shifts hues (orange turns yellow) and makes semi-transparent layers opaque. The projection
+    is done here and cast back to uint8 so the legend matches the map.
+    """
+    from folium.utilities import mercator_transform
+    (south, _), (north, _) = bounds
+    projected = mercator_transform(rgba, (south, north), origin="upper")
+    exact = np.clip(np.rint(projected), 0, 255).astype("uint8")
+    return folium.raster_layers.ImageOverlay(exact, bounds=bounds, name=name, opacity=opacity, mercator_project=False)
+
+
 def categorical_overlay(mask, transform, crs, kind, name):
     """Water: class 1 in teal. Change: 1 decrease in blue, 2 increase in orange. Everything else transparent."""
     grid, bounds = display_grid(mask, transform, crs)
@@ -55,7 +69,7 @@ def categorical_overlay(mask, transform, crs, kind, name):
     else:
         rgba[grid == 1] = (32, 91, 135, 210)
         rgba[grid == 2] = (198, 96, 28, 210)
-    return folium.raster_layers.ImageOverlay(rgba, bounds=bounds, name=name, mercator_project=True)
+    return image_overlay(rgba, bounds, name)
 
 
 def water_fraction(mask):

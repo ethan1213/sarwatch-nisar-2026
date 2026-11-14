@@ -8,6 +8,9 @@ import pandas as pd
 import streamlit as st
 from streamlit_folium import st_folium
 
+from sarwatch.detections import image_overlay
+from sarwatch.maps import base_map, place_marker
+
 COVERAGE = Path("catalog/global/coverage_1deg.json")
 INDEX = Path("catalog/global/gcov_index.csv.gz")
 SITES = {"Pantanal": [-57.25, -17.25], "Región Metropolitana": [-70.65, -33.475], "Región de Valparaíso": [-71.55, -33.05]}
@@ -63,11 +66,11 @@ def world_view(profile="Público general"):
         st.info("El índice mundial aún no se ha construido. Ejecuta scripts/build_global_catalog.py (solo metadatos, sin descargar imágenes).")
         return
     st.caption(f"Índice de {data['granules_indexed']:,} granulos GCOV del catálogo oficial CMR ({data['generated_utc'][:10]}). Color por número de fechas distintas en cada celda de 1°: claro 1, azul 2–3, naranja claro 4–7, naranja ≥ 8. Es disponibilidad en el catálogo, no cobertura procesada ni validada.")
-    m = folium.Map(location=[0, 0], zoom_start=2, tiles="CartoDB positron", control_scale=True)
-    folium.raster_layers.ImageOverlay(coverage_image(json.dumps(data["cells"])), bounds=[[-90, -180], [90, 180]], name="Fechas NISAR GCOV por celda de 1°", opacity=1.0, mercator_project=True).add_to(m)
+    m = base_map([0, 0], 2)
+    image_overlay(coverage_image(json.dumps(data["cells"])), [[-90, -180], [90, 180]], "Fechas NISAR GCOV por celda de 1°").add_to(m)
     folium.LayerControl().add_to(m)
     for name, (lon, lat) in SITES.items():
-        folium.Marker([lat, lon], tooltip=f"{name}: procesado y evaluado en SARWatch", icon=folium.Icon(color="darkblue", icon="ok-sign")).add_to(m)
+        place_marker([lat, lon], f"{name}: procesado y evaluado en SARWatch").add_to(m)
     event = st_folium(m, height=520, use_container_width=True, key="world-map", returned_objects=["last_clicked"])
     clicked = event.get("last_clicked")
     c1, c2 = st.columns(2)

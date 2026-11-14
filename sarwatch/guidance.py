@@ -9,7 +9,7 @@ from sarwatch.assistant.chat import answer as chat_answer
 def reading(context,profile):
     from sarwatch.views.components import story
     story(context['region'],context['before'],context['after'],context['polarization'],context['statistics'],profile)
-    st.subheader('Qué nos muestran estas observaciones')
+    st.markdown('#### Qué nos muestran estas observaciones')
     st.write(describe(context))
     st.caption('La cobertura indica disponibilidad de datos, no precisión de una predicción. El recorte no representa toda la región.')
     st.caption('Una mediana cercana a cero puede ocultar cambios localizados. Revisa el mapa y los puntos antes de sacar conclusiones.')

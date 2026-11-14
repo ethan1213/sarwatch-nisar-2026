@@ -13,7 +13,9 @@ from sarwatch.repository import RasterRepository
 from science import difference
 from sarwatch.interpretation import summarize
 from sarwatch.guidance import reading,assistant
-from sarwatch.detections import CHANGE_LABEL, categorical_overlay, change_mask_path, change_sentence, detection_reference, read_mask
+from sarwatch.theme import scale_legend
+from sarwatch.views.components import percent, short_date
+from sarwatch.detections import CHANGE_LABEL, categorical_overlay, image_overlay, change_mask_path, change_sentence, detection_reference, read_mask
 
 
 @st.cache_data(max_entries=8)
@@ -28,13 +30,28 @@ def point_forecast(latitude, longitude):
     return fetch_weather(latitude, longitude)
 
 
+ESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services/'
+ESRI_ATTRIBUTION = 'Mapa base © Esri, HERE, Garmin, © OpenStreetMap'
+MAP_CSS = '<style>.leaflet-container{font-family:system-ui,sans-serif}.leaflet-control-attribution{font-size:10px;line-height:1.4}.leaflet-control-scale-line{font-size:10px}</style>'
+
+
 def base_map(center, zoom=9):
-    m = folium.Map(location=center, zoom_start=zoom, tiles='OpenStreetMap', control_scale=True)
-    folium.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', attr='Tiles © Esri — imagery providers', name='Imagen satelital de contexto (no NISAR)').add_to(m)
+    """Quiet grey base so the radar layer carries the colour; satellite imagery stays one click away."""
+    m = folium.Map(location=center, zoom_start=zoom, tiles=None, control_scale=True)
+    m.get_root().header.add_child(folium.Element(MAP_CSS))
+    folium.TileLayer(ESRI + 'World_Imagery/MapServer/tile/{z}/{y}/{x}', attr=ESRI_ATTRIBUTION, name='Imagen satelital de contexto (no NISAR)', show=False).add_to(m)
+    folium.TileLayer(ESRI + 'Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', attr=ESRI_ATTRIBUTION, name='Mapa base').add_to(m)
+    folium.TileLayer(ESRI + 'Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', attr=ESRI_ATTRIBUTION, name='Nombres de lugares', overlay=True, control=False).add_to(m)
     return m
 
 
-def raster_map(values, transform, crs, changes=False):
+def place_marker(location, label):
+    """Circle marker: the default Leaflet pin loads its image from a CDN path that breaks."""
+    return folium.CircleMarker(location, radius=5, color='#10293a', weight=2, fill=True, fill_color='#ffffff', fill_opacity=1, tooltip=label)
+
+
+def raster_map(values, transform, crs, changes=False, layer_control=True):
+    """layer_control=False lets the caller add more layers first; the control must be added last."""
     height, width = values.shape
     bounds = array_bounds(height, width, transform)
     dst_transform, w, h = calculate_default_transform(crs, 'EPSG:4326', width, height, *bounds, dst_width=600, dst_height=600)
@@ -50,9 +67,10 @@ def raster_map(values, transform, crs, changes=False):
     rgba[:,:,:3]=rgb.astype('uint8')
     rgba[:,:,3] = np.isfinite(output).astype('uint8')*190
     m = base_map([(south+north)/2,(west+east)/2],10)
-    folium.raster_layers.ImageOverlay(rgba, bounds=[[south,west],[north,east]], name='NISAR · diferencia dB' if changes else 'NISAR · retrodispersión dB', mercator_project=True).add_to(m)
+    image_overlay(rgba, [[south,west],[north,east]], 'NISAR · diferencia dB' if changes else 'NISAR · retrodispersión dB').add_to(m)
     m.fit_bounds([[south,west],[north,east]])
-    folium.LayerControl().add_to(m)
+    if layer_control:
+        folium.LayerControl().add_to(m)
     return m
 
 
@@ -60,62 +78,71 @@ def chile_view(region,profile="Público general"):
     slug = 'metropolitana' if region == 'Región Metropolitana' else 'valparaiso'
     center = [-33.45,-70.66] if slug=='metropolitana' else [-33.047,-71.613]
     st.subheader(region)
-    summary_area=st.container()
-    framing = st.radio('Encuadre', ['Región completa', 'Santiago' if slug=='metropolitana' else 'Valparaíso / Viña del Mar'], horizontal=True,index=1)
-    st.caption('Las líneas delimitan comunas. La capa coloreada muestra las observaciones del recorte urbano; fuera de ella no publicamos resultados SAR.')
-    m=base_map(center,9)
-    path=Path('catalog')/(slug+'.geojson')
-    if path.is_file():
-        data=json.loads(path.read_text(encoding='utf-8'))
-        boundaries = folium.GeoJson(data,name='Límites comunales · CIREN',style_function=lambda f:{'fillColor':'#397a85','color':'#245360','weight':1,'fillOpacity':.08},tooltip=folium.GeoJsonTooltip(fields=['nomcom'], aliases=['Comuna'])).add_to(m)
-        if framing == 'Región completa':
-            m.fit_bounds(boundaries.get_bounds())
-    folium.Marker([-33.45,-70.66],tooltip='Santiago').add_to(m)
-    folium.Marker([-33.047,-71.613],tooltip='Valparaíso').add_to(m)
-    products_root=Path(os.environ.get('DATA_DIR','data'))/slug
-    manifest=None
-    if (products_root/'manifest.json').is_file():
-        repository=RasterRepository(products_root)
-        manifest=repository.manifest()
-        st.caption('NISAR: recorte del entorno urbano seleccionado, no cobertura completa de la región.')
-        pol=st.selectbox('Polarización SAR',['HH','HV'],key=slug+'-pol')
-        scenes=manifest['scenes']
-        dates=[s['fecha_observacion'][:10] for s in scenes]
-        view=st.radio('Capa SAR',[dates[0],dates[-1],'Diferencia en dB'],horizontal=True,index=2,key=slug+'-sar')
-        before,t,c=regional_raster(str(repository.product_path(scenes[0]['products'][pol])))
-        after,t2,c2=regional_raster(str(repository.product_path(scenes[-1]['products'][pol])))
-        if t!=t2 or c!=c2 or before.shape!=after.shape:
-            st.error('Las grillas SAR no coinciden. Capa temporal desactivada.')
-            manifest=None
-        else:
-            values=difference(before,after) if view=='Diferencia en dB' else before if view==dates[0] else after
-            overlay_map=raster_map(values,t,c,view=='Diferencia en dB')
-            for child in list(overlay_map._children.values()):
-                if isinstance(child,folium.raster_layers.ImageOverlay):
-                    child.add_to(m)
-            context={'region':region,'before':dates[0],'after':dates[-1],'polarization':pol,'statistics':summarize(before,after),'source':scenes[-1]['url_metadatos']}
-            with summary_area:
-                reading(context,profile)
-            change_path=change_mask_path(products_root)
-            if change_path is not None and st.checkbox('Mostrar cambio estadísticamente significativo',value=view=='Diferencia en dB',key=slug+'-change'):
-                mask,mt,mc,tags=read_mask(change_path)
-                if (mt,mc,mask.shape)!=(t,c,before.shape):
-                    st.error('La máscara de cambio no comparte la grilla SAR; no se muestra.')
-                else:
-                    categorical_overlay(mask,mt,mc,'change',CHANGE_LABEL).add_to(m)
-                    reference=detection_reference()
-                    st.caption('Azul: disminución significativa de la señal; naranja: aumento. '+change_sentence(reference,slug))
-                    if profile in ('Ciencia','Desarrollo y datos'):
-                        block=((reference or {}).get('change') or {}).get(slug)
-                        if block:
-                            st.dataframe([{'cobertura (WorldCover 2021)':k,'píxeles':v['n'],'disminución %':round(100*(v['decrease'] or 0),3),'aumento %':round(100*(v['increase'] or 0),3)} for k,v in block['by_worldcover'].items()],hide_index=True)
-                            st.caption(f"Método: {tags.get('method','')}. Looks: {block['looks_source']}. Acuerdo con umbral MAD (IoU): {block['agreement_iou_with_mad']:.2f}.")
-            st.metric('Cobertura comparable del recorte',f'{np.isfinite(difference(before,after)).mean():.1%}')
-            st.caption('Naranja: mayor respuesta; azul: menor. El tono claro indica diferencia cerca de cero. Diferencia: −6 a +6 dB; intensidad: −30 a 10 dB. Transparente: sin dato. Cambios de radar no equivalen a inundaciones.')
-    folium.LayerControl().add_to(m)
-    event=st_folium(m,height=560,use_container_width=True,key='chile-'+slug+framing,returned_objects=['last_clicked'])
-    point=event.get('last_clicked') or {'lat':center[0],'lng':center[1]}
-    st.caption(f"Punto seleccionado: {point['lat']:.5f}, {point['lng']:.5f}. Haz clic en el mapa para cambiarlo.")
+    map_column, reading_column = st.columns([3, 2], gap='large')
+    summary_area=reading_column.container()
+    with map_column:
+        controls, legend_slot, map_slot, notes = st.container(), st.container(), st.container(), st.container()
+        row = controls.columns([5, 3, 6])
+        framing = row[0].radio('Encuadre', ['Región completa', 'Santiago' if slug=='metropolitana' else 'Valparaíso / Viña del Mar'], horizontal=True,index=1)
+        notes.caption('Las líneas delimitan comunas. La capa coloreada muestra las observaciones del recorte urbano; fuera de ella no publicamos resultados SAR.')
+        m=base_map(center,9)
+        path=Path('catalog')/(slug+'.geojson')
+        if path.is_file():
+            data=json.loads(path.read_text(encoding='utf-8'))
+            boundaries = folium.GeoJson(data,name='Límites comunales · CIREN',style_function=lambda f:{'fillColor':'#397a85','color':'#245360','weight':1,'fillOpacity':.08},tooltip=folium.GeoJsonTooltip(fields=['nomcom'], aliases=['Comuna'])).add_to(m)
+            if framing == 'Región completa':
+                m.fit_bounds(boundaries.get_bounds())
+        place_marker([-33.45,-70.66],'Santiago').add_to(m)
+        place_marker([-33.047,-71.613],'Valparaíso').add_to(m)
+        products_root=Path(os.environ.get('DATA_DIR','data'))/slug
+        manifest=None
+        if (products_root/'manifest.json').is_file():
+            repository=RasterRepository(products_root)
+            manifest=repository.manifest()
+            notes.caption('NISAR: recorte del entorno urbano seleccionado, no cobertura completa de la región.')
+            pol=row[1].selectbox('Polarización SAR',['HH','HV'],key=slug+'-pol')
+            scenes=manifest['scenes']
+            dates=[s['fecha_observacion'][:10] for s in scenes]
+            view=row[2].radio('Capa SAR',[dates[0],dates[-1],'Diferencia en dB'],horizontal=True,index=2,key=slug+'-sar',format_func=lambda value: 'Diferencia' if value=='Diferencia en dB' else short_date(value))
+            before,t,c=regional_raster(str(repository.product_path(scenes[0]['products'][pol])))
+            after,t2,c2=regional_raster(str(repository.product_path(scenes[-1]['products'][pol])))
+            if t!=t2 or c!=c2 or before.shape!=after.shape:
+                st.error('Las grillas SAR no coinciden. Capa temporal desactivada.')
+                manifest=None
+            else:
+                values=difference(before,after) if view=='Diferencia en dB' else before if view==dates[0] else after
+                overlay_map=raster_map(values,t,c,view=='Diferencia en dB')
+                for child in list(overlay_map._children.values()):
+                    if isinstance(child,folium.raster_layers.ImageOverlay):
+                        child.add_to(m)
+                        if framing != 'Región completa':
+                            m.fit_bounds(child.bounds)
+                context={'region':region,'before':dates[0],'after':dates[-1],'polarization':pol,'statistics':summarize(before,after),'source':scenes[-1]['url_metadatos']}
+                with summary_area:
+                    reading(context,profile)
+                change_path=change_mask_path(products_root)
+                if change_path is not None and controls.checkbox('Mostrar cambio estadísticamente significativo',value=view=='Diferencia en dB',key=slug+'-change'):
+                    mask,mt,mc,tags=read_mask(change_path)
+                    if (mt,mc,mask.shape)!=(t,c,before.shape):
+                        st.error('La máscara de cambio no comparte la grilla SAR; no se muestra.')
+                    else:
+                        categorical_overlay(mask,mt,mc,'change',CHANGE_LABEL).add_to(m)
+                        reference=detection_reference()
+                        notes.caption('Azul: disminución significativa de la señal; naranja: aumento. '+change_sentence(reference,slug))
+                        if profile in ('Ciencia','Desarrollo y datos'):
+                            block=((reference or {}).get('change') or {}).get(slug)
+                            if block:
+                                notes.dataframe([{'cobertura (WorldCover 2021)':k,'píxeles':v['n'],'disminución %':round(100*(v['decrease'] or 0),3),'aumento %':round(100*(v['increase'] or 0),3)} for k,v in block['by_worldcover'].items()],hide_index=True)
+                                notes.caption(f"Método: {tags.get('method','')}. Looks: {block['looks_source']}. Acuerdo con umbral MAD (IoU): {block['agreement_iou_with_mad']:.2f}.")
+                with legend_slot:
+                    scale_legend(view=='Diferencia en dB')
+                notes.metric('Cobertura comparable del recorte',percent(np.isfinite(difference(before,after)).mean()))
+                notes.caption('Escala de −6 a +6 dB en diferencias y de −30 a 10 dB en intensidad. Transparente: sin dato. Cambios de radar no equivalen a inundaciones.')
+        folium.LayerControl().add_to(m)
+        with map_slot:
+            event=st_folium(m,height=600,use_container_width=True,key='chile-'+slug+framing,returned_objects=['last_clicked'])
+        point=event.get('last_clicked') or {'lat':center[0],'lng':center[1]}
+        map_slot.caption(f"Punto seleccionado: {point['lat']:.5f}, {point['lng']:.5f}. Haz clic en el mapa para cambiarlo.")
     if manifest is not None:
         import pandas as pd
         frame=pd.DataFrame(repository.point_series(manifest['scenes'],pol,point['lng'],point['lat']))

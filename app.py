@@ -3,6 +3,7 @@ import json
 import os
 from pathlib import Path
 
+import folium
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
@@ -12,7 +13,7 @@ from pyproj import Transformer
 from science import difference
 from sarwatch.charts import raster_figure
 from sarwatch.repository import RasterRepository
-from sarwatch.theme import apply_theme
+from sarwatch.theme import apply_theme, header, rule, scale_legend
 from sarwatch.interpretation import PROFILES,summarize
 from sarwatch.guidance import reading,assistant,scale_calculator
 from sarwatch.maps import chile_view, raster_map
@@ -21,11 +22,13 @@ from streamlit_folium import st_folium
 
 st.set_page_config(page_title="SARWatch · NISAR", page_icon="S", layout="wide")
 apply_theme()
-st.title("SARWatch")
-st.caption("Observación terrestre · NISAR y contexto territorial")
-region = st.selectbox("Área de estudio", ["Pantanal", "Región Metropolitana", "Región de Valparaíso", "Mundo · cobertura NISAR"],index=1)
-profile=st.selectbox("Cómo quieres explorar",PROFILES)
-st.caption("Elige un lugar, compara dos fechas y pregunta qué significa lo observado.")
+head, controls = st.columns([5, 4], gap="large", vertical_alignment="bottom")
+with head:
+    header()
+place, audience = controls.columns(2)
+region = place.selectbox("Área de estudio", ["Pantanal", "Región Metropolitana", "Región de Valparaíso", "Mundo · cobertura NISAR"],index=1)
+profile = audience.selectbox("Cómo quieres explorar",PROFILES)
+rule()
 if region.startswith("Mundo"):
     from sarwatch.views.world import world_view
     world_view(profile)
@@ -35,7 +38,6 @@ if region != "Pantanal":
     chile_view(region,profile)
     scale_calculator()
     st.stop()
-st.info("Análisis exploratorio. Cambios en dB no equivalen a inundaciones confirmadas. Datos PROVISIONAL con máscaras técnicas aplicadas; validación ambiental independiente pendiente.")
 root = Path(os.environ.get("DATA_DIR", "data"))
 repository = RasterRepository(root)
 manifest_path = root / "manifest.json"
@@ -69,7 +71,36 @@ if a.shape != b.shape or transform != transform_b or crs != crs_b:
 delta = difference(a, b)
 valid = np.isfinite(delta)
 context={"region":"Pantanal","before":labels[before],"after":labels[after],"polarization":pol,"statistics":summarize(a,b),"source":scenes[after]["url_metadatos"]}
-reading(context,profile)
+st.subheader("Pantanal")
+map_column, reading_column = st.columns([3, 2], gap="large")
+with reading_column:
+    reading(context,profile)
+    st.caption("Análisis exploratorio. Cambios en dB no equivalen a inundaciones confirmadas. Datos PROVISIONAL con máscaras técnicas aplicadas; validación ambiental independiente pendiente.")
+with map_column:
+    controls, legend_slot, map_slot, notes = st.container(), st.container(), st.container(), st.container()
+    with legend_slot:
+        scale_legend(mode == "Diferencia en dB")
+    notes.caption((f"Polarización {pol}, {labels[after]}. " if mode == 'Antes y después' else f"Polarización {pol}, {labels[after]} menos {labels[before]}. ") + "Capa NISAR sobre mapa base. Escala de −6 a 6 dB en diferencias y de −30 a 10 dB en intensidad. Transparente: sin dato.")
+    sar_map = raster_map(delta if mode == "Diferencia en dB" else b, transform, crs, mode == "Diferencia en dB", layer_control=False)
+    available = water_mask_paths(root, labels[after])
+    if available:
+        layer_names = ["Ninguna"] + [WATER_METHODS[m] for m in available]
+        choice = controls.selectbox("Capa de detección evaluada", layer_names, index=layer_names.index(WATER_METHODS["lgbm"]) if "lgbm" in available else 0, key="detection-layer")
+        method = next((m for m in available if WATER_METHODS[m] == choice), None)
+        if method:
+            mask, mt, mc, tags = read_mask(available[method])
+            if (mt, mc, mask.shape) != (transform, crs, b.shape):
+                notes.error("La máscara no comparte la grilla SAR; no se muestra.")
+            else:
+                categorical_overlay(mask, mt, mc, "water", choice).add_to(sar_map)
+                fraction = water_fraction(mask)
+                notes.caption(f"Verde azulado: agua abierta estimada el {labels[after]} ({fraction:.1%} del recorte válido). " + water_sentence(detection_reference(), "pantanal", method))
+                if profile in ("Ciencia", "Desarrollo y datos"):
+                    notes.caption(f"Método: {tags.get('method', '')}. Estado: {tags.get('status', '')}.")
+    folium.LayerControl().add_to(sar_map)
+    with map_slot:
+        map_event = st_folium(sar_map, height=600, use_container_width=True, key="sar-map", returned_objects=["last_clicked"])
+        st.caption("Haz clic dentro de la capa para consultar la serie de ese punto.")
 summary = st.columns(3)
 summary[0].metric("Cobertura comparable", f"{valid.mean():.1%}")
 summary[1].metric("Observaciones", str(len(scenes)))
@@ -90,25 +121,6 @@ with st.expander("Gráficos en coordenadas nativas · detalle científico",expan
     else:
         st.plotly_chart(raster_figure(delta, f"{labels[after]} − {labels[before]}", transform, crs, True), width="stretch")
         st.caption("Positivo: mayor retrodispersión en la fecha final. Escala visual limitada a ±6 dB; no es umbral de clasificación.")
-st.subheader("Mapa geográfico")
-st.caption(f"Polarización {pol} · {labels[after]}" if mode == 'Antes y después' else f"Polarización {pol} · {labels[after]} menos {labels[before]}")
-st.caption("Capa NISAR sobre mapa base. Naranja: respuesta mayor; azul: menor; tono claro cerca de cero solo en diferencias. Rango: −6 a 6 dB para diferencias; −30 a 10 dB para intensidad. Transparente: sin dato.")
-sar_map = raster_map(delta if mode == "Diferencia en dB" else b, transform, crs, mode == "Diferencia en dB")
-available = water_mask_paths(root, labels[after])
-if available:
-    choice = st.selectbox("Capa de detección evaluada", ["Ninguna"] + [WATER_METHODS[m] for m in available], key="detection-layer")
-    method = next((m for m in available if WATER_METHODS[m] == choice), None)
-    if method:
-        mask, mt, mc, tags = read_mask(available[method])
-        if (mt, mc, mask.shape) != (transform, crs, b.shape):
-            st.error("La máscara no comparte la grilla SAR; no se muestra.")
-        else:
-            categorical_overlay(mask, mt, mc, "water", choice).add_to(sar_map)
-            fraction = water_fraction(mask)
-            st.caption(f"Verde azulado: agua abierta estimada el {labels[after]} ({fraction:.1%} del recorte válido). " + water_sentence(detection_reference(), "pantanal", method))
-            if profile in ("Ciencia", "Desarrollo y datos"):
-                st.caption(f"Método: {tags.get('method', '')}. Estado: {tags.get('status', '')}.")
-map_event = st_folium(sar_map, height=520, use_container_width=True, key="sar-map", returned_objects=["last_clicked"])
 st.subheader("Serie temporal de un punto")
 west, south, east, north = manifest["bbox_wgs84"]
 clicked = map_event.get("last_clicked")

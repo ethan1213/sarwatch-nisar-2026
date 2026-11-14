@@ -9,6 +9,8 @@ RUN pip install --no-cache-dir -r requirements-maps.txt -r requirements-assistan
 COPY --chown=app:app app.py science.py weather.py ./
 COPY --chown=app:app sarwatch ./sarwatch
 COPY --chown=app:app catalog ./catalog
+COPY --chown=app:app .streamlit ./.streamlit
+COPY --chown=app:app static ./static
 COPY --chown=app:app scripts ./scripts
 RUN mkdir -p /app/data && chown app:app /app/data
 USER 10001
