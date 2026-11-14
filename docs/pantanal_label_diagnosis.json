@@ -1,0 +1,341 @@
+{
+  "aoi": ".",
+  "generated_utc": "2026-11-14T17:54:38.632047+00:00",
+  "label_rule": "MNDWI > 0.0",
+  "dark_hh_db": -18.0,
+  "aoi_km2": 2947.3236,
+  "jrc_km2": {
+    "permanent": 48.8408,
+    "ever_water": 471.6224
+  },
+  "dates": [
+    {
+      "date": "2026-07-17",
+      "sentinel2_days": [
+        "2026-07-14",
+        "2026-07-19"
+      ],
+      "label_water_km2": 37.3832,
+      "label_water_by_worldcover_km2": {
+        "árboles": 0.0448,
+        "pastizal": 0.0012,
+        "agua permanente": 35.2536,
+        "humedal herbáceo": 2.0836
+      },
+      "label_water_outside_jrc_ever_water_km2": 1.412,
+      "jrc_permanent_labeled_water_fraction": 0.4359961343794532,
+      "hh_median_db": {
+        "label_water": -17.854568481445312,
+        "label_not_water": -5.3640265464782715,
+        "jrc_permanent": -15.184171676635742
+      },
+      "label_water_dark_hh_fraction": 0.46799631920220847,
+      "dark_hh_km2": 28.8148
+    },
+    {
+      "date": "2026-08-10",
+      "sentinel2_days": [
+        "2026-08-08",
+        "2026-08-10",
+        "2026-08-13"
+      ],
+      "label_water_km2": 45.2612,
+      "label_water_by_worldcover_km2": {
+        "árboles": 0.0828,
+        "agua permanente": 41.838,
+        "humedal herbáceo": 3.3404
+      },
+      "label_water_outside_jrc_ever_water_km2": 1.678,
+      "jrc_permanent_labeled_water_fraction": 0.47380232777190784,
+      "hh_median_db": {
+        "label_water": -16.814367294311523,
+        "label_not_water": -5.44264030456543,
+        "jrc_permanent": -14.411765098571777
+      },
+      "label_water_dark_hh_fraction": 0.27200339363516657,
+      "dark_hh_km2": 17.5024
+    },
+    {
+      "date": "2026-08-22",
+      "sentinel2_days": [
+        "2026-08-20",
+        "2026-08-23"
+      ],
+      "label_water_km2": 52.3556,
+      "label_water_by_worldcover_km2": {
+        "árboles": 0.1456,
+        "pastizal": 0.0004,
+        "agua permanente": 48.1828,
+        "humedal herbáceo": 4.0268
+      },
+      "label_water_outside_jrc_ever_water_km2": 2.0732,
+      "jrc_permanent_labeled_water_fraction": 0.5300906775010035,
+      "hh_median_db": {
+        "label_water": -17.271987915039062,
+        "label_not_water": -5.490148544311523,
+        "jrc_permanent": -14.650008201599121
+      },
+      "label_water_dark_hh_fraction": 0.35392584556379836,
+      "dark_hh_km2": 21.9012
+    },
+    {
+      "date": "2026-09-03",
+      "sentinel2_days": [
+        "2026-09-02"
+      ],
+      "label_water_km2": 19.6904,
+      "label_water_by_worldcover_km2": {
+        "árboles": 0.0908,
+        "agua permanente": 17.882,
+        "humedal herbáceo": 1.7176
+      },
+      "label_water_outside_jrc_ever_water_km2": 1.2312,
+      "jrc_permanent_labeled_water_fraction": 0.3509256859865826,
+      "hh_median_db": {
+        "label_water": -17.770225524902344,
+        "label_not_water": -6.0262861251831055,
+        "jrc_permanent": -15.742279052734375
+      },
+      "label_water_dark_hh_fraction": 0.4519359687969772,
+      "dark_hh_km2": 33.98
+    },
+    {
+      "date": "2026-09-15",
+      "sentinel2_days": [
+        "2026-09-17"
+      ],
+      "label_water_km2": 50.4016,
+      "label_water_by_worldcover_km2": {
+        "árboles": 0.1228,
+        "agua permanente": 46.8752,
+        "humedal herbáceo": 3.4036
+      },
+      "label_water_outside_jrc_ever_water_km2": 2.0204,
+      "jrc_permanent_labeled_water_fraction": 0.5373772250343603,
+      "hh_median_db": {
+        "label_water": -17.108978271484375,
+        "label_not_water": -5.410304069519043,
+        "jrc_permanent": -14.599075317382812
+      },
+      "label_water_dark_hh_fraction": 0.32579124472238974,
+      "dark_hh_km2": 20.6052
+    },
+    {
+      "date": "2026-09-27",
+      "sentinel2_days": [
+        "2026-09-27"
+      ],
+      "label_water_km2": 53.3196,
+      "label_water_by_worldcover_km2": {
+        "árboles": 0.1324,
+        "agua permanente": 49.0204,
+        "humedal herbáceo": 4.1668
+      },
+      "label_water_outside_jrc_ever_water_km2": 2.0852,
+      "jrc_permanent_labeled_water_fraction": 0.5334469116791849,
+      "hh_median_db": {
+        "label_water": -18.08892059326172,
+        "label_not_water": -6.192821502685547,
+        "jrc_permanent": -15.122807502746582
+      },
+      "label_water_dark_hh_fraction": 0.5168530896705902,
+      "dark_hh_km2": 31.1704
+    },
+    {
+      "date": "2026-10-09",
+      "sentinel2_days": [
+        "2026-10-07",
+        "2026-10-09",
+        "2026-10-12"
+      ],
+      "label_water_km2": 47.6596,
+      "label_water_by_worldcover_km2": {
+        "árboles": 0.0956,
+        "pastizal": 0.0008,
+        "agua permanente": 45.0584,
+        "humedal herbáceo": 2.5048
+      },
+      "label_water_outside_jrc_ever_water_km2": 1.9464,
+      "jrc_permanent_labeled_water_fraction": 0.5256109946271786,
+      "hh_median_db": {
+        "label_water": -18.333154678344727,
+        "label_not_water": -5.93844747543335,
+        "jrc_permanent": -15.718106269836426
+      },
+      "label_water_dark_hh_fraction": 0.5676170173480264,
+      "dark_hh_km2": 34.3392
+    },
+    {
+      "date": "2026-10-21",
+      "sentinel2_days": [
+        "2026-10-19",
+        "2026-10-22"
+      ],
+      "label_water_km2": 47.3264,
+      "label_water_by_worldcover_km2": {
+        "árboles": 0.1124,
+        "pastizal": 0.0004,
+        "agua permanente": 44.3284,
+        "humedal herbáceo": 2.8852
+      },
+      "label_water_outside_jrc_ever_water_km2": 2.03,
+      "jrc_permanent_labeled_water_fraction": 0.4825880425880426,
+      "hh_median_db": {
+        "label_water": -18.449323654174805,
+        "label_not_water": -6.144652843475342,
+        "jrc_permanent": -15.230743408203125
+      },
+      "label_water_dark_hh_fraction": 0.5853392609621692,
+      "dark_hh_km2": 34.4784
+    }
+  ],
+  "transitions": [
+    {
+      "from": "2026-07-17",
+      "to": "2026-08-10",
+      "label_iou": 0.7628774498511105,
+      "lost": {
+        "km2": 1.5404,
+        "hh_median_db_from": -17.05963897705078,
+        "hh_median_db_to": -15.480957984924316
+      },
+      "gained": {
+        "km2": 9.4972,
+        "hh_median_db_from": -17.845417022705078,
+        "hh_median_db_to": -17.37027359008789
+      },
+      "kept": {
+        "km2": 35.764,
+        "hh_median_db_from": -17.88086700439453,
+        "hh_median_db_to": -16.7015323638916
+      }
+    },
+    {
+      "from": "2026-08-10",
+      "to": "2026-08-22",
+      "label_iou": 0.8264292717244063,
+      "lost": {
+        "km2": 1.068,
+        "hh_median_db_from": -16.960886001586914,
+        "hh_median_db_to": -15.449633598327637
+      },
+      "gained": {
+        "km2": 8.1704,
+        "hh_median_db_from": -16.420974731445312,
+        "hh_median_db_to": -17.200641632080078
+      },
+      "kept": {
+        "km2": 44.17,
+        "hh_median_db_from": -16.812726974487305,
+        "hh_median_db_to": -17.284103393554688
+      }
+    },
+    {
+      "from": "2026-08-22",
+      "to": "2026-09-03",
+      "label_iou": 0.33933418103672636,
+      "lost": {
+        "km2": 1.0208,
+        "hh_median_db_from": -16.33209991455078,
+        "hh_median_db_to": -14.062768936157227
+      },
+      "gained": {
+        "km2": 1.424,
+        "hh_median_db_from": -15.29182243347168,
+        "hh_median_db_to": -16.657161712646484
+      },
+      "kept": {
+        "km2": 18.2536,
+        "hh_median_db_from": -17.09566879272461,
+        "hh_median_db_to": -17.83574867248535
+      }
+    },
+    {
+      "from": "2026-09-03",
+      "to": "2026-09-15",
+      "label_iou": 0.3249304379385434,
+      "lost": {
+        "km2": 1.6712,
+        "hh_median_db_from": -17.12152862548828,
+        "hh_median_db_to": -16.167354583740234
+      },
+      "gained": {
+        "km2": 1.0712,
+        "hh_median_db_from": -12.662271499633789,
+        "hh_median_db_to": -15.638431549072266
+      },
+      "kept": {
+        "km2": 17.1896,
+        "hh_median_db_from": -17.849735260009766,
+        "hh_median_db_to": -16.994495391845703
+      }
+    },
+    {
+      "from": "2026-09-15",
+      "to": "2026-09-27",
+      "label_iou": 0.8846886265844867,
+      "lost": {
+        "km2": 1.68,
+        "hh_median_db_from": -16.629581451416016,
+        "hh_median_db_to": -10.577526092529297
+      },
+      "gained": {
+        "km2": 3.8152,
+        "hh_median_db_from": -16.77548599243164,
+        "hh_median_db_to": -18.24615478515625
+      },
+      "kept": {
+        "km2": 48.6876,
+        "hh_median_db_from": -17.120141983032227,
+        "hh_median_db_to": -18.101442337036133
+      }
+    },
+    {
+      "from": "2026-09-27",
+      "to": "2026-10-09",
+      "label_iou": 0.8212039014255209,
+      "lost": {
+        "km2": 7.7836,
+        "hh_median_db_from": -18.451208114624023,
+        "hh_median_db_to": -17.64959716796875
+      },
+      "gained": {
+        "km2": 2.0304,
+        "hh_median_db_from": -8.663189888000488,
+        "hh_median_db_to": -18.73933219909668
+      },
+      "kept": {
+        "km2": 45.5328,
+        "hh_median_db_from": -18.028560638427734,
+        "hh_median_db_to": -18.32073974609375
+      }
+    },
+    {
+      "from": "2026-10-09",
+      "to": "2026-10-21",
+      "label_iou": 0.8314437760296159,
+      "lost": {
+        "km2": 4.4952,
+        "hh_median_db_from": -18.0328369140625,
+        "hh_median_db_to": -17.093786239624023
+      },
+      "gained": {
+        "km2": 4.174,
+        "hh_median_db_from": -18.099002838134766,
+        "hh_median_db_to": -18.696632385253906
+      },
+      "kept": {
+        "km2": 43.122,
+        "hh_median_db_from": -18.360965728759766,
+        "hh_median_db_to": -18.425155639648438
+      }
+    }
+  ],
+  "persistence": {
+    "n_dates": 8,
+    "always_dark_hh_km2": 0.7924,
+    "always_dark_never_labeled_water_km2": 0.026,
+    "labeled_water_every_date_km2": 8.3988,
+    "labeled_water_once_km2": 4.0236
+  }
+}

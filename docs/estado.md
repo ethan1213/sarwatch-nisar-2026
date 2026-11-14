@@ -1,5 +1,11 @@
 # Estado de entrega — 14 noviembre 2026
 
+## Regeneración completa en la nube y control de etiquetas del Pantanal
+
+- Las 11 escenas del Pantanal y Chile se volvieron a descargar en un contenedor en la nube y coinciden con el SHA-256 del catálogo. Con ellas se regeneraron COG, etiquetas, covariables y máscaras de detección. La evaluación reproduce lo publicado: LightGBM F1 0,825 en bloques retenidos y 0,758 en la fecha retenida (antes 0,826 y 0,757); `docs/detection_benchmark.json`, `catalog/detection_reference.json` y la tarjeta del modelo quedan con las cifras de esta corrida. `scripts/check_app.py` y la evaluación del asistente (60/60) pasan sobre estos datos.
+- El benchmark de pronóstico no se actualizó: Open-Meteo respondió 429 y la corrida quedó sin lluvia ni caudal. Persistencia y climatología salieron iguales a lo publicado; se conservan los JSON anteriores.
+- Diagnóstico de etiquetas del Pantanal (`docs/pantanal_label_diagnosis.json`): la etiqueta es estable entre fechas (IoU 0,76 a 0,89 entre fechas consecutivas, salvo alrededor del 3 de septiembre, que tiene nubes) y el HH oscuro sí es específico de agua (0,8 km² siempre oscuros, casi todos etiquetados). Límite: solo entre el 35 % y el 54 % del agua permanente JRC (1984–2021) aparece como agua abierta en la etiqueta de 2026; el F1 mide acuerdo con agua abierta óptica, no con toda el agua histórica.
+
 ## Cuarto sitio: delta del Okavango (Botsuana) — resultado negativo
 
 - Nueve escenas NISAR GCOV (26 jun a 12 oct 2026, geometría 172_A_168, 17 GB) descargadas y verificadas con el MD5 oficial de CMR (`catalog/okavango_verified.json`); preparadas en 79 s con cobertura válida completa en HH y HV. `scripts/request_aoi.py` ahora conserva solo la versión de producto más reciente de cada adquisición.

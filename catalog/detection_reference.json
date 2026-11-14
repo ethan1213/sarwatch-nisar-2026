@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-14T05:18:38.180159+00:00",
+  "generated_utc": "2026-11-14T17:49:22.292792+00:00",
   "water": {
     "pantanal": {
       "label_source": "MNDWI > 0.0",
@@ -14,9 +14,9 @@
         }
       },
       "lightgbm": {
-        "spatial_f1": 0.8261925818584778,
-        "spatial_iou": 0.7038570118823925,
-        "temporal_f1": 0.7574381535035353,
+        "spatial_f1": 0.8251872974170845,
+        "spatial_iou": 0.7023990254811232,
+        "temporal_f1": 0.7578356935401814,
         "temporal_test_date": "2026-10-21",
         "n_test": 13956650
       },
@@ -26,56 +26,56 @@
           "label_km2": 37.3832,
           "otsu_km2": 827.9408,
           "ki_km2": 92.8076,
-          "lightgbm_km2": 55.3204
+          "lightgbm_km2": 55.3364
         },
         {
           "date": "2026-08-10",
           "label_km2": 45.2612,
           "otsu_km2": 913.4384,
           "ki_km2": 90.4712,
-          "lightgbm_km2": 54.1508
+          "lightgbm_km2": 54.0924
         },
         {
           "date": "2026-08-22",
           "label_km2": 52.3556,
           "otsu_km2": 893.9116,
           "ki_km2": 90.5016,
-          "lightgbm_km2": 54.5084
+          "lightgbm_km2": 54.454
         },
         {
           "date": "2026-09-03",
           "label_km2": 19.6904,
           "otsu_km2": 900.9248,
           "ki_km2": 83.3964,
-          "lightgbm_km2": 54.6912
+          "lightgbm_km2": 54.6764
         },
         {
           "date": "2026-09-15",
           "label_km2": 50.4016,
           "otsu_km2": 862.2836,
           "ki_km2": 83.2644,
-          "lightgbm_km2": 54.8472
+          "lightgbm_km2": 54.7808
         },
         {
           "date": "2026-09-27",
           "label_km2": 53.3196,
           "otsu_km2": 900.602,
           "ki_km2": 82.344,
-          "lightgbm_km2": 55.1352
+          "lightgbm_km2": 55.1028
         },
         {
           "date": "2026-10-09",
           "label_km2": 47.6596,
           "otsu_km2": 843.1412,
           "ki_km2": 73.6072,
-          "lightgbm_km2": 55.7272
+          "lightgbm_km2": 55.7024
         },
         {
           "date": "2026-10-21",
           "label_km2": 47.3264,
           "otsu_km2": 868.04,
           "ki_km2": 74.9608,
-          "lightgbm_km2": 54.6668
+          "lightgbm_km2": 54.6272
         }
       ],
       "split": {
