@@ -23,7 +23,8 @@ Visor Streamlit + pipeline científico sobre productos NISAR L2 GCOV (banda L, H
 | `sarwatch/maps.py`, `sarwatch/detections.py`, `sarwatch/views/` | Mapas, capas evaluadas, tablero de evidencia, vista mundial |
 | `sarwatch/guidance.py`, `sarwatch/interpretation.py` | Lectura guiada por perfil, resúmenes, calculadora de escala |
 | `sarwatch/assistant/` | Enrutador de intención, herramientas con cifras, BM25, generadores, verificador |
-| `sarwatch/ml/` | Features, splits, métricas, agua (umbrales, LightGBM), cambio (Conradsen, MAD), pronóstico, inferencia ONNX |
+| `sarwatch/ml/` | Features, splits, métricas, agua (umbrales, LightGBM), cambio (Conradsen, MAD), pronóstico, inferencia ONNX, térmico GOES (`thermal.py`) y su cruce con NISAR por celda (`fire.py`) |
+| `sarwatch/views/thermal.py` | Vista «Calor y focos»: celdas térmicas GOES-19 con radar, pendiente y cobertura; ver `docs/calor_y_focos.md` |
 | `scripts/` | Adquisición (CMR, descarga, verificación), preparación (COG), etiquetas y covariables, evaluaciones, índice mundial, AOI bajo demanda |
 | `catalog/` | Manifiestos, referencias que lee la app (`*_reference.json`), glosario, intenciones, índice mundial |
 | `docs/` | Estado, inventario de modelos, benchmarks JSON, arquitectura, nube, estrategia, guía de equipo, pruebas de usuario |
@@ -39,7 +40,7 @@ Visor Streamlit + pipeline científico sobre productos NISAR L2 GCOV (banda L, H
 
 ## Resultados vigentes (ver JSON para detalle)
 
-Agua Pantanal (9 fechas, 8 etiquetadas): LightGBM F1 0,83 en bloques retenidos y 0,76 en la fecha retenida (21 oct); Kittler-Illingworth 0,68; Otsu 0,10. Cambio Chile: < 0,2 % de tierra con cambio significativo; 11 % sobre el mar por viento. Pronóstico: la climatología supera a la persistencia en la mediana HH (MAE 0,37 frente a 0,44 dB) y se muestra como referencia; en área de agua nada supera a la persistencia. Asistente: 60/60. COG float32 ocupan 1,03× su tamaño sin comprimir.
+Agua Pantanal (9 fechas, 8 etiquetadas): LightGBM F1 0,83 en bloques retenidos y 0,76 en la fecha retenida (21 oct); Kittler-Illingworth 0,68; Otsu 0,10. Cambio Chile: < 0,2 % de tierra con cambio significativo; 11 % sobre el mar por viento. Pronóstico: la climatología supera a la persistencia en la mediana HH (MAE 0,37 frente a 0,44 dB) y se muestra como referencia; en área de agua nada supera a la persistencia. Calor y focos (GOES-19, 1 jul–13 nov): 41 detecciones en Pantanal (7 confiables), 10 de probabilidad baja en la Región Metropolitana, 0 en Valparaíso; con eso no se puede evaluar respuesta del radar ni anticipación, y no se muestra predicción. Sitio con focos y pasadas NISAR: Araucanía, marzo–abril 2026 (`catalog/araucania_candidates.json`). Asistente: 60/60. COG float32 ocupan 1,03× su tamaño sin comprimir.
 
 ## Qué falta (resumen)
 

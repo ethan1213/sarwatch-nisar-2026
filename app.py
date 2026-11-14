@@ -34,11 +34,19 @@ if region.startswith("Mundo"):
     world_view(profile)
     scale_calculator()
     st.stop()
+root = Path(os.environ.get("DATA_DIR", "data"))
+slug = {"Pantanal": "pantanal", "Región Metropolitana": "metropolitana", "Región de Valparaíso": "valparaiso"}[region]
+from sarwatch.views.thermal import thermal_available, thermal_view
+if thermal_available(root, slug):
+    topic = st.segmented_control("Qué quieres mirar", ["Cambio de superficie · radar", "Calor y focos · térmico + radar"], default="Cambio de superficie · radar", key="topic")
+    if topic and topic.startswith("Calor"):
+        thermal_view(region, slug, root, profile)
+        st.caption("Proyecto independiente de Software Detective. NASA, ISRO y NOAA son las fuentes de los datos; no se implica patrocinio ni respaldo.")
+        st.stop()
 if region != "Pantanal":
     chile_view(region,profile)
     scale_calculator()
     st.stop()
-root = Path(os.environ.get("DATA_DIR", "data"))
 repository = RasterRepository(root)
 manifest_path = root / "manifest.json"
 if not manifest_path.is_file():

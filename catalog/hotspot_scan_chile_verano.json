@@ -1,0 +1,2737 @@
+{
+ "generated_utc": "2026-11-14T20:07:49.281382+00:00",
+ "source": "https://noaa-goes19.s3.amazonaws.com/ABI-L2-FDCF",
+ "bbox_wgs84": [
+  -76.0,
+  -42.0,
+  -68.0,
+  -29.0
+ ],
+ "period_utc": [
+  "2026-01-01",
+  "2026-06-30"
+ ],
+ "hours_utc": [
+  16,
+  17,
+  18,
+  19,
+  20,
+  21
+ ],
+ "files_read": 1073,
+ "failures": [],
+ "cell_degrees": 0.25,
+ "confident_classes": [
+  10,
+  11,
+  13
+ ],
+ "min_detections": 3,
+ "cells_written": 138,
+ "note": "Una muestra por hora en las horas indicadas: es un piso de la actividad, no un inventario. Las fechas NISAR son del índice CMR por celda de 1 grado (disponibilidad en catálogo, no cobertura útil validada).",
+ "cells": [
+  {
+   "west": -72.5,
+   "south": -38.5,
+   "confident_detections": 108,
+   "all_detections": 137,
+   "days_with_confident": 18,
+   "goes_pixels_with_confident": 62,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-02": 5,
+    "2026-03": 92,
+    "2026-04": 8,
+    "2026-05": 2
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -37.0,
+   "confident_detections": 147,
+   "all_detections": 164,
+   "days_with_confident": 22,
+   "goes_pixels_with_confident": 57,
+   "confident_by_month": {
+    "2026-01": 4,
+    "2026-03": 56,
+    "2026-04": 84,
+    "2026-05": 1,
+    "2026-06": 2
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -38.5,
+   "confident_detections": 97,
+   "all_detections": 130,
+   "days_with_confident": 24,
+   "goes_pixels_with_confident": 54,
+   "confident_by_month": {
+    "2026-03": 56,
+    "2026-04": 23,
+    "2026-05": 18
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -37.25,
+   "confident_detections": 107,
+   "all_detections": 139,
+   "days_with_confident": 21,
+   "goes_pixels_with_confident": 52,
+   "confident_by_month": {
+    "2026-03": 49,
+    "2026-04": 44,
+    "2026-05": 11,
+    "2026-06": 3
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -38.5,
+   "confident_detections": 79,
+   "all_detections": 94,
+   "days_with_confident": 19,
+   "goes_pixels_with_confident": 43,
+   "confident_by_month": {
+    "2026-01": 5,
+    "2026-03": 49,
+    "2026-04": 25
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -36.75,
+   "confident_detections": 80,
+   "all_detections": 91,
+   "days_with_confident": 20,
+   "goes_pixels_with_confident": 38,
+   "confident_by_month": {
+    "2026-01": 14,
+    "2026-03": 25,
+    "2026-04": 40,
+    "2026-06": 1
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -38.25,
+   "confident_detections": 71,
+   "all_detections": 86,
+   "days_with_confident": 15,
+   "goes_pixels_with_confident": 34,
+   "confident_by_month": {
+    "2026-01": 25,
+    "2026-03": 45,
+    "2026-04": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -38.0,
+   "confident_detections": 106,
+   "all_detections": 133,
+   "days_with_confident": 25,
+   "goes_pixels_with_confident": 34,
+   "confident_by_month": {
+    "2026-01": 2,
+    "2026-03": 43,
+    "2026-04": 46,
+    "2026-05": 14,
+    "2026-06": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -37.0,
+   "confident_detections": 115,
+   "all_detections": 237,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 34,
+   "confident_by_month": {
+    "2026-01": 114,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -36.75,
+   "confident_detections": 142,
+   "all_detections": 165,
+   "days_with_confident": 20,
+   "goes_pixels_with_confident": 32,
+   "confident_by_month": {
+    "2026-01": 120,
+    "2026-02": 1,
+    "2026-03": 3,
+    "2026-04": 2,
+    "2026-05": 11,
+    "2026-06": 5
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -39.0,
+   "confident_detections": 42,
+   "all_detections": 59,
+   "days_with_confident": 14,
+   "goes_pixels_with_confident": 32,
+   "confident_by_month": {
+    "2026-03": 31,
+    "2026-04": 11
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -38.0,
+   "confident_detections": 95,
+   "all_detections": 106,
+   "days_with_confident": 29,
+   "goes_pixels_with_confident": 31,
+   "confident_by_month": {
+    "2026-01": 14,
+    "2026-03": 20,
+    "2026-04": 43,
+    "2026-05": 16,
+    "2026-06": 2
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -38.25,
+   "confident_detections": 77,
+   "all_detections": 99,
+   "days_with_confident": 27,
+   "goes_pixels_with_confident": 31,
+   "confident_by_month": {
+    "2026-01": 15,
+    "2026-02": 7,
+    "2026-03": 16,
+    "2026-04": 26,
+    "2026-05": 10,
+    "2026-06": 3
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -38.25,
+   "confident_detections": 60,
+   "all_detections": 75,
+   "days_with_confident": 14,
+   "goes_pixels_with_confident": 31,
+   "confident_by_month": {
+    "2026-03": 28,
+    "2026-04": 21,
+    "2026-05": 9,
+    "2026-06": 2
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -37.0,
+   "confident_detections": 39,
+   "all_detections": 47,
+   "days_with_confident": 16,
+   "goes_pixels_with_confident": 24,
+   "confident_by_month": {
+    "2026-03": 16,
+    "2026-04": 19,
+    "2026-05": 4
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -37.25,
+   "confident_detections": 54,
+   "all_detections": 95,
+   "days_with_confident": 19,
+   "goes_pixels_with_confident": 23,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-03": 28,
+    "2026-04": 20,
+    "2026-05": 1,
+    "2026-06": 4
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -37.5,
+   "confident_detections": 50,
+   "all_detections": 63,
+   "days_with_confident": 9,
+   "goes_pixels_with_confident": 23,
+   "confident_by_month": {
+    "2026-03": 8,
+    "2026-04": 42
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -38.75,
+   "confident_detections": 36,
+   "all_detections": 48,
+   "days_with_confident": 10,
+   "goes_pixels_with_confident": 23,
+   "confident_by_month": {
+    "2026-01": 4,
+    "2026-03": 29,
+    "2026-04": 3
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -39.25,
+   "confident_detections": 29,
+   "all_detections": 29,
+   "days_with_confident": 9,
+   "goes_pixels_with_confident": 23,
+   "confident_by_month": {
+    "2026-03": 20,
+    "2026-04": 8,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-20",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -37.5,
+   "confident_detections": 101,
+   "all_detections": 112,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 21,
+   "confident_by_month": {
+    "2026-01": 92,
+    "2026-06": 9
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -37.75,
+   "confident_detections": 68,
+   "all_detections": 83,
+   "days_with_confident": 10,
+   "goes_pixels_with_confident": 21,
+   "confident_by_month": {
+    "2026-01": 48,
+    "2026-03": 2,
+    "2026-04": 12,
+    "2026-05": 6
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -38.25,
+   "confident_detections": 65,
+   "all_detections": 74,
+   "days_with_confident": 19,
+   "goes_pixels_with_confident": 20,
+   "confident_by_month": {
+    "2026-01": 30,
+    "2026-03": 11,
+    "2026-04": 13,
+    "2026-05": 10,
+    "2026-06": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -38.75,
+   "confident_detections": 26,
+   "all_detections": 31,
+   "days_with_confident": 11,
+   "goes_pixels_with_confident": 20,
+   "confident_by_month": {
+    "2026-03": 22,
+    "2026-04": 3,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -37.0,
+   "confident_detections": 108,
+   "all_detections": 131,
+   "days_with_confident": 16,
+   "goes_pixels_with_confident": 19,
+   "confident_by_month": {
+    "2026-01": 81,
+    "2026-04": 5,
+    "2026-05": 15,
+    "2026-06": 7
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -38.75,
+   "confident_detections": 43,
+   "all_detections": 45,
+   "days_with_confident": 10,
+   "goes_pixels_with_confident": 19,
+   "confident_by_month": {
+    "2026-01": 14,
+    "2026-02": 1,
+    "2026-03": 27,
+    "2026-04": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -37.75,
+   "confident_detections": 38,
+   "all_detections": 43,
+   "days_with_confident": 15,
+   "goes_pixels_with_confident": 19,
+   "confident_by_month": {
+    "2026-03": 14,
+    "2026-04": 20,
+    "2026-05": 2,
+    "2026-06": 2
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -38.75,
+   "confident_detections": 31,
+   "all_detections": 38,
+   "days_with_confident": 8,
+   "goes_pixels_with_confident": 18,
+   "confident_by_month": {
+    "2026-01": 14,
+    "2026-02": 2,
+    "2026-03": 15
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -38.0,
+   "confident_detections": 39,
+   "all_detections": 50,
+   "days_with_confident": 9,
+   "goes_pixels_with_confident": 17,
+   "confident_by_month": {
+    "2026-01": 26,
+    "2026-02": 4,
+    "2026-04": 9
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -37.75,
+   "confident_detections": 34,
+   "all_detections": 39,
+   "days_with_confident": 11,
+   "goes_pixels_with_confident": 17,
+   "confident_by_month": {
+    "2026-01": 4,
+    "2026-03": 14,
+    "2026-04": 10,
+    "2026-05": 6
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -36.5,
+   "confident_detections": 43,
+   "all_detections": 52,
+   "days_with_confident": 10,
+   "goes_pixels_with_confident": 17,
+   "confident_by_month": {
+    "2026-02": 10,
+    "2026-04": 6,
+    "2026-05": 27
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -38.5,
+   "confident_detections": 28,
+   "all_detections": 34,
+   "days_with_confident": 14,
+   "goes_pixels_with_confident": 17,
+   "confident_by_month": {
+    "2026-03": 11,
+    "2026-04": 15,
+    "2026-05": 2
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -37.75,
+   "confident_detections": 32,
+   "all_detections": 48,
+   "days_with_confident": 15,
+   "goes_pixels_with_confident": 17,
+   "confident_by_month": {
+    "2026-03": 4,
+    "2026-04": 13,
+    "2026-05": 11,
+    "2026-06": 4
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -39.25,
+   "confident_detections": 21,
+   "all_detections": 25,
+   "days_with_confident": 9,
+   "goes_pixels_with_confident": 15,
+   "confident_by_month": {
+    "2026-03": 12,
+    "2026-04": 9
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-20",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -38.5,
+   "confident_detections": 25,
+   "all_detections": 37,
+   "days_with_confident": 11,
+   "goes_pixels_with_confident": 14,
+   "confident_by_month": {
+    "2026-02": 1,
+    "2026-03": 15,
+    "2026-04": 7,
+    "2026-05": 2
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -37.0,
+   "confident_detections": 30,
+   "all_detections": 32,
+   "days_with_confident": 6,
+   "goes_pixels_with_confident": 14,
+   "confident_by_month": {
+    "2026-01": 23,
+    "2026-03": 1,
+    "2026-04": 5,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -36.5,
+   "confident_detections": 55,
+   "all_detections": 107,
+   "days_with_confident": 10,
+   "goes_pixels_with_confident": 14,
+   "confident_by_month": {
+    "2026-02": 42,
+    "2026-03": 13
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -36.25,
+   "confident_detections": 38,
+   "all_detections": 44,
+   "days_with_confident": 11,
+   "goes_pixels_with_confident": 14,
+   "confident_by_month": {
+    "2026-05": 19,
+    "2026-06": 19
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -39.0,
+   "confident_detections": 23,
+   "all_detections": 25,
+   "days_with_confident": 10,
+   "goes_pixels_with_confident": 13,
+   "confident_by_month": {
+    "2026-01": 10,
+    "2026-03": 10,
+    "2026-04": 3
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -36.5,
+   "confident_detections": 17,
+   "all_detections": 20,
+   "days_with_confident": 11,
+   "goes_pixels_with_confident": 13,
+   "confident_by_month": {
+    "2026-03": 4,
+    "2026-04": 11,
+    "2026-05": 2
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -37.75,
+   "confident_detections": 27,
+   "all_detections": 45,
+   "days_with_confident": 13,
+   "goes_pixels_with_confident": 13,
+   "confident_by_month": {
+    "2026-04": 11,
+    "2026-05": 14,
+    "2026-06": 2
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -36.5,
+   "confident_detections": 18,
+   "all_detections": 40,
+   "days_with_confident": 11,
+   "goes_pixels_with_confident": 13,
+   "confident_by_month": {
+    "2026-04": 7,
+    "2026-05": 11
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -35.25,
+   "confident_detections": 30,
+   "all_detections": 35,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 12,
+   "confident_by_month": {
+    "2026-01": 4,
+    "2026-02": 25,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -38.75,
+   "confident_detections": 34,
+   "all_detections": 37,
+   "days_with_confident": 10,
+   "goes_pixels_with_confident": 11,
+   "confident_by_month": {
+    "2026-01": 25,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 7
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -36.75,
+   "confident_detections": 20,
+   "all_detections": 24,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 11,
+   "confident_by_month": {
+    "2026-02": 15,
+    "2026-04": 4,
+    "2026-06": 1
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -39.0,
+   "confident_detections": 17,
+   "all_detections": 18,
+   "days_with_confident": 8,
+   "goes_pixels_with_confident": 11,
+   "confident_by_month": {
+    "2026-02": 5,
+    "2026-03": 8,
+    "2026-04": 4
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -36.0,
+   "confident_detections": 21,
+   "all_detections": 28,
+   "days_with_confident": 8,
+   "goes_pixels_with_confident": 10,
+   "confident_by_month": {
+    "2026-01": 5,
+    "2026-02": 3,
+    "2026-05": 12,
+    "2026-06": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -36.25,
+   "confident_detections": 10,
+   "all_detections": 10,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 10,
+   "confident_by_month": {
+    "2026-01": 4,
+    "2026-04": 5,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -36.5,
+   "confident_detections": 24,
+   "all_detections": 26,
+   "days_with_confident": 8,
+   "goes_pixels_with_confident": 10,
+   "confident_by_month": {
+    "2026-01": 4,
+    "2026-03": 1,
+    "2026-04": 4,
+    "2026-05": 7,
+    "2026-06": 8
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -36.75,
+   "confident_detections": 76,
+   "all_detections": 147,
+   "days_with_confident": 34,
+   "goes_pixels_with_confident": 9,
+   "confident_by_month": {
+    "2026-01": 58,
+    "2026-02": 7,
+    "2026-03": 6,
+    "2026-04": 4,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -35.0,
+   "confident_detections": 19,
+   "all_detections": 19,
+   "days_with_confident": 8,
+   "goes_pixels_with_confident": 9,
+   "confident_by_month": {
+    "2026-02": 4,
+    "2026-05": 15
+   },
+   "nisar_1deg": {
+    "granules": 48,
+    "dates": 28,
+    "geometries": 5,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -39.25,
+   "confident_detections": 12,
+   "all_detections": 12,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 9,
+   "confident_by_month": {
+    "2026-03": 9,
+    "2026-04": 2,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-20",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -36.0,
+   "confident_detections": 28,
+   "all_detections": 34,
+   "days_with_confident": 9,
+   "goes_pixels_with_confident": 9,
+   "confident_by_month": {
+    "2026-05": 4,
+    "2026-06": 24
+   },
+   "nisar_1deg": {
+    "granules": 76,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.0,
+   "south": -33.25,
+   "confident_detections": 21,
+   "all_detections": 61,
+   "days_with_confident": 6,
+   "goes_pixels_with_confident": 8,
+   "confident_by_month": {
+    "2026-01": 19,
+    "2026-05": 2
+   },
+   "nisar_1deg": {
+    "granules": 73,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -36.75,
+   "confident_detections": 27,
+   "all_detections": 40,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 8,
+   "confident_by_month": {
+    "2026-01": 27
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -38.5,
+   "confident_detections": 22,
+   "all_detections": 31,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 8,
+   "confident_by_month": {
+    "2026-04": 1,
+    "2026-05": 14,
+    "2026-06": 7
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.5,
+   "south": -38.0,
+   "confident_detections": 48,
+   "all_detections": 54,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 8,
+   "confident_by_month": {
+    "2026-04": 35,
+    "2026-05": 13
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -38.0,
+   "confident_detections": 13,
+   "all_detections": 15,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 8,
+   "confident_by_month": {
+    "2026-04": 7,
+    "2026-05": 6
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -71.25,
+   "south": -33.75,
+   "confident_detections": 14,
+   "all_detections": 15,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 7,
+   "confident_by_month": {
+    "2026-01": 13,
+    "2026-02": 1
+   },
+   "nisar_1deg": {
+    "granules": 55,
+    "dates": 27,
+    "geometries": 6,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -36.5,
+   "confident_detections": 20,
+   "all_detections": 31,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 7,
+   "confident_by_month": {
+    "2026-05": 19,
+    "2026-06": 1
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -36.25,
+   "confident_detections": 24,
+   "all_detections": 33,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 7,
+   "confident_by_month": {
+    "2026-02": 18,
+    "2026-05": 6
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -70.25,
+   "south": -36.0,
+   "confident_detections": 17,
+   "all_detections": 20,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 7,
+   "confident_by_month": {
+    "2026-02": 17
+   },
+   "nisar_1deg": {
+    "granules": 73,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -38.0,
+   "confident_detections": 14,
+   "all_detections": 19,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 7,
+   "confident_by_month": {
+    "2026-03": 1,
+    "2026-05": 11,
+    "2026-06": 2
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -35.75,
+   "confident_detections": 18,
+   "all_detections": 23,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 7,
+   "confident_by_month": {
+    "2026-05": 12,
+    "2026-06": 6
+   },
+   "nisar_1deg": {
+    "granules": 76,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -37.25,
+   "confident_detections": 21,
+   "all_detections": 27,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-04": 16,
+    "2026-05": 4,
+    "2026-06": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -38.25,
+   "confident_detections": 14,
+   "all_detections": 15,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-01": 6,
+    "2026-04": 6,
+    "2026-06": 2
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -71.0,
+   "south": -33.5,
+   "confident_detections": 6,
+   "all_detections": 7,
+   "days_with_confident": 4,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-01": 3,
+    "2026-02": 1,
+    "2026-03": 1,
+    "2026-04": 1
+   },
+   "nisar_1deg": {
+    "granules": 73,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.25,
+   "south": -35.5,
+   "confident_detections": 20,
+   "all_detections": 21,
+   "days_with_confident": 6,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-05": 19
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -37.75,
+   "confident_detections": 17,
+   "all_detections": 23,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-04": 7,
+    "2026-05": 9,
+    "2026-06": 1
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -71.0,
+   "south": -34.75,
+   "confident_detections": 10,
+   "all_detections": 12,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-01": 2,
+    "2026-02": 7,
+    "2026-03": 1
+   },
+   "nisar_1deg": {
+    "granules": 73,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.5,
+   "south": -37.75,
+   "confident_detections": 11,
+   "all_detections": 13,
+   "days_with_confident": 6,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-04": 3,
+    "2026-05": 5,
+    "2026-06": 2
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -71.0,
+   "south": -38.5,
+   "confident_detections": 6,
+   "all_detections": 9,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-02": 4,
+    "2026-03": 1
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 55,
+    "geometries": 9,
+    "first_date": "2026-06-18",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -35.75,
+   "confident_detections": 7,
+   "all_detections": 8,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-02": 1,
+    "2026-04": 2,
+    "2026-05": 2,
+    "2026-06": 2
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -36.25,
+   "confident_detections": 12,
+   "all_detections": 16,
+   "days_with_confident": 6,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-02": 2,
+    "2026-05": 5,
+    "2026-06": 5
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -37.25,
+   "confident_detections": 13,
+   "all_detections": 18,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-03": 6,
+    "2026-04": 6,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -39.0,
+   "confident_detections": 9,
+   "all_detections": 12,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-03": 5,
+    "2026-05": 4
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -39.0,
+   "confident_detections": 9,
+   "all_detections": 13,
+   "days_with_confident": 6,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-03": 4,
+    "2026-04": 5
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -37.5,
+   "confident_detections": 31,
+   "all_detections": 35,
+   "days_with_confident": 6,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-04": 28,
+    "2026-05": 3
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.75,
+   "south": -37.75,
+   "confident_detections": 12,
+   "all_detections": 14,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-04": 6,
+    "2026-05": 6
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -38.0,
+   "confident_detections": 12,
+   "all_detections": 16,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-05": 4,
+    "2026-06": 8
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -36.0,
+   "confident_detections": 11,
+   "all_detections": 19,
+   "days_with_confident": 6,
+   "goes_pixels_with_confident": 6,
+   "confident_by_month": {
+    "2026-05": 7,
+    "2026-06": 4
+   },
+   "nisar_1deg": {
+    "granules": 76,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -37.5,
+   "confident_detections": 32,
+   "all_detections": 49,
+   "days_with_confident": 16,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-01": 27,
+    "2026-02": 2,
+    "2026-03": 2,
+    "2026-04": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 56,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -34.75,
+   "confident_detections": 7,
+   "all_detections": 10,
+   "days_with_confident": 6,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-05": 6
+   },
+   "nisar_1deg": {
+    "granules": 64,
+    "dates": 36,
+    "geometries": 7,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -35.75,
+   "confident_detections": 8,
+   "all_detections": 13,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-01": 2,
+    "2026-03": 1,
+    "2026-04": 4,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -35.0,
+   "confident_detections": 6,
+   "all_detections": 7,
+   "days_with_confident": 4,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-02": 2,
+    "2026-04": 1,
+    "2026-05": 3
+   },
+   "nisar_1deg": {
+    "granules": 64,
+    "dates": 36,
+    "geometries": 7,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -33.0,
+   "confident_detections": 9,
+   "all_detections": 10,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-02": 9
+   },
+   "nisar_1deg": {
+    "granules": 55,
+    "dates": 36,
+    "geometries": 6,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -33.75,
+   "confident_detections": 6,
+   "all_detections": 8,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-03": 6
+   },
+   "nisar_1deg": {
+    "granules": 55,
+    "dates": 27,
+    "geometries": 6,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -40.0,
+   "confident_detections": 14,
+   "all_detections": 16,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-04": 14
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-20",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -37.5,
+   "confident_detections": 16,
+   "all_detections": 17,
+   "days_with_confident": 4,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-04": 6,
+    "2026-05": 10
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -37.25,
+   "confident_detections": 16,
+   "all_detections": 21,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-04": 11,
+    "2026-05": 2,
+    "2026-06": 3
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.5,
+   "south": -37.5,
+   "confident_detections": 19,
+   "all_detections": 25,
+   "days_with_confident": 7,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-04": 12,
+    "2026-05": 7
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -35.0,
+   "confident_detections": 13,
+   "all_detections": 16,
+   "days_with_confident": 4,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-05": 13
+   },
+   "nisar_1deg": {
+    "granules": 64,
+    "dates": 36,
+    "geometries": 7,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.5,
+   "south": -35.5,
+   "confident_detections": 10,
+   "all_detections": 12,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 5,
+   "confident_by_month": {
+    "2026-05": 5,
+    "2026-06": 5
+   },
+   "nisar_1deg": {
+    "granules": 76,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.0,
+   "south": -29.25,
+   "confident_detections": 25,
+   "all_detections": 35,
+   "days_with_confident": 12,
+   "goes_pixels_with_confident": 4,
+   "confident_by_month": {
+    "2026-01": 25
+   },
+   "nisar_1deg": {
+    "granules": 72,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -69.25,
+   "south": -38.5,
+   "confident_detections": 10,
+   "all_detections": 16,
+   "days_with_confident": 6,
+   "goes_pixels_with_confident": 4,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-02": 1,
+    "2026-04": 6,
+    "2026-05": 2
+   },
+   "nisar_1deg": {
+    "granules": 87,
+    "dates": 37,
+    "geometries": 8,
+    "first_date": "2026-06-18",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -68.5,
+   "south": -31.75,
+   "confident_detections": 6,
+   "all_detections": 11,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 4,
+   "confident_by_month": {
+    "2026-01": 3,
+    "2026-03": 3
+   },
+   "nisar_1deg": {
+    "granules": 74,
+    "dates": 37,
+    "geometries": 8,
+    "first_date": "2026-06-17",
+    "last_date": "2026-10-16"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -34.25,
+   "confident_detections": 9,
+   "all_detections": 11,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 4,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-02": 8
+   },
+   "nisar_1deg": {
+    "granules": 64,
+    "dates": 36,
+    "geometries": 7,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -33.75,
+   "confident_detections": 5,
+   "all_detections": 10,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 4,
+   "confident_by_month": {
+    "2026-01": 5
+   },
+   "nisar_1deg": {
+    "granules": 55,
+    "dates": 27,
+    "geometries": 6,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.5,
+   "south": -38.5,
+   "confident_detections": 7,
+   "all_detections": 15,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 4,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-02": 5,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -35.5,
+   "confident_detections": 8,
+   "all_detections": 14,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 4,
+   "confident_by_month": {
+    "2026-04": 1,
+    "2026-05": 1,
+    "2026-06": 6
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -35.25,
+   "confident_detections": 7,
+   "all_detections": 8,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 4,
+   "confident_by_month": {
+    "2026-02": 6,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -39.25,
+   "confident_detections": 6,
+   "all_detections": 8,
+   "days_with_confident": 4,
+   "goes_pixels_with_confident": 4,
+   "confident_by_month": {
+    "2026-04": 2,
+    "2026-06": 4
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 36,
+    "geometries": 7,
+    "first_date": "2026-06-20",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.0,
+   "south": -36.5,
+   "confident_detections": 7,
+   "all_detections": 8,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 4,
+   "confident_by_month": {
+    "2026-05": 1,
+    "2026-06": 6
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -38.5,
+   "confident_detections": 3,
+   "all_detections": 43,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-03": 2,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.25,
+   "south": -34.75,
+   "confident_detections": 3,
+   "all_detections": 4,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-05": 3
+   },
+   "nisar_1deg": {
+    "granules": 64,
+    "dates": 36,
+    "geometries": 7,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -70.5,
+   "south": -34.25,
+   "confident_detections": 10,
+   "all_detections": 21,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-02": 5,
+    "2026-05": 2,
+    "2026-06": 3
+   },
+   "nisar_1deg": {
+    "granules": 73,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -69.25,
+   "south": -38.25,
+   "confident_detections": 3,
+   "all_detections": 5,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-01": 3
+   },
+   "nisar_1deg": {
+    "granules": 87,
+    "dates": 37,
+    "geometries": 8,
+    "first_date": "2026-06-18",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -36.0,
+   "confident_detections": 3,
+   "all_detections": 3,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-05": 1,
+    "2026-06": 1
+   },
+   "nisar_1deg": {
+    "granules": 76,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -35.5,
+   "confident_detections": 3,
+   "all_detections": 3,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-01": 2,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -37.75,
+   "confident_detections": 5,
+   "all_detections": 9,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-01": 4,
+    "2026-02": 1
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -34.5,
+   "confident_detections": 3,
+   "all_detections": 3,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-01": 1,
+    "2026-03": 2
+   },
+   "nisar_1deg": {
+    "granules": 64,
+    "dates": 36,
+    "geometries": 7,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -68.75,
+   "south": -38.25,
+   "confident_detections": 4,
+   "all_detections": 4,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-01": 3,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 97,
+    "dates": 55,
+    "geometries": 9,
+    "first_date": "2026-06-17",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -32.75,
+   "confident_detections": 6,
+   "all_detections": 6,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-02": 6
+   },
+   "nisar_1deg": {
+    "granules": 55,
+    "dates": 36,
+    "geometries": 6,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.25,
+   "south": -33.0,
+   "confident_detections": 4,
+   "all_detections": 4,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-02": 4
+   },
+   "nisar_1deg": {
+    "granules": 55,
+    "dates": 36,
+    "geometries": 6,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.25,
+   "south": -37.0,
+   "confident_detections": 3,
+   "all_detections": 3,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-04": 3
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.5,
+   "south": -40.75,
+   "confident_detections": 4,
+   "all_detections": 9,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-04": 3,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 36,
+    "geometries": 7,
+    "first_date": "2026-06-20",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -35.75,
+   "confident_detections": 10,
+   "all_detections": 12,
+   "days_with_confident": 4,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-04": 1,
+    "2026-05": 6,
+    "2026-06": 3
+   },
+   "nisar_1deg": {
+    "granules": 76,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -38.25,
+   "confident_detections": 14,
+   "all_detections": 16,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 3,
+   "confident_by_month": {
+    "2026-04": 3,
+    "2026-05": 11
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.0,
+   "south": -34.5,
+   "confident_detections": 3,
+   "all_detections": 4,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-01": 2,
+    "2026-02": 1
+   },
+   "nisar_1deg": {
+    "granules": 73,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -37.0,
+   "confident_detections": 4,
+   "all_detections": 20,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-01": 4
+   },
+   "nisar_1deg": {
+    "granules": 47,
+    "dates": 28,
+    "geometries": 4,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-12"
+   }
+  },
+  {
+   "west": -73.5,
+   "south": -38.25,
+   "confident_detections": 3,
+   "all_detections": 3,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-01": 2,
+    "2026-04": 1
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -37.0,
+   "confident_detections": 4,
+   "all_detections": 5,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-01": 3,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.25,
+   "south": -36.25,
+   "confident_detections": 8,
+   "all_detections": 16,
+   "days_with_confident": 4,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-02": 8
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -35.25,
+   "confident_detections": 5,
+   "all_detections": 7,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-04": 2,
+    "2026-06": 3
+   },
+   "nisar_1deg": {
+    "granules": 76,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -36.75,
+   "confident_detections": 3,
+   "all_detections": 8,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-05": 1,
+    "2026-06": 2
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.75,
+   "south": -39.75,
+   "confident_detections": 3,
+   "all_detections": 6,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-04": 2,
+    "2026-05": 1
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-20",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.75,
+   "south": -37.5,
+   "confident_detections": 7,
+   "all_detections": 11,
+   "days_with_confident": 3,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-04": 2,
+    "2026-05": 5
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.75,
+   "south": -37.25,
+   "confident_detections": 3,
+   "all_detections": 4,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-04": 3
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -68.5,
+   "south": -38.75,
+   "confident_detections": 3,
+   "all_detections": 5,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-04": 2,
+    "2026-06": 1
+   },
+   "nisar_1deg": {
+    "granules": 97,
+    "dates": 55,
+    "geometries": 9,
+    "first_date": "2026-06-17",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.75,
+   "south": -37.75,
+   "confident_detections": 7,
+   "all_detections": 7,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-05": 7
+   },
+   "nisar_1deg": {
+    "granules": 84,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.5,
+   "south": -36.75,
+   "confident_detections": 6,
+   "all_detections": 7,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-05": 6
+   },
+   "nisar_1deg": {
+    "granules": 83,
+    "dates": 46,
+    "geometries": 8,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -35.75,
+   "confident_detections": 5,
+   "all_detections": 6,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 2,
+   "confident_by_month": {
+    "2026-06": 5
+   },
+   "nisar_1deg": {
+    "granules": 76,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.25,
+   "south": -40.75,
+   "confident_detections": 6,
+   "all_detections": 6,
+   "days_with_confident": 5,
+   "goes_pixels_with_confident": 1,
+   "confident_by_month": {
+    "2026-01": 6
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 36,
+    "geometries": 7,
+    "first_date": "2026-06-20",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -73.75,
+   "south": -38.5,
+   "confident_detections": 3,
+   "all_detections": 3,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 1,
+   "confident_by_month": {
+    "2026-01": 3
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -71.0,
+   "south": -36.25,
+   "confident_detections": 5,
+   "all_detections": 9,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 1,
+   "confident_by_month": {
+    "2026-01": 5
+   },
+   "nisar_1deg": {
+    "granules": 72,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -71.0,
+   "south": -30.0,
+   "confident_detections": 3,
+   "all_detections": 5,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 1,
+   "confident_by_month": {
+    "2026-06": 3
+   },
+   "nisar_1deg": {
+    "granules": 72,
+    "dates": 36,
+    "geometries": 8,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -72.25,
+   "south": -36.25,
+   "confident_detections": 9,
+   "all_detections": 10,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 1,
+   "confident_by_month": {
+    "2026-05": 9
+   },
+   "nisar_1deg": {
+    "granules": 75,
+    "dates": 46,
+    "geometries": 7,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-17"
+   }
+  },
+  {
+   "west": -73.75,
+   "south": -38.0,
+   "confident_detections": 5,
+   "all_detections": 6,
+   "days_with_confident": 2,
+   "goes_pixels_with_confident": 1,
+   "confident_by_month": {
+    "2026-04": 3,
+    "2026-05": 2
+   },
+   "nisar_1deg": {
+    "granules": 68,
+    "dates": 38,
+    "geometries": 6,
+    "first_date": "2026-02-26",
+    "last_date": "2026-10-19"
+   }
+  },
+  {
+   "west": -72.0,
+   "south": -34.5,
+   "confident_detections": 4,
+   "all_detections": 4,
+   "days_with_confident": 1,
+   "goes_pixels_with_confident": 1,
+   "confident_by_month": {
+    "2026-06": 4
+   },
+   "nisar_1deg": {
+    "granules": 64,
+    "dates": 36,
+    "geometries": 7,
+    "first_date": "2026-06-19",
+    "last_date": "2026-10-17"
+   }
+  }
+ ]
+}

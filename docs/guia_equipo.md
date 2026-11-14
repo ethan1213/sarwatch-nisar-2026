@@ -40,7 +40,8 @@ Con Docker: `docker compose up --build -d` y abrir http://localhost:8080. Los HD
 5. `scripts/fetch_labels.py --aoi sitio` y `scripts/fetch_covariates.py --aoi sitio` → etiquetas Sentinel-2 y covariables (sin credenciales).
 6. `scripts/evaluate_detection.py --water-aois sitio` o `--change-aois sitio` → máscaras, tarjeta de modelo y métricas en bloques retenidos.
 7. `scripts/forecast_benchmark.py --aoi sitio` → benchmark de pronóstico (la persistencia debe ser superada para publicar).
-8. Añadir el sitio al selector de `app.py` y a `sarwatch/views/world.py` (`SITES`).
+8. Para calor y focos: `scripts/fetch_thermal.py --aoi sitio --start … --end …` y `scripts/evaluate_fire.py --aoi sitio` (GOES-19, sin credenciales). Antes de elegir un sitio de incendio, `scripts/scan_hotspots.py` dice dónde hubo focos y cuántas fechas NISAR hay. Ver [calor_y_focos.md](calor_y_focos.md).
+9. Añadir el sitio al selector de `app.py` y a `sarwatch/views/world.py` (`SITES`).
 
 ## 4. Qué falta, en orden, con criterio de "hecho"
 
@@ -80,7 +81,7 @@ Se usan como herramienta de desarrollo (Claude Code, Codex u otro). **Ninguno en
 | Agua abierta | LightGBM por píxel (F1 0,83 bloques / 0,76 fecha retenida) + umbral Kittler-Illingworth como baseline | TerraMind / Clay / Galileo fine-tuned en Colab, U-Net sobre Sen1Floods11 |
 | Cambio urbano | Prueba de Conradsen (diagonal) + MAD | Clasificador con etiquetas de edificios OSM; coherencia si llega GSLC/GUNW |
 | Pronóstico | Persistencia, climatología (gana por 15 % en mediana HH), Ridge | LightGBM cuantílico y MAPIE cuando haya ≥ 15 fechas |
-| Incendio | Pendiente | Caída de HV + dNBR óptico como etiqueta |
+| Incendio | Focos GOES-19 por celda cruzados con HV, pendiente y cobertura; evaluación de respuesta y anticipación escrita, sin focos suficientes en los recortes actuales | Descargar Araucanía (7 pasadas, mar–abr 2026); VIIRS 375 m; dNBR óptico como etiqueta |
 | Glaciar | Pendiente | Cambio estacional de retrodispersión + velocidad por offset tracking (fuera de alcance inmediato) |
 | Asistente | Reglas + enrutador TF-IDF + verificador (60/60) | Qwen3-4B vía Ollama local, siempre detrás del verificador |
 
@@ -94,4 +95,4 @@ Detalle y veredictos: [modelos_ia_ml.md](modelos_ia_ml.md).
 
 ## 6. Medidas que tenemos (para no inventar cifras)
 
-Todas las cifras públicas salen de estos archivos: `docs/detection_benchmark.json`, `docs/forecast_benchmark.json`, `docs/assistant_eval.json`, `catalog/detection_reference.json`, `catalog/prediction_reference.json`, `catalog/storage_measurement.json`, `catalog/global/coverage_1deg.json`, `models/*.card.json`. Si cambias un modelo, vuelve a correr el script que genera el JSON y revisa que la app muestre el valor nuevo.
+Todas las cifras públicas salen de estos archivos: `docs/detection_benchmark.json`, `docs/forecast_benchmark.json`, `docs/assistant_eval.json`, `docs/fire_benchmark.json`, `catalog/detection_reference.json`, `catalog/prediction_reference.json`, `catalog/thermal_reference.json`, `catalog/hotspot_scan.json`, `catalog/hotspot_scan_chile_verano.json`, `catalog/storage_measurement.json`, `catalog/global/coverage_1deg.json`, `models/*.card.json`. Si cambias un modelo, vuelve a correr el script que genera el JSON y revisa que la app muestre el valor nuevo.

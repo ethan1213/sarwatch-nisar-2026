@@ -55,4 +55,22 @@ if any(x.label=='Capa de detección evaluada' for x in app.selectbox):
     app.chat_input[0].set_value('¿Cuánta agua hay?').run(timeout=180)
     assert not app.exception, list(app.exception)
     assert any('km²' in x.value for x in app.markdown), 'Assistant must quantify water from the evaluated reference'
-print(json.dumps({"app":"passed", "difference":"passed", "polarization":"passed", "weather_outage":"passed"}))
+# Heat view: GOES thermal cells crossed with NISAR, when thermal products exist for the region.
+heat = "skipped"
+if any(x.label=='Qué quieres mirar' for x in app.button_group):
+    topic=next(x for x in app.button_group if x.label=='Qué quieres mirar')
+    topic.set_value('Calor y focos · térmico + radar').run(timeout=180)
+    assert not app.exception, list(app.exception)
+    assert any('GOES-19' in x.value for x in app.caption), 'Heat view must name its thermal sensor'
+    assert any('no hablamos de riesgo' in x.value for x in app.markdown), 'Heat view must state what it cannot claim'
+    layer=next(x for x in app.selectbox if x.label=='Capa del mapa')
+    for option in layer.options:
+        layer.set_value(option).run(timeout=180)
+        assert not app.exception, (option, list(app.exception))
+    period=next(x for x in app.selectbox if x.label=='Período')
+    period.set_value(period.options[-1]).run(timeout=180)
+    assert not app.exception, list(app.exception)
+    next(x for x in app.button_group if x.label=='Qué quieres mirar').set_value('Cambio de superficie · radar').run(timeout=180)
+    assert not app.exception, list(app.exception)
+    heat = "passed"
+print(json.dumps({"app":"passed", "heat_view":heat, "difference":"passed", "polarization":"passed", "weather_outage":"passed"}))

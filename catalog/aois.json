@@ -25,6 +25,27 @@
       "raw_bytes": 17003708416,
       "derived_bytes": 2271801660,
       "compression_ratio_derived_vs_float32": 0.6
+    },
+    "araucania": {
+      "bbox_wgs84": [
+        -73.0,
+        -38.75,
+        -72.0,
+        -38.0
+      ],
+      "selected_utc": "2026-11-14T20:12:46.985974+00:00",
+      "n_scenes": 7,
+      "geometry_key": [
+        "003",
+        "A",
+        "159",
+        "2005",
+        "DHDH",
+        "A"
+      ],
+      "estimated_download_gb": 11.68,
+      "select_seconds": 0.57,
+      "status": "seleccionado"
     }
   }
 }
