@@ -178,7 +178,7 @@ def anticipation_sentence(block):
 
 def legend(label, unit, low, high, ramp):
     digits = 0 if unit == "detecciones" else 1
-    text = lambda value: "sin dato" if not np.isfinite(value) else f"{value:,.{digits}f}".replace(",", " ").replace(".", ",") + f" {unit}"
+    text = lambda value: "sin dato" if not np.isfinite(value) else f"{value:,.{digits}f}".replace(",", " ").replace(".", ",") + ("" if unit == "detecciones" else f" {unit}")
     st.markdown(f"<div class='sw-scale'><div class='sw-scale-bar' role='img' aria-label='Escala de color de {label}' style='background:linear-gradient(90deg,{','.join(ramp)})'></div><div class='sw-scale-labels'><span>{text(low)}</span><span>{label}</span><span>{text(high)}</span></div></div>", unsafe_allow_html=True)
 
 
