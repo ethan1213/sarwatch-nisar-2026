@@ -1,5 +1,13 @@
 # Estado de entrega — 13 noviembre 2026
 
+## Actualización: NISAR real para Chile
+
+Descargados los HDF5 del 5 y 17 octubre de 2026. Ambos tamaños y MD5 coinciden con CMR; SHA-256 y grillas registrados en catalog/chile_verified.json. Generados COG HH/HV para dos AOI urbanos: Santiago y Valparaíso/Viña del Mar, usando las mismas máscaras técnicas que Pantanal. Cobertura válida por fecha superior a 99,9 % en ambos recortes. Informes: metropolitana_quality.json y valparaiso_quality.json.
+
+El visor regional incorpora ambas fechas, diferencia en dB, consulta de punto con valores y CSV, y procedencia. Los límites comunales siguen siendo referencia de toda la región continental; la capa SAR cubre solo el recorte indicado. Esto reemplaza el estado anterior de «solo candidatos» para esos dos AOI, no para todas las comunas. Sigue pendiente validación ambiental independiente; no se publican inundaciones confirmadas ni predicciones SAR.
+
+Nueve pruebas unitarias y AppTest con cambio HH/HV y diferencias en ambos recortes pasan en Windows. Imagen Docker reconstruida y AppTest regional pasa también en Linux con los derivados reales montados. El aviso de PSReadline observado en la terminal no afectó la descarga ni la integridad de archivos.
+
 ## Actualización: mapas Chile y QA
 
 Alcance actual: solo Docker local por elección del propietario. Implementados selector de región, mapa geográfico NISAR con consulta por clic en Pantanal y límites comunales continentales CIREN de Metropolitana y Valparaíso, con encuadre regional/ciudad, pronóstico y candidatos CMR. Descarga de fuentes reproducible mediante scripts/refresh_chile.py. Siete pruebas unitarias y recorrido AppTest de los tres destinos pasan en Windows.

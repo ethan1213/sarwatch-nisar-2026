@@ -1,0 +1,43 @@
+{
+  "quality": "QA aplicada seg\u00fan atributos del producto: sub-swath v\u00e1lido y completamente enfocado, excepci\u00f3n cero, looks finitos positivos y potencia v\u00e1lida. Validaci\u00f3n ambiental independiente pendiente.",
+  "bbox_wgs84": [
+    -71.8,
+    -33.2,
+    -71.3,
+    -32.9
+  ],
+  "grid": {
+    "epsg": 32719,
+    "height": 1721,
+    "width": 2375,
+    "transform": [
+      20.0,
+      0.0,
+      238100.0,
+      0.0,
+      -20.0,
+      6357460.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "scenes": [
+    {
+      "id": "G4347050930-ASF",
+      "date": "2026-10-05T10:44:31.000Z",
+      "coverage": {
+        "HH": 0.9999151044374446,
+        "HV": 0.9999151044374446
+      }
+    },
+    {
+      "id": "G4377237249-ASF",
+      "date": "2026-10-17T10:44:31.000Z",
+      "coverage": {
+        "HH": 0.9999121685678461,
+        "HV": 0.9999121685678461
+      }
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Mapas y cobertura científica
 
+Actualización: los dos HDF5 del 5 y 17 octubre 2026 están descargados y verificados contra MD5 oficial. Santiago y Valparaíso/Viña del Mar ya tienen recortes SAR HH/HV, diferencia y consulta de punto. Los apartados iniciales sobre candidatos describen el inventario amplio; no sustituyen la nueva evidencia de integridad y cobertura en catalog/chile_verified.json y los informes *_quality.json. No hay cobertura SAR procesada de toda la región ni validación ambiental independiente.
+
 ## Implementado
 
 - Pantanal: capa NISAR reproyectada a WGS84 para visualizar, controles de capa, mapa base OSM, imagen de contexto Esri y consulta por clic dentro del AOI. Los cálculos y consultas conservan la grilla nativa. El mapa muestra la fecha final o la diferencia según el modo seleccionado.

@@ -24,4 +24,9 @@ for region in ('Región Metropolitana', 'Región de Valparaíso'):
     assert not app.exception, list(app.exception)
     assert app.subheader[0].value == region
     assert app.dataframe, 'Chile catalog must be available'
+    if any(x.label=='Polarización SAR' for x in app.selectbox):
+        next(x for x in app.selectbox if x.label=='Polarización SAR').set_value('HV').run(timeout=180)
+        next(x for x in app.radio if x.label=='Capa SAR').set_value('Diferencia en dB').run(timeout=180)
+        assert not app.exception, list(app.exception)
+        assert app.metric, 'Regional SAR coverage must be visible'
 print(json.dumps({"app":"passed", "difference":"passed", "polarization":"passed", "weather_outage":"passed"}))

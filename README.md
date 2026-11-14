@@ -33,3 +33,5 @@ Prototipo exploratorio: filtrado de finitos positivos y fill values declarados. 
 ## Chile central
 
 Selector de Pantanal, Región Metropolitana y Valparaíso continental. Chile incluye límites comunales CIREN, mapa base y satelital de contexto, consulta de puntos, pronóstico y candidatos NISAR CMR. No se presentan candidatos como series SAR procesadas. Ver docs/chile_y_mapas.md.
+
+Los entornos urbanos de Santiago y Valparaíso/Viña del Mar incluyen capas NISAR reales del 5 y 17 octubre 2026, verificadas mediante checksum oficial, con HH/HV, diferencia y valores por punto. Son recortes urbanos; no equivalen a cobertura completa de las regiones. Los originales permanecen en data_raw/chile y derivados en data/metropolitana y data/valparaiso, fuera de Git.

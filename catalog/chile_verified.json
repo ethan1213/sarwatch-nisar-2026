@@ -1,0 +1,53 @@
+{
+  "scenes": [
+    {
+      "id": "G4347050930-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_032_075_A_161_2005_DHDH_A_20261005T104431_20261005T104505_P05023_N_F_J_001",
+      "fecha_observacion": "2026-10-05T10:44:31.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4347050930-ASF.umm_json",
+      "estimated_mib": 1611.351622581482,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_032_075_A_161_2005_DHDH_A_20261005T104431_20261005T104505_P05023_N_F_J_001/NISAR_L2_PR_GCOV_032_075_A_161_2005_DHDH_A_20261005T104431_20261005T104505_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1677721600,
+      "md5_calculado": "e772a610d0518d2dc478cf7243593ec2",
+      "sha256": "e4da46ef32e465ac2c699d6cc3ead986622f4fa546e153577e8175f7ba75e3aa",
+      "grid": {
+        "epsg": 32719,
+        "shape": [
+          16272,
+          16776
+        ],
+        "bounds_centers": [
+          93610.0,
+          6178330.0,
+          429110.0,
+          6503750.0
+        ]
+      }
+    },
+    {
+      "id": "G4377237249-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_033_075_A_161_2005_DHDH_A_20261017T104431_20261017T104506_P05023_N_F_J_001",
+      "fecha_observacion": "2026-10-17T10:44:31.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4377237249-ASF.umm_json",
+      "estimated_mib": 1647.3942232131958,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_033_075_A_161_2005_DHDH_A_20261017T104431_20261017T104506_P05023_N_F_J_001/NISAR_L2_PR_GCOV_033_075_A_161_2005_DHDH_A_20261017T104431_20261017T104506_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1715470336,
+      "md5_calculado": "11b32c5b2a1b7bc997e00379420bb52f",
+      "sha256": "8b96aedf14335530611da3a6e580083377f01208b73181089684cb1c5d6ebf22",
+      "grid": {
+        "epsg": 32719,
+        "shape": [
+          16272,
+          16776
+        ],
+        "bounds_centers": [
+          93610.0,
+          6178330.0,
+          429110.0,
+          6503750.0
+        ]
+      }
+    }
+  ],
+  "status": "integridad verificada; cobertura y calidad espacial pendientes"
+}

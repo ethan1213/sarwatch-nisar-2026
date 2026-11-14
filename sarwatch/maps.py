@@ -1,5 +1,6 @@
 """Geographic views; scientific rasters remain separate from display sampling."""
 import json
+import os
 from pathlib import Path
 import folium
 import numpy as np
@@ -7,6 +8,15 @@ from rasterio.warp import calculate_default_transform, reproject, Resampling
 from rasterio.transform import array_bounds
 from streamlit_folium import st_folium
 import streamlit as st
+import rasterio
+from sarwatch.repository import RasterRepository
+from science import difference
+
+
+@st.cache_data(max_entries=8)
+def regional_raster(path):
+    with rasterio.open(path) as source:
+        return source.read(1),source.transform,str(source.crs)
 
 
 @st.cache_data(ttl=3600, max_entries=32)
@@ -56,11 +66,45 @@ def chile_view(region):
             m.fit_bounds(boundaries.get_bounds())
     folium.Marker([-33.45,-70.66],tooltip='Santiago').add_to(m)
     folium.Marker([-33.047,-71.613],tooltip='Valparaíso').add_to(m)
+    products_root=Path(os.environ.get('DATA_DIR','data'))/slug
+    manifest=None
+    if (products_root/'manifest.json').is_file():
+        repository=RasterRepository(products_root)
+        manifest=repository.manifest()
+        st.caption('NISAR: recorte del entorno urbano seleccionado, no cobertura completa de la región.')
+        pol=st.selectbox('Polarización SAR',['HH','HV'],key=slug+'-pol')
+        scenes=manifest['scenes']
+        dates=[s['fecha_observacion'][:10] for s in scenes]
+        view=st.radio('Capa SAR',[dates[0],dates[-1],'Diferencia en dB'],horizontal=True,key=slug+'-sar')
+        before,t,c=regional_raster(str(repository.product_path(scenes[0]['products'][pol])))
+        after,t2,c2=regional_raster(str(repository.product_path(scenes[-1]['products'][pol])))
+        if t!=t2 or c!=c2 or before.shape!=after.shape:
+            st.error('Las grillas SAR no coinciden. Capa temporal desactivada.')
+            manifest=None
+        else:
+            values=difference(before,after) if view=='Diferencia en dB' else before if view==dates[0] else after
+            overlay_map=raster_map(values,t,c,view=='Diferencia en dB')
+            for child in list(overlay_map._children.values()):
+                if isinstance(child,folium.raster_layers.ImageOverlay):
+                    child.add_to(m)
+            st.metric('Cobertura comparable del recorte',f'{np.isfinite(difference(before,after)).mean():.1%}')
+            st.caption('Rojo: mayor valor; azul: menor. Diferencia: −6 a +6 dB; intensidad: −30 a 0 dB. Transparente: sin dato. Cambios de radar no equivalen a inundaciones.')
     folium.LayerControl().add_to(m)
     event=st_folium(m,height=560,use_container_width=True,key='chile-'+slug+framing,returned_objects=['last_clicked'])
     point=event.get('last_clicked') or {'lat':center[0],'lng':center[1]}
     st.caption(f"Punto seleccionado: {point['lat']:.5f}, {point['lng']:.5f}. Haz clic en el mapa para cambiarlo.")
-    st.info('Las capas NISAR procesadas disponibles pertenecen a Pantanal. Para Chile se ofrece cartografía y búsqueda de adquisiciones; aún no hay una serie SAR local validada.')
+    if manifest is not None:
+        import pandas as pd
+        frame=pd.DataFrame(repository.point_series(manifest['scenes'],pol,point['lng'],point['lat']))
+        st.dataframe(frame,hide_index=True)
+        if frame['dB'].isna().all():
+            st.warning('El punto no tiene valores SAR válidos; selecciona uno dentro de la capa coloreada.')
+        st.download_button('Descargar serie SAR del punto',frame.to_csv(index=False),slug+'-serie.csv','text/csv')
+        with st.expander('Calidad y procedencia SAR'):
+            st.write(manifest['quality_status'])
+            st.json(manifest['scenes'])
+    else:
+        st.info('No hay una serie SAR procesada disponible para este recorte.')
     if Path('catalog/chile_cmr.json').is_file():
         catalog=json.loads(Path('catalog/chile_cmr.json').read_text(encoding='utf-8'))
         entries=catalog['response'].get('feed',{}).get('entry',[])
