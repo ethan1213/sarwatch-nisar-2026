@@ -1,0 +1,86 @@
+{
+  "aoi": "metropolitana",
+  "generated_utc": "2026-11-14T21:15:02.279651+00:00",
+  "coarsen_factor": 5,
+  "resolution_m_native": 20.0,
+  "resolution_m_hydrology": 100.0,
+  "fire": {
+    "pre_window": [
+      "2025-11-01",
+      "2025-11-30"
+    ],
+    "post_window": [
+      "2026-02-01",
+      "2026-02-28"
+    ],
+    "pre_valid_fraction": 0.9728044717835991,
+    "post_valid_fraction": 0.9422167312149723,
+    "severity_summary": {
+      "n": 5629106,
+      "sin_quema_o_rebrote": 0.8825667876923974,
+      "baja": 0.10227947386316762,
+      "moderada_baja": 0.012360932624114735,
+      "moderada_alta": 0.002693855827195295,
+      "alta": 9.894999312501842e-05
+    },
+    "caveat": "Ventanas de fecha de ejemplo; confirmar fecha y perímetro real del incendio con CONAF/Sernageomin antes de publicar."
+  },
+  "nisar_window": {
+    "before": "2026-10-05T10:44:31.000Z",
+    "after": "2026-10-17T10:44:31.000Z",
+    "note": "Delta HH entre estas dos fechas es el estado de humedad MAS RECIENTE disponible; NO es una prediccion retroactiva del evento de octubre, que ocurrio entre ambas fechas."
+  },
+  "era5_cross_check_status": "ok",
+  "scenarios": {
+    "enero": {
+      "label": "31-enero (seco)",
+      "antecedent_rain_mm": 2.0,
+      "observed_30min_mm": 19.2,
+      "note": "tormenta convectiva de verano; 11 a 28 viviendas con dano",
+      "era5_cross_check_mm": 13.6,
+      "median_threshold_mm_30min": 19.6,
+      "min_threshold_mm_30min": 6.8,
+      "fraction_rojo": 0.00010028219409418102,
+      "fraction_amarillo": 0.06330731344670569,
+      "fraction_verde": 0.9345339451884269,
+      "explain_median_cell": "Umbral base 20 mm/30min en ladera sana; lluvia previa lo reduce 2%; umbral efectivo 19.6 mm/30min.",
+      "would_have_triggered": false
+    },
+    "octubre": {
+      "label": "8-octubre (saturado)",
+      "antecedent_rain_mm": 110.0,
+      "observed_30min_mm": 8.8,
+      "note": "frontal + baja segregada tras 70-140 mm el 6 y 7 de oct; 2015 viviendas afectadas",
+      "era5_cross_check_mm": 115.6,
+      "median_threshold_mm_30min": 6.4,
+      "min_threshold_mm_30min": 3.0,
+      "fraction_rojo": 0.9979415408292268,
+      "fraction_amarillo": 0.0,
+      "fraction_verde": 0.0,
+      "explain_median_cell": "Umbral base 20 mm/30min en ladera sana; lluvia previa lo reduce 65%; humedad NISAR lo reduce 4%; umbral efectivo 6.4 mm/30min.",
+      "would_have_triggered": true
+    },
+    "actual": {
+      "label": "esta semana (por defecto, sin lluvia reciente)",
+      "antecedent_rain_mm": 0.0,
+      "observed_30min_mm": null,
+      "note": "actualizar con la lluvia de los ultimos 3-7 dias antes de usar",
+      "era5_cross_check_mm": null,
+      "median_threshold_mm_30min": 18.4,
+      "min_threshold_mm_30min": 5.6,
+      "fraction_rojo": 0.000179672264418741,
+      "fraction_amarillo": 0.09139468464258423,
+      "fraction_verde": 0.9063671839222238,
+      "explain_median_cell": "Umbral base 20 mm/30min en ladera sana; humedad NISAR lo reduce 4%; umbral efectivo 18.4 mm/30min.",
+      "would_have_triggered": null
+    }
+  },
+  "method": "sarwatch.ml.debris_flow.dynamic_threshold; ver docstring para la justificacion de cada factor",
+  "limits": [
+    "Heuristica no calibrada: dos eventos no entrenan ni validan un modelo.",
+    "La ventana de fecha del incendio (dNBR) es un ejemplo pendiente de confirmar con CONAF/Sernageomin.",
+    "No hay interferometria (GUNW) en este calculo todavia: el factor de carga de sedimento del cauce no esta incluido (ver catalog/las_condes_gunw_candidates.json).",
+    "El umbral de 30 minutos se compara con lluvia observada historica, no con un pronostico en vivo.",
+    "Resolucion de hidrologia de 100 m: identifica que sub-cuencas concentran mas agua, no el cauce exacto metro a metro."
+  ]
+}

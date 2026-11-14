@@ -12,7 +12,7 @@ Esta sesión (rama `main`) y otra sesión de Claude Code (rama remota `claude/re
 
 | Pieza | Archivo | Qué hace | Estado |
 |---|---|---|---|
-| Severidad de quema (dNBR) | `sarwatch/ml/wildfire.py`, `scripts/fetch_fire_dnbr.py` | NBR/dNBR de Sentinel-2 pre/post incendio, clases USGS | **Datos no usables todavía.** La primera corrida devolvió cobertura real de solo 0,08% del AOI (4.828 de 5.983.116 píxeles). Corregí un error real (SCL se remuestreaba con 'average', una categoría no debe promediarse) pero una segunda corrida con el remuestreo correcto dio el mismo 0,08%: la causa de fondo sigue sin resolver. Candidatos a investigar: la escena cubre solo ~27% del AOI por geometría de la tesela MGRS T19HCC (no explica una caída de 300×); revisar si `odc.stac` está leyendo una banda de baja resolución o un recorte equivocado; probar mosaico de varias teselas en vez de una sola escena. **No ejecutar `evaluate_postfire.py` hasta resolver esto**: el mapa de severidad actual (98,5% sin quemar, 1,5% baja, 0% alta) no es una medición real, es ruido de un recorte casi vacío. |
+| Severidad de quema (dNBR) | `sarwatch/ml/wildfire.py`, `scripts/fetch_fire_dnbr.py` | NBR/dNBR de Sentinel-2 pre/post incendio, clases USGS | **Resuelto y con datos reales.** La causa era real: una sola escena Sentinel-2 no cubre todo el cuadrado de su tesela MGRS (el satélite solo pasa por una franja diagonal); la lectura directa del archivo fuente confirmó ~0,1% de datos reales dentro de la ventana que debía tener dato. `fetch_fire_dnbr.py` ahora mosaica hasta 6 escenas por ventana (fechas y teselas vecinas), tomando por píxel la primera sin nubes que lo cubra. Cobertura final: 97,3% (ventana previa) y 94,2% (ventana posterior). Severidad real: 88,3% sin quemar, 10,2% baja, 1,2% moderada-baja, 0,27% moderada-alta, 0,01% alta. |
 | Hidrología D8 | `sarwatch/ml/hydrology.py` | Dirección de flujo, acumulación y sub-cuencas desde el DEM, en una grilla reescalada a ~100 m | Implementado y probado (7 pruebas) |
 | Umbral dinámico | `sarwatch/ml/debris_flow.py` | Umbral de lluvia en 30 min = base × quema × saturación × concentración × humedad NISAR | Implementado, heurístico y explícitamente no calibrado |
 | Lectura de interferometría (GUNW) | `sarwatch/ml/interferometry.py` | Busca coherencia/fase desenrollada dentro de un .h5 GUNW por patrón de nombre, sin asumir una ruta fija | Implementado y probado; **nadie ha abierto un .h5 GUNW real todavía** |
@@ -58,7 +58,10 @@ Idea concreta derivable, no implementada: `sarwatch/ml/hydrology.py` ya calcula 
 2. Descargar las 4 escenas BETA de `metropolitana_fire_beta_candidates.json` y calcular ΔHV real pre/post incendio (cierra el cambio 1 del plan con NISAR real, no solo dNBR óptico).
 3. Conectar la caída de coherencia al umbral dinámico (factor "carga del cauce").
 4. Resolver con el propietario del repositorio cómo fusionar esta rama con el PR #1 (térmico/GOES): qué UI queda, qué catálogo de detección es el vigente.
-5. **Depurar la cobertura casi nula del dNBR de Sentinel-2** (ver tabla arriba) antes de confiar en cualquier número de severidad de quema.
+5. ~~Depurar la cobertura casi nula del dNBR~~ **Resuelto el 14 de noviembre** (mosaico de varias escenas). Resultados reales:
+   - Umbral mediano 31-ene: **19,6 mm/30min** (no se habría disparado con 19,2 mm reales, resultado marginal, consistente con el daño menor observado).
+   - Umbral mediano 8-oct: **6,4 mm/30min** (sí se habría disparado con los 8,8 mm reales: el suelo saturado bajó el umbral lo suficiente).
+   - Ver `docs/postfire_benchmark.json` y `catalog/postfire_reference.json` para el detalle completo.
 5. Confirmar con CONAF/Sernageomin la fecha y el perímetro reales del incendio de Las Condes y re-ejecutar `scripts/fetch_fire_dnbr.py` con esas fechas.
 
 ## 6. Honestidad obligatoria en cualquier presentación de esto
