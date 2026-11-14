@@ -1,0 +1,12 @@
+# Optional: scientific ML (detection, forecasting) and local assistant. Not needed by the web runtime.
+scikit-learn==1.9.1
+lightgbm==4.7.0
+scikit-image==0.26.0
+scipy==1.18.1
+MAPIE==1.6.0
+rank-bm25==0.2.2
+onnxruntime==1.32.0
+# Label and covariate acquisition from Microsoft Planetary Computer (STAC)
+pystac-client==0.9.1
+odc-stac==0.5.3
+planetary-computer==1.0.0

@@ -20,3 +20,6 @@ __pycache__/
 # Temporales
 work/
 .DS_Store
+# Registros de experimentos locales (resúmenes van a docs/)
+experiments/
+models/*.bin
