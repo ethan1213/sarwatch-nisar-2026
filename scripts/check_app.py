@@ -36,11 +36,18 @@ for profile in ('Público general','Ciencia','Desarrollo y datos','Comunicacione
 app.chat_input[0].set_value('¿Puedes predecir una inundación mañana?').run(timeout=180)
 assert not app.exception, list(app.exception)
 assert any('Todavía no podemos predecir' in x.value for x in app.markdown)
-# Evaluated detection layers: Chile change checkbox and Pantanal water layer selector, when products exist.
-if any(x.label=='Mostrar cambio estadísticamente significativo' for x in app.checkbox):
-    next(x for x in app.checkbox if x.label=='Mostrar cambio estadísticamente significativo').check().run(timeout=180)
-    assert not app.exception, list(app.exception)
-    assert any('Conradsen' in x.value for x in app.caption), 'Change layer must explain its test'
+# Evaluated detection layers: Chile's single extra-layer selector (mutually exclusive change/PostFuego)
+# and Pantanal's water layer selector, when products exist.
+if any(x.label=='Capa adicional' for x in app.radio):
+    extra=next(x for x in app.radio if x.label=='Capa adicional')
+    if 'Cambio estadísticamente significativo' in extra.options:
+        extra.set_value('Cambio estadísticamente significativo').run(timeout=180)
+        assert not app.exception, list(app.exception)
+        assert any('Conradsen' in x.value for x in app.caption), 'Change layer must explain its test'
+    if 'PostFuego · semáforo de aluvión' in extra.options:
+        extra.set_value('PostFuego · semáforo de aluvión').run(timeout=180)
+        assert not app.exception, list(app.exception)
+        assert any('umbral' in x.value.lower() for x in app.caption), 'PostFuego layer must explain its threshold'
 app.selectbox[0].set_value('Mundo · cobertura NISAR').run(timeout=240)
 assert not app.exception, list(app.exception)
 if Path('catalog/global/coverage_1deg.json').is_file():

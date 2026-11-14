@@ -122,8 +122,19 @@ def chile_view(region,profile="Público general"):
                 context={'region':region,'before':dates[0],'after':dates[-1],'polarization':pol,'statistics':summarize(before,after),'source':scenes[-1]['url_metadatos']}
                 with summary_area:
                     reading(context,profile)
+                # Solo una capa categórica a la vez: apilar "cambio significativo" y "PostFuego" sobre la
+                # diferencia continua produce una mezcla óptica de colores que no se distingue (bug real
+                # reportado por el usuario: "se ve todo el mapa de un color"). Un selector único evita
+                # que dos capas semitransparentes se mezclen entre sí.
                 change_path=change_mask_path(products_root)
-                if change_path is not None and controls.checkbox('Mostrar cambio estadísticamente significativo',value=view=='Diferencia en dB',key=slug+'-change'):
+                postfire_ref=postfire_reference() if slug=='metropolitana' else None
+                layer_options=['Ninguna']
+                if change_path is not None:
+                    layer_options.append('Cambio estadísticamente significativo')
+                if postfire_ref is not None:
+                    layer_options.append('PostFuego · semáforo de aluvión')
+                extra_layer=controls.radio('Capa adicional',layer_options,index=1 if len(layer_options)>1 else 0,horizontal=True,key=slug+'-extra-layer') if len(layer_options)>1 else 'Ninguna'
+                if extra_layer=='Cambio estadísticamente significativo':
                     mask,mt,mc,tags=read_mask(change_path)
                     if (mt,mc,mask.shape)!=(t,c,before.shape):
                         st.error('La máscara de cambio no comparte la grilla SAR; no se muestra.')
@@ -136,24 +147,21 @@ def chile_view(region,profile="Público general"):
                             if block:
                                 notes.dataframe([{'cobertura (WorldCover 2021)':k,'píxeles':v['n'],'disminución %':round(100*(v['decrease'] or 0),3),'aumento %':round(100*(v['increase'] or 0),3)} for k,v in block['by_worldcover'].items()],hide_index=True)
                                 notes.caption(f"Método: {tags.get('method','')}. Looks: {block['looks_source']}. Acuerdo con umbral MAD (IoU): {block['agreement_iou_with_mad']:.2f}.")
+                elif extra_layer=='PostFuego · semáforo de aluvión':
+                    notes.caption('Prueba de concepto heurística y no calibrada (caso Quebrada Honda, Las Condes). No es una alerta operativa. Detalle en docs/postfuego_las_condes.md.')
+                    scenario_key=controls.radio('Escenario PostFuego',list(SCENARIO_LABELS),format_func=lambda k:SCENARIO_LABELS[k],horizontal=True,key=slug+'-postfire-scenario')
+                    sema_path=semaphore_path(products_root,scenario_key)
+                    if sema_path is not None:
+                        sema_mask,st_,sc_,_=read_postfire_mask(sema_path)
+                        if (st_,sc_,sema_mask.shape)==(t,c,before.shape):
+                            semaphore_overlay(sema_mask,st_,sc_,'PostFuego · semáforo').add_to(m)
+                        else:
+                            notes.error('La capa PostFuego no comparte la grilla SAR; no se muestra.')
+                    notes.caption(scenario_sentence(postfire_ref,scenario_key))
                 with legend_slot:
                     scale_legend(view=='Diferencia en dB')
                 notes.metric('Cobertura comparable del recorte',percent(np.isfinite(difference(before,after)).mean()))
                 notes.caption('Escala de −6 a +6 dB en diferencias y de −30 a 10 dB en intensidad. Transparente: sin dato. Cambios de radar no equivalen a inundaciones.')
-                if slug=='metropolitana':
-                    postfire_ref=postfire_reference()
-                    if postfire_ref is not None:
-                        notes.subheader('PostFuego · umbral dinámico de aluvión post-incendio')
-                        notes.caption('Prueba de concepto heurística y no calibrada (caso Quebrada Honda, Las Condes). No es una alerta operativa. Detalle en docs/postfuego_las_condes.md.')
-                        scenario_key=controls.radio('Escenario PostFuego',list(SCENARIO_LABELS),format_func=lambda k:SCENARIO_LABELS[k],horizontal=True,key=slug+'-postfire-scenario')
-                        sema_path=semaphore_path(products_root,scenario_key)
-                        if sema_path is not None:
-                            sema_mask,st_,sc_,_=read_postfire_mask(sema_path)
-                            if (st_,sc_,sema_mask.shape)==(t,c,before.shape):
-                                semaphore_overlay(sema_mask,st_,sc_,'PostFuego · semáforo').add_to(m)
-                            else:
-                                notes.error('La capa PostFuego no comparte la grilla SAR; no se muestra.')
-                        notes.caption(scenario_sentence(postfire_ref,scenario_key))
         folium.LayerControl().add_to(m)
         with map_slot:
             event=st_folium(m,height=600,use_container_width=True,key='chile-'+slug+framing,returned_objects=['last_clicked'])
