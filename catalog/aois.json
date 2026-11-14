@@ -19,7 +19,12 @@
       ],
       "estimated_download_gb": 15.96,
       "select_seconds": 0.42,
-      "status": "seleccionado"
+      "status": "preparado; etiquetas, covariables y evaluación pendientes",
+      "prepared_utc": "2026-11-14T16:01:04.211053+00:00",
+      "prepare_seconds": 78.7,
+      "raw_bytes": 17003708416,
+      "derived_bytes": 2271801660,
+      "compression_ratio_derived_vs_float32": 0.6
     }
   }
 }
