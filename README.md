@@ -8,7 +8,7 @@ Pantanal: siete adquisiciones GCOV PROVISIONAL de 2026, HH/HV, frecuencia A. Ori
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python -m pip install -r requirements.txt
+.\.venv\Scripts\python -m pip install -r requirements.txt -r requirements-maps.txt
 .\.venv\Scripts\python scripts/prepare.py --raw "RUTA_A_LOS_HDF5" --output data
 .\.venv\Scripts\python -m streamlit run app.py
 ```
@@ -28,4 +28,8 @@ Incluye procesamiento por ventana, COG, rechazo de grillas incompatibles, compar
 
 Pruebas: `python -m unittest discover -s tests -v`.
 
-Prototipo exploratorio: filtrado de finitos positivos y fill values declarados. Falta revisar máscaras QA, validación ambiental, mapa base mundial y consulta con clic. La vista usa UTM. Siete fechas y un AOI no equivalen a cobertura anual o mundial. Código privado por instrucción del propietario; resolver apertura/licencia y acceso del jurado antes de enviar al desafío.
+Prototipo exploratorio: filtrado de finitos positivos y fill values declarados. Se aplican las máscaras de calidad descritas por el producto; falta validación ambiental independiente. Incluye mapa geográfico y consulta con clic. Los gráficos conservan UTM. Siete fechas y un AOI no equivalen a cobertura anual o mundial. Código privado por instrucción del propietario; resolver apertura/licencia y acceso del jurado antes de enviar al desafío.
+
+## Chile central
+
+Selector de Pantanal, Región Metropolitana y Valparaíso continental. Chile incluye límites comunales CIREN, mapa base y satelital de contexto, consulta de puntos, pronóstico y candidatos NISAR CMR. No se presentan candidatos como series SAR procesadas. Ver docs/chile_y_mapas.md.

@@ -1,5 +1,13 @@
 # Estado de entrega — 13 noviembre 2026
 
+## Actualización: mapas Chile y QA
+
+Alcance actual: solo Docker local por elección del propietario. Implementados selector de región, mapa geográfico NISAR con consulta por clic en Pantanal y límites comunales continentales CIREN de Metropolitana y Valparaíso, con encuadre regional/ciudad, pronóstico y candidatos CMR. Descarga de fuentes reproducible mediante scripts/refresh_chile.py. Siete pruebas unitarias y recorrido AppTest de los tres destinos pasan en Windows.
+
+Las siete escenas de Pantanal se reprocesaron con máscara de subswath, excepciones y looks según sus atributos; se conserva la cobertura escasa de julio 5. El resumen actualizado es quality_summary.json. Esto reemplaza el filtrado anterior de solo finitos positivos. La validación ambiental independiente sigue pendiente y no se presentan inundaciones confirmadas.
+
+Para Chile hay cartografía y catálogo candidato, todavía no HDF5 descargados/procesados ni cambios SAR validados. La fuente CIREN usada excluye territorios insulares. El control del navegador volvió a fallar por timeout; no se afirma verificación visual. La prueba final de Docker de esta actualización se registra al concluir.
+
 ## Comprobado
 
 - Recuperado el chat anterior y catálogo de siete escenas Pantanal 2026.

@@ -1,6 +1,7 @@
 .git
 .venv
 data
+data_*
 work
 __pycache__
 *.h5

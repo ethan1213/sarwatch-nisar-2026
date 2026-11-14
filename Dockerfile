@@ -4,6 +4,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt && useradd --create-home --uid 10001 app
 RUN apt-get update && apt-get install -y --no-install-recommends libexpat1 && rm -rf /var/lib/apt/lists/*
+COPY requirements-maps.txt .
+RUN pip install --no-cache-dir -r requirements-maps.txt
 COPY --chown=app:app app.py science.py weather.py ./
 COPY --chown=app:app sarwatch ./sarwatch
 COPY --chown=app:app catalog ./catalog

@@ -13,12 +13,18 @@ from science import difference
 from sarwatch.charts import raster_figure
 from sarwatch.repository import RasterRepository
 from sarwatch.theme import apply_theme
+from sarwatch.maps import chile_view, raster_map
+from streamlit_folium import st_folium
 
 st.set_page_config(page_title="SARWatch · NISAR", page_icon="S", layout="wide")
 apply_theme()
 st.title("SARWatch")
-st.caption("NISAR · Pantanal · Explorador de cambios de la superficie terrestre")
-st.info("Prototipo científico exploratorio. Cambios en dB no equivalen a inundaciones confirmadas. Datos PROVISIONAL; evaluación detallada de calidad pendiente.")
+st.caption("Observación terrestre · NISAR y contexto territorial")
+region = st.selectbox("Área de estudio", ["Pantanal", "Región Metropolitana", "Región de Valparaíso"])
+if region != "Pantanal":
+    chile_view(region)
+    st.stop()
+st.info("Análisis exploratorio. Cambios en dB no equivalen a inundaciones confirmadas. Datos PROVISIONAL con máscaras técnicas aplicadas; validación ambiental independiente pendiente.")
 root = Path(os.environ.get("DATA_DIR", "data"))
 repository = RasterRepository(root)
 manifest_path = root / "manifest.json"
@@ -70,11 +76,19 @@ if mode == "Antes y después":
 else:
     st.plotly_chart(raster_figure(delta, f"{labels[after]} − {labels[before]}", transform, crs, True), width="stretch")
     st.caption("Positivo: mayor retrodispersión en la fecha final. Escala visual limitada a ±6 dB; no es umbral de clasificación.")
+st.subheader("Mapa geográfico")
+st.caption(f"Polarización {pol} · {labels[after]}" if mode == 'Antes y después' else f"Polarización {pol} · {labels[after]} menos {labels[before]}")
+st.caption("Capa NISAR sobre mapa base. Rojo: valores altos; azul: bajos. Rango: −6 a 6 dB para diferencias; −30 a 0 dB para intensidad. Transparente: sin dato.")
+map_event = st_folium(raster_map(delta if mode == "Diferencia en dB" else b, transform, crs, mode == "Diferencia en dB"), height=520, use_container_width=True, key="sar-map", returned_objects=["last_clicked"])
 st.subheader("Serie temporal de un punto")
 west, south, east, north = manifest["bbox_wgs84"]
+clicked = map_event.get("last_clicked")
+if clicked and west <= clicked["lng"] <= east and south <= clicked["lat"] <= north:
+    st.session_state["point_lon"] = clicked["lng"]
+    st.session_state["point_lat"] = clicked["lat"]
 c1, c2 = st.columns(2)
-lon = c1.number_input("Longitud WGS84", min_value=float(west), max_value=float(east), value=(west+east)/2, format="%.5f")
-lat = c2.number_input("Latitud WGS84", min_value=float(south), max_value=float(north), value=(south+north)/2, format="%.5f")
+lon = c1.number_input("Longitud WGS84", min_value=float(west), max_value=float(east), value=float(st.session_state.get("point_lon", (west+east)/2)), format="%.5f")
+lat = c2.number_input("Latitud WGS84", min_value=float(south), max_value=float(north), value=float(st.session_state.get("point_lat", (south+north)/2)), format="%.5f")
 x, y = Transformer.from_crs("EPSG:4326", crs, always_xy=True).transform(lon, lat)
 row, col = rasterio.transform.rowcol(transform, x, y)
 rows = repository.point_series(scenes, pol, lon, lat)
@@ -107,7 +121,7 @@ with st.expander("Tiempo meteorológico · complemento opcional"):
             st.warning(f"Meteorología no disponible ({type(exc).__name__}). Las observaciones NISAR siguen disponibles; vuelve a consultar más tarde.")
 with st.expander("Procedencia y límites científicos"):
     st.write(manifest["quality_status"])
-    st.write("No se aplicó clasificación de agua, corrección hidrológica ni validación independiente. No se interpola entre fechas ausentes. Vista en coordenadas UTM nativas; mapa base geográfico y consulta con clic quedan para la siguiente etapa.")
+    st.write("No se aplicó clasificación de agua, corrección hidrológica ni validación independiente. No se interpola entre fechas ausentes. Gráficos en UTM nativas y mapa geográfico reproyectado solo para visualización; consulta de puntos al hacer clic dentro del AOI.")
     st.dataframe(frame, hide_index=True)
     st.json(manifest["scenes"][after])
 st.caption("Proyecto independiente de Software Detective. NASA e ISRO son las fuentes de la misión; no se implica patrocinio ni respaldo.")

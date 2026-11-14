@@ -19,4 +19,9 @@ with patch("weather.fetch_weather", side_effect=TimeoutError("offline")):
     assert not app.exception, list(app.exception)
     assert any("Meteorología no disponible" in x.value for x in app.warning)
 assert app.metric, "SAR coverage must remain available after weather failure"
+for region in ('Región Metropolitana', 'Región de Valparaíso'):
+    app.selectbox[0].set_value(region).run(timeout=180)
+    assert not app.exception, list(app.exception)
+    assert app.subheader[0].value == region
+    assert app.dataframe, 'Chile catalog must be available'
 print(json.dumps({"app":"passed", "difference":"passed", "polarization":"passed", "weather_outage":"passed"}))

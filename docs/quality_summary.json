@@ -15,7 +15,7 @@
       1.0
     ]
   },
-  "quality_status": "Exploratorio: solo finitos positivos y fill values; evaluaci\u00f3n de m\u00e1scaras QA pendiente",
+  "quality_status": "QA aplicada seg\u00fan atributos del producto: sub-swath v\u00e1lido y completamente enfocado, excepci\u00f3n cero, looks finitos positivos y potencia v\u00e1lida. Validaci\u00f3n ambiental independiente pendiente.",
   "coverage": [
     {
       "id": "G4249081225-ASF",

@@ -43,6 +43,16 @@ def prepare(raw, output, catalog_path):
             if reference is not None and grid != reference:
                 raise ValueError("Grillas no alineadas; requiere reproyección explícita")
             reference = grid
+            mask = g['mask'][r0:r1, c0:c1]
+            exceptions = g['inputDataExceptionMask'][r0:r1, c0:c1]
+            looks = g['numberOfLooks'][r0:r1, c0:c1]
+            description = str(g['mask'].attrs.get('description', ''))
+            if 'fully-focused' not in description or '255' not in description:
+                raise ValueError('Semántica de máscara no reconocida; revisar versión del producto')
+            exception_description = str(g['inputDataExceptionMask'].attrs.get('description', ''))
+            if '0: no anomaly' not in exception_description:
+                raise ValueError('Semántica de excepciones no reconocida')
+            qa = (mask > 0) & (mask <= int(g['numberOfSubSwaths'][()])) & (exceptions == 0) & np.isfinite(looks) & (looks > 0)
             products = {}
             coverage = {}
             for pol, layer in [("HH", "HHHH"), ("HV", "HVHV")]:
@@ -53,15 +63,16 @@ def prepare(raw, output, catalog_path):
                         for missing in np.atleast_1d(ds.attrs[key]):
                             power[power == missing] = np.nan
                 values = power_db(power)
+                values[~qa] = np.nan
                 coverage[pol] = float(np.isfinite(values).mean())
                 name = f"{scene['id']}_{pol}.tif"
                 with rasterio.open(output/name, "w", driver="COG", width=values.shape[1], height=values.shape[0], count=1, dtype="float32", crs=f"EPSG:{epsg}", transform=transform, nodata=np.nan, compress="DEFLATE") as dst:
                     dst.write(values, 1)
-                    dst.update_tags(unit="dB", source=scene["granulo"], quality="finite_positive_only; detailed QA pending", frequency="A", polarization=pol)
+                    dst.update_tags(unit="dB", source=scene["granulo"], quality="fully_focused_subswath; exception_zero; positive_looks; finite_positive_power", frequency="A", polarization=pol)
                 products[pol] = name
             scenes.append({**scene, "products": products, "finite_positive_fraction": coverage})
             print(scene["id"], coverage, flush=True)
-    result = {**catalog, "scenes": scenes, "quality_status": "Exploratorio: solo finitos positivos y fill values; evaluación de máscaras QA pendiente", "grid": {"epsg": reference[0], "height": reference[1], "width": reference[2], "transform": reference[3]}}
+    result = {**catalog, "scenes": scenes, "quality_status": "QA aplicada según atributos del producto: sub-swath válido y completamente enfocado, excepción cero, looks finitos positivos y potencia válida. Validación ambiental independiente pendiente.", "grid": {"epsg": reference[0], "height": reference[1], "width": reference[2], "transform": reference[3]}}
     (output/"manifest.json").write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
