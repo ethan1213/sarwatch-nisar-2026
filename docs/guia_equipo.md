@@ -61,6 +61,8 @@ Con Docker: `docker compose up --build -d` y abrir http://localhost:8080. Los HD
 
 Reglas que no se negocian: ningún número en la app sin su JSON de origen; ningún modelo en el visor sin métrica en bloques y fechas retenidos; "inundación", "daño" y "riesgo" solo con evidencia independiente; nada de credenciales ni HDF5 en Git.
 
+Arquitectura GCP concreta a desplegar: [arquitectura_gcp_recomendada.md](arquitectura_gcp_recomendada.md) (Cloud Run + Jobs + Storage, eficiente por diseño).
+
 ## 5. Mejores modelos y herramientas para hacer el trabajo
 
 ### Para programar (asistentes de código)
