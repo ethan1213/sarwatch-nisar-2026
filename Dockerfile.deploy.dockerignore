@@ -1,0 +1,15 @@
+# Context for Dockerfile.deploy only. Everything is excluded except what the demo image copies.
+*
+!docs/*.md
+!data
+# Internal documents: not served to the public assistant
+docs/estrategia_comercial.md
+docs/guia_equipo.md
+docs/pruebas_usuarios.md
+docs/publicacion_y_github.md
+# Training inputs and sites that are not in the viewer
+data/**/labels
+data/**/covariates
+data/okavango
+**/*.h5
+**/download_status.json

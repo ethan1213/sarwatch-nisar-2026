@@ -1,0 +1,9 @@
+# Demo image: the base app image plus verified derivatives and public docs baked in.
+# Build the base first (docker compose build), then:
+#   docker build -f Dockerfile.deploy -t sarwatch-nisar:demo .
+# Uses Dockerfile.deploy.dockerignore (BuildKit) so data/ enters the context; HDF5 originals never do.
+ARG BASE=sarwatch-nisar:local
+FROM ${BASE}
+COPY --chown=app:app docs ./docs
+COPY --chown=app:app data ./data
+RUN test -f /app/data/manifest.json || (echo "Falta data/manifest.json: preparar los derivados antes de construir" && exit 1)
