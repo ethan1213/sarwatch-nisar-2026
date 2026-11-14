@@ -1,2 +1,2 @@
 # Optional, only for the local authenticated data-acquisition command.
-earthaccess
+earthaccess==0.19.0

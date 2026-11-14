@@ -23,12 +23,21 @@ def main():
     if shutil.disk_usage(target).free < estimated*1.3:
         raise SystemExit('Espacio insuficiente para el par y margen de procesamiento')
     import earthaccess
+    status=target/'download_status.json'
+    def checkpoint(state):
+        status.write_text(json.dumps({'state':state,'scene_ids':[s['id'] for s in scenes]}),encoding='utf-8')
+    checkpoint('awaiting_local_login')
+    print('Earthdata Login: introduce tus credenciales solo en esta terminal. No se guardaran.',flush=True)
     auth=earthaccess.login(strategy='interactive',persist=False)
     if not auth.authenticated:
+        checkpoint('authentication_failed')
         raise SystemExit('Earthdata no autenticado; no se descargó el par')
+    checkpoint('downloading')
     files=earthaccess.download([s['url_hdf5'] for s in scenes],local_path=str(target),threads=1)
     if len(files)!=len(scenes):
+        checkpoint('download_incomplete')
         raise SystemExit('Descarga incompleta. Revisar antes de procesar')
+    checkpoint('download_complete_unverified')
     print('Descarga terminada. Verificar integridad, grilla y calidad antes de publicar capas.')
 
 
