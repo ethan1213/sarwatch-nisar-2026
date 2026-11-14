@@ -35,8 +35,14 @@ def cmr_search(bbox, start, end):
 
 def select_pairs(entries, min_scenes=2):
     """Group granules by nominal geometry; keep groups with at least min_scenes acquisitions."""
+    latest = {}
+    for e in entries:  # the same acquisition can have several product versions (..._001, _002): keep the newest
+        name = e["producer_granule_id"]
+        base = name.rsplit("_", 1)[0]
+        if base not in latest or name > latest[base]["producer_granule_id"]:
+            latest[base] = e
     groups = defaultdict(list)
-    for e in entries:
+    for e in latest.values():
         groups[geometry_key(e["producer_granule_id"])].append(e)
     result = []
     for key, scenes in groups.items():

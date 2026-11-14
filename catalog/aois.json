@@ -1,0 +1,25 @@
+{
+  "aois": {
+    "okavango": {
+      "bbox_wgs84": [
+        22.6,
+        -19.6,
+        23.4,
+        -18.8
+      ],
+      "selected_utc": "2026-11-14T15:44:55.922955+00:00",
+      "n_scenes": 9,
+      "geometry_key": [
+        "172",
+        "A",
+        "168",
+        "2005",
+        "DHDH",
+        "A"
+      ],
+      "estimated_download_gb": 15.96,
+      "select_seconds": 0.42,
+      "status": "seleccionado"
+    }
+  }
+}
