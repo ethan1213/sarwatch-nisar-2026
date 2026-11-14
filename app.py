@@ -10,18 +10,23 @@ import rasterio
 import streamlit as st
 from pyproj import Transformer
 from science import difference
+from sarwatch.charts import raster_figure
+from sarwatch.repository import RasterRepository
+from sarwatch.theme import apply_theme
 
-st.set_page_config(page_title="SARWatch · NISAR", page_icon="🌎", layout="wide")
-st.title("🌎 SARWatch")
+st.set_page_config(page_title="SARWatch · NISAR", page_icon="S", layout="wide")
+apply_theme()
+st.title("SARWatch")
 st.caption("NISAR · Pantanal · Explorador de cambios de la superficie terrestre")
 st.info("Prototipo científico exploratorio. Cambios en dB no equivalen a inundaciones confirmadas. Datos PROVISIONAL; evaluación detallada de calidad pendiente.")
 root = Path(os.environ.get("DATA_DIR", "data"))
+repository = RasterRepository(root)
 manifest_path = root / "manifest.json"
 if not manifest_path.is_file():
     st.warning("No hay capas procesadas. Prepara los HDF5 con scripts/prepare.py; el catálogo identifica las siete escenas reales.")
     st.json(json.loads(Path("catalog/scenes.json").read_text(encoding="utf-8")))
     st.stop()
-manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+manifest = repository.manifest()
 scenes = manifest["scenes"]
 labels = [s["fecha_observacion"][:10] for s in scenes]
 st.sidebar.header("Explorar observaciones")
@@ -46,31 +51,24 @@ if a.shape != b.shape or transform != transform_b or crs != crs_b:
     st.stop()
 delta = difference(a, b)
 valid = np.isfinite(delta)
-st.metric("Cobertura comparable (finitos positivos)", f"{valid.mean():.1%}")
+summary = st.columns(3)
+summary[0].metric("Cobertura comparable", f"{valid.mean():.1%}")
+summary[1].metric("Observaciones", str(len(scenes)))
+summary[2].metric("Resolución de la grilla", f"{abs(transform.a):g} m")
 if valid.mean() < .1:
     st.warning("Menos del 10% del recorte tiene valores comparables. Umbral de aviso de interfaz, no criterio científico de calidad: revisa otras fechas antes de interpretar.")
 with st.expander("Cobertura por fecha"):
     st.dataframe(pd.DataFrame([{"fecha":s["fecha_observacion"], **s["finite_positive_fraction"]} for s in scenes]), hide_index=True)
 
 
-def figure(values, title, changes=False):
-    # Display sampling only: the scientific arrays and point queries stay at native resolution.
-    step = max(1, int(np.ceil(max(values.shape)/650)))
-    z = values[::step, ::step]
-    xs = transform.c + (np.arange(0, values.shape[1], step)+.5)*transform.a
-    ys = transform.f + (np.arange(0, values.shape[0], step)+.5)*transform.e
-    fig = go.Figure(go.Heatmap(z=z, x=xs, y=ys, zmin=-6 if changes else -30, zmax=6 if changes else 0, colorscale="RdBu" if changes else "Viridis", colorbar={"title":"dB"}, hoverongaps=False))
-    fig.update_layout(title=title, xaxis_title=f"Este (m) · {crs}", yaxis_title="Norte (m)", height=540, margin={"l":45,"r":15,"t":45,"b":40})
-    fig.update_yaxes(scaleanchor="x", scaleratio=1)
-    return fig
 
 
 if mode == "Antes y después":
     left, right = st.columns(2)
-    left.plotly_chart(figure(a, labels[before]+" · "+pol), width="stretch")
-    right.plotly_chart(figure(b, labels[after]+" · "+pol), width="stretch")
+    left.plotly_chart(raster_figure(a, labels[before]+" · "+pol, transform, crs), width="stretch")
+    right.plotly_chart(raster_figure(b, labels[after]+" · "+pol, transform, crs), width="stretch")
 else:
-    st.plotly_chart(figure(delta, f"{labels[after]} − {labels[before]}", True), width="stretch")
+    st.plotly_chart(raster_figure(delta, f"{labels[after]} − {labels[before]}", transform, crs, True), width="stretch")
     st.caption("Positivo: mayor retrodispersión en la fecha final. Escala visual limitada a ±6 dB; no es umbral de clasificación.")
 st.subheader("Serie temporal de un punto")
 west, south, east, north = manifest["bbox_wgs84"]
@@ -79,14 +77,7 @@ lon = c1.number_input("Longitud WGS84", min_value=float(west), max_value=float(e
 lat = c2.number_input("Latitud WGS84", min_value=float(south), max_value=float(north), value=(south+north)/2, format="%.5f")
 x, y = Transformer.from_crs("EPSG:4326", crs, always_xy=True).transform(lon, lat)
 row, col = rasterio.transform.rowcol(transform, x, y)
-rows = []
-for scene in scenes:
-    values, t, c = read_layer(str(root/scene["products"][pol]))
-    if t != transform or c != crs or values.shape != a.shape:
-        st.error("Serie interrumpida por grilla incompatible.")
-        st.stop()
-    value = float(values[row, col]) if 0 <= row < values.shape[0] and 0 <= col < values.shape[1] else np.nan
-    rows.append({"fecha":scene["fecha_observacion"], "dB":value, "granulo":scene["granulo"]})
+rows = repository.point_series(scenes, pol, lon, lat)
 frame = pd.DataFrame(rows)
 st.plotly_chart(go.Figure(go.Scatter(x=frame.fecha, y=frame.dB, mode="lines+markers", connectgaps=False)).update_layout(yaxis_title=f"{pol} (dB)", xaxis_title="Adquisición UTC"), width="stretch")
 st.download_button("Descargar serie CSV", frame.to_csv(index=False), "sarwatch-serie.csv", "text/csv")
