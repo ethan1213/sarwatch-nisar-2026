@@ -1,5 +1,11 @@
 # Estado de entrega — 13 noviembre 2026
 
+## Actualización: comprensión y evaluación predictiva
+
+Se añadió lectura guiada con resumen calculado, perfiles de audiencia, chat local explícitamente basado en reglas/fuentes, estadísticas robustas de la máscara común y calculadora de escala. No se instaló un LLM ni se habilitó API de lenguaje externa. El benchmark retrospectivo de persistencia HH de Pantanal tiene cuatro evaluaciones a ~12 días y MAE 0,45154 dB; no es un predictor validado de inundación. Detalle, revisión de escritorio por perfiles, escenarios de almacenamiento y plan de validación: experiencia_asistente_y_prediccion.md. No se realizaron entrevistas con usuarios reales.
+
+Verificación de esta actualización: 14 pruebas unitarias; AppTest de los tres AOI, cinco perfiles y pregunta de predicción; recorrido dentro del contenedor Linux. Servicio healthy. Se pudo inspeccionar visualmente la versión actual en el navegador y comprobar una respuesta del chat que se abstiene de predecir inundación. La captura de esa prueba queda en work/asistente-verificado.jpg (fuera de Git). Esta evidencia visual no sustituye pruebas de usabilidad con personas.
+
 ## Actualización: NISAR real para Chile
 
 Descargados los HDF5 del 5 y 17 octubre de 2026. Ambos tamaños y MD5 coinciden con CMR; SHA-256 y grillas registrados en catalog/chile_verified.json. Generados COG HH/HV para dos AOI urbanos: Santiago y Valparaíso/Viña del Mar, usando las mismas máscaras técnicas que Pantanal. Cobertura válida por fecha superior a 99,9 % en ambos recortes. Informes: metropolitana_quality.json y valparaiso_quality.json.

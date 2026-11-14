@@ -13,6 +13,8 @@ from science import difference
 from sarwatch.charts import raster_figure
 from sarwatch.repository import RasterRepository
 from sarwatch.theme import apply_theme
+from sarwatch.interpretation import PROFILES,summarize
+from sarwatch.guidance import reading,assistant,scale_calculator
 from sarwatch.maps import chile_view, raster_map
 from streamlit_folium import st_folium
 
@@ -20,9 +22,12 @@ st.set_page_config(page_title="SARWatch · NISAR", page_icon="S", layout="wide")
 apply_theme()
 st.title("SARWatch")
 st.caption("Observación terrestre · NISAR y contexto territorial")
-region = st.selectbox("Área de estudio", ["Pantanal", "Región Metropolitana", "Región de Valparaíso"])
+region = st.selectbox("Área de estudio", ["Pantanal", "Región Metropolitana", "Región de Valparaíso"],index=1)
+profile=st.selectbox("Cómo quieres explorar",PROFILES)
+st.caption("Elige un lugar, compara dos fechas y pregunta qué significa lo observado.")
 if region != "Pantanal":
-    chile_view(region)
+    chile_view(region,profile)
+    scale_calculator()
     st.stop()
 st.info("Análisis exploratorio. Cambios en dB no equivalen a inundaciones confirmadas. Datos PROVISIONAL con máscaras técnicas aplicadas; validación ambiental independiente pendiente.")
 root = Path(os.environ.get("DATA_DIR", "data"))
@@ -57,6 +62,8 @@ if a.shape != b.shape or transform != transform_b or crs != crs_b:
     st.stop()
 delta = difference(a, b)
 valid = np.isfinite(delta)
+context={"region":"Pantanal","before":labels[before],"after":labels[after],"polarization":pol,"statistics":summarize(a,b),"source":scenes[after]["url_metadatos"]}
+reading(context,profile)
 summary = st.columns(3)
 summary[0].metric("Cobertura comparable", f"{valid.mean():.1%}")
 summary[1].metric("Observaciones", str(len(scenes)))
@@ -69,16 +76,17 @@ with st.expander("Cobertura por fecha"):
 
 
 
-if mode == "Antes y después":
-    left, right = st.columns(2)
-    left.plotly_chart(raster_figure(a, labels[before]+" · "+pol, transform, crs), width="stretch")
-    right.plotly_chart(raster_figure(b, labels[after]+" · "+pol, transform, crs), width="stretch")
-else:
-    st.plotly_chart(raster_figure(delta, f"{labels[after]} − {labels[before]}", transform, crs, True), width="stretch")
-    st.caption("Positivo: mayor retrodispersión en la fecha final. Escala visual limitada a ±6 dB; no es umbral de clasificación.")
+with st.expander("Gráficos en coordenadas nativas · detalle científico",expanded=profile=="Ciencia"):
+    if mode == "Antes y después":
+        left, right = st.columns(2)
+        left.plotly_chart(raster_figure(a, labels[before]+" · "+pol, transform, crs), width="stretch")
+        right.plotly_chart(raster_figure(b, labels[after]+" · "+pol, transform, crs), width="stretch")
+    else:
+        st.plotly_chart(raster_figure(delta, f"{labels[after]} − {labels[before]}", transform, crs, True), width="stretch")
+        st.caption("Positivo: mayor retrodispersión en la fecha final. Escala visual limitada a ±6 dB; no es umbral de clasificación.")
 st.subheader("Mapa geográfico")
 st.caption(f"Polarización {pol} · {labels[after]}" if mode == 'Antes y después' else f"Polarización {pol} · {labels[after]} menos {labels[before]}")
-st.caption("Capa NISAR sobre mapa base. Rojo: valores altos; azul: bajos. Rango: −6 a 6 dB para diferencias; −30 a 0 dB para intensidad. Transparente: sin dato.")
+st.caption("Capa NISAR sobre mapa base. Naranja: respuesta mayor; azul: menor; tono claro cerca de cero solo en diferencias. Rango: −6 a 6 dB para diferencias; −30 a 10 dB para intensidad. Transparente: sin dato.")
 map_event = st_folium(raster_map(delta if mode == "Diferencia en dB" else b, transform, crs, mode == "Diferencia en dB"), height=520, use_container_width=True, key="sar-map", returned_objects=["last_clicked"])
 st.subheader("Serie temporal de un punto")
 west, south, east, north = manifest["bbox_wgs84"]
@@ -124,4 +132,6 @@ with st.expander("Procedencia y límites científicos"):
     st.write("No se aplicó clasificación de agua, corrección hidrológica ni validación independiente. No se interpola entre fechas ausentes. Gráficos en UTM nativas y mapa geográfico reproyectado solo para visualización; consulta de puntos al hacer clic dentro del AOI.")
     st.dataframe(frame, hide_index=True)
     st.json(manifest["scenes"][after])
+assistant(context,profile)
+scale_calculator()
 st.caption("Proyecto independiente de Software Detective. NASA e ISRO son las fuentes de la misión; no se implica patrocinio ni respaldo.")

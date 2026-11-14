@@ -11,6 +11,8 @@ import streamlit as st
 import rasterio
 from sarwatch.repository import RasterRepository
 from science import difference
+from sarwatch.interpretation import summarize
+from sarwatch.guidance import reading,assistant
 
 
 @st.cache_data(max_entries=8)
@@ -38,11 +40,13 @@ def raster_map(values, transform, crs, changes=False):
     output = np.full((h,w), np.nan, dtype='float32')
     reproject(values, output, src_transform=transform, src_crs=crs, src_nodata=np.nan, dst_transform=dst_transform, dst_crs='EPSG:4326', dst_nodata=np.nan, resampling=Resampling.nearest)
     west,south,east,north = array_bounds(h,w,dst_transform)
-    normalized = np.clip((output+6)/12 if changes else (output+30)/30,0,1)
+    normalized = np.clip((output+6)/12 if changes else (output+30)/40,0,1)
     rgba = np.zeros((h,w,4),dtype='uint8')
-    rgba[:,:,0] = np.nan_to_num(normalized*255).astype('uint8')
-    rgba[:,:,1] = np.nan_to_num((1-abs(normalized-.5)*2)*200).astype('uint8')
-    rgba[:,:,2] = np.nan_to_num((1-normalized)*255).astype('uint8')
+    # Blue-neutral-orange diverging scale; opacity distinguishes missing data.
+    low=np.array([32,91,135.]);mid=np.array([242,242,232.]);high=np.array([198,96,28.])
+    z=np.nan_to_num(normalized)
+    rgb=np.where((z<=.5)[:,:,None],low+(mid-low)*(z*2)[:,:,None],mid+(high-mid)*((z-.5)*2)[:,:,None])
+    rgba[:,:,:3]=rgb.astype('uint8')
     rgba[:,:,3] = np.isfinite(output).astype('uint8')*190
     m = base_map([(south+north)/2,(west+east)/2],10)
     folium.raster_layers.ImageOverlay(rgba, bounds=[[south,west],[north,east]], name='NISAR · diferencia dB' if changes else 'NISAR · retrodispersión dB', mercator_project=True).add_to(m)
@@ -51,12 +55,13 @@ def raster_map(values, transform, crs, changes=False):
     return m
 
 
-def chile_view(region):
+def chile_view(region,profile="Público general"):
     slug = 'metropolitana' if region == 'Región Metropolitana' else 'valparaiso'
     center = [-33.45,-70.66] if slug=='metropolitana' else [-33.047,-71.613]
     st.subheader(region)
-    framing = st.radio('Encuadre', ['Región completa', 'Santiago' if slug=='metropolitana' else 'Valparaíso / Viña del Mar'], horizontal=True)
-    st.caption('Límites comunales continentales de CIREN / IDE Minagri. Cartografía de referencia; no representa una medición SAR.')
+    summary_area=st.container()
+    framing = st.radio('Encuadre', ['Región completa', 'Santiago' if slug=='metropolitana' else 'Valparaíso / Viña del Mar'], horizontal=True,index=1)
+    st.caption('Las líneas delimitan comunas. La capa coloreada muestra las observaciones del recorte urbano; fuera de ella no publicamos resultados SAR.')
     m=base_map(center,9)
     path=Path('catalog')/(slug+'.geojson')
     if path.is_file():
@@ -75,7 +80,7 @@ def chile_view(region):
         pol=st.selectbox('Polarización SAR',['HH','HV'],key=slug+'-pol')
         scenes=manifest['scenes']
         dates=[s['fecha_observacion'][:10] for s in scenes]
-        view=st.radio('Capa SAR',[dates[0],dates[-1],'Diferencia en dB'],horizontal=True,key=slug+'-sar')
+        view=st.radio('Capa SAR',[dates[0],dates[-1],'Diferencia en dB'],horizontal=True,index=2,key=slug+'-sar')
         before,t,c=regional_raster(str(repository.product_path(scenes[0]['products'][pol])))
         after,t2,c2=regional_raster(str(repository.product_path(scenes[-1]['products'][pol])))
         if t!=t2 or c!=c2 or before.shape!=after.shape:
@@ -87,8 +92,11 @@ def chile_view(region):
             for child in list(overlay_map._children.values()):
                 if isinstance(child,folium.raster_layers.ImageOverlay):
                     child.add_to(m)
+            context={'region':region,'before':dates[0],'after':dates[-1],'polarization':pol,'statistics':summarize(before,after),'source':scenes[-1]['url_metadatos']}
+            with summary_area:
+                reading(context,profile)
             st.metric('Cobertura comparable del recorte',f'{np.isfinite(difference(before,after)).mean():.1%}')
-            st.caption('Rojo: mayor valor; azul: menor. Diferencia: −6 a +6 dB; intensidad: −30 a 0 dB. Transparente: sin dato. Cambios de radar no equivalen a inundaciones.')
+            st.caption('Naranja: mayor respuesta; azul: menor. El tono claro indica diferencia cerca de cero. Diferencia: −6 a +6 dB; intensidad: −30 a 10 dB. Transparente: sin dato. Cambios de radar no equivalen a inundaciones.')
     folium.LayerControl().add_to(m)
     event=st_folium(m,height=560,use_container_width=True,key='chile-'+slug+framing,returned_objects=['last_clicked'])
     point=event.get('last_clicked') or {'lat':center[0],'lng':center[1]}
@@ -96,21 +104,23 @@ def chile_view(region):
     if manifest is not None:
         import pandas as pd
         frame=pd.DataFrame(repository.point_series(manifest['scenes'],pol,point['lng'],point['lat']))
-        st.dataframe(frame,hide_index=True)
+        st.dataframe(frame if profile in ('Ciencia','Desarrollo y datos') else frame[['fecha','dB']],hide_index=True,column_config={'dB':st.column_config.NumberColumn('Respuesta del radar (dB)',format='%.2f'),'fecha':st.column_config.TextColumn('Fecha de observación (UTC)')})
         if frame['dB'].isna().all():
             st.warning('El punto no tiene valores SAR válidos; selecciona uno dentro de la capa coloreada.')
+        assistant(context,profile)
         st.download_button('Descargar serie SAR del punto',frame.to_csv(index=False),slug+'-serie.csv','text/csv')
         with st.expander('Calidad y procedencia SAR'):
             st.write(manifest['quality_status'])
             st.json(manifest['scenes'])
     else:
         st.info('No hay una serie SAR procesada disponible para este recorte.')
-    if Path('catalog/chile_cmr.json').is_file():
-        catalog=json.loads(Path('catalog/chile_cmr.json').read_text(encoding='utf-8'))
-        entries=catalog['response'].get('feed',{}).get('entry',[])
-        st.write(f'{len(entries)} adquisiciones en la página de resultados consultada para Chile central. Son candidatos: intersección de huellas no garantiza cobertura útil de cada comuna.')
-        st.dataframe([{'granulo':e.get('producer_granule_id'), 'inicio':e.get('time_start')} for e in entries],hide_index=True)
-        st.download_button('Descargar búsqueda CMR y procedencia',json.dumps(catalog,ensure_ascii=False),'chile-cmr.json','application/json')
+    with st.expander('Catálogo de adquisiciones · detalle de datos'):
+        if Path('catalog/chile_cmr.json').is_file():
+            catalog=json.loads(Path('catalog/chile_cmr.json').read_text(encoding='utf-8'))
+            entries=catalog['response'].get('feed',{}).get('entry',[])
+            st.write(f'{len(entries)} adquisiciones en la página de resultados consultada para Chile central. Son candidatos: intersección de huellas no garantiza cobertura útil de cada comuna.')
+            st.dataframe([{'granulo':e.get('producer_granule_id'), 'inicio':e.get('time_start')} for e in entries],hide_index=True)
+            st.download_button('Descargar búsqueda CMR y procedencia',json.dumps(catalog,ensure_ascii=False),'chile-cmr.json','application/json')
     if st.button('Consultar pronóstico del punto'):
         try:
             result=point_forecast(round(point['lat'],3),round(point['lng'],3))

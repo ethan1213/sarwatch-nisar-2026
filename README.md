@@ -1,5 +1,7 @@
 # SARWatch · NISAR 2026
 
+La entrada guiada explica lugar, fechas y significado antes de los detalles SAR. Incluye perfiles de público general/ciencia/desarrollo/comunicaciones/gestión, asistente local basado en reglas y fuentes, calculadora de almacenamiento y referencia predictiva retrospectiva. No hay un LLM instalado ni predicción validada de inundación. La evaluación detallada y el plan están en [experiencia, asistente y predicción](docs/experiencia_asistente_y_prediccion.md).
+
 Explorador de cambios de retrodispersión para **Dancing with the SARs**. Equipo Software Detective, Santiago, Chile. Proyecto independiente, sin respaldo implícito de NASA o ISRO.
 
 Pantanal: siete adquisiciones GCOV PROVISIONAL de 2026, HH/HV, frecuencia A. Originales fuera de Git. No hay clasificación de inundaciones validada.
