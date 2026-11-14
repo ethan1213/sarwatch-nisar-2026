@@ -6,7 +6,7 @@ Alcance actual: solo Docker local por elección del propietario. Implementados s
 
 Las siete escenas de Pantanal se reprocesaron con máscara de subswath, excepciones y looks según sus atributos; se conserva la cobertura escasa de julio 5. El resumen actualizado es quality_summary.json. Esto reemplaza el filtrado anterior de solo finitos positivos. La validación ambiental independiente sigue pendiente y no se presentan inundaciones confirmadas.
 
-Para Chile hay cartografía y catálogo candidato, todavía no HDF5 descargados/procesados ni cambios SAR validados. La fuente CIREN usada excluye territorios insulares. El control del navegador volvió a fallar por timeout; no se afirma verificación visual. La prueba final de Docker de esta actualización se registra al concluir.
+Para Chile hay cartografía y catálogo candidato, todavía no HDF5 descargados/procesados ni cambios SAR validados. La fuente CIREN usada excluye territorios insulares. El control del navegador volvió a fallar por timeout; no se afirma verificación visual. Imagen Docker reconstruida y prueba funcional AppTest ejecutada en Linux: carga, diferencia, polarización, fallo meteorológico y navegación de las tres zonas sin excepciones. Servicio local healthy y HTTP 200 en localhost:8080. Siete pruebas unitarias pasan en Windows.
 
 ## Comprobado
 
