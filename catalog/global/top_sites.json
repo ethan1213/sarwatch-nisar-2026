@@ -1,0 +1,284 @@
+{
+  "generated_utc": "2026-11-14T15:52:43.216970+00:00",
+  "source": "catalog/global/gcov_index.csv.gz (metadatos CMR, sin imágenes descargadas)",
+  "rule": "mejor geometría de órbita repetida (misma track/dirección/frame) por punto; mide disponibilidad en catálogo, no calidad ni cobertura procesada",
+  "top": [
+    {
+      "name": "Everglades (US, humedal)",
+      "lon": -80.75,
+      "lat": 25.6,
+      "why": "humedal; mismo fenómeno que Pantanal, 27 fechas",
+      "geometry": "170_D_75",
+      "n_fechas": 27,
+      "primera_fecha": "2025-11-22",
+      "ultima_fecha": "2026-10-12",
+      "descarga_estimada_gb": 155.9
+    },
+    {
+      "name": "Atacama / Calama (CL, minería)",
+      "lon": -68.9,
+      "lat": -22.45,
+      "why": "minería y suelo desnudo; 27 fechas",
+      "geometry": "46_A_166",
+      "n_fechas": 27,
+      "primera_fecha": "2025-11-01",
+      "ultima_fecha": "2026-10-15",
+      "descarga_estimada_gb": 50.5
+    },
+    {
+      "name": "Salar de Surire (CL, Ramsar)",
+      "lon": -69.05,
+      "lat": -18.85,
+      "why": "humedal altiplánico; 27 fechas",
+      "geometry": "97_D_98",
+      "n_fechas": 27,
+      "primera_fecha": "2025-11-04",
+      "ultima_fecha": "2026-10-06",
+      "descarga_estimada_gb": 45.5
+    },
+    {
+      "name": "Concepción / Biobío (CL, incendios)",
+      "lon": -72.9,
+      "lat": -36.9,
+      "why": "megaincendios recurrentes; 19 fechas desde feb-2026",
+      "geometry": "3_A_159",
+      "n_fechas": 19,
+      "primera_fecha": "2026-02-26",
+      "ultima_fecha": "2026-10-12",
+      "descarga_estimada_gb": 33.4
+    },
+    {
+      "name": "Ñuble / Chillán (CL, incendios)",
+      "lon": -72.1,
+      "lat": -36.6,
+      "why": "misma geometría que Biobío; 19 fechas",
+      "geometry": "3_A_159",
+      "n_fechas": 19,
+      "primera_fecha": "2026-02-26",
+      "ultima_fecha": "2026-10-12",
+      "descarga_estimada_gb": 33.4
+    },
+    {
+      "name": "Las Condes / RM (CL, aluvión post-incendio)",
+      "lon": -70.52,
+      "lat": -33.4,
+      "why": "ya procesado; foco del caso Quebrada Honda",
+      "geometry": "75_A_161",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-19",
+      "ultima_fecha": "2026-10-17",
+      "descarga_estimada_gb": 15.6
+    },
+    {
+      "name": "Valparaíso / Viña (CL, incendios urbanos)",
+      "lon": -71.55,
+      "lat": -33.05,
+      "why": "ya procesado; interfaz urbano-forestal",
+      "geometry": "75_A_161",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-19",
+      "ultima_fecha": "2026-10-17",
+      "descarga_estimada_gb": 15.6
+    },
+    {
+      "name": "Ibera (AR, humedal)",
+      "lon": -57.25,
+      "lat": -28.5,
+      "why": "humedal sudamericano comparable a Pantanal; 10 fechas",
+      "geometry": "60_A_163",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-18",
+      "ultima_fecha": "2026-10-16",
+      "descarga_estimada_gb": 17.4
+    },
+    {
+      "name": "Sundarbans (IN/BD, manglar)",
+      "lon": 89.0,
+      "lat": 21.9,
+      "why": "manglar y riesgo de inundación; 10 fechas",
+      "geometry": "91_D_78",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-20",
+      "ultima_fecha": "2026-10-18",
+      "descarga_estimada_gb": 18.3
+    },
+    {
+      "name": "Mekong delta (VN, inundación/agricultura)",
+      "lon": 105.8,
+      "lat": 9.9,
+      "why": "delta agrícola e inundación estacional; 10 fechas",
+      "geometry": "47_D_84",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-17",
+      "ultima_fecha": "2026-10-15",
+      "descarga_estimada_gb": 24.4
+    }
+  ],
+  "all_candidates": [
+    {
+      "name": "Everglades (US, humedal)",
+      "lon": -80.75,
+      "lat": 25.6,
+      "why": "humedal; mismo fenómeno que Pantanal, 27 fechas",
+      "geometry": "170_D_75",
+      "n_fechas": 27,
+      "primera_fecha": "2025-11-22",
+      "ultima_fecha": "2026-10-12",
+      "descarga_estimada_gb": 155.9
+    },
+    {
+      "name": "Atacama / Calama (CL, minería)",
+      "lon": -68.9,
+      "lat": -22.45,
+      "why": "minería y suelo desnudo; 27 fechas",
+      "geometry": "46_A_166",
+      "n_fechas": 27,
+      "primera_fecha": "2025-11-01",
+      "ultima_fecha": "2026-10-15",
+      "descarga_estimada_gb": 50.5
+    },
+    {
+      "name": "Salar de Surire (CL, Ramsar)",
+      "lon": -69.05,
+      "lat": -18.85,
+      "why": "humedal altiplánico; 27 fechas",
+      "geometry": "97_D_98",
+      "n_fechas": 27,
+      "primera_fecha": "2025-11-04",
+      "ultima_fecha": "2026-10-06",
+      "descarga_estimada_gb": 45.5
+    },
+    {
+      "name": "Concepción / Biobío (CL, incendios)",
+      "lon": -72.9,
+      "lat": -36.9,
+      "why": "megaincendios recurrentes; 19 fechas desde feb-2026",
+      "geometry": "3_A_159",
+      "n_fechas": 19,
+      "primera_fecha": "2026-02-26",
+      "ultima_fecha": "2026-10-12",
+      "descarga_estimada_gb": 33.4
+    },
+    {
+      "name": "Ñuble / Chillán (CL, incendios)",
+      "lon": -72.1,
+      "lat": -36.6,
+      "why": "misma geometría que Biobío; 19 fechas",
+      "geometry": "3_A_159",
+      "n_fechas": 19,
+      "primera_fecha": "2026-02-26",
+      "ultima_fecha": "2026-10-12",
+      "descarga_estimada_gb": 33.4
+    },
+    {
+      "name": "Las Condes / RM (CL, aluvión post-incendio)",
+      "lon": -70.52,
+      "lat": -33.4,
+      "why": "ya procesado; foco del caso Quebrada Honda",
+      "geometry": "75_A_161",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-19",
+      "ultima_fecha": "2026-10-17",
+      "descarga_estimada_gb": 15.6
+    },
+    {
+      "name": "Valparaíso / Viña (CL, incendios urbanos)",
+      "lon": -71.55,
+      "lat": -33.05,
+      "why": "ya procesado; interfaz urbano-forestal",
+      "geometry": "75_A_161",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-19",
+      "ultima_fecha": "2026-10-17",
+      "descarga_estimada_gb": 15.6
+    },
+    {
+      "name": "Ibera (AR, humedal)",
+      "lon": -57.25,
+      "lat": -28.5,
+      "why": "humedal sudamericano comparable a Pantanal; 10 fechas",
+      "geometry": "60_A_163",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-18",
+      "ultima_fecha": "2026-10-16",
+      "descarga_estimada_gb": 17.4
+    },
+    {
+      "name": "Sundarbans (IN/BD, manglar)",
+      "lon": 89.0,
+      "lat": 21.9,
+      "why": "manglar y riesgo de inundación; 10 fechas",
+      "geometry": "91_D_78",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-20",
+      "ultima_fecha": "2026-10-18",
+      "descarga_estimada_gb": 18.3
+    },
+    {
+      "name": "Mekong delta (VN, inundación/agricultura)",
+      "lon": 105.8,
+      "lat": 9.9,
+      "why": "delta agrícola e inundación estacional; 10 fechas",
+      "geometry": "47_D_84",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-17",
+      "ultima_fecha": "2026-10-15",
+      "descarga_estimada_gb": 24.4
+    },
+    {
+      "name": "Kakadu (AU, humedal)",
+      "lon": 132.6,
+      "lat": -12.6,
+      "why": "humedal tropical; 10 fechas",
+      "geometry": "89_D_95",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-20",
+      "ultima_fecha": "2026-10-18",
+      "descarga_estimada_gb": 17.2
+    },
+    {
+      "name": "Campo de Hielo Norte (CL, glaciar)",
+      "lon": -73.4,
+      "lat": -47.0,
+      "why": "glaciar; 10 fechas",
+      "geometry": "104_A_154",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-21",
+      "ultima_fecha": "2026-10-19",
+      "descarga_estimada_gb": 64.8
+    },
+    {
+      "name": "Bahía Lomas (CL, Ramsar)",
+      "lon": -69.0,
+      "lat": -52.6,
+      "why": "humedal subantártico; 10 fechas",
+      "geometry": "104_A_151",
+      "n_fechas": 10,
+      "primera_fecha": "2026-06-21",
+      "ultima_fecha": "2026-10-19",
+      "descarga_estimada_gb": 58.7
+    },
+    {
+      "name": "Araucanía / Temuco (CL, incendios)",
+      "lon": -72.6,
+      "lat": -38.7,
+      "why": "zona forestal recurrente; 9 fechas",
+      "geometry": "3_A_158",
+      "n_fechas": 9,
+      "primera_fecha": "2026-06-26",
+      "ultima_fecha": "2026-10-12",
+      "descarga_estimada_gb": 17.7
+    },
+    {
+      "name": "Doñana (ES, humedal)",
+      "lon": -6.4,
+      "lat": 37.0,
+      "why": "humedal mediterráneo; 9 fechas",
+      "geometry": "116_A_20",
+      "n_fechas": 9,
+      "primera_fecha": "2026-06-22",
+      "ultima_fecha": "2026-10-20",
+      "descarga_estimada_gb": 13.1
+    }
+  ]
+}

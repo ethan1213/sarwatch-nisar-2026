@@ -45,3 +45,7 @@ Agua Pantanal (9 fechas, 8 etiquetadas): LightGBM F1 0,83 en bloques retenidos y
 ## Qué falta (resumen)
 
 Licencia y repositorio abierto; sitios en otros continentes y otros tipos de cambio (incendio, glaciar); generalización del modelo entre humedales; animación temporal; inglés y accesibilidad; pruebas con personas; app pública (Cloud Run) y procesamiento junto a los datos (Lambda us-west-2). Orden y criterios en `docs/guia_equipo.md`.
+
+## Fusión con el PR del módulo térmico (14 nov 2026, tarde)
+
+La rama `claude/relaxed-keller-ymtner` (vista "Calor y focos" con GOES-19, rediseño visual con `sarwatch/theme.py`, `CLAUDE.md`) fue aprobada por el propietario y fusionada a `main`. Esta sesión añadió sobre ella el módulo PostFuego (`sarwatch/ml/wildfire.py`, `hydrology.py`, `debris_flow.py`, `interferometry.py`, `sarwatch/postfire.py`) para el caso Quebrada Honda (Las Condes). Detalle y pendientes: `docs/postfuego_las_condes.md`.
