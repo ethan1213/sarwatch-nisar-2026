@@ -1,51 +1,37 @@
 {
   "target": "Mediana HH del recorte en píxeles comunes válidos",
-  "method": "Persistencia: repetir mediana de la fecha anterior, sin entrenamiento",
+  "method": "Comparación en origen rodante: persistencia, climatología, Ridge y Ridge sobre anomalías",
   "kind": "retrospective_reference_only",
-  "n_evaluations": 4,
-  "mae_db": 0.4515429735183716,
-  "evaluations": [
-    {
-      "issued_at": "2026-08-10T09:42:25.000Z",
-      "target_date": "2026-08-22T09:42:25.000Z",
-      "horizon_days": 12.0,
-      "prediction_db": -5.487861633300781,
-      "observed_db": -5.56563663482666,
-      "absolute_error_db": 0.0777750015258789,
-      "common_coverage": 1.0
+  "n_evaluations": 2,
+  "mae_db": 0.6540429592132568,
+  "best_model": {
+    "publishable": false,
+    "model": null,
+    "reason": "ningún modelo supera a la persistencia con intervalos calibrados en los pliegues disponibles"
+  },
+  "models_mae": {
+    "persistence": 0.6540429592132568,
+    "climatology": 0.419963002204895,
+    "ridge": 1.009928115080413,
+    "ridge_anomaly": 0.6531848758159269
+  },
+  "water_area": {
+    "decision": {
+      "publishable": false,
+      "model": null,
+      "reason": "ningún modelo supera a la persistencia con intervalos calibrados en los pliegues disponibles"
     },
-    {
-      "issued_at": "2026-08-22T09:42:25.000Z",
-      "target_date": "2026-09-03T09:42:25.000Z",
-      "horizon_days": 12.0,
-      "prediction_db": -5.56563663482666,
-      "observed_db": -5.985947608947754,
-      "absolute_error_db": 0.42031097412109375,
-      "common_coverage": 1.0
-    },
-    {
-      "issued_at": "2026-09-03T09:42:25.000Z",
-      "target_date": "2026-09-15T09:42:24.000Z",
-      "horizon_days": 11.999988425925926,
-      "prediction_db": -5.985947608947754,
-      "observed_db": -5.463778495788574,
-      "absolute_error_db": 0.5221691131591797,
-      "common_coverage": 1.0
-    },
-    {
-      "issued_at": "2026-09-15T09:42:24.000Z",
-      "target_date": "2026-09-27T09:42:24.000Z",
-      "horizon_days": 12.0,
-      "prediction_db": -5.463778495788574,
-      "observed_db": -6.249695301055908,
-      "absolute_error_db": 0.785916805267334,
-      "common_coverage": 1.0
+    "models_mae_km2": {
+      "persistence": 0.22560000000000002,
+      "climatology": 0.528450000000003,
+      "ridge": 1.3041934466696432,
+      "ridge_anomaly": 2.447397947644461
     }
-  ],
+  },
   "limitations": [
-    "Pocas fechas y un único AOI; no demuestra capacidad de generalización.",
-    "No predice inundación, extensión de agua, daños ni riesgo.",
-    "No se seleccionaron hiperparámetros ni se entrenó un modelo.",
-    "Se usa máscara común del par para comparabilidad retrospectiva; no es un pipeline operativo de pronóstico."
+    "Pocas fechas y un solo AOI: referencia metodológica, no servicio de pronóstico.",
+    "Los objetivos son resúmenes del recorte, no inundación por píxel ni riesgo.",
+    "ERA5 y GloFAS son modelos a escala mucho más gruesa que el SAR.",
+    "Intervalos conformes calculados con muy pocos residuos pasados."
   ]
 }

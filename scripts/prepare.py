@@ -70,7 +70,13 @@ def prepare(raw, output, catalog_path):
                     dst.write(values, 1)
                     dst.update_tags(unit="dB", source=scene["granulo"], quality="fully_focused_subswath; exception_zero; positive_looks; finite_positive_power", frequency="A", polarization=pol)
                 products[pol] = name
-            scenes.append({**scene, "products": products, "finite_positive_fraction": coverage})
+            # Number of looks per pixel is needed by statistical change tests; stored outside `products`.
+            looks_name = f"{scene['id']}_looks.tif"
+            looks_values = np.where(qa, looks.astype("float32"), np.nan).astype("float32")
+            with rasterio.open(output/looks_name, "w", driver="COG", width=looks_values.shape[1], height=looks_values.shape[0], count=1, dtype="float32", crs=f"EPSG:{epsg}", transform=transform, nodata=np.nan, compress="DEFLATE") as dst:
+                dst.write(looks_values, 1)
+                dst.update_tags(unit="looks", source=scene["granulo"], meaning="numberOfLooks del producto GCOV en píxeles con QA válida")
+            scenes.append({**scene, "products": products, "ancillary": {"looks": looks_name}, "finite_positive_fraction": coverage})
             print(scene["id"], coverage, flush=True)
     result = {**catalog, "scenes": scenes, "quality_status": "QA aplicada según atributos del producto: sub-swath válido y completamente enfocado, excepción cero, looks finitos positivos y potencia válida. Validación ambiental independiente pendiente.", "grid": {"epsg": reference[0], "height": reference[1], "width": reference[2], "transform": reference[3]}}
     (output/"manifest.json").write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")

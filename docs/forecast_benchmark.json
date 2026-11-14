@@ -1,0 +1,444 @@
+{
+  "aoi": "Pantanal",
+  "generated_utc": "2026-11-14T04:05:24.515095+00:00",
+  "series": [
+    {
+      "date": "2026-07-17",
+      "scene_id": "G4254665779-ASF",
+      "median_hh_db": -5.408691883087158,
+      "water_area_km2": 55.8588
+    },
+    {
+      "date": "2026-08-10",
+      "scene_id": "G4278808808-ASF",
+      "median_hh_db": -5.487861633300781,
+      "water_area_km2": 54.6288
+    },
+    {
+      "date": "2026-08-22",
+      "scene_id": "G4288574282-ASF",
+      "median_hh_db": -5.56563663482666,
+      "water_area_km2": 54.928
+    },
+    {
+      "date": "2026-09-03",
+      "scene_id": "G4298917803-ASF",
+      "median_hh_db": -5.985947608947754,
+      "water_area_km2": 55.1636
+    },
+    {
+      "date": "2026-09-15",
+      "scene_id": "G4314009366-ASF",
+      "median_hh_db": -5.463778495788574,
+      "water_area_km2": 55.372
+    },
+    {
+      "date": "2026-09-27",
+      "scene_id": "G4327697742-ASF",
+      "median_hh_db": -6.249695301055908,
+      "water_area_km2": 55.6148
+    }
+  ],
+  "common_coverage": 1.0,
+  "exogenous": {
+    "rain": {
+      "source": "ERA5 via Open-Meteo archive, centro del AOI"
+    },
+    "discharge": {
+      "source": "GloFAS via Open-Meteo Flood API; máximo diario entre 9 celdas del AOI",
+      "cells": [
+        [
+          -17.524998,
+          -57.524994
+        ],
+        [
+          -17.524998,
+          -57.274994
+        ],
+        [
+          -17.524998,
+          -57.024994
+        ],
+        [
+          -17.274998,
+          -57.524994
+        ],
+        [
+          -17.274998,
+          -57.274994
+        ],
+        [
+          -17.274998,
+          -57.024994
+        ],
+        [
+          -17.024998,
+          -57.524994
+        ],
+        [
+          -17.024998,
+          -57.274994
+        ],
+        [
+          -17.024998,
+          -57.024994
+        ]
+      ]
+    }
+  },
+  "targets": [
+    {
+      "target": "median_hh_db",
+      "n_dates": 6,
+      "features": [
+        "previous",
+        "momentum",
+        "horizon_days",
+        "season_sin",
+        "season_cos",
+        "rain_7d_mm",
+        "rain_30d_mm",
+        "discharge_7d_mean_m3s"
+      ],
+      "models": {
+        "persistence": {
+          "n_evaluations": 2,
+          "n": 2,
+          "mae": 0.6540429592132568,
+          "bias": 0.13187384605407715,
+          "rmse": 0.6672052935712729,
+          "interval_level": 0.8,
+          "interval": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null
+          },
+          "evaluations": [
+            {
+              "issued_from": "2026-09-03",
+              "target_date": "2026-09-15",
+              "horizon_days": 12,
+              "prediction": -5.985947608947754,
+              "observed": -5.463778495788574,
+              "error": -0.5221691131591797,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            },
+            {
+              "issued_from": "2026-09-15",
+              "target_date": "2026-09-27",
+              "horizon_days": 12,
+              "prediction": -5.463778495788574,
+              "observed": -6.249695301055908,
+              "error": 0.785916805267334,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "skill_vs_persistence": 0.0
+        },
+        "climatology": {
+          "n_evaluations": 2,
+          "n": 2,
+          "mae": 0.419963002204895,
+          "bias": 0.2039262056350708,
+          "rmse": 0.46685631683170553,
+          "interval_level": 0.8,
+          "interval": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null
+          },
+          "evaluations": [
+            {
+              "issued_from": "2026-09-03",
+              "target_date": "2026-09-15",
+              "horizon_days": 12,
+              "prediction": -5.679815292358398,
+              "observed": -5.463778495788574,
+              "error": -0.21603679656982422,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            },
+            {
+              "issued_from": "2026-09-15",
+              "target_date": "2026-09-27",
+              "horizon_days": 12,
+              "prediction": -5.625806093215942,
+              "observed": -6.249695301055908,
+              "error": 0.6238892078399658,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "skill_vs_persistence": 0.35789691443194305
+        },
+        "ridge": {
+          "n_evaluations": 2,
+          "n": 2,
+          "mae": 1.009928115080413,
+          "bias": 1.009928115080413,
+          "rmse": 1.334002234897389,
+          "interval_level": 0.8,
+          "interval": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null
+          },
+          "evaluations": [
+            {
+              "issued_from": "2026-09-03",
+              "target_date": "2026-09-15",
+              "horizon_days": 12,
+              "prediction": -3.582295927399963,
+              "observed": -5.463778495788574,
+              "error": 1.8814825683886114,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            },
+            {
+              "issued_from": "2026-09-15",
+              "target_date": "2026-09-27",
+              "horizon_days": 12,
+              "prediction": -6.111321639283694,
+              "observed": -6.249695301055908,
+              "error": 0.13837366177221444,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "skill_vs_persistence": -0.5441311627224725
+        },
+        "ridge_anomaly": {
+          "n_evaluations": 2,
+          "n": 2,
+          "mae": 0.6531848758159269,
+          "bias": 0.6531848758159269,
+          "rmse": 0.7256370227739718,
+          "interval_level": 0.8,
+          "interval": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null
+          },
+          "evaluations": [
+            {
+              "issued_from": "2026-09-03",
+              "target_date": "2026-09-15",
+              "horizon_days": 12,
+              "prediction": -4.4945262112991085,
+              "observed": -5.463778495788574,
+              "error": 0.9692522844894658,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            },
+            {
+              "issued_from": "2026-09-15",
+              "target_date": "2026-09-27",
+              "horizon_days": 12,
+              "prediction": -5.91257783391352,
+              "observed": -6.249695301055908,
+              "error": 0.337117467142388,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "skill_vs_persistence": 0.0013119679452893163
+        }
+      },
+      "decision": {
+        "publishable": false,
+        "model": null,
+        "reason": "ningún modelo supera a la persistencia con intervalos calibrados en los pliegues disponibles"
+      }
+    },
+    {
+      "target": "water_area_km2",
+      "n_dates": 6,
+      "features": [
+        "previous",
+        "momentum",
+        "horizon_days",
+        "season_sin",
+        "season_cos",
+        "rain_7d_mm",
+        "rain_30d_mm",
+        "discharge_7d_mean_m3s"
+      ],
+      "models": {
+        "persistence": {
+          "n_evaluations": 2,
+          "n": 2,
+          "mae": 0.22560000000000002,
+          "bias": -0.22560000000000002,
+          "rmse": 0.2262547237075949,
+          "interval_level": 0.8,
+          "interval": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null
+          },
+          "evaluations": [
+            {
+              "issued_from": "2026-09-03",
+              "target_date": "2026-09-15",
+              "horizon_days": 12,
+              "prediction": 55.1636,
+              "observed": 55.372,
+              "error": -0.20839999999999748,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            },
+            {
+              "issued_from": "2026-09-15",
+              "target_date": "2026-09-27",
+              "horizon_days": 12,
+              "prediction": 55.372,
+              "observed": 55.6148,
+              "error": -0.24280000000000257,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "skill_vs_persistence": 0.0
+        },
+        "climatology": {
+          "n_evaluations": 2,
+          "n": 2,
+          "mae": 0.528450000000003,
+          "bias": -0.528450000000003,
+          "rmse": 0.5322217254115085,
+          "interval_level": 0.8,
+          "interval": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null
+          },
+          "evaluations": [
+            {
+              "issued_from": "2026-09-03",
+              "target_date": "2026-09-15",
+              "horizon_days": 12,
+              "prediction": 54.9068,
+              "observed": 55.372,
+              "error": -0.46520000000000294,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            },
+            {
+              "issued_from": "2026-09-15",
+              "target_date": "2026-09-27",
+              "horizon_days": 12,
+              "prediction": 55.0231,
+              "observed": 55.6148,
+              "error": -0.591700000000003,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "skill_vs_persistence": -1.3424202127659703
+        },
+        "ridge": {
+          "n_evaluations": 2,
+          "n": 2,
+          "mae": 1.3041934466696432,
+          "bias": -1.3041934466696432,
+          "rmse": 1.7159443360582647,
+          "interval_level": 0.8,
+          "interval": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null
+          },
+          "evaluations": [
+            {
+              "issued_from": "2026-09-03",
+              "target_date": "2026-09-15",
+              "horizon_days": 12,
+              "prediction": 52.95266332570693,
+              "observed": 55.372,
+              "error": -2.4193366742930706,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            },
+            {
+              "issued_from": "2026-09-15",
+              "target_date": "2026-09-27",
+              "horizon_days": 12,
+              "prediction": 55.42574978095379,
+              "observed": 55.6148,
+              "error": -0.18905021904621577,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "skill_vs_persistence": -4.780999320344162
+        },
+        "ridge_anomaly": {
+          "n_evaluations": 2,
+          "n": 2,
+          "mae": 2.447397947644461,
+          "bias": -2.337531412403841,
+          "rmse": 3.3843477684938077,
+          "interval_level": 0.8,
+          "interval": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null
+          },
+          "evaluations": [
+            {
+              "issued_from": "2026-09-03",
+              "target_date": "2026-09-15",
+              "horizon_days": 12,
+              "prediction": 50.5870706399517,
+              "observed": 55.372,
+              "error": -4.784929360048302,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            },
+            {
+              "issued_from": "2026-09-15",
+              "target_date": "2026-09-27",
+              "horizon_days": 12,
+              "prediction": 55.72466653524062,
+              "observed": 55.6148,
+              "error": 0.10986653524062007,
+              "interval_half_width": NaN,
+              "lower": null,
+              "upper": null
+            }
+          ],
+          "skill_vs_persistence": -9.848395157998498
+        }
+      },
+      "decision": {
+        "publishable": false,
+        "model": null,
+        "reason": "ningún modelo supera a la persistencia con intervalos calibrados en los pliegues disponibles"
+      }
+    }
+  ],
+  "kind": "retrospective_rolling_origin",
+  "limits": [
+    "Pocas fechas y un solo AOI: referencia metodológica, no servicio de pronóstico.",
+    "Los objetivos son resúmenes del recorte, no inundación por píxel ni riesgo.",
+    "ERA5 y GloFAS son modelos a escala mucho más gruesa que el SAR.",
+    "Intervalos conformes calculados con muy pocos residuos pasados."
+  ]
+}

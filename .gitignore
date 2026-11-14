@@ -23,3 +23,4 @@ work/
 # Registros de experimentos locales (resúmenes van a docs/)
 experiments/
 models/*.bin
+models/*.txt

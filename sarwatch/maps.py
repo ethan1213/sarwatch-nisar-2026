@@ -13,6 +13,7 @@ from sarwatch.repository import RasterRepository
 from science import difference
 from sarwatch.interpretation import summarize
 from sarwatch.guidance import reading,assistant
+from sarwatch.detections import CHANGE_LABEL, categorical_overlay, change_mask_path, change_sentence, detection_reference, read_mask
 
 
 @st.cache_data(max_entries=8)
@@ -95,6 +96,20 @@ def chile_view(region,profile="Público general"):
             context={'region':region,'before':dates[0],'after':dates[-1],'polarization':pol,'statistics':summarize(before,after),'source':scenes[-1]['url_metadatos']}
             with summary_area:
                 reading(context,profile)
+            change_path=change_mask_path(products_root)
+            if change_path is not None and st.checkbox('Mostrar cambio estadísticamente significativo',value=view=='Diferencia en dB',key=slug+'-change'):
+                mask,mt,mc,tags=read_mask(change_path)
+                if (mt,mc,mask.shape)!=(t,c,before.shape):
+                    st.error('La máscara de cambio no comparte la grilla SAR; no se muestra.')
+                else:
+                    categorical_overlay(mask,mt,mc,'change',CHANGE_LABEL).add_to(m)
+                    reference=detection_reference()
+                    st.caption('Azul: disminución significativa de la señal; naranja: aumento. '+change_sentence(reference,slug))
+                    if profile in ('Ciencia','Desarrollo y datos'):
+                        block=((reference or {}).get('change') or {}).get(slug)
+                        if block:
+                            st.dataframe([{'cobertura (WorldCover 2021)':k,'píxeles':v['n'],'disminución %':round(100*(v['decrease'] or 0),3),'aumento %':round(100*(v['increase'] or 0),3)} for k,v in block['by_worldcover'].items()],hide_index=True)
+                            st.caption(f"Método: {tags.get('method','')}. Looks: {block['looks_source']}. Acuerdo con umbral MAD (IoU): {block['agreement_iou_with_mad']:.2f}.")
             st.metric('Cobertura comparable del recorte',f'{np.isfinite(difference(before,after)).mean():.1%}')
             st.caption('Naranja: mayor respuesta; azul: menor. El tono claro indica diferencia cerca de cero. Diferencia: −6 a +6 dB; intensidad: −30 a 10 dB. Transparente: sin dato. Cambios de radar no equivalen a inundaciones.')
     folium.LayerControl().add_to(m)

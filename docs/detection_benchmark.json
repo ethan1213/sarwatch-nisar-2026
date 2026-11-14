@@ -1,0 +1,1085 @@
+{
+  "generated_utc": "2026-11-14T04:05:34.461414+00:00",
+  "water": [
+    {
+      "aoi": "pantanal",
+      "label_source": "MNDWI > 0.0",
+      "dates": [
+        {
+          "date": "2026-07-17",
+          "scene_id": "G4254665779-ASF",
+          "label_water_km2": 37.3832,
+          "labeled_fraction": 1.0,
+          "thresholds": {
+            "otsu": {
+              "threshold_db": -7.016226768493652,
+              "area_km2": 827.9408,
+              "scores": {
+                "n": 7368309,
+                "tp": 93347,
+                "fp": 1976505,
+                "fn": 111,
+                "tn": 5298346,
+                "precision": 0.04509839350832813,
+                "recall": 0.9988123007126196,
+                "f1": 0.08630016040234641,
+                "iou": 0.04509597514544946,
+                "positive_fraction": 0.012683778598318826
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 2084215,
+                  "f1": 0.00036823469903894793,
+                  "iou": 0.00018415125496044796,
+                  "precision": 0.00018415908106642274,
+                  "recall": 0.8125
+                },
+                "pastizal": {
+                  "n": 29185,
+                  "f1": 0.0002757733143356161,
+                  "iou": 0.00013790567251999633,
+                  "precision": 0.00013790567251999633,
+                  "recall": 1.0
+                },
+                "urbano": {
+                  "n": 5,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "suelo desnudo": {
+                  "n": 1,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 305351,
+                  "f1": 0.5556417876545079,
+                  "iou": 0.3846980499056406,
+                  "precision": 0.38481908757210276,
+                  "recall": 0.9991830621553544
+                },
+                "humedal herbáceo": {
+                  "n": 4949552,
+                  "f1": 0.007804102152404749,
+                  "iou": 0.003917336724182819,
+                  "precision": 0.0039173899361339415,
+                  "recall": 0.9965444423113842
+                }
+              }
+            },
+            "kittler_illingworth": {
+              "threshold_db": -13.159704208374023,
+              "area_km2": 92.8076,
+              "scores": {
+                "n": 7368309,
+                "tp": 91870,
+                "fp": 140149,
+                "fn": 1588,
+                "tn": 7134702,
+                "precision": 0.3959589516375814,
+                "recall": 0.9830084101949539,
+                "f1": 0.5645252967183549,
+                "iou": 0.39326732503734907,
+                "positive_fraction": 0.012683778598318826
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 2084215,
+                  "f1": 0.028859060402684565,
+                  "iou": 0.014640789921688798,
+                  "precision": 0.01499302649930265,
+                  "recall": 0.38392857142857145
+                },
+                "pastizal": {
+                  "n": 29185,
+                  "f1": 0.0005337603416066186,
+                  "iou": 0.00026695141484249865,
+                  "precision": 0.0002670940170940171,
+                  "recall": 0.3333333333333333
+                },
+                "urbano": {
+                  "n": 5,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "suelo desnudo": {
+                  "n": 1,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 305351,
+                  "f1": 0.7719590110259632,
+                  "iou": 0.628610134317173,
+                  "precision": 0.6327042747936582,
+                  "recall": 0.9898109696598362
+                },
+                "humedal herbáceo": {
+                  "n": 4949552,
+                  "f1": 0.09898854838361837,
+                  "iou": 0.05207151608658166,
+                  "precision": 0.05243976282146488,
+                  "recall": 0.8811672105970436
+                }
+              }
+            }
+          },
+          "lightgbm_area_km2": 55.8588
+        },
+        {
+          "date": "2026-08-10",
+          "scene_id": "G4278808808-ASF",
+          "label_water_km2": 45.2612,
+          "labeled_fraction": 0.9999063557187952,
+          "thresholds": {
+            "otsu": {
+              "threshold_db": -6.80418586730957,
+              "area_km2": 913.4384,
+              "scores": {
+                "n": 7367619,
+                "tp": 112836,
+                "fp": 2170401,
+                "fn": 317,
+                "tn": 5084065,
+                "precision": 0.04941931126729288,
+                "recall": 0.997198483469285,
+                "f1": 0.09417164985665939,
+                "iou": 0.049412450942697216,
+                "positive_fraction": 0.01535815030608939
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 2083909,
+                  "f1": 0.0006232920206892739,
+                  "iou": 0.00031174316385790545,
+                  "precision": 0.00031175413660865134,
+                  "recall": 0.8985507246376812
+                },
+                "pastizal": {
+                  "n": 29185,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "urbano": {
+                  "n": 5,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "suelo desnudo": {
+                  "n": 1,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 304980,
+                  "f1": 0.6366093545985918,
+                  "iou": 0.46693099791011244,
+                  "precision": 0.46746654360867557,
+                  "recall": 0.9975524642669343
+                },
+                "humedal herbáceo": {
+                  "n": 4949539,
+                  "f1": 0.01148089131280145,
+                  "iou": 0.005773588628163108,
+                  "precision": 0.005773749067349522,
+                  "recall": 0.9952101544725183
+                }
+              }
+            },
+            "kittler_illingworth": {
+              "threshold_db": -13.000415802001953,
+              "area_km2": 90.4712,
+              "scores": {
+                "n": 7367619,
+                "tp": 108746,
+                "fp": 117201,
+                "fn": 4407,
+                "tn": 7137265,
+                "precision": 0.4812898600114186,
+                "recall": 0.9610527339089552,
+                "f1": 0.6413801238572693,
+                "iou": 0.47208209972477144,
+                "positive_fraction": 0.01535815030608939
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 2083909,
+                  "f1": 0.06445437141033823,
+                  "iou": 0.033300362677217275,
+                  "precision": 0.03450632046463956,
+                  "recall": 0.48792270531400966
+                },
+                "pastizal": {
+                  "n": 29185,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "urbano": {
+                  "n": 5,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "suelo desnudo": {
+                  "n": 1,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 304980,
+                  "f1": 0.8415298723716524,
+                  "iou": 0.7264148227062668,
+                  "precision": 0.7461809201283625,
+                  "recall": 0.9648166738371815
+                },
+                "humedal herbáceo": {
+                  "n": 4949539,
+                  "f1": 0.1700639114699638,
+                  "iou": 0.09293434483090278,
+                  "precision": 0.09363341247153448,
+                  "recall": 0.925637648185846
+                }
+              }
+            }
+          },
+          "lightgbm_area_km2": 54.6288
+        },
+        {
+          "date": "2026-08-22",
+          "scene_id": "G4288574282-ASF",
+          "label_water_km2": 52.3556,
+          "labeled_fraction": 0.9998680837082158,
+          "thresholds": {
+            "otsu": {
+              "threshold_db": -6.972132682800293,
+              "area_km2": 893.9116,
+              "scores": {
+                "n": 7367337,
+                "tp": 130356,
+                "fp": 2103981,
+                "fn": 533,
+                "tn": 5132467,
+                "precision": 0.058342139077498155,
+                "recall": 0.9959278472598919,
+                "f1": 0.11022709880578008,
+                "iou": 0.05832822490793648,
+                "positive_fraction": 0.01776612091994706
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 2083807,
+                  "f1": 0.0011690895624264781,
+                  "iou": 0.0005848866736659316,
+                  "precision": 0.0005849312978208585,
+                  "recall": 0.8846153846153846
+                },
+                "pastizal": {
+                  "n": 29185,
+                  "f1": 8.365050817683717e-05,
+                  "iou": 4.1827003513468296e-05,
+                  "precision": 4.1827003513468296e-05,
+                  "recall": 1.0
+                },
+                "urbano": {
+                  "n": 5,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "suelo desnudo": {
+                  "n": 1,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 304881,
+                  "f1": 0.7136521185962034,
+                  "iou": 0.5547893605712569,
+                  "precision": 0.5558683924147352,
+                  "recall": 0.9965132785973418
+                },
+                "humedal herbáceo": {
+                  "n": 4949458,
+                  "f1": 0.013749126581094537,
+                  "iou": 0.006922150049166932,
+                  "precision": 0.006922490406782877,
+                  "recall": 0.9929472534022052
+                }
+              }
+            },
+            "kittler_illingworth": {
+              "threshold_db": -13.255444526672363,
+              "area_km2": 90.5016,
+              "scores": {
+                "n": 7367337,
+                "tp": 123716,
+                "fp": 102269,
+                "fn": 7173,
+                "tn": 7134179,
+                "precision": 0.5474522645308317,
+                "recall": 0.9451978393906287,
+                "f1": 0.6933315399832994,
+                "iou": 0.5306101441940658,
+                "positive_fraction": 0.01776612091994706
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 2083807,
+                  "f1": 0.09558823529411764,
+                  "iou": 0.05019305019305019,
+                  "precision": 0.05441400304414003,
+                  "recall": 0.39285714285714285
+                },
+                "pastizal": {
+                  "n": 29185,
+                  "f1": 0.00037936267071320183,
+                  "iou": 0.00018971732119142478,
+                  "precision": 0.00018971732119142478,
+                  "recall": 1.0
+                },
+                "urbano": {
+                  "n": 5,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "suelo desnudo": {
+                  "n": 1,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 304881,
+                  "f1": 0.9003279332351497,
+                  "iou": 0.818724018228311,
+                  "precision": 0.8543244290739967,
+                  "recall": 0.9515677793735524
+                },
+                "humedal herbáceo": {
+                  "n": 4949458,
+                  "f1": 0.19043464382614247,
+                  "iou": 0.10523778164542076,
+                  "precision": 0.10663981505755618,
+                  "recall": 0.8889440746995133
+                }
+              }
+            }
+          },
+          "lightgbm_area_km2": 54.928
+        },
+        {
+          "date": "2026-09-03",
+          "scene_id": "G4298917803-ASF",
+          "label_water_km2": 19.6904,
+          "labeled_fraction": 0.6188961402134465,
+          "thresholds": {
+            "otsu": {
+              "threshold_db": -7.400790214538574,
+              "area_km2": 900.9248,
+              "scores": {
+                "n": 4560218,
+                "tp": 48595,
+                "fp": 1411356,
+                "fn": 631,
+                "tn": 3099636,
+                "precision": 0.03328536368686346,
+                "recall": 0.987181570714663,
+                "f1": 0.06439933818233382,
+                "iou": 0.03327098375852913,
+                "positive_fraction": 0.010794659378126221
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 1199552,
+                  "f1": 0.001209142931040057,
+                  "iou": 0.0006049371932855207,
+                  "precision": 0.0006050154812784915,
+                  "recall": 0.8237885462555066
+                },
+                "pastizal": {
+                  "n": 16181,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 190957,
+                  "f1": 0.5763770917540468,
+                  "iou": 0.40486640697865806,
+                  "precision": 0.40645712082545393,
+                  "recall": 0.9904261268314506
+                },
+                "humedal herbáceo": {
+                  "n": 3153528,
+                  "f1": 0.008002650115070786,
+                  "iou": 0.004017399980744488,
+                  "precision": 0.004018036910303721,
+                  "recall": 0.9620400558919422
+                }
+              }
+            },
+            "kittler_illingworth": {
+              "threshold_db": -14.021196365356445,
+              "area_km2": 83.3964,
+              "scores": {
+                "n": 4560218,
+                "tp": 44069,
+                "fp": 61662,
+                "fn": 5157,
+                "tn": 4449330,
+                "precision": 0.4168030189821339,
+                "recall": 0.8952382887092187,
+                "f1": 0.5687900514336235,
+                "iou": 0.39741901738691293,
+                "positive_fraction": 0.010794659378126221
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 1199552,
+                  "f1": 0.07900677200902935,
+                  "iou": 0.041128084606345476,
+                  "precision": 0.045307443365695796,
+                  "recall": 0.30837004405286345
+                },
+                "pastizal": {
+                  "n": 16181,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 190957,
+                  "f1": 0.8483265883625847,
+                  "iou": 0.7366034327009937,
+                  "precision": 0.7929632799128676,
+                  "recall": 0.9120008947545017
+                },
+                "humedal herbáceo": {
+                  "n": 3153528,
+                  "f1": 0.11821144761416487,
+                  "iou": 0.06281866656287705,
+                  "precision": 0.06414944356120826,
+                  "recall": 0.7517466231951561
+                }
+              }
+            }
+          },
+          "lightgbm_area_km2": 55.1636
+        },
+        {
+          "date": "2026-09-15",
+          "scene_id": "G4314009366-ASF",
+          "label_water_km2": 50.4016,
+          "labeled_fraction": 0.9914139051443147,
+          "thresholds": {
+            "otsu": {
+              "threshold_db": -6.828608512878418,
+              "area_km2": 862.2836,
+              "scores": {
+                "n": 7305044,
+                "tp": 125217,
+                "fp": 2012296,
+                "fn": 787,
+                "tn": 5166744,
+                "precision": 0.05858069635132044,
+                "recall": 0.9937541665343957,
+                "f1": 0.11063932808987076,
+                "iou": 0.05855913576205397,
+                "positive_fraction": 0.017248903634256
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 2076378,
+                  "f1": 0.0012463718213275073,
+                  "iou": 0.0006235745135148251,
+                  "precision": 0.0006236501735057875,
+                  "recall": 0.8371335504885994
+                },
+                "pastizal": {
+                  "n": 29185,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "urbano": {
+                  "n": 5,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "suelo desnudo": {
+                  "n": 1,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 301695,
+                  "f1": 0.6915116820835151,
+                  "iou": 0.528481357162297,
+                  "precision": 0.5301140680950582,
+                  "recall": 0.9942058913881967
+                },
+                "humedal herbáceo": {
+                  "n": 4897780,
+                  "f1": 0.011329716743675045,
+                  "iou": 0.0056971318167048455,
+                  "precision": 0.005697354582962544,
+                  "recall": 0.9931836878599131
+                }
+              }
+            },
+            "kittler_illingworth": {
+              "threshold_db": -12.838922500610352,
+              "area_km2": 83.2644,
+              "scores": {
+                "n": 7305044,
+                "tp": 120019,
+                "fp": 85572,
+                "fn": 5985,
+                "tn": 7093468,
+                "precision": 0.5837755543773804,
+                "recall": 0.9525015078886384,
+                "f1": 0.7238890815603372,
+                "iou": 0.5672618822550762,
+                "positive_fraction": 0.017248903634256
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 2076378,
+                  "f1": 0.10440308669995461,
+                  "iou": 0.05507662835249042,
+                  "precision": 0.06065400843881857,
+                  "recall": 0.3745928338762215
+                },
+                "pastizal": {
+                  "n": 29185,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "urbano": {
+                  "n": 5,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "suelo desnudo": {
+                  "n": 1,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 301695,
+                  "f1": 0.8838223006952217,
+                  "iou": 0.7918293845556301,
+                  "precision": 0.8211785212092805,
+                  "recall": 0.9568129842646005
+                },
+                "humedal herbáceo": {
+                  "n": 4897780,
+                  "f1": 0.21506298134756577,
+                  "iou": 0.1204877141883308,
+                  "precision": 0.12186980913279218,
+                  "recall": 0.9139734398871783
+                }
+              }
+            }
+          },
+          "lightgbm_area_km2": 55.372
+        },
+        {
+          "date": "2026-09-27",
+          "scene_id": "G4327697742-ASF",
+          "label_water_km2": 53.3196,
+          "labeled_fraction": 0.9999104272092824,
+          "thresholds": {
+            "otsu": {
+              "threshold_db": -7.610321044921875,
+              "area_km2": 900.602,
+              "scores": {
+                "n": 7367649,
+                "tp": 132530,
+                "fp": 2118633,
+                "fn": 769,
+                "tn": 5115717,
+                "precision": 0.058871792047044125,
+                "recall": 0.9942310144862302,
+                "f1": 0.11116134373288399,
+                "iou": 0.058851688239254116,
+                "positive_fraction": 0.018092474275036716
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 2084020,
+                  "f1": 0.0012388828545925774,
+                  "iou": 0.0006198253728098965,
+                  "precision": 0.0006198827388485678,
+                  "recall": 0.8700906344410876
+                },
+                "pastizal": {
+                  "n": 29185,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "urbano": {
+                  "n": 5,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "suelo desnudo": {
+                  "n": 1,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 304924,
+                  "f1": 0.7396921135187287,
+                  "iou": 0.5869138180067405,
+                  "precision": 0.5887534955155976,
+                  "recall": 0.9947042455793914
+                },
+                "humedal herbáceo": {
+                  "n": 4949514,
+                  "f1": 0.01319932318364101,
+                  "iou": 0.006643506486413901,
+                  "precision": 0.006643835176344349,
+                  "recall": 0.9926082365364308
+                }
+              }
+            },
+            "kittler_illingworth": {
+              "threshold_db": -13.966623306274414,
+              "area_km2": 82.344,
+              "scores": {
+                "n": 7367649,
+                "tp": 125001,
+                "fp": 80641,
+                "fn": 8298,
+                "tn": 7153709,
+                "precision": 0.6078573443168225,
+                "recall": 0.9377489703598677,
+                "f1": 0.7375973989573407,
+                "iou": 0.5842806394316163,
+                "positive_fraction": 0.018092474275036716
+              },
+              "by_worldcover": {
+                "árboles": {
+                  "n": 2084020,
+                  "f1": 0.14539908490086426,
+                  "iou": 0.07839912280701754,
+                  "precision": 0.08740831295843521,
+                  "recall": 0.43202416918429004
+                },
+                "pastizal": {
+                  "n": 29185,
+                  "f1": 0.0,
+                  "iou": 0.0,
+                  "precision": 0.0,
+                  "recall": null
+                },
+                "urbano": {
+                  "n": 5,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "suelo desnudo": {
+                  "n": 1,
+                  "f1": null,
+                  "iou": null,
+                  "precision": null,
+                  "recall": null
+                },
+                "agua permanente": {
+                  "n": 304924,
+                  "f1": 0.9174860135698131,
+                  "iou": 0.8475511864704977,
+                  "precision": 0.8929401679036755,
+                  "recall": 0.9434194743412947
+                },
+                "humedal herbáceo": {
+                  "n": 4949514,
+                  "f1": 0.22792521704814522,
+                  "iou": 0.12862054087157432,
+                  "precision": 0.1307608495705452,
+                  "recall": 0.8871076125563983
+                }
+              }
+            }
+          },
+          "lightgbm_area_km2": 55.6148
+        }
+      ],
+      "thresholds": {},
+      "lightgbm": {
+        "features": [
+          "hh_db",
+          "hv_db",
+          "ratio_db",
+          "texture_hh",
+          "slope",
+          "hand_proxy",
+          "dist_water",
+          "jrc_occurrence"
+        ],
+        "n_train": 1008292,
+        "n_test": 10287959,
+        "spatial_block_holdout": {
+          "n": 10287959,
+          "tp": 115350,
+          "fp": 33945,
+          "fn": 14571,
+          "tn": 10124093,
+          "precision": 0.7726313674269064,
+          "recall": 0.8878472302399151,
+          "f1": 0.8262420491662369,
+          "iou": 0.7039288198894218,
+          "positive_fraction": 0.012628452349003335
+        },
+        "spatial_by_worldcover": {
+          "árboles": {
+            "n": 2817197,
+            "f1": 0.24583333333333332,
+            "iou": 0.14014251781472684,
+            "precision": 0.2118491921005386,
+            "recall": 0.29280397022332505
+          },
+          "pastizal": {
+            "n": 51023,
+            "f1": 0.0,
+            "iou": 0.0,
+            "precision": 0.0,
+            "recall": null
+          },
+          "agua permanente": {
+            "n": 369744,
+            "f1": 0.8770333809166646,
+            "iou": 0.780996839988509,
+            "precision": 0.8434826449486136,
+            "recall": 0.9133637379158582
+          },
+          "humedal herbáceo": {
+            "n": 7049995,
+            "f1": 0.4285855882644464,
+            "iou": 0.27273874101173207,
+            "precision": 0.32741039878849065,
+            "recall": 0.6202543750597685
+          }
+        },
+        "temporal_holdout": {
+          "test_date": "2026-09-27",
+          "train_dates": [
+            "2026-07-17",
+            "2026-08-10",
+            "2026-08-22",
+            "2026-09-03",
+            "2026-09-15"
+          ],
+          "n": 7365514,
+          "tp": 132568,
+          "fp": 65069,
+          "fn": 724,
+          "tn": 7167153,
+          "precision": 0.6707650895328304,
+          "recall": 0.9945683161780152,
+          "f1": 0.8011869615536867,
+          "iou": 0.6683168566401662,
+          "positive_fraction": 0.018096768263559066
+        },
+        "feature_importance_gain": {
+          "hh_db": 0.8446215918160164,
+          "hv_db": 0.04750125483098047,
+          "hand_proxy": 0.03404455851737557,
+          "texture_hh": 0.027520078638403958,
+          "dist_water": 0.02379199891438876,
+          "jrc_occurrence": 0.015138375315210284,
+          "slope": 0.005991015693089243,
+          "ratio_db": 0.0013911262745352842
+        },
+        "model": "models\\pantanal_water_lgbm.txt"
+      },
+      "split": {
+        "block_pixels": 64,
+        "test_fraction": 0.25,
+        "buffer_blocks": 1,
+        "rule": "bloques completos en un solo conjunto; anillo de bloques excluido alrededor de la prueba; fecha final retenida para la prueba temporal"
+      }
+    }
+  ],
+  "change": [
+    {
+      "aoi": "metropolitana",
+      "pair": {
+        "before": "2026-10-05T10:44:31.000Z",
+        "after": "2026-10-17T10:44:31.000Z"
+      },
+      "looks_source": "numberOfLooks del producto",
+      "looks_median": [
+        8.979318618774414,
+        8.979585647583008
+      ],
+      "alpha": 0.01,
+      "min_pixels": 4,
+      "mad_thresholds_db": [
+        -4.834487593078613,
+        6.09742513885498
+      ],
+      "conradsen_fractions": {
+        "all": {
+          "n": 5982657,
+          "decrease": 0.00029685806824626584,
+          "increase": 0.0014568777718662461
+        },
+        "árboles": {
+          "n": 783574,
+          "decrease": 4.849573875600773e-05,
+          "increase": 0.00040455655751722236
+        },
+        "matorral": {
+          "n": 1425869,
+          "decrease": 4.137827528335352e-05,
+          "increase": 0.00025668557209673537
+        },
+        "pastizal": {
+          "n": 985406,
+          "decrease": 0.00014105860934477768,
+          "increase": 0.001427837865813685
+        },
+        "cultivo": {
+          "n": 729871,
+          "decrease": 0.0005905153102397547,
+          "increase": 0.00640250126392198
+        },
+        "urbano": {
+          "n": 1551427,
+          "decrease": 0.00041381257384330686,
+          "increase": 0.0005755991097228551
+        },
+        "suelo desnudo": {
+          "n": 494465,
+          "decrease": 0.0009424327303246944,
+          "increase": 0.002107328122314016
+        },
+        "agua permanente": {
+          "n": 12045,
+          "decrease": 8.302200083022001e-05,
+          "increase": 0.0014943960149439602
+        }
+      },
+      "mad_fractions": {
+        "all": {
+          "n": 5982657,
+          "decrease": 0.00035101460772362514,
+          "increase": 0.0008588157402304696
+        },
+        "árboles": {
+          "n": 783574,
+          "decrease": 8.422944099727657e-05,
+          "increase": 0.0002667265631580425
+        },
+        "matorral": {
+          "n": 1425869,
+          "decrease": 6.452205637404278e-05,
+          "increase": 0.0005842051408649743
+        },
+        "pastizal": {
+          "n": 985406,
+          "decrease": 0.0001867250656074755,
+          "increase": 0.0010980245705830896
+        },
+        "cultivo": {
+          "n": 729871,
+          "decrease": 0.0005932555204960876,
+          "increase": 0.0016701581512349442
+        },
+        "urbano": {
+          "n": 1551427,
+          "decrease": 0.00043057133851608873,
+          "increase": 0.0003474220830242093
+        },
+        "suelo desnudo": {
+          "n": 494465,
+          "decrease": 0.0013165744794879314,
+          "increase": 0.002493604198477142
+        },
+        "agua permanente": {
+          "n": 12045,
+          "decrease": 0.00049813200498132,
+          "increase": 0.0019095060190950602
+        }
+      },
+      "agreement_conradsen_vs_mad": {
+        "iou": 0.26489263037739885,
+        "n": 5982657
+      },
+      "limits": [
+        "Sin etiquetas independientes de cambio urbano: no se reporta exactitud.",
+        "Dos fechas: el cambio detectado incluye humedad, vegetacion y geometria, no solo construccion o dano.",
+        "La prueba asume canales independientes porque el GCOV publicado solo trae terminos diagonales."
+      ]
+    },
+    {
+      "aoi": "valparaiso",
+      "pair": {
+        "before": "2026-10-05T10:44:31.000Z",
+        "after": "2026-10-17T10:44:31.000Z"
+      },
+      "looks_source": "numberOfLooks del producto",
+      "looks_median": [
+        9.726337432861328,
+        9.726588249206543
+      ],
+      "alpha": 0.01,
+      "min_pixels": 4,
+      "mad_thresholds_db": [
+        -5.411308705329894,
+        8.013117253303527
+      ],
+      "conradsen_fractions": {
+        "all": {
+          "n": 4087007,
+          "decrease": 0.0004157076315259553,
+          "increase": 0.04015530191164341
+        },
+        "árboles": {
+          "n": 886443,
+          "decrease": 9.588885015731412e-05,
+          "increase": 2.7074498867947516e-05
+        },
+        "matorral": {
+          "n": 685301,
+          "decrease": 1.459212813055869e-06,
+          "increase": 1.0214489691391082e-05
+        },
+        "pastizal": {
+          "n": 599627,
+          "decrease": 8.505287453700383e-05,
+          "increase": 0.00020679522436447992
+        },
+        "cultivo": {
+          "n": 72278,
+          "decrease": 0.0004980768698635823,
+          "increase": 0.0013697113921248513
+        },
+        "urbano": {
+          "n": 335465,
+          "decrease": 0.0005216639589823082,
+          "increase": 0.0007035011103989984
+        },
+        "suelo desnudo": {
+          "n": 55336,
+          "decrease": 0.0021324273528986553,
+          "increase": 0.0024396414630620212
+        },
+        "agua permanente": {
+          "n": 1452473,
+          "decrease": 0.0008488970190840036,
+          "increase": 0.1125597515409925
+        },
+        "humedal herbáceo": {
+          "n": 84,
+          "decrease": 0.0,
+          "increase": 0.0
+        }
+      },
+      "mad_fractions": {
+        "all": {
+          "n": 4087007,
+          "decrease": 0.0003838995137517504,
+          "increase": 0.006355017253457114
+        },
+        "árboles": {
+          "n": 886443,
+          "decrease": 3.948364418242346e-05,
+          "increase": 2.2562082389956264e-06
+        },
+        "matorral": {
+          "n": 685301,
+          "decrease": 0.0,
+          "increase": 0.0
+        },
+        "pastizal": {
+          "n": 599627,
+          "decrease": 4.836339924653159e-05,
+          "increase": 1.3341627378353543e-05
+        },
+        "cultivo": {
+          "n": 72278,
+          "decrease": 0.0004980768698635823,
+          "increase": 0.00044273499543429534
+        },
+        "urbano": {
+          "n": 335465,
+          "decrease": 0.0004352167886366685,
+          "increase": 0.00016991340378280894
+        },
+        "suelo desnudo": {
+          "n": 55336,
+          "decrease": 0.0018252132427352898,
+          "increase": 0.0005421425473471158
+        },
+        "agua permanente": {
+          "n": 1452473,
+          "decrease": 0.000841323728565006,
+          "increase": 0.017793101833906724
+        },
+        "humedal herbáceo": {
+          "n": 84,
+          "decrease": 0.0,
+          "increase": 0.0
+        }
+      },
+      "agreement_conradsen_vs_mad": {
+        "iou": 0.1636455549938615,
+        "n": 4087007
+      },
+      "limits": [
+        "Sin etiquetas independientes de cambio urbano: no se reporta exactitud.",
+        "Dos fechas: el cambio detectado incluye humedad, vegetacion y geometria, no solo construccion o dano.",
+        "La prueba asume canales independientes porque el GCOV publicado solo trae terminos diagonales."
+      ]
+    }
+  ]
+}

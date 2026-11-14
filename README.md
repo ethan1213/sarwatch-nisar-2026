@@ -19,6 +19,19 @@ Con Docker Desktop iniciado y derivados preparados: `docker compose up --build -
 
 Incluye procesamiento por ventana, COG, rechazo de grillas incompatibles, comparación temporal, diferencias, serie de punto y CSV. Meteorología opcional con histórico ERA5 y pronóstico separados; sus errores no bloquean SAR.
 
+## Modelos y asistente (14 noviembre 2026)
+
+Detección de agua abierta en Pantanal evaluada contra Sentinel-2 en bloques y fecha retenidos (LightGBM F1 0,83 / 0,80; umbral Kittler-Illingworth 0,65; Otsu 0,10), prueba de cambio de Conradsen para Santiago y Valparaíso, benchmark de pronóstico en origen rodante donde la persistencia sigue ganando (no se publica pronóstico) y asistente local con enrutador de intenciones, herramientas con cifras verificables y verificador de salida (60/60 casos). Sin API de Claude ni otro LLM externo en el producto. Inventario de modelos: [docs/modelos_ia_ml.md](docs/modelos_ia_ml.md).
+
+```powershell
+.\.venv\Scripts\python -m pip install -r requirements-ml.txt
+.\.venv\Scripts\python scripts/fetch_labels.py --aoi .        # etiquetas Sentinel-2 (sin credenciales)
+.\.venv\Scripts\python scripts/fetch_covariates.py --aoi .    # DEM, JRC, WorldCover
+.\.venv\Scripts\python scripts/evaluate_detection.py          # máscaras, tarjetas y docs/detection_benchmark.json
+.\.venv\Scripts\python scripts/forecast_benchmark.py          # docs/forecast_benchmark.json
+.\.venv\Scripts\python scripts/evaluate_assistant.py          # docs/assistant_eval.json
+```
+
 ## Documentación y estado
 
 - [Plan detallado](docs/plan_implementacion.md)
@@ -27,6 +40,9 @@ Incluye procesamiento por ventana, COG, rechazo de grillas incompatibles, compar
 - [Docker y nube](docs/publicacion_y_github.md)
 - [Meteorología](docs/meteorologia.md)
 - [Comprobaciones y pendientes](docs/estado.md)
+- [Modelos de IA/ML: inventario y veredicto](docs/modelos_ia_ml.md)
+- [Estrategia comercial](docs/estrategia_comercial.md)
+- [Guion de pruebas con personas](docs/pruebas_usuarios.md)
 
 Pruebas: `python -m unittest discover -s tests -v`.
 

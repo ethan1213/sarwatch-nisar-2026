@@ -1,6 +1,6 @@
 # SARWatch: comprensión, asistente, escala mundial y predicción
 
-Revisión del 13 noviembre 2026. Se distingue lo implementado de lo propuesto. El alcance de ejecución sigue siendo Docker local, sin servicios contratados ni descargas mundiales.
+Revisión del 13 noviembre 2026. **Actualización 14 nov:** las propuestas de las secciones 3, 5 y 6 ya tienen una primera implementación evaluada; ver [estado.md](estado.md), [modelos_ia_ml.md](modelos_ia_ml.md), `docs/detection_benchmark.json`, `docs/forecast_benchmark.json` y `docs/assistant_eval.json`. Se distingue lo implementado de lo propuesto. El alcance de ejecución sigue siendo Docker local, sin servicios contratados ni descargas mundiales.
 
 ## 1. Diagnóstico de la experiencia
 

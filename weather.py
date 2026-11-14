@@ -29,3 +29,23 @@ def fetch_weather(latitude, longitude, start=None, end=None):
     if any(len(daily[k]) != len(daily["time"]) for k in expected):
         raise ValueError("Series meteorológicas incompatibles")
     return {"provider":"Open-Meteo", "kind":"ERA5 reanalysis" if historical else "weather forecast", "retrieved_utc":datetime.now(timezone.utc).isoformat(), "requested_latitude":latitude, "requested_longitude":longitude, "payload":payload}
+
+
+def fetch_river_discharge(latitude, longitude, start, end):
+    """GloFAS modelled river discharge (m3/s) from the Open-Meteo Flood API for a 0.05 degree cell.
+
+    Coarse hydrological model output: it is not a gauge measurement and a cell may miss the channel.
+    """
+    if not (-90 <= latitude <= 90 and -180 <= longitude <= 180):
+        raise ValueError("Coordenadas fuera de rango")
+    if not start or not end:
+        raise ValueError("Se requieren fecha inicial y final")
+    params = {"latitude":latitude, "longitude":longitude, "daily":"river_discharge", "start_date":start, "end_date":end}
+    with urlopen("https://flood-api.open-meteo.com/v1/flood?"+urlencode(params), timeout=12) as response:
+        payload = json.load(response)
+    if payload.get("error"):
+        raise ValueError(payload.get("reason", "Error del proveedor"))
+    daily = payload.get("daily", {})
+    if "time" not in daily or "river_discharge" not in daily or not daily["time"] or len(daily["time"]) != len(daily["river_discharge"]):
+        raise ValueError("Respuesta de caudal incompleta")
+    return {"provider":"Open-Meteo Flood API (GloFAS)", "kind":"modelled river discharge", "retrieved_utc":datetime.now(timezone.utc).isoformat(), "requested_latitude":latitude, "requested_longitude":longitude, "cell_latitude":payload.get("latitude"), "cell_longitude":payload.get("longitude"), "payload":payload}

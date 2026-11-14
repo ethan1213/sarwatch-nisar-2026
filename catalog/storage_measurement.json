@@ -1,0 +1,26 @@
+{
+  "measured_utc": "2026-11-14T04:15:25.755322+00:00",
+  "method": "COG float32 dB con DEFLATE y pirámides, tamaño real en disco dividido por alto×ancho×4 bytes",
+  "aois": {
+    "pantanal": {
+      "files": 14,
+      "disk_bytes": 406046077,
+      "float32_bytes": 412625304,
+      "disk_over_float32": 0.984
+    },
+    "metropolitana": {
+      "files": 4,
+      "disk_bytes": 111624589,
+      "float32_bytes": 95729856,
+      "disk_over_float32": 1.166
+    },
+    "valparaiso": {
+      "files": 4,
+      "disk_bytes": 74467784,
+      "float32_bytes": 65398000,
+      "disk_over_float32": 1.139
+    }
+  },
+  "overall_disk_over_float32": 1.032,
+  "note": "Los dB en float32 comprimen mal; las pirámides añaden ~1/3. Cuantizar a int16 (0,01 dB) reduciría a la mitad; no se ha aplicado."
+}

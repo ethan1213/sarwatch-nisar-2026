@@ -36,4 +36,18 @@ for profile in ('Público general','Ciencia','Desarrollo y datos','Comunicacione
 app.chat_input[0].set_value('¿Puedes predecir una inundación mañana?').run(timeout=180)
 assert not app.exception, list(app.exception)
 assert any('Todavía no podemos predecir' in x.value for x in app.markdown)
+# Evaluated detection layers: Chile change checkbox and Pantanal water layer selector, when products exist.
+if any(x.label=='Mostrar cambio estadísticamente significativo' for x in app.checkbox):
+    next(x for x in app.checkbox if x.label=='Mostrar cambio estadísticamente significativo').check().run(timeout=180)
+    assert not app.exception, list(app.exception)
+    assert any('Conradsen' in x.value for x in app.caption), 'Change layer must explain its test'
+app.selectbox[0].set_value('Pantanal').run(timeout=180)
+if any(x.label=='Capa de detección evaluada' for x in app.selectbox):
+    layer=next(x for x in app.selectbox if x.label=='Capa de detección evaluada')
+    layer.set_value(layer.options[1]).run(timeout=180)
+    assert not app.exception, list(app.exception)
+    assert any('F1' in x.value for x in app.caption), 'Water layer must show its evaluation'
+    app.chat_input[0].set_value('¿Cuánta agua hay?').run(timeout=180)
+    assert not app.exception, list(app.exception)
+    assert any('km²' in x.value for x in app.markdown), 'Assistant must quantify water from the evaluated reference'
 print(json.dumps({"app":"passed", "difference":"passed", "polarization":"passed", "weather_outage":"passed"}))

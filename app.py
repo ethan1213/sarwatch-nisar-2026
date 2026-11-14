@@ -16,6 +16,7 @@ from sarwatch.theme import apply_theme
 from sarwatch.interpretation import PROFILES,summarize
 from sarwatch.guidance import reading,assistant,scale_calculator
 from sarwatch.maps import chile_view, raster_map
+from sarwatch.detections import WATER_METHODS, categorical_overlay, detection_reference, read_mask, water_fraction, water_mask_paths, water_sentence
 from streamlit_folium import st_folium
 
 st.set_page_config(page_title="SARWatch · NISAR", page_icon="S", layout="wide")
@@ -87,7 +88,22 @@ with st.expander("Gráficos en coordenadas nativas · detalle científico",expan
 st.subheader("Mapa geográfico")
 st.caption(f"Polarización {pol} · {labels[after]}" if mode == 'Antes y después' else f"Polarización {pol} · {labels[after]} menos {labels[before]}")
 st.caption("Capa NISAR sobre mapa base. Naranja: respuesta mayor; azul: menor; tono claro cerca de cero solo en diferencias. Rango: −6 a 6 dB para diferencias; −30 a 10 dB para intensidad. Transparente: sin dato.")
-map_event = st_folium(raster_map(delta if mode == "Diferencia en dB" else b, transform, crs, mode == "Diferencia en dB"), height=520, use_container_width=True, key="sar-map", returned_objects=["last_clicked"])
+sar_map = raster_map(delta if mode == "Diferencia en dB" else b, transform, crs, mode == "Diferencia en dB")
+available = water_mask_paths(root, labels[after])
+if available:
+    choice = st.selectbox("Capa de detección evaluada", ["Ninguna"] + [WATER_METHODS[m] for m in available], key="detection-layer")
+    method = next((m for m in available if WATER_METHODS[m] == choice), None)
+    if method:
+        mask, mt, mc, tags = read_mask(available[method])
+        if (mt, mc, mask.shape) != (transform, crs, b.shape):
+            st.error("La máscara no comparte la grilla SAR; no se muestra.")
+        else:
+            categorical_overlay(mask, mt, mc, "water", choice).add_to(sar_map)
+            fraction = water_fraction(mask)
+            st.caption(f"Verde azulado: agua abierta estimada el {labels[after]} ({fraction:.1%} del recorte válido). " + water_sentence(detection_reference(), "pantanal", method))
+            if profile in ("Ciencia", "Desarrollo y datos"):
+                st.caption(f"Método: {tags.get('method', '')}. Estado: {tags.get('status', '')}.")
+map_event = st_folium(sar_map, height=520, use_container_width=True, key="sar-map", returned_objects=["last_clicked"])
 st.subheader("Serie temporal de un punto")
 west, south, east, north = manifest["bbox_wgs84"]
 clicked = map_event.get("last_clicked")
