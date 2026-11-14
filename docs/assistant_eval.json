@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-14T04:06:22.014069+00:00",
+  "generated_utc": "2026-11-14T05:35:55.048917+00:00",
   "acceptance": {
     "intent_accuracy": 0.9,
     "traceability": 0.95,
@@ -390,7 +390,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 2 evaluaciones a unos 12 días con error absoluto medio 0.65 dB. Ningún modelo probado superó a la persistencia con intervalos calibrados, así que no se publica un pronóstico. Hace falta una serie más larga, etiquetas independientes y evaluación fuera del entrenamiento. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
+          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 4 evaluaciones a unos 12 días con error absoluto medio 0.44 dB. El modelo climatology superó a la persistencia en los pliegues disponibles, pero sigue siendo una referencia de la mediana del recorte, no un predictor de inundación. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
         },
         {
           "question": "¿Cuál es el riesgo para mañana?",
@@ -407,7 +407,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 2 evaluaciones a unos 12 días con error absoluto medio 0.65 dB. Ningún modelo probado superó a la persistencia con intervalos calibrados, así que no se publica un pronóstico. Hace falta una serie más larga, etiquetas independientes y evaluación fuera del entrenamiento. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
+          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 4 evaluaciones a unos 12 días con error absoluto medio 0.44 dB. El modelo climatology superó a la persistencia en los pliegues disponibles, pero sigue siendo una referencia de la mediana del recorte, no un predictor de inundación. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
         },
         {
           "question": "¿Esto sirve para alertar a la población?",
@@ -424,7 +424,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 2 evaluaciones a unos 12 días con error absoluto medio 0.65 dB. Ningún modelo probado superó a la persistencia con intervalos calibrados, así que no se publica un pronóstico. Hace falta una serie más larga, etiquetas independientes y evaluación fuera del entrenamiento. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
+          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 4 evaluaciones a unos 12 días con error absoluto medio 0.44 dB. El modelo climatology superó a la persistencia en los pliegues disponibles, pero sigue siendo una referencia de la mediana del recorte, no un predictor de inundación. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
         },
         {
           "question": "¿Cuánto se equivoca la predicción?",
@@ -441,7 +441,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 2 evaluaciones a unos 12 días con error absoluto medio 0.65 dB. Ningún modelo probado superó a la persistencia con intervalos calibrados, así que no se publica un pronóstico. Hace falta una serie más larga, etiquetas independientes y evaluación fuera del entrenamiento. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
+          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 4 evaluaciones a unos 12 días con error absoluto medio 0.44 dB. El modelo climatology superó a la persistencia en los pliegues disponibles, pero sigue siendo una referencia de la mediana del recorte, no un predictor de inundación. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
         },
         {
           "question": "¿Es seguro vivir aquí?",
@@ -458,7 +458,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 2 evaluaciones a unos 12 días con error absoluto medio 0.65 dB. Ningún modelo probado superó a la persistencia con intervalos calibrados, así que no se publica un pronóstico. Hace falta una serie más larga, etiquetas independientes y evaluación fuera del entrenamiento. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
+          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 4 evaluaciones a unos 12 días con error absoluto medio 0.44 dB. El modelo climatology superó a la persistencia en los pliegues disponibles, pero sigue siendo una referencia de la mediana del recorte, no un predictor de inundación. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
         },
         {
           "question": "¿De dónde salen los datos?",
@@ -526,7 +526,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Agua abierta estimada el 2026-09-27: 55.6 km² con LightGBM y 900.6 km² con umbral Kittler-Illingworth; la etiqueta óptica Sentinel-2 marcó 53.3 km². El clasificador alcanzó F1 0.83 en bloques retenidos y F1 0.8 en la fecha retenida (2026-09-27). Mide agua abierta; no confirma una inundación ni detecta agua bajo vegetación."
+          "answer": "Agua abierta estimada el 2026-09-27: 55.1 km² con LightGBM y 82.3 km² con umbral Kittler-Illingworth; la etiqueta óptica Sentinel-2 marcó 53.3 km². El clasificador alcanzó F1 0.83 en bloques retenidos y F1 0.76 en la fecha retenida (2026-10-21). Mide agua abierta; no confirma una inundación ni detecta agua bajo vegetación."
         },
         {
           "question": "¿Qué tan bien detecta el agua?",
@@ -543,7 +543,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Agua abierta estimada el 2026-09-27: 55.6 km² con LightGBM y 900.6 km² con umbral Kittler-Illingworth; la etiqueta óptica Sentinel-2 marcó 53.3 km². El clasificador alcanzó F1 0.83 en bloques retenidos y F1 0.8 en la fecha retenida (2026-09-27). Mide agua abierta; no confirma una inundación ni detecta agua bajo vegetación."
+          "answer": "Agua abierta estimada el 2026-09-27: 55.1 km² con LightGBM y 82.3 km² con umbral Kittler-Illingworth; la etiqueta óptica Sentinel-2 marcó 53.3 km². El clasificador alcanzó F1 0.83 en bloques retenidos y F1 0.76 en la fecha retenida (2026-10-21). Mide agua abierta; no confirma una inundación ni detecta agua bajo vegetación."
         },
         {
           "question": "¿Qué porcentaje del territorio cambió?",
@@ -594,7 +594,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Agua abierta estimada el 2026-09-27: 55.6 km² con LightGBM y 900.6 km² con umbral Kittler-Illingworth; la etiqueta óptica Sentinel-2 marcó 53.3 km². El clasificador alcanzó F1 0.83 en bloques retenidos y F1 0.8 en la fecha retenida (2026-09-27). Mide agua abierta; no confirma una inundación ni detecta agua bajo vegetación."
+          "answer": "Agua abierta estimada el 2026-09-27: 55.1 km² con LightGBM y 82.3 km² con umbral Kittler-Illingworth; la etiqueta óptica Sentinel-2 marcó 53.3 km². El clasificador alcanzó F1 0.83 en bloques retenidos y F1 0.76 en la fecha retenida (2026-10-21). Mide agua abierta; no confirma una inundación ni detecta agua bajo vegetación."
         },
         {
           "question": "¿Cómo consulto un punto?",
@@ -934,7 +934,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 2 evaluaciones a unos 12 días con error absoluto medio 0.65 dB. Ningún modelo probado superó a la persistencia con intervalos calibrados, así que no se publica un pronóstico. Hace falta una serie más larga, etiquetas independientes y evaluación fuera del entrenamiento. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
+          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 4 evaluaciones a unos 12 días con error absoluto medio 0.44 dB. El modelo climatology superó a la persistencia en los pliegues disponibles, pero sigue siendo una referencia de la mediana del recorte, no un predictor de inundación. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
         },
         {
           "question": "Como desarrollador, ¿dónde están los archivos originales?",
@@ -1002,7 +1002,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Agua abierta estimada el 2026-09-27: 55.6 km² con LightGBM y 900.6 km² con umbral Kittler-Illingworth; la etiqueta óptica Sentinel-2 marcó 53.3 km². El clasificador alcanzó F1 0.83 en bloques retenidos y F1 0.8 en la fecha retenida (2026-09-27). Mide agua abierta; no confirma una inundación ni detecta agua bajo vegetación."
+          "answer": "Agua abierta estimada el 2026-09-27: 55.1 km² con LightGBM y 82.3 km² con umbral Kittler-Illingworth; la etiqueta óptica Sentinel-2 marcó 53.3 km². El clasificador alcanzó F1 0.83 en bloques retenidos y F1 0.76 en la fecha retenida (2026-10-21). Mide agua abierta; no confirma una inundación ni detecta agua bajo vegetación."
         },
         {
           "question": "¿Funciona la persistencia como pronóstico?",
@@ -1019,7 +1019,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 2 evaluaciones a unos 12 días con error absoluto medio 0.65 dB. Ningún modelo probado superó a la persistencia con intervalos calibrados, así que no se publica un pronóstico. Hace falta una serie más larga, etiquetas independientes y evaluación fuera del entrenamiento. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
+          "answer": "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto. Como referencia retrospectiva en Pantanal, repetir la mediana HH anterior produjo 4 evaluaciones a unos 12 días con error absoluto medio 0.44 dB. El modelo climatology superó a la persistencia en los pliegues disponibles, pero sigue siendo una referencia de la mediana del recorte, no un predictor de inundación. Observación: cambio de la señal radar entre las fechas indicadas. Hipótesis: causas físicas posibles sin confirmar. Dato ausente: evidencia independiente contemporánea."
         },
         {
           "question": "¿Qué es un COG?",

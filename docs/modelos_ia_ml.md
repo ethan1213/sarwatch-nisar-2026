@@ -80,9 +80,9 @@ Claude no forma parte del producto. Como herramienta de construcción: Fable 5.1
 
 ## 9. Resultados obtenidos (14 noviembre 2026)
 
-- **Detección de agua, Pantanal (6 fechas etiquetadas con Sentinel-2):** LightGBM F1 0,83 en bloques retenidos (IoU 0,70) y 0,80 en la fecha retenida; Kittler-Illingworth 0,65; Otsu 0,10 (falla porque el agua es ~1,5 % del recorte). Por clase WorldCover: agua permanente 0,88, humedal herbáceo 0,43, árboles 0,25. Tarjeta: `models/pantanal_water_lgbm.card.json`.
+- **Detección de agua, Pantanal (9 fechas, 8 etiquetadas con Sentinel-2):** LightGBM F1 0,83 en bloques retenidos (IoU 0,70) y 0,76 en la fecha retenida del 21 de octubre; Kittler-Illingworth 0,68; Otsu 0,10 (falla porque el agua es ~1,5 % del recorte). Por clase WorldCover: agua permanente 0,88, humedal herbáceo 0,43, árboles 0,25. Tarjeta: `models/pantanal_water_lgbm.card.json`.
 - **Cambio, Chile (prueba de Conradsen diagonal, α = 0,01):** tierra con cambio significativo 0,18 % (Santiago) y 0,06 % (Valparaíso); mar de Valparaíso 11,3 % de aumento por viento/oleaje. Sin etiquetas: no se afirma exactitud.
-- **Pronóstico (origen rodante, con ERA5 y GloFAS):** la persistencia gana (MAE 0,65 dB mediana HH; 0,23 km² área). No publicable.
+- **Pronóstico (origen rodante, 6 pliegues, con ERA5 y GloFAS):** climatología MAE 0,37 dB frente a persistencia 0,44 dB en la mediana HH (publicable como referencia, no como modelo de inundación); en área de agua gana la persistencia (0,52 km²).
 - **Asistente:** 60/60 casos de aceptación con el motor de reglas; trazabilidad de cifras 100 %.
 - `ruptures` no compila en Python 3.14: el cambio de punto por píxel queda pendiente con implementación propia.
 

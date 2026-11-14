@@ -1,42 +1,54 @@
 {
   "aoi": "Pantanal",
-  "generated_utc": "2026-11-14T04:05:24.515095+00:00",
+  "generated_utc": "2026-11-14T05:35:44.272040+00:00",
   "series": [
     {
       "date": "2026-07-17",
       "scene_id": "G4254665779-ASF",
       "median_hh_db": -5.408691883087158,
-      "water_area_km2": 55.8588
+      "water_area_km2": 55.3204
     },
     {
       "date": "2026-08-10",
       "scene_id": "G4278808808-ASF",
       "median_hh_db": -5.487861633300781,
-      "water_area_km2": 54.6288
+      "water_area_km2": 54.1508
     },
     {
       "date": "2026-08-22",
       "scene_id": "G4288574282-ASF",
       "median_hh_db": -5.56563663482666,
-      "water_area_km2": 54.928
+      "water_area_km2": 54.5084
     },
     {
       "date": "2026-09-03",
       "scene_id": "G4298917803-ASF",
       "median_hh_db": -5.985947608947754,
-      "water_area_km2": 55.1636
+      "water_area_km2": 54.6912
     },
     {
       "date": "2026-09-15",
       "scene_id": "G4314009366-ASF",
       "median_hh_db": -5.463778495788574,
-      "water_area_km2": 55.372
+      "water_area_km2": 54.8472
     },
     {
       "date": "2026-09-27",
       "scene_id": "G4327697742-ASF",
       "median_hh_db": -6.249695301055908,
-      "water_area_km2": 55.6148
+      "water_area_km2": 55.1352
+    },
+    {
+      "date": "2026-10-09",
+      "scene_id": "G4357615411-ASF",
+      "median_hh_db": -5.995886325836182,
+      "water_area_km2": 55.7272
+    },
+    {
+      "date": "2026-10-21",
+      "scene_id": "G4384731148-ASF",
+      "median_hh_db": -6.188203811645508,
+      "water_area_km2": 54.6668
     }
   ],
   "common_coverage": 1.0,
@@ -89,7 +101,7 @@
   "targets": [
     {
       "target": "median_hh_db",
-      "n_dates": 6,
+      "n_dates": 8,
       "features": [
         "previous",
         "momentum",
@@ -102,16 +114,16 @@
       ],
       "models": {
         "persistence": {
-          "n_evaluations": 2,
-          "n": 2,
-          "mae": 0.6540429592132568,
-          "bias": 0.13187384605407715,
-          "rmse": 0.6672052935712729,
+          "n_evaluations": 4,
+          "n": 4,
+          "mae": 0.4385530948638916,
+          "bias": 0.05056405067443848,
+          "rmse": 0.49792841322552706,
           "interval_level": 0.8,
           "interval": {
-            "n": 0,
-            "coverage": null,
-            "mean_width": null
+            "n": 2,
+            "coverage": 1.0,
+            "mean_width": 1.571833610534668
           },
           "evaluations": [
             {
@@ -135,21 +147,43 @@
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
+            },
+            {
+              "issued_from": "2026-09-27",
+              "target_date": "2026-10-09",
+              "horizon_days": 12,
+              "prediction": -6.249695301055908,
+              "observed": -5.995886325836182,
+              "error": -0.25380897521972656,
+              "interval_half_width": 0.785916805267334,
+              "lower": -7.035612106323242,
+              "upper": -5.463778495788574
+            },
+            {
+              "issued_from": "2026-10-09",
+              "target_date": "2026-10-21",
+              "horizon_days": 12,
+              "prediction": -5.995886325836182,
+              "observed": -6.188203811645508,
+              "error": 0.19231748580932617,
+              "interval_half_width": 0.785916805267334,
+              "lower": -6.781803131103516,
+              "upper": -5.209969520568848
             }
           ],
           "skill_vs_persistence": 0.0
         },
         "climatology": {
-          "n_evaluations": 2,
-          "n": 2,
-          "mae": 0.419963002204895,
-          "bias": 0.2039262056350708,
-          "rmse": 0.46685631683170553,
+          "n_evaluations": 4,
+          "n": 4,
+          "mae": 0.3704911351203919,
+          "bias": 0.2624727368354798,
+          "rmse": 0.40419131390723856,
           "interval_level": 0.8,
           "interval": {
-            "n": 0,
-            "coverage": null,
-            "mean_width": null
+            "n": 2,
+            "coverage": 1.0,
+            "mean_width": 1.2477784156799316
           },
           "evaluations": [
             {
@@ -173,21 +207,43 @@
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
+            },
+            {
+              "issued_from": "2026-09-27",
+              "target_date": "2026-10-09",
+              "horizon_days": 12,
+              "prediction": -5.750583934783935,
+              "observed": -5.995886325836182,
+              "error": 0.24530239105224627,
+              "interval_half_width": 0.6238892078399658,
+              "lower": -6.374473142623901,
+              "upper": -5.1266947269439695
+            },
+            {
+              "issued_from": "2026-10-09",
+              "target_date": "2026-10-21",
+              "horizon_days": 12,
+              "prediction": -5.791467666625977,
+              "observed": -6.188203811645508,
+              "error": 0.39673614501953125,
+              "interval_half_width": 0.6238892078399658,
+              "lower": -6.415356874465942,
+              "upper": -5.167578458786011
             }
           ],
-          "skill_vs_persistence": 0.35789691443194305
+          "skill_vs_persistence": 0.15519662394498268
         },
         "ridge": {
-          "n_evaluations": 2,
-          "n": 2,
-          "mae": 1.009928115080413,
-          "bias": 1.009928115080413,
-          "rmse": 1.334002234897389,
+          "n_evaluations": 4,
+          "n": 4,
+          "mae": 0.7890252811135762,
+          "bias": 0.7632256247868466,
+          "rmse": 1.0883752170391403,
           "interval_level": 0.8,
           "interval": {
-            "n": 0,
-            "coverage": null,
-            "mean_width": null
+            "n": 2,
+            "coverage": 1.0,
+            "mean_width": 3.7629651367772228
           },
           "evaluations": [
             {
@@ -211,21 +267,43 @@
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
+            },
+            {
+              "issued_from": "2026-09-27",
+              "target_date": "2026-10-09",
+              "horizon_days": 12,
+              "prediction": -4.911240744196162,
+              "observed": -5.995886325836182,
+              "error": 1.0846455816400198,
+              "interval_half_width": 1.8814825683886114,
+              "lower": -6.792723312584773,
+              "upper": -3.0297581758075505
+            },
+            {
+              "issued_from": "2026-10-09",
+              "target_date": "2026-10-21",
+              "horizon_days": 12,
+              "prediction": -6.239803124298967,
+              "observed": -6.188203811645508,
+              "error": -0.05159931265345907,
+              "interval_half_width": 1.8814825683886114,
+              "lower": -8.121285692687579,
+              "upper": -4.358320555910355
             }
           ],
-          "skill_vs_persistence": -0.5441311627224725
+          "skill_vs_persistence": -0.7991556560750217
         },
         "ridge_anomaly": {
-          "n_evaluations": 2,
-          "n": 2,
-          "mae": 0.6531848758159269,
-          "bias": 0.6531848758159269,
-          "rmse": 0.7256370227739718,
+          "n_evaluations": 4,
+          "n": 4,
+          "mae": 0.7134112659708134,
+          "bias": 0.6075326335018982,
+          "rmse": 0.8487561150876539,
           "interval_level": 0.8,
           "interval": {
-            "n": 0,
-            "coverage": null,
-            "mean_width": null
+            "n": 2,
+            "coverage": 0.5,
+            "mean_width": 2.3047703318030353
           },
           "evaluations": [
             {
@@ -249,20 +327,43 @@
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
+            },
+            {
+              "issued_from": "2026-09-27",
+              "target_date": "2026-10-09",
+              "horizon_days": 12,
+              "prediction": -4.660368278522612,
+              "observed": -5.995886325836182,
+              "error": 1.3355180473135695,
+              "interval_half_width": 0.9692522844894658,
+              "lower": -5.629620563012078,
+              "upper": -3.6911159940331464
+            },
+            {
+              "issued_from": "2026-10-09",
+              "target_date": "2026-10-21",
+              "horizon_days": 12,
+              "prediction": -6.399961076583338,
+              "observed": -6.188203811645508,
+              "error": -0.21175726493783031,
+              "interval_half_width": 1.3355180473135695,
+              "lower": -7.735479123896908,
+              "upper": -5.064443029269769
             }
           ],
-          "skill_vs_persistence": 0.0013119679452893163
+          "skill_vs_persistence": -0.6267386419704237
         }
       },
       "decision": {
-        "publishable": false,
-        "model": null,
-        "reason": "ningún modelo supera a la persistencia con intervalos calibrados en los pliegues disponibles"
+        "publishable": true,
+        "model": "climatology",
+        "skill_vs_persistence": 0.15519662394498268,
+        "reason": "supera a la persistencia y cubre al menos el nivel requerido"
       }
     },
     {
       "target": "water_area_km2",
-      "n_dates": 6,
+      "n_dates": 8,
       "features": [
         "previous",
         "momentum",
@@ -275,25 +376,25 @@
       ],
       "models": {
         "persistence": {
-          "n_evaluations": 2,
-          "n": 2,
-          "mae": 0.22560000000000002,
-          "bias": -0.22560000000000002,
-          "rmse": 0.2262547237075949,
+          "n_evaluations": 4,
+          "n": 4,
+          "mae": 0.5241000000000007,
+          "bias": 0.006099999999999994,
+          "rmse": 0.628926100587344,
           "interval_level": 0.8,
           "interval": {
-            "n": 0,
-            "coverage": null,
-            "mean_width": null
+            "n": 2,
+            "coverage": 0.0,
+            "mean_width": 0.8800000000000026
           },
           "evaluations": [
             {
               "issued_from": "2026-09-03",
               "target_date": "2026-09-15",
               "horizon_days": 12,
-              "prediction": 55.1636,
-              "observed": 55.372,
-              "error": -0.20839999999999748,
+              "prediction": 54.6912,
+              "observed": 54.8472,
+              "error": -0.1559999999999988,
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
@@ -302,36 +403,58 @@
               "issued_from": "2026-09-15",
               "target_date": "2026-09-27",
               "horizon_days": 12,
-              "prediction": 55.372,
-              "observed": 55.6148,
-              "error": -0.24280000000000257,
+              "prediction": 54.8472,
+              "observed": 55.1352,
+              "error": -0.2879999999999967,
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
+            },
+            {
+              "issued_from": "2026-09-27",
+              "target_date": "2026-10-09",
+              "horizon_days": 12,
+              "prediction": 55.1352,
+              "observed": 55.7272,
+              "error": -0.5920000000000059,
+              "interval_half_width": 0.2879999999999967,
+              "lower": 54.8472,
+              "upper": 55.423199999999994
+            },
+            {
+              "issued_from": "2026-10-09",
+              "target_date": "2026-10-21",
+              "horizon_days": 12,
+              "prediction": 55.7272,
+              "observed": 54.6668,
+              "error": 1.0604000000000013,
+              "interval_half_width": 0.5920000000000059,
+              "lower": 55.1352,
+              "upper": 56.31920000000001
             }
           ],
           "skill_vs_persistence": 0.0
         },
         "climatology": {
-          "n_evaluations": 2,
-          "n": 2,
-          "mae": 0.528450000000003,
-          "bias": -0.528450000000003,
-          "rmse": 0.5322217254115085,
+          "n_evaluations": 4,
+          "n": 4,
+          "mae": 0.5550099999999976,
+          "bias": -0.46674333333333173,
+          "rmse": 0.6436118405443503,
           "interval_level": 0.8,
           "interval": {
-            "n": 0,
-            "coverage": null,
-            "mean_width": null
+            "n": 2,
+            "coverage": 0.5,
+            "mean_width": 1.6464399999999912
           },
           "evaluations": [
             {
               "issued_from": "2026-09-03",
               "target_date": "2026-09-15",
               "horizon_days": 12,
-              "prediction": 54.9068,
-              "observed": 55.372,
-              "error": -0.46520000000000294,
+              "prediction": 54.45013333333333,
+              "observed": 54.8472,
+              "error": -0.39706666666666734,
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
@@ -340,36 +463,58 @@
               "issued_from": "2026-09-15",
               "target_date": "2026-09-27",
               "horizon_days": 12,
-              "prediction": 55.0231,
-              "observed": 55.6148,
-              "error": -0.591700000000003,
+              "prediction": 54.549400000000006,
+              "observed": 55.1352,
+              "error": -0.5857999999999919,
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
+            },
+            {
+              "issued_from": "2026-09-27",
+              "target_date": "2026-10-09",
+              "horizon_days": 12,
+              "prediction": 54.666560000000004,
+              "observed": 55.7272,
+              "error": -1.0606399999999994,
+              "interval_half_width": 0.5857999999999919,
+              "lower": 54.08076000000001,
+              "upper": 55.252359999999996
+            },
+            {
+              "issued_from": "2026-10-09",
+              "target_date": "2026-10-21",
+              "horizon_days": 12,
+              "prediction": 54.843333333333334,
+              "observed": 54.6668,
+              "error": 0.17653333333333165,
+              "interval_half_width": 1.0606399999999994,
+              "lower": 53.782693333333334,
+              "upper": 55.90397333333333
             }
           ],
-          "skill_vs_persistence": -1.3424202127659703
+          "skill_vs_persistence": -0.05897729440945776
         },
         "ridge": {
-          "n_evaluations": 2,
-          "n": 2,
-          "mae": 1.3041934466696432,
-          "bias": -1.3041934466696432,
-          "rmse": 1.7159443360582647,
+          "n_evaluations": 4,
+          "n": 4,
+          "mae": 0.998937846773071,
+          "bias": -0.4978370017491365,
+          "rmse": 1.2835785733914364,
           "interval_level": 0.8,
           "interval": {
-            "n": 0,
-            "coverage": null,
-            "mean_width": null
+            "n": 2,
+            "coverage": 1.0,
+            "mean_width": 4.614506213232048
           },
           "evaluations": [
             {
               "issued_from": "2026-09-03",
               "target_date": "2026-09-15",
               "horizon_days": 12,
-              "prediction": 52.95266332570693,
-              "observed": 55.372,
-              "error": -2.4193366742930706,
+              "prediction": 52.53994689338398,
+              "observed": 54.8472,
+              "error": -2.307253106616024,
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
@@ -378,36 +523,58 @@
               "issued_from": "2026-09-15",
               "target_date": "2026-09-27",
               "horizon_days": 12,
-              "prediction": 55.42574978095379,
-              "observed": 55.6148,
-              "error": -0.18905021904621577,
+              "prediction": 54.90817488450774,
+              "observed": 55.1352,
+              "error": -0.22702511549226045,
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
+            },
+            {
+              "issued_from": "2026-09-27",
+              "target_date": "2026-10-09",
+              "horizon_days": 12,
+              "prediction": 55.26792852506387,
+              "observed": 55.7272,
+              "error": -0.45927147493613063,
+              "interval_half_width": 2.307253106616024,
+              "lower": 52.96067541844785,
+              "upper": 57.5751816316799
+            },
+            {
+              "issued_from": "2026-10-09",
+              "target_date": "2026-10-21",
+              "horizon_days": 12,
+              "prediction": 55.66900169004787,
+              "observed": 54.6668,
+              "error": 1.002201690047869,
+              "interval_half_width": 2.307253106616024,
+              "lower": 53.36174858343185,
+              "upper": 57.976254796663895
             }
           ],
-          "skill_vs_persistence": -4.780999320344162
+          "skill_vs_persistence": -0.9060061949495701
         },
         "ridge_anomaly": {
-          "n_evaluations": 2,
-          "n": 2,
-          "mae": 2.447397947644461,
-          "bias": -2.337531412403841,
-          "rmse": 3.3843477684938077,
+          "n_evaluations": 4,
+          "n": 4,
+          "mae": 1.5282370229978195,
+          "bias": -0.9131886513095235,
+          "rmse": 2.247962030371948,
           "interval_level": 0.8,
           "interval": {
-            "n": 0,
-            "coverage": null,
-            "mean_width": null
+            "n": 2,
+            "coverage": 1.0,
+            "mean_width": 8.576024466666084
           },
           "evaluations": [
             {
               "issued_from": "2026-09-03",
               "target_date": "2026-09-15",
               "horizon_days": 12,
-              "prediction": 50.5870706399517,
-              "observed": 55.372,
-              "error": -4.784929360048302,
+              "prediction": 50.55918776666696,
+              "observed": 54.8472,
+              "error": -4.288012233333042,
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
@@ -416,15 +583,37 @@
               "issued_from": "2026-09-15",
               "target_date": "2026-09-27",
               "horizon_days": 12,
-              "prediction": 55.72466653524062,
-              "observed": 55.6148,
-              "error": 0.10986653524062007,
+              "prediction": 55.15196680141383,
+              "observed": 55.1352,
+              "error": 0.016766801413830024,
               "interval_half_width": NaN,
               "lower": null,
               "upper": null
+            },
+            {
+              "issued_from": "2026-09-27",
+              "target_date": "2026-10-09",
+              "horizon_days": 12,
+              "prediction": 55.13236088471836,
+              "observed": 55.7272,
+              "error": -0.5948391152816441,
+              "interval_half_width": 4.288012233333042,
+              "lower": 50.84434865138532,
+              "upper": 59.4203731180514
+            },
+            {
+              "issued_from": "2026-10-09",
+              "target_date": "2026-10-21",
+              "horizon_days": 12,
+              "prediction": 55.880129941962764,
+              "observed": 54.6668,
+              "error": 1.213329941962762,
+              "interval_half_width": 4.288012233333042,
+              "lower": 51.59211770862972,
+              "upper": 60.168142175295806
             }
           ],
-          "skill_vs_persistence": -9.848395157998498
+          "skill_vs_persistence": -1.9159263938138094
         }
       },
       "decision": {

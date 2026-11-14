@@ -1,6 +1,7 @@
 """Interactive Earthdata download of candidate granules into data_raw/<name>. Credentials never persist."""
 import argparse
 import json
+import os
 import shutil
 from pathlib import Path
 
@@ -8,7 +9,7 @@ from pathlib import Path
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--candidates", default="catalog/pantanal_candidates.json")
-    parser.add_argument("--target", default="data_raw/pantanal")
+    parser.add_argument("--target", default=os.path.join(os.environ.get("SARWATCH_RAW", "D:/NISAR/raw"), "pantanal"), help="Por defecto SARWATCH_RAW/pantanal (disco externo D:/NISAR/raw)")
     parser.add_argument("--ids", nargs="*", help="Subconjunto de IDs CMR; por defecto todos")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
@@ -19,7 +20,7 @@ def main():
         raise SystemExit("No hay escenas candidatas")
     if any(not s["url_hdf5"] for s in scenes):
         raise SystemExit("CMR no entrega URL HTTPS HDF5 para alguna escena")
-    target = root / args.target
+    target = Path(args.target) if Path(args.target).is_absolute() else root / args.target
     target.mkdir(parents=True, exist_ok=True)
     pending = [s for s in scenes if not (target / (s["granulo"] + ".h5")).is_file()]
     estimated = sum(s["estimated_mib"] for s in pending) * 1024 * 1024

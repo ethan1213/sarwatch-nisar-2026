@@ -41,6 +41,11 @@ if any(x.label=='Mostrar cambio estadísticamente significativo' for x in app.ch
     next(x for x in app.checkbox if x.label=='Mostrar cambio estadísticamente significativo').check().run(timeout=180)
     assert not app.exception, list(app.exception)
     assert any('Conradsen' in x.value for x in app.caption), 'Change layer must explain its test'
+app.selectbox[0].set_value('Mundo · cobertura NISAR').run(timeout=240)
+assert not app.exception, list(app.exception)
+if Path('catalog/global/coverage_1deg.json').is_file():
+    assert any('granulos' in x.value for x in app.caption), 'World view must describe the CMR index'
+    assert app.dataframe, 'World view must list repeat geometries for the default point'
 app.selectbox[0].set_value('Pantanal').run(timeout=180)
 if any(x.label=='Capa de detección evaluada' for x in app.selectbox):
     layer=next(x for x in app.selectbox if x.label=='Capa de detección evaluada')

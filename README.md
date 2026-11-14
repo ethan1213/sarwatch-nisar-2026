@@ -32,6 +32,10 @@ Detección de agua abierta en Pantanal evaluada contra Sentinel-2 en bloques y f
 .\.venv\Scripts\python scripts/evaluate_assistant.py          # docs/assistant_eval.json
 ```
 
+## Datos originales y escala mundial
+
+Los HDF5 originales viven en el disco externo `D:/NISAR/raw` (variable `SARWATCH_RAW`); nunca entran en Git ni en la imagen Docker. El archivo GCOV completo supera los 290 TB en 163 mil granulos, por lo que la app no lo copia: `scripts/build_global_catalog.py` construye un índice mundial desde CMR y la vista «Mundo · cobertura NISAR» muestra dónde hay datos y cuántas fechas; los sitios se procesan bajo demanda con `scripts/request_aoi.py`. Opciones de nube en [docs/arquitectura_nube.md](docs/arquitectura_nube.md).
+
 ## Documentación y estado
 
 - [Plan detallado](docs/plan_implementacion.md)

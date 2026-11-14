@@ -23,9 +23,14 @@ st.set_page_config(page_title="SARWatch · NISAR", page_icon="S", layout="wide")
 apply_theme()
 st.title("SARWatch")
 st.caption("Observación terrestre · NISAR y contexto territorial")
-region = st.selectbox("Área de estudio", ["Pantanal", "Región Metropolitana", "Región de Valparaíso"],index=1)
+region = st.selectbox("Área de estudio", ["Pantanal", "Región Metropolitana", "Región de Valparaíso", "Mundo · cobertura NISAR"],index=1)
 profile=st.selectbox("Cómo quieres explorar",PROFILES)
 st.caption("Elige un lugar, compara dos fechas y pregunta qué significa lo observado.")
+if region.startswith("Mundo"):
+    from sarwatch.views.world import world_view
+    world_view(profile)
+    scale_calculator()
+    st.stop()
 if region != "Pantanal":
     chile_view(region,profile)
     scale_calculator()

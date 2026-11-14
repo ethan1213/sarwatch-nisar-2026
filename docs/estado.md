@@ -1,5 +1,28 @@
 # Estado de entrega — 14 noviembre 2026
 
+## Actualización nocturna: disco externo, nueve fechas en Pantanal, índice mundial y nube
+
+- Los HDF5 originales se movieron a `D:/NISAR/raw` (9 de Pantanal, 2 de Chile); C quedó con 30 GB libres. `SARWATCH_RAW` apunta ahí por defecto.
+- Las dos escenas nuevas de Pantanal (9 y 21 de octubre) fueron verificadas con el MD5 oficial de CMR y añadidas a `catalog/scenes.json`; la serie quedó en nueve fechas (5 jul a 21 oct) y se reprocesó con capa de looks.
+- Índice mundial: `scripts/build_global_catalog.py` indexa los 163.672 granulos GCOV del catálogo (unos 291 TB) sin descargar imágenes; la vista «Mundo · cobertura NISAR» muestra celdas de 1° con número de fechas y permite consultar cualquier punto.
+- Documentos nuevos: `arquitectura_nube.md` (cuatro opciones con cifras), `nube_capas_gratuitas.md` (AWS plan gratuito y USD 300 de Google Cloud), `guia_equipo.md` (qué falta, en orden, con criterio de hecho) y `CONTEXT.md` en la raíz.
+- Métricas con nueve fechas: sección «Resultados con nueve fechas» más abajo y JSON de `docs/`.
+
+
+## Resultados con nueve fechas (Pantanal, 5 jul a 21 oct 2026; 8 con etiqueta Sentinel-2)
+
+| Método | F1 bloques retenidos | F1 fecha retenida (2026-10-21) | Nota |
+|---|---:|---:|---|
+| Umbral Otsu HH | 0,10 medio | — | Sigue sin servir con 1,5 % de agua |
+| Umbral Kittler-Illingworth HH | 0,68 medio en 8 fechas | — | Área 74–93 km², sobreestima frente a la etiqueta óptica (37–53 km²) |
+| LightGBM por píxel | **0,83** (IoU 0,70) | **0,76** | Área estable 54–56 km²; por clase: agua permanente 0,88, humedal herbáceo 0,44, árboles 0,27 |
+
+La fecha retenida cambió del 27 de septiembre al 21 de octubre y el F1 temporal bajó de 0,80 a 0,76: generalizar a una fecha nueva cuesta más que generalizar a bloques vecinos; es el número que debe citarse como más conservador.
+
+**Pronóstico con 9 fechas (origen rodante, 6 pliegues).** Mediana HH: persistencia MAE 0,44 dB; climatología (promedio de las fechas anteriores) 0,37 dB, 15 % mejor y con intervalos que cumplen la cobertura exigida, por lo que la regla la marca como publicable y el visor la muestra con ese nombre y ese error. Es un promedio histórico, no un modelo de inundación; Ridge con lluvia y caudal sigue siendo peor (0,71 a 0,79 dB). Área de agua: la persistencia gana (0,52 km²); nada publicable.
+
+Asistente: 60/60 tras regenerar las referencias. Prueba funcional de la app con la vista mundial: pasa.
+
 ## Actualización: modelos evaluados, asistente verificado y pronóstico honesto
 
 Decisiones del propietario (14 nov): sin API de Claude en el producto; entrenamiento en la laptop y Colab; Pantanal y Chile en paralelo. Plan aprobado en ocho fases; inventario completo de modelos en [modelos_ia_ml.md](modelos_ia_ml.md).

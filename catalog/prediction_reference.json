@@ -2,18 +2,19 @@
   "target": "Mediana HH del recorte en píxeles comunes válidos",
   "method": "Comparación en origen rodante: persistencia, climatología, Ridge y Ridge sobre anomalías",
   "kind": "retrospective_reference_only",
-  "n_evaluations": 2,
-  "mae_db": 0.6540429592132568,
+  "n_evaluations": 4,
+  "mae_db": 0.4385530948638916,
   "best_model": {
-    "publishable": false,
-    "model": null,
-    "reason": "ningún modelo supera a la persistencia con intervalos calibrados en los pliegues disponibles"
+    "publishable": true,
+    "model": "climatology",
+    "skill_vs_persistence": 0.15519662394498268,
+    "reason": "supera a la persistencia y cubre al menos el nivel requerido"
   },
   "models_mae": {
-    "persistence": 0.6540429592132568,
-    "climatology": 0.419963002204895,
-    "ridge": 1.009928115080413,
-    "ridge_anomaly": 0.6531848758159269
+    "persistence": 0.4385530948638916,
+    "climatology": 0.3704911351203919,
+    "ridge": 0.7890252811135762,
+    "ridge_anomaly": 0.7134112659708134
   },
   "water_area": {
     "decision": {
@@ -22,10 +23,10 @@
       "reason": "ningún modelo supera a la persistencia con intervalos calibrados en los pliegues disponibles"
     },
     "models_mae_km2": {
-      "persistence": 0.22560000000000002,
-      "climatology": 0.528450000000003,
-      "ridge": 1.3041934466696432,
-      "ridge_anomaly": 2.447397947644461
+      "persistence": 0.5241000000000007,
+      "climatology": 0.5550099999999976,
+      "ridge": 0.998937846773071,
+      "ridge_anomaly": 1.5282370229978195
     }
   },
   "limitations": [
