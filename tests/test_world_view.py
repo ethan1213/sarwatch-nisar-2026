@@ -18,10 +18,15 @@ class WorldIndex(unittest.TestCase):
         self.assertEqual(list(hit.date)[0], "2026-07-05")
         self.assertTrue(granules_at(frame, 0, 0).empty)
 
-    def test_color_scale_by_dates(self):
-        self.assertEqual(_color(1), "#cfdbe2")
+    def test_color_scale_uses_a_neutral_tone_for_the_typical_range(self):
+        # 14-nov-2026 snapshot: ~79% of cells sit at exactly 10 (the mission's normal repeat count).
+        # That range must render as a calm, near-background tone, not the strongest accent color.
+        self.assertEqual(_color(0), "#e7e2da")
         self.assertEqual(_color(3), "#8fb3c7")
-        self.assertEqual(_color(9), "#c6601c")
+        self.assertEqual(_color(10), "#dfe6df")
+        self.assertEqual(_color(15), "#d98a4a")
+        self.assertEqual(_color(25), "#c6601c")
+        self.assertNotEqual(_color(10), _color(25), "the typical value and an exceptional one must not share a color")
 
 
 if __name__ == "__main__":

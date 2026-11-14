@@ -11,6 +11,7 @@ ASF_USING = "https://nisar-docs.asf.alaska.edu/using-overview/"
 GLOSSARY_PATH = Path("catalog/glosario.json")
 DETECTION_REFERENCE = Path("catalog/detection_reference.json")
 PREDICTION_REFERENCE = Path("catalog/prediction_reference.json")
+POSTFIRE_REFERENCE = Path("catalog/postfire_reference.json")
 AOI_SLUGS = {"Pantanal": "pantanal", "Región Metropolitana": "metropolitana", "Región de Valparaíso": "valparaiso"}
 
 
@@ -56,6 +57,27 @@ def tool_detection(context):
     if not parts:
         parts.append("No hay detección evaluada para este lugar.")
     return {"facts": facts, "sources": sources, "text": " ".join(parts)}
+
+
+def tool_postfire(context):
+    reference = _load(POSTFIRE_REFERENCE)
+    if not reference or context.get("region") != "Región Metropolitana":
+        return {"facts": {}, "sources": [], "text": "PostFuego solo está evaluado hoy para la Región Metropolitana (caso Quebrada Honda, Las Condes); no hay referencia para este lugar."}
+    scenarios = reference.get("scenarios") or {}
+    facts, parts = {}, []
+    for key, scenario in scenarios.items():
+        prefix = key
+        facts[f"{prefix}_umbral_mediano_mm"] = scenario["median_threshold_mm_30min"]
+        facts[f"{prefix}_umbral_minimo_mm"] = scenario["min_threshold_mm_30min"]
+        if scenario.get("observed_30min_mm") is not None:
+            facts[f"{prefix}_lluvia_observada_mm"] = scenario["observed_30min_mm"]
+        parts.append(f"{scenario['label']}: umbral mediano {scenario['median_threshold_mm_30min']} mm en 30 minutos.")
+    severity = reference.get("fire_severity_summary") or {}
+    alta = severity.get("alta")
+    facts["severidad_alta_pct"] = round(100 * alta, 1) if alta is not None else None
+    severity_text = f" Severidad de quema observada: {facts['severidad_alta_pct']}% del área en clase alta (dNBR Sentinel-2)." if alta is not None else ""
+    text = "PostFuego es una heurística no calibrada, no un modelo validado: dos eventos no entrenan un predictor. " + " ".join(parts) + severity_text
+    return {"facts": facts, "sources": ["docs/postfire_benchmark.json", "docs/postfuego/01_problematica.md"], "text": text}
 
 
 def tool_forecast(context):

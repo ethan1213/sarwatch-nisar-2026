@@ -38,10 +38,22 @@ def granules_at(frame, lon, lat):
 
 
 def _color(dates):
-    return "#c6601c" if dates >= 8 else "#d98a4a" if dates >= 4 else "#8fb3c7" if dates >= 2 else "#cfdbe2"
+    """Buckets tuned to the measured distribution (14 nov 2026): ~79% de las celdas caen exactamente
+    en 10 fechas de la mejor geometria repetida, el modo operativo normal de NISAR. Si ese valor
+    recibiera un color intenso, el mapa se ve de un solo color. Por eso el rango tipico (7-12) usa un
+    tono neutro casi de fondo, y los colores marcados quedan para lo escaso (<7) o lo excepcional (>=13)."""
+    if dates < 2:
+        return "#e7e2da"
+    if dates < 7:
+        return "#8fb3c7"
+    if dates <= 12:
+        return "#dfe6df"
+    if dates < 20:
+        return "#d98a4a"
+    return "#c6601c"
 
 
-COLORS = {"#cfdbe2": (207, 219, 226), "#8fb3c7": (143, 179, 199), "#d98a4a": (217, 138, 74), "#c6601c": (198, 96, 28)}
+COLORS = {"#e7e2da": (231, 226, 218), "#8fb3c7": (143, 179, 199), "#dfe6df": (223, 230, 223), "#d98a4a": (217, 138, 74), "#c6601c": (198, 96, 28)}
 
 
 @st.cache_data(show_spinner=False)
@@ -65,7 +77,7 @@ def world_view(profile="Público general"):
     if data is None:
         st.info("El índice mundial aún no se ha construido. Ejecuta scripts/build_global_catalog.py (solo metadatos, sin descargar imágenes).")
         return
-    st.caption(f"Índice de {data['granules_indexed']:,} granulos GCOV del catálogo oficial CMR ({data['generated_utc'][:10]}). Color por número de fechas distintas en cada celda de 1°: claro 1, azul 2–3, naranja claro 4–7, naranja ≥ 8. Es disponibilidad en el catálogo, no cobertura procesada ni validada.")
+    st.caption(f"Índice de {data['granules_indexed']:,} granulos GCOV del catálogo oficial CMR ({data['generated_utc'][:10]}). Fechas de la mejor geometría de órbita repetida (comparable) por celda de 1°. Beige: menos de 2 fechas. Azul: 2 a 6, cobertura escasa. Gris claro: 7 a 12, el rango típico de la misión. Naranja: 13 a 19. Naranja oscuro: 20 o más, sitios con repetición excepcional. Es disponibilidad en el catálogo, no cobertura procesada ni validada.")
     m = base_map([0, 0], 2)
     image_overlay(coverage_image(json.dumps(data["cells"])), [[-90, -180], [90, 180]], "Fechas NISAR GCOV por celda de 1°").add_to(m)
     folium.LayerControl().add_to(m)

@@ -16,6 +16,8 @@ from sarwatch.guidance import reading,assistant
 from sarwatch.theme import scale_legend
 from sarwatch.views.components import percent, short_date
 from sarwatch.detections import CHANGE_LABEL, categorical_overlay, image_overlay, change_mask_path, change_sentence, detection_reference, read_mask
+from sarwatch.postfire import SCENARIO_LABELS, postfire_reference, scenario_sentence, semaphore_overlay, semaphore_path
+from sarwatch.postfire import read_mask as read_postfire_mask
 
 
 @st.cache_data(max_entries=8)
@@ -138,6 +140,20 @@ def chile_view(region,profile="Público general"):
                     scale_legend(view=='Diferencia en dB')
                 notes.metric('Cobertura comparable del recorte',percent(np.isfinite(difference(before,after)).mean()))
                 notes.caption('Escala de −6 a +6 dB en diferencias y de −30 a 10 dB en intensidad. Transparente: sin dato. Cambios de radar no equivalen a inundaciones.')
+                if slug=='metropolitana':
+                    postfire_ref=postfire_reference()
+                    if postfire_ref is not None:
+                        notes.subheader('PostFuego · umbral dinámico de aluvión post-incendio')
+                        notes.caption('Prueba de concepto heurística y no calibrada (caso Quebrada Honda, Las Condes). No es una alerta operativa. Detalle en docs/postfuego_las_condes.md.')
+                        scenario_key=controls.radio('Escenario PostFuego',list(SCENARIO_LABELS),format_func=lambda k:SCENARIO_LABELS[k],horizontal=True,key=slug+'-postfire-scenario')
+                        sema_path=semaphore_path(products_root,scenario_key)
+                        if sema_path is not None:
+                            sema_mask,st_,sc_,_=read_postfire_mask(sema_path)
+                            if (st_,sc_,sema_mask.shape)==(t,c,before.shape):
+                                semaphore_overlay(sema_mask,st_,sc_,'PostFuego · semáforo').add_to(m)
+                            else:
+                                notes.error('La capa PostFuego no comparte la grilla SAR; no se muestra.')
+                        notes.caption(scenario_sentence(postfire_ref,scenario_key))
         folium.LayerControl().add_to(m)
         with map_slot:
             event=st_folium(m,height=600,use_container_width=True,key='chile-'+slug+framing,returned_objects=['last_clicked'])

@@ -16,6 +16,7 @@ INTENT_TOOLS = {
     "prediccion": [tools.tool_forecast],
     "fuentes": [tools.tool_sources],
     "deteccion": [tools.tool_detection],
+    "postfuego": [tools.tool_postfire],
     "uso": [tools.tool_usage],
     "tamano": [tools.tool_storage],
     "glosario": [],

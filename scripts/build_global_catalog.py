@@ -67,7 +67,10 @@ def main():
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     index_path = OUT / "gcov_index.csv.gz"
-    cells = defaultdict(lambda: {"granules": 0, "dates": set(), "geometries": set(), "bytes": 0.0})
+    # dates_by_geometry tracks each repeat-orbit geometry separately: dates from different tracks are
+    # not comparable, so summing them overstated coverage almost everywhere and saturated the map color
+    # (fixed 14-nov-2026; see sarwatch/views/world.py and tests/test_world_view.py).
+    cells = defaultdict(lambda: {"granules": 0, "dates_by_geometry": defaultdict(set), "geometries": set(), "bytes": 0.0})
     n = 0
     t0 = time.perf_counter()
     with gzip.open(index_path, "wt", encoding="utf-8", newline="") as handle:
@@ -86,14 +89,18 @@ def main():
                     for lat in range(int(s // 1), int(no // 1) + 1):
                         for lon in range(int(w // 1), int(ea // 1) + 1):
                             cell = cells[(lon, lat)]
+                            geometry = "_".join(key[:3])
                             cell["granules"] += 1
-                            cell["dates"].add(e["time_start"][:10])
-                            cell["geometries"].add("_".join(key[:3]))
+                            cell["dates_by_geometry"][geometry].add(e["time_start"][:10])
+                            cell["geometries"].add(geometry)
                             cell["bytes"] += size * 1024 * 1024
             print(f"página {page}: {n}/{hits} granulos, {time.perf_counter() - t0:.0f} s", flush=True)
             if args.max_pages and page >= args.max_pages:
                 break
-    coverage = {"generated_utc": datetime.now(timezone.utc).isoformat(), "short_name": args.short_name, "granules_indexed": n, "cells": [{"lon": lon, "lat": lat, "granules": c["granules"], "dates": len(c["dates"]), "geometries": len(c["geometries"]), "first_date": min(c["dates"]), "last_date": max(c["dates"])} for (lon, lat), c in cells.items()], "note": "Celdas de 1 grado tocadas por la huella nominal; cuenta disponibilidad en el catálogo, no cobertura útil validada ni datos descargados."}
+    def best_geometry_dates(c):
+        return max(c["dates_by_geometry"].values(), key=len)
+
+    coverage = {"generated_utc": datetime.now(timezone.utc).isoformat(), "short_name": args.short_name, "granules_indexed": n, "metric": "mejor geometria de orbita repetida por celda (fechas comparables de una sola huella), no union de geometrias distintas", "cells": [{"lon": lon, "lat": lat, "granules": c["granules"], "dates": len(best_geometry_dates(c)), "geometries": len(c["geometries"]), "first_date": min(best_geometry_dates(c)), "last_date": max(best_geometry_dates(c))} for (lon, lat), c in cells.items()], "note": "Celdas de 1 grado tocadas por la huella nominal; 'dates' es la mejor serie comparable (misma geometria), no la union de todas las geometrias que tocan la celda. Cuenta disponibilidad en el catálogo, no cobertura útil validada ni datos descargados."}
     (OUT / "coverage_1deg.json").write_text(json.dumps(coverage, ensure_ascii=False), encoding="utf-8")
     total_tb = sum(c["bytes"] for c in cells.values()) / 1e12
     print(json.dumps({"granules": n, "cells": len(cells), "index": str(index_path), "approx_tb_counted_per_cell": round(total_tb, 1)}, ensure_ascii=False))
