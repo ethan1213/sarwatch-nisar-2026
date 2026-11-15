@@ -22,7 +22,7 @@
 - El modelo exploratorio no demuestra capacidad de alerta operativa ni generalización fuera de sus fechas y zonas evaluadas.
 - Falta contrastar perímetro y daño con referencia oficial independiente y revisión científica externa.
 - Falta una prueba de comprensión con personas reales. La revisión automática y visual no demuestra comprensión universal.
-- El guion está escrito; falta lectura cronometrada y grabación narrada. No se presenta un archivo de video inexistente.
+- Video narrado con capturas estáticas: demo_narrada.mp4, aproximadamente 1:57, con voz sintética local explícitamente rotulada. No equivale a una presentación grabada por una persona ni a una prueba de comprensión.
 - Deep learning y foundation models requieren entrenamiento y evaluación propios; los cuadernos no equivalen a modelos ya validados.
 - Sin prueba nueva de glaciar, ingesta continua con secretos Earthdata ni integración Vercel/Supabase. No son requisitos para abrir esta demo.
 - Apache-2.0 autoriza el código propio; las fuentes de datos conservan sus condiciones. Repositorio público comprobado sin autenticación en GitHub; licencia detectada Apache-2.0.

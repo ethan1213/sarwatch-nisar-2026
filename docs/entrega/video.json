@@ -1,0 +1,18 @@
+{
+  "video": "demo_narrada.mp4",
+  "duration_seconds": 117.046468,
+  "sha256": "d90a2edbdb511b526e6c58ef1a54048a8a7ce5407e079423178c01e7dabe23b3",
+  "voice": "Microsoft Sabina Desktop (es-MX), síntesis local Windows",
+  "presentation": "Capturas estáticas de la demo pública con narración sintética; no es una grabación de interacción en vivo.",
+  "script": "guion_2min.md",
+  "images": [
+    "gcp_que_ocurrio.png",
+    "gcp_que_quedo.png",
+    "gcp_anticipacion.png"
+  ],
+  "encoding": "H.264 1920×1080, 12 fps; AAC",
+  "checks": [
+    "ffprobe: video y audio presentes",
+    "FFmpeg: decodificación completa sin errores"
+  ]
+}

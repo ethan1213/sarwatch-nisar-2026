@@ -45,7 +45,7 @@ npm run build
 - [Evaluaciones térmicas y correcciones del método](docs/calor_y_focos.md).
 - [Resultados Biobío](docs/fire_benchmark_biobio.json) y [señal de quema](docs/burn_scar_benchmark.json).
 - [Inventario de modelos](docs/modelos_ia_ml.md), [tarjetas](models/) y [plan original del MVP](docs/plan_mvp_incendios.md).
-- [Guion de demostración](docs/entrega/guion_2min.md), [resumen en inglés](docs/entrega/resumen_en.md) y [uso de IA y fuentes](docs/entrega/uso_de_ia.md).
+- [Video narrado con capturas y voz sintética local](docs/entrega/demo_narrada.mp4), [guion](docs/entrega/guion_2min.md), [resumen en inglés](docs/entrega/resumen_en.md) y [uso de IA y fuentes](docs/entrega/uso_de_ia.md).
 - [Despliegue y presupuesto GCP](docs/cierre_gcp.md).
 
 ## Licencia

@@ -1,5 +1,10 @@
 # Plan de cierre del MVP de incendios — para cualquier sesión (Opus, Sonnet u otra)
 
+> Actualización de cierre, 15 nov 2026: la instrucción posterior del propietario retira Pantanal y prioriza una historia simple en GCP. Estado vigente: [entrega/estado.md](entrega/estado.md). La demo está publicada y el repositorio es público con Apache-2.0.
+>
+> Paquete A: tres preguntas en React, un mapa principal, reproducción y comparador posterior. Paquete B: rásteres regenerados incorporados a la imagen. Paquete C: guion, resumen, fuentes y video con voz sintética local. Paquete D: revisión sarwatch-00002-4fr con 48 comprobaciones HTTP públicas. Paquete E: README, licencia, publicación y pruebas. Estos entregables del MVP no equivalen a validación científica externa, alertas operativas ni comprensión demostrada con personas.
+
+
 Entrega: **15 de noviembre de 2026, 11:00 (hora de Chile)**. Se presenta en vivo (2 minutos) y se entrega un video.
 Rama de trabajo: `claude/happy-thompson-q4tmf9`. Lee este archivo completo antes de tocar nada; después `CONTEXT.md`.
 

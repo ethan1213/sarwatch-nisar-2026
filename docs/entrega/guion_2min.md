@@ -1,6 +1,6 @@
 # Guion de demostración · objetivo de dos minutos
 
-Texto para una persona presentadora. Duración estimada; falta cronometrar una lectura real. No es una grabación terminada.
+Texto para una persona presentadora. Versión narrada con voz sintética local y capturas: demo_narrada.mp4 (aproximadamente 1:57). Una lectura humana debe cronometrarse por separado.
 
 **0:00–0:35 · Qué ocurrió.**
 Estamos en Biobío. Queremos comprender un incendio sin tener que interpretar primero una pantalla llena de mapas. SARWatch empieza con una pregunta: ¿dónde se observó calor? Esta reproducción recorre enero de 2026. Los cuadros rojos indican áreas donde GOES detectó calor en esa hora; los ámbar conservan lo observado antes. Son observaciones del satélite, no el borde del fuego. Al seleccionar una celda podemos consultar el viento, la humedad y la temperatura del reanálisis ERA5. Ese contexto no indica por dónde entrar al terreno.
