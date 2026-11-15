@@ -6,7 +6,7 @@ export default function HotspotMap({ data, bbox }) {
   const el = useRef(null), map = useRef(null)
   const [selected, setSelected] = useState(null)
   useEffect(() => {
-    const m = new Map({ container: el.current, style: CONTEXT_STYLE, center: [(bbox[0]+bbox[2])/2, (bbox[1]+bbox[3])/2], zoom: 9, scrollZoom: false })
+    const m = new Map({ container: el.current, style: CONTEXT_STYLE, center: [(bbox[0]+bbox[2])/2, (bbox[1]+bbox[3])/2], zoom: 9, scrollZoom: true })
     map.current = m
     m.addControl(new NavigationControl())
     m.on('click', 'hotspots', e => setSelected(e.features[0].properties))

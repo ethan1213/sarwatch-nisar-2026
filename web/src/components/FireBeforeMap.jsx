@@ -15,7 +15,7 @@ export default function FireBeforeMap({ cellsGeoJSON, showHot, colorExpression =
   useEffect(() => { onClickRef.current = onCellClick }, [onCellClick])
 
   useEffect(() => {
-    const m = new Map({ container: el.current, style: CONTEXT_STYLE, center: [-72.9, -36.7], zoom: 8.5, scrollZoom: false })
+    const m = new Map({ container: el.current, style: CONTEXT_STYLE, center: [-72.9, -36.7], zoom: 8.5, scrollZoom: true })
     map.current = m
     m.addControl(new NavigationControl())
     m.on('click','before-cells',e=>onClickRef.current?.(e.features[0].properties))
@@ -29,7 +29,7 @@ export default function FireBeforeMap({ cellsGeoJSON, showHot, colorExpression =
       if(terrain3D){
         if(!m.getSource('relief-dem')) m.addSource('relief-dem',{type:'raster-dem',tiles:['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],encoding:'terrarium',tileSize:256,maxzoom:15,attribution:'Relieve 3D: Mapzen Terrain Tiles · USGS SRTM/GMTED2010 · NOAA ETOPO1'})
         m.setTerrain({source:'relief-dem',exaggeration:1})
-        m.jumpTo({pitch:58,bearing:-20,zoom:focus?13:Math.max(m.getZoom(),10.5),...(focus?{center:[focus.lon,focus.lat]}:{})})
+        m.jumpTo({pitch:58,bearing:-20,...(focus?{center:[focus.lon,focus.lat]}:{})})
       }else{m.setTerrain(null);m.jumpTo({pitch:0,bearing:0})}
       if(satellite){
         if(!m.getSource('satellite-context')){
@@ -89,5 +89,5 @@ export default function FireBeforeMap({ cellsGeoJSON, showHot, colorExpression =
 
   useEffect(()=>{if(!focus||!map.current)return;const marker=new Marker({color:'#d6f84c'}).setLngLat([focus.lon,focus.lat]).addTo(map.current);return()=>marker.remove()},[focus])
   useSectorOverlay(map,focus?.windContext?.geometry)
-  return <div ref={el} className="fire-map" />
+  return <div><div className="fire-controls"><button onClick={()=>map.current?.easeTo({bearing:0,pitch:0})}>Vista desde arriba</button>{terrain3D&&<><button onClick={()=>map.current?.easeTo({pitch:55})}>Inclinar relieve</button><button onClick={()=>map.current?.easeTo({bearing:map.current.getBearing()+45})}>Girar 45°</button></>}<button onClick={()=>{const b=cellsGeoJSON?.bbox;if(b)map.current?.fitBounds([[b[0],b[1]],[b[2],b[3]]],{padding:30,pitch:terrain3D?55:0});else map.current?.easeTo({center:[-72.9,-36.7],zoom:8.5,bearing:0,pitch:terrain3D?55:0})}}>Volver al área</button></div><div ref={el} className="fire-map" /></div>
 }

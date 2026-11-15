@@ -13,7 +13,7 @@ export default function FireTodayMap({ data, bbox, onSelect, sectorGeometry }) {
   onSelectRef.current = onSelect
 
   useEffect(() => {
-    const m = new Map({ container: el.current, style: CONTEXT_STYLE, center: [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2], zoom: 8, scrollZoom: false })
+    const m = new Map({ container: el.current, style: CONTEXT_STYLE, center: [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2], zoom: 8, scrollZoom: true })
     map.current = m
     m.addControl(new NavigationControl())
     m.on('click', 'today-hotspots', (e) => {
@@ -41,5 +41,5 @@ export default function FireTodayMap({ data, bbox, onSelect, sectorGeometry }) {
   }, [data])
 
   useSectorOverlay(map,sectorGeometry)
-  return <div ref={el} className="fire-map" />
+  return <div><div className="fg-color-key"><span><i style={{background:'#e07a2c'}}/>Punto naranja: detección térmica del satélite en la fecha registrada</span></div><div ref={el} className="fire-map" /></div>
 }

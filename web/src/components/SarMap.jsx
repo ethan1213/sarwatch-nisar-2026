@@ -34,7 +34,7 @@ export default function SarMap({ layer, overlay, onPointClick }) {
   onPointRef.current = onPointClick
 
   useEffect(() => {
-    const map = new MapLibreMap({ container: containerRef.current, style: STYLE, center: [0, 0], zoom: 1, scrollZoom: false })
+    const map = new MapLibreMap({ container: containerRef.current, style: STYLE, center: [0, 0], zoom: 1, scrollZoom: true })
     mapRef.current = map
     map.addControl(new NavigationControl(), 'top-right')
     map.on('click', (e) => onPointRef.current?.(e.lngLat.lng, e.lngLat.lat))

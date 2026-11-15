@@ -16,7 +16,7 @@ export default function FireDuringMap({ cellsGeoJSON, windGeoJSON, onCellClick, 
   const fitted = useRef(false)
 
   useEffect(() => {
-    const m = new Map({ container: el.current, style: CONTEXT_STYLE, center: [-72.9, -36.7], zoom: 9, scrollZoom: false })
+    const m = new Map({ container: el.current, style: CONTEXT_STYLE, center: [-72.9, -36.7], zoom: 9, scrollZoom: true })
     map.current = m
     m.addControl(new NavigationControl())
     m.on('click', 'during-cells', (e) => onClickRef.current?.(e.features[0].properties))
@@ -88,5 +88,5 @@ export default function FireDuringMap({ cellsGeoJSON, windGeoJSON, onCellClick, 
   }, [windGeoJSON])
 
   useSectorOverlay(map,sectorGeometry)
-  return <div ref={el} className="fire-map" />
+  return <div><div className="fg-color-key" aria-label="Colores del histórico de calor"><span><i style={{background:'#d1361f'}}/>Rojo: calor detectado en esta hora</span><span><i style={{background:'#e3b23c'}}/>Amarillo: detección en una hora anterior</span><span><i style={{background:'#3c4652'}}/>Gris: sin detección en esta secuencia</span></div><div ref={el} className="fire-map" /></div>
 }

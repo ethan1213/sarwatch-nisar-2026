@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { Map } from 'maplibre-gl'
+import { Map, NavigationControl } from 'maplibre-gl'
 import { FIRE_CONTEXT_STYLE as CONTEXT_STYLE } from '../mapStyle'
 import { fireAssetUrl } from '../api'
 
@@ -55,9 +55,16 @@ function RadarComparator({ left, right, severityOn, severity, single = false }) 
   const fitted = useRef(false)
 
   useEffect(() => {
-    mapA.current = new Map({ container: elA.current, style: CONTEXT_STYLE, center: [-72.9, -36.7], zoom: 9, scrollZoom: false, interactive: false })
+    mapA.current = new Map({ container: elA.current, style: CONTEXT_STYLE, center: [-72.9, -36.7], zoom: 9, scrollZoom: true })
     mapB.current = new Map({ container: elB.current, style: CONTEXT_STYLE, center: [-72.9, -36.7], zoom: 9, scrollZoom: false, interactive: false })
+    mapA.current.addControl(new NavigationControl())
+    const sync = () => mapB.current.jumpTo({center:mapA.current.getCenter(),zoom:mapA.current.getZoom(),bearing:mapA.current.getBearing(),pitch:mapA.current.getPitch()})
+    mapA.current.on('move',sync)
+    const observer=new ResizeObserver(()=>{mapA.current.resize();mapB.current.resize();sync()})
+    observer.observe(elA.current)
     return () => {
+      observer.disconnect()
+      mapA.current.off('move',sync)
       mapA.current.remove()
       mapB.current.remove()
     }
@@ -90,7 +97,7 @@ function RadarComparator({ left, right, severityOn, severity, single = false }) 
         max={100}
         defaultValue={50}
         onChange={(e) => {
-          document.getElementById('fire-compare-b').style.setProperty('--clip', `${e.target.value}%`)
+          elB.current.style.setProperty('--clip', `${e.target.value}%`)
         }}
         aria-label="Comparar fechas"
       />}
@@ -103,8 +110,9 @@ function RadarComparator({ left, right, severityOn, severity, single = false }) 
 function ScarMap({ severity }) {
   const el = useRef(null), ref = useRef(null)
   useEffect(() => {
-    const m = new Map({container:el.current, style:CONTEXT_STYLE, scrollZoom:false, center:[-72.9,-36.7], zoom:9})
+    const m = new Map({container:el.current, style:CONTEXT_STYLE, scrollZoom:true, center:[-72.9,-36.7], zoom:9})
     ref.current=m
+    m.addControl(new NavigationControl())
     m.once('load',()=>m.fitBounds(boundsToLngLatBounds(severity.bounds),{padding:20,duration:0}))
     return ()=>m.remove()
   }, [severity])

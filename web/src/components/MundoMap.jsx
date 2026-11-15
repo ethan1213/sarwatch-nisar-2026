@@ -24,7 +24,7 @@ export default function MundoMap({ cellsGeoJSON, onPointClick }) {
       zoom: 1.4,
       minZoom: 1,
       maxZoom: 9,
-      scrollZoom: false,
+      scrollZoom: true,
     })
     mapRef.current = map
     map.addControl(new NavigationControl(), 'top-right')

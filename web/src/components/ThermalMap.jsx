@@ -10,7 +10,7 @@ export default function ThermalMap({ data }) {
     return values.length ? [Math.min(...values), Math.max(...values)] : null
   }, [data])
   useEffect(() => {
-    const m = new Map({ container: container.current, style: CONTEXT_STYLE, scrollZoom: false })
+    const m = new Map({ container: container.current, style: CONTEXT_STYLE, scrollZoom: true })
     map.current = m
     m.addControl(new NavigationControl())
     m.on('click', 'heat', e => setSelected(e.features[0].properties))
