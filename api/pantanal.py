@@ -19,11 +19,11 @@ from sarwatch.assistant.chat import answer as chat_answer
 from sarwatch.detections import WATER_METHODS, detection_reference, read_mask, water_fraction, water_mask_paths, water_sentence
 from sarwatch.interpretation import GUIDES, PROFILES, describe, summarize
 from sarwatch.repository import RasterRepository
+from sarwatch.data_paths import site_data_root
 from science import difference
 
 def create_site_router(slug):
-    BASE_ROOT = Path(os.environ.get("DATA_DIR", "data")).resolve()
-    ROOT = BASE_ROOT if slug == "pantanal" else BASE_ROOT / slug
+    ROOT = site_data_root(slug).resolve()
     REGION = {"pantanal": "Pantanal", "metropolitana": "Región Metropolitana", "valparaiso": "Región de Valparaíso", "concepcion_penco": "Concepción y Penco"}[slug]
     AOI_SLUG = slug
     MODEL_NAMES = {"climatology": "promedio de las fechas anteriores", "persistence": "repetir el valor anterior", "ridge": "regresión lineal"}

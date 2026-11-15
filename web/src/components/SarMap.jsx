@@ -34,7 +34,7 @@ export default function SarMap({ layer, overlay, onPointClick }) {
   onPointRef.current = onPointClick
 
   useEffect(() => {
-    const map = new MapLibreMap({ container: containerRef.current, style: STYLE, center: [0, 0], zoom: 1 })
+    const map = new MapLibreMap({ container: containerRef.current, style: STYLE, center: [0, 0], zoom: 1, scrollZoom: false })
     mapRef.current = map
     map.addControl(new NavigationControl(), 'top-right')
     map.on('click', (e) => onPointRef.current?.(e.lngLat.lng, e.lngLat.lat))
@@ -58,6 +58,7 @@ export default function SarMap({ layer, overlay, onPointClick }) {
         map.fitBounds(boundsToLngLatBounds(layer.bounds), { padding: 20, duration: 0 })
         fittedRef.current = true
       }
+      map.moveLayer('place-names')
     }
     if (map.isStyleLoaded()) apply()
     else map.once('load', apply)
@@ -80,6 +81,7 @@ export default function SarMap({ layer, overlay, onPointClick }) {
         map.addSource('water-layer', { type: 'image', url: overlay.png_data_url, coordinates })
         map.addLayer({ id: 'water-layer', type: 'raster', source: 'water-layer', paint: { 'raster-opacity': 1 } })
       }
+      map.moveLayer('place-names')
     }
     if (map.isStyleLoaded()) apply()
     else map.once('load', apply)

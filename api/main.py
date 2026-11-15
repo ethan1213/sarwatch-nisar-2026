@@ -11,6 +11,7 @@ from pathlib import Path
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from api.pantanal import router as pantanal_router, create_site_router
@@ -23,6 +24,7 @@ INDEX = ROOT / "catalog/global/gcov_index.csv.gz"
 WEB_DIST = ROOT / "web" / "dist"
 
 app = FastAPI(title="SARWatch API", version="0.1.0")
+app.add_middleware(GZipMiddleware, minimum_size=1000, compresslevel=5)
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:5174", "http://127.0.0.1:5174"], allow_methods=["GET", "POST"], allow_headers=["*"])
 app.include_router(pantanal_router)
 app.include_router(create_site_router("metropolitana"))

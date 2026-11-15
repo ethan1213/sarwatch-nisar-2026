@@ -39,7 +39,14 @@ def verify_scene(scene, raw, root):
     with h5py.File(path) as source:
         g = source["/science/LSAR/GCOV/grids/frequencyA"]
         grid = {"epsg": int(g["projection"][()]), "shape": list(g["HHHH"].shape), "bounds_centers": [float(g["xCoordinates"][0]), float(g["yCoordinates"][-1]), float(g["xCoordinates"][-1]), float(g["yCoordinates"][0])]}
-    return {**scene, "tamano_bytes": path.stat().st_size, "md5_calculado": md5.hexdigest(), "sha256": sha.hexdigest(), "grid": grid}
+        identification = source.get('/science/LSAR/identification')
+        product_identification = {}
+        if identification is not None:
+            for key in ('productVersion', 'processingType', 'compositeReleaseId', 'processingDateTime', 'granuleId'):
+                if key in identification:
+                    value = identification[key][()]
+                    product_identification[key] = value.decode('utf-8') if isinstance(value, bytes) else str(value)
+    return {**scene, "tamano_bytes": path.stat().st_size, "md5_calculado": md5.hexdigest(), "sha256": sha.hexdigest(), "grid": grid, 'product_identification': product_identification}
 
 
 def main():

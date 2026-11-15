@@ -10,7 +10,7 @@ export default function ThermalMap({ data }) {
     return values.length ? [Math.min(...values), Math.max(...values)] : null
   }, [data])
   useEffect(() => {
-    const m = new Map({ container: container.current, style: CONTEXT_STYLE })
+    const m = new Map({ container: container.current, style: CONTEXT_STYLE, scrollZoom: false })
     map.current = m
     m.addControl(new NavigationControl())
     m.on('click', 'heat', e => setSelected(e.features[0].properties))
@@ -31,6 +31,7 @@ export default function ThermalMap({ data }) {
         m.fitBounds([[Math.min(...points.map(p => p[0])), Math.min(...points.map(p => p[1]))], [Math.max(...points.map(p => p[0])), Math.max(...points.map(p => p[1]))]], { padding: 30, duration: 0 })
       }
       m.setPaintProperty('heat', 'fill-color', ['case', ['==', ['get', 'value'], null], '#172331', ['interpolate', ['linear'], ['get', 'value'], low, '#f7ecd9', high, '#a23e12']])
+      m.moveLayer('place-names')
       setSelected(null)
     }
     if (m.isStyleLoaded()) apply(); else m.once('load', apply)

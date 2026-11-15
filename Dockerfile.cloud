@@ -8,6 +8,7 @@ RUN pip install --no-cache-dir -r requirements-api.txt
 COPY --chown=app:app api ./api
 COPY --chown=app:app sarwatch ./sarwatch
 COPY --chown=app:app catalog ./catalog
+COPY --chown=app:app docs ./docs
 COPY --chown=app:app web/dist ./web/dist
 COPY --chown=app:app data/thermal ./data/thermal
 COPY --chown=app:app data/metropolitana/thermal ./data/metropolitana/thermal

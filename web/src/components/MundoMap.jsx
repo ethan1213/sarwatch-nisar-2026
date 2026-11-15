@@ -24,6 +24,7 @@ export default function MundoMap({ cellsGeoJSON, onPointClick }) {
       zoom: 1.4,
       minZoom: 1,
       maxZoom: 9,
+      scrollZoom: false,
     })
     mapRef.current = map
     map.addControl(new NavigationControl(), 'top-right')
@@ -66,6 +67,7 @@ export default function MundoMap({ cellsGeoJSON, onPointClick }) {
           'fill-outline-color': 'rgba(0,0,0,0.15)',
         },
       })
+      map.moveLayer('place-names')
     }
     if (map.isStyleLoaded()) apply()
     else map.once('load', apply)

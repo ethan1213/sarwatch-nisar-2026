@@ -6,6 +6,10 @@
 !sarwatch/**
 !catalog
 !catalog/**
+!docs
+!docs/calor_y_focos.md
+!docs/co2_y_profundidad_post_incendio.md
+!docs/fuentes_biobio_y_experiencia.md
 !web
 !web/dist
 !web/dist/**

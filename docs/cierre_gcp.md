@@ -61,9 +61,16 @@ autenticación del operador y los recursos iniciales ya creados; no actualiza cu
 
 ## Verificación
 
-101 pruebas unitarias, 63/63 casos del asistente y 38 comprobaciones HTTP sobre la aplicación completa.
+107 pruebas unitarias, 63/63 casos del asistente y 39 comprobaciones HTTP sobre la aplicación completa.
 Frontend compilado con Vite y lint sin avisos. Memoria observada tras recorrido HTTP local: aproximadamente
 500 MiB en un contenedor limitado a 2 GiB y 1 CPU. Esto es una prueba funcional, no un ensayo de carga.
+El informe HTTP reproducible está en `docs/local_api_verification.json`; no se presenta como prueba de una URL pública.
+
+La publicación de nuevos AOI usa revisiones inmutables en el bucket y cambia el manifiesto al final,
+después de verificar checksums, grilla, unidades y cobertura. Cloud Run los lee con un volumen de
+solo lectura. La web consulta periódicamente su disponibilidad; no habilita imágenes incompletas.
+El descargador corregido conserva parciales tras cortes de red y comprueba el MD5 antes de dar
+el archivo por terminado. Las pruebas incluyen reanudación, Range ignorado y rechazo de checksum.
 
 ## Límites que impiden declarar terminada toda la investigación del historial
 

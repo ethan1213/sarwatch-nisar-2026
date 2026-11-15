@@ -4,6 +4,8 @@ import os
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException
+from sarwatch.data_paths import site_data_root, verified_manifest
+from sarwatch.repository import RasterRepository
 
 router = APIRouter(prefix='/api/chile', tags=['chile'])
 DATA = Path(os.environ.get('DATA_DIR', 'data'))
@@ -20,11 +22,18 @@ def overview(slug: str):
         raise HTTPException(404, 'Área desconocida')
     audit = read_optional('catalog/chile_nisar_audit.json')
     firms = read_optional('catalog/firms_reference.json')
-    manifest = read_optional(DATA / slug / 'manifest.json')
+    root = site_data_root(slug)
+    manifest = read_optional(root / 'manifest.json')
     verified = read_optional(f'catalog/{slug}_verified.json')
+    ready = bool(manifest and (verified_manifest(manifest) or verified))
+    if ready:
+        try:
+            RasterRepository(root).manifest()
+        except (FileNotFoundError, ValueError):
+            ready = False
     area = (audit or {}).get('aois', {}).get(slug)
     return {'slug': slug, 'audit': area, 'retrieved_utc': (audit or {}).get('retrieved_utc'),
-            'rasters_ready': bool(manifest and verified), 'manifest': manifest if verified else None,
+            'rasters_ready': ready, 'manifest': manifest if ready else None,
             'firms': (firms or {}).get('aois', {}).get(slug),
             'firms_sources': (firms or {}).get('sources', []),
             'firms_retrieved_utc': (firms or {}).get('retrieved_utc'),

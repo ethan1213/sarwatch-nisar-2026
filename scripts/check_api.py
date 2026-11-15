@@ -2,6 +2,8 @@
 import argparse
 import json
 import re
+import gzip
+from datetime import datetime, timezone
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
@@ -59,13 +61,20 @@ def check(base):
     get('/api/study/valparaiso/impacts', expected=404)
     reply = get('/api/metropolitana/assistant', {'question': '¿Cuánto CO2 emitió?', 'before': 0, 'after': 1})
     assert reply['verified'] and reply['intent'] == 'impactos_incendio'
-    assert get('/api/world/meta')['n_cells'] > 0
+    world = get('/api/world/meta')
+    assert world['n_cells'] > 0
+    request = Request(base.rstrip('/') + '/api/world/cells', headers={'Accept-Encoding':'gzip'})
+    with urlopen(request, timeout=180) as response:
+        assert response.headers.get('Content-Encoding') == 'gzip', 'World data must be compressed for bandwidth and cost'
+        coverage = json.loads(gzip.decompress(response.read()))
+    assert len(coverage['features']) == world['n_cells']
+    results.append({'path':'/api/world/cells (gzip)','status':200})
     for slug in ('concepcion_penco', 'biobio'):
         overview = get(f'/api/chile/{slug}/overview')
         assert overview['audit']['cohorts'] and overview['firms']['type'] == 'FeatureCollection'
         assert all(f['properties']['confidence'] in ('l','n','h') for f in overview['firms']['features'])
         assert isinstance(overview['rasters_ready'], bool)
-    print(json.dumps({'base': base, 'passed': len(results), 'checks': results}, ensure_ascii=False))
+    print(json.dumps({'tested_utc': datetime.now(timezone.utc).isoformat(), 'base': base, 'passed': len(results), 'checks': results}, ensure_ascii=False))
 
 
 if __name__ == '__main__':

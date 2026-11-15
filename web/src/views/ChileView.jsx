@@ -10,8 +10,11 @@ export default function ChileView({ slug }) {
   const [data, setData] = useState(null), [showRadar, setShowRadar] = useState(false), [notice, setNotice] = useState('')
   useEffect(() => {
     let alive = true
-    fetch(`/api/chile/${slug}/overview`).then(r => { if (!r.ok) throw new Error(); return r.json() }).then(d => { if (alive) setData(d) }).catch(() => { if (alive) setNotice('No pudimos actualizar la consulta. Puedes explorar los otros lugares mientras vuelve la conexión.') })
-    return () => { alive = false }
+    let timer
+    const refresh = () => fetch(`/api/chile/${slug}/overview`).then(r => { if (!r.ok) throw new Error(); return r.json() }).then(d => { if (alive) { setData(current => current && !d.rasters_ready ? current : d); if (d.rasters_ready) clearInterval(timer) } }).catch(() => { if (alive) setNotice('No pudimos actualizar la consulta. Puedes explorar los otros lugares mientras vuelve la conexión.') })
+    refresh()
+    timer = setInterval(refresh, 60000)
+    return () => { alive = false; clearInterval(timer) }
   }, [slug])
   const bbox = useMemo(() => data?.audit?.bbox || [-73.25,-36.95,-72.7,-36.5], [data])
   if (showRadar) return <><button className="back-button" onClick={() => setShowRadar(false)}>← Volver al resumen de Biobío</button><PantanalView slug="concepcion_penco" label="Concepción y Penco" /></>

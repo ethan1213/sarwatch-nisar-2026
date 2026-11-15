@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { siteAPI, fetchStudy } from '../api'
 import LineChart from '../components/LineChart'
 import SarMap from '../components/SarMap'
@@ -68,6 +68,9 @@ export default function PantanalView({ slug = 'pantanal', label = 'Pantanal' }) 
   const [changeLayer, setChangeLayer] = useState(null)
   const [beforeLayer, setBeforeLayer] = useState(null)
   const [showTechnical, setShowTechnical] = useState(false)
+  const contextKey = `${beforeIdx}:${afterIdx}:${pol}`
+  const contextRef = useRef(contextKey)
+  contextRef.current = contextKey
   useEffect(() => {
     let active = true
     if (!changeEnabled) { setChangeLayer(null); return }
@@ -90,20 +93,21 @@ export default function PantanalView({ slug = 'pantanal', label = 'Pantanal' }) 
     if (beforeIdx === null || afterIdx === null) return
     let active = true
     setLayerError(null)
+    setLayer(null)
+    setReading(null)
     setBeforeLayer(null)
     fetchPantanalLayer(beforeIdx, beforeIdx, pol, 'single').then(d => { if (active) setBeforeLayer(d) }).catch(() => {})
     fetchPantanalLayer(beforeIdx, afterIdx, pol, mode)
       .then(d => { if (active) setLayer(d) })
       .catch((e) => {
-        setLayer(null)
-        setLayerError(e.message)
+        if (active) { setLayer(null); setLayerError(e.message) }
       })
     fetchPantanalReading(beforeIdx, afterIdx, pol, profile)
-      .then(setReading)
-      .catch(() => setReading(null))
+      .then(d => { if (active) setReading(d) })
+      .catch(() => { if (active) setReading(null) })
     fetchPantanalWaterMethods(afterIdx)
-      .then((d) => setWaterMethods(d.methods))
-      .catch(() => setWaterMethods([]))
+      .then((d) => { if (active) setWaterMethods(d.methods) })
+      .catch(() => { if (active) setWaterMethods([]) })
     setChatLog([])
     return () => { active = false }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -116,17 +120,19 @@ export default function PantanalView({ slug = 'pantanal', label = 'Pantanal' }) 
   }, [profile])
 
   useEffect(() => {
+    let active = true
     if (!waterMethod || afterIdx === null) {
       setWaterLayer(null)
       return
     }
     setWaterError(null)
+    setWaterLayer(null)
     fetchPantanalWaterLayer(afterIdx, pol, waterMethod)
-      .then(setWaterLayer)
+      .then(d => { if (active) setWaterLayer(d) })
       .catch((e) => {
-        setWaterLayer(null)
-        setWaterError(e.message)
+        if (active) { setWaterLayer(null); setWaterError(e.message) }
       })
+    return () => { active = false }
   }, [waterMethod, afterIdx, pol, fetchPantanalWaterLayer])
 
   function handlePointClick(lon, lat) {
@@ -137,10 +143,17 @@ export default function PantanalView({ slug = 'pantanal', label = 'Pantanal' }) 
     setPointError(null)
     setPointRows(null)
     setWeather(null)
-    fetchPantanalPointSeries(lon, lat, pol)
-      .then((d) => setPointRows(d.rows))
-      .catch((e) => setPointError(e.message))
   }
+
+  useEffect(() => {
+    if (!point) return
+    let active = true
+    setPointRows(null)
+    fetchPantanalPointSeries(point.lon, point.lat, pol)
+      .then(d => { if (active) setPointRows(d.rows) })
+      .catch(e => { if (active) setPointError(e.message) })
+    return () => { active = false }
+  }, [point, pol, fetchPantanalPointSeries])
 
   function requestWeather() {
     if (!point || !manifest) return
@@ -168,10 +181,11 @@ export default function PantanalView({ slug = 'pantanal', label = 'Pantanal' }) 
     if (!question.trim() || beforeIdx === null || afterIdx === null) return
     setChatLoading(true)
     const q = question
+    const askedContext = contextKey
     setQuestion('')
     postPantanalAssistant(q, beforeIdx, afterIdx, pol, profile)
-      .then((res) => setChatLog((log) => [...log, { question: q, ...res }].slice(-6)))
-      .catch((e) => setChatLog((log) => [...log, { question: q, text: `No se pudo responder (${e.message}).`, sources: [], intent: '-', generator: '-', verified: false }].slice(-6)))
+      .then((res) => { if (contextRef.current === askedContext) setChatLog((log) => [...log, { question: q, ...res }].slice(-6)) })
+      .catch(() => { if (contextRef.current === askedContext) setChatLog((log) => [...log, { question: q, text: 'No pude verificar esa respuesta. Prueba otra pregunta o revisa la evidencia disponible.', sources: [], intent: '-', generator: '-', verified: false }].slice(-6)) })
       .finally(() => setChatLoading(false))
   }
 
@@ -202,7 +216,7 @@ export default function PantanalView({ slug = 'pantanal', label = 'Pantanal' }) 
           </label>}
           <label>
             Antes
-            <select value={beforeIdx} onChange={(e) => setBeforeIdx(Number(e.target.value))}>
+            <select value={beforeIdx} onChange={(e) => { const value = Number(e.target.value); setBeforeIdx(value); if (value > afterIdx) setAfterIdx(value) }}>
               {manifest.scenes.map((s) => (
                 <option key={s.index} value={s.index}>
                   {shortDate(s.fecha)}
@@ -212,7 +226,7 @@ export default function PantanalView({ slug = 'pantanal', label = 'Pantanal' }) 
           </label>
           <label>
             Después
-            <select value={afterIdx} onChange={(e) => setAfterIdx(Number(e.target.value))}>
+            <select value={afterIdx} onChange={(e) => { const value = Number(e.target.value); setAfterIdx(value); if (value < beforeIdx) setBeforeIdx(value) }}>
               {manifest.scenes.map((s) => (
                 <option key={s.index} value={s.index}>
                   {shortDate(s.fecha)}
@@ -238,6 +252,7 @@ export default function PantanalView({ slug = 'pantanal', label = 'Pantanal' }) 
           <button className="quiet-button" onClick={() => setShowTechnical(v => !v)} aria-expanded={showTechnical}>{showTechnical ? 'Cerrar detalle técnico' : 'Opciones técnicas'}</button>
         </div>
         <p className="caption">Son mapas de radar, no fotografías. Un cambio de color indica una diferencia en la señal; por sí solo no confirma incendio, inundación ni daño.</p>
+        {beforeIdx === afterIdx && <p className="soft-notice">Elegiste la misma fecha en ambos lados. Selecciona dos fechas distintas para revisar un cambio en el tiempo.</p>}
         {layerError && <p className="error">{layerError}</p>}
       </header>
       <main className="layout">
@@ -246,6 +261,7 @@ export default function PantanalView({ slug = 'pantanal', label = 'Pantanal' }) 
             <section><h2>Antes <span>{shortDate(manifest.scenes[beforeIdx].fecha)}</span></h2>{!beforeLayer && <p role="status">Preparando mapa…</p>}<SarMap layer={beforeLayer} onPointClick={handlePointClick} /></section>
             <section><h2>Después <span>{shortDate(manifest.scenes[afterIdx].fecha)}</span></h2><SarMap layer={layer} overlay={changeLayer || waterLayer} onPointClick={handlePointClick} /></section>
           </div> : <SarMap layer={layer} overlay={changeLayer || waterLayer} onPointClick={handlePointClick} />}
+          {!layer && !layerError && <p role="status" className="loading-card">Preparando observaciones para las fechas elegidas…</p>}
           <p className="caption">Azul: menor señal · claro: valor intermedio · naranja: mayor señal. {mode === 'diff' ? 'Escala −6 a +6 dB.' : 'Escala −30 a +10 dB.'} Transparente: sin dato.</p>
           {['metropolitana','valparaiso'].includes(slug) && showTechnical && <><label><input type="checkbox" checked={changeEnabled} onChange={e => setChangeEnabled(e.target.checked)} /> Cambio estadísticamente significativo · Conradsen</label>{changeLayer && <p className="caption">{changeLayer.sentence}</p>}</>}
           {layer && showTechnical && (
@@ -383,7 +399,8 @@ export default function PantanalView({ slug = 'pantanal', label = 'Pantanal' }) 
             {chatLog.map((entry, i) => (
               <div key={i} className="chat-entry">
                 <p className="chat-question">{entry.question}</p>
-                <p>{entry.text}</p>
+                <p>{entry.text.split(/(?<=[.!?])\s+/).slice(0,2).join(' ')}</p>
+                {entry.text.split(/(?<=[.!?])\s+/).length > 2 && <details><summary>Ver la explicación completa y las fuentes</summary><p>{entry.text}</p>{entry.sources.filter(s => s.startsWith('https://')).map(source => <p key={source}><a href={source} target="_blank" rel="noreferrer">Fuente de los datos ↗</a></p>)}</details>}
                 <p className="caption">
                   {entry.verified ? 'Respuesta basada en los datos disponibles' : 'No se pudo verificar la respuesta'}{showTechnical ? ` · Tema: ${entry.intent} · Motor: ${entry.generator}` : ''}
                 </p>
