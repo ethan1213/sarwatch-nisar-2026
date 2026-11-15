@@ -133,3 +133,7 @@
 .fg-color-key { display:flex; flex-wrap:wrap; gap:10px 20px; margin:12px 0; font-size:14px; }
 .fg-color-key span { display:flex; align-items:center; gap:8px; }
 .fg-color-key i { display:inline-block; width:30px; height:14px; border:1px solid #ffffff60; border-radius:3px; }
+
+.fg .fg-radar-help { padding:14px; margin:10px 0; background:#132c31; border:1px solid #355c62; border-radius:9px; }
+.fg .fg-radar-help summary { font-size:15px; color:#d6f84c; cursor:pointer; }
+.fg .fg-radar-help p { font-size:14px; line-height:1.7; margin:12px 0; }

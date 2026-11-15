@@ -1,3 +1,4 @@
+import RadarHelp from './RadarHelp'
 import { useState } from 'react'
 import FireAfterMap from './FireAfterMap'
 const date = value => new Date(value + 'T12:00:00Z').toLocaleDateString('es-CL', { day:'numeric', month:'short', year:'numeric', timeZone:'UTC' })
@@ -13,7 +14,7 @@ export default function FireAfter({ data, initialMode = 'scar' }) {
         <label>Primera fecha <select value={leftIdx} onChange={e => { const i=Number(e.target.value); setLeftIdx(i); if(i >= rightIdx) setRightIdx(i+1) }}>{data.radar.slice(0,-1).map((r,i)=><option key={r.date} value={i}>{date(r.date)}</option>)}</select></label>
         <label>Segunda fecha <select value={rightIdx} onChange={e=>setRightIdx(Number(e.target.value))}>{data.radar.map((r,i)=>i>leftIdx && <option key={r.date} value={i}>{date(r.date)}</option>)}</select></label>
       </div>}
-      <FireAfterMap key={mode} left={data.radar[leftIdx]} right={data.radar[rightIdx]} severityOn={mode === 'scar'} severity={data.severity} single={mode === 'scar'} />
+      {mode === 'radar' && <RadarHelp/>}<FireAfterMap key={mode} left={data.radar[leftIdx]} right={data.radar[rightIdx]} severityOn={mode === 'scar'} severity={data.severity} single={mode === 'scar'} />
       <p className="fire-legend">{mode === 'scar' ? 'Amarillo: señal baja. Naranja: moderada. Rojo: alta. Comparación óptica entre diciembre–enero y enero–febrero; también puede responder a sequía y cosecha.' : `Desliza la línea blanca para comparar dos fechas posteriores al incendio. Gris oscuro a claro: intensidad del radar HV (${data.radar_scale_db.join(' a ')} dB). No muestra temperatura ni demuestra recuperación del bosque. Las zonas sin imagen no tienen píxeles válidos para esa fecha.`}</p>
     </div>
     <aside className="fire-side">
