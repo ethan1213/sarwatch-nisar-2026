@@ -11,3 +11,5 @@ __pycache__
 .netrc
 _netrc
 outputs
+web/node_modules
+web/dist

@@ -1,5 +1,15 @@
 # CLAUDE.md
 
+## Estado actual de la interfaz
+
+React + FastAPI ya incluye Pantanal, Santiago, Valparaíso, Mundo, calor, PostFuego y laboratorio
+CO₂/DEM. Concepción/Penco y Biobío incluyen inventario oficial y FIRMS; el acceso a mapas NISAR
+procesados se habilita solo cuando existen manifiesto y verificación de originales. La UI pública
+prioriza lugar/fechas/comparación; los controles científicos quedan en detalle técnico.
+`Dockerfile.cloud` construye la imagen completa a partir del snapshot de `Dockerfile.deploy`.
+`scripts/check_api.py` verifica la app real, incluido el worker de MapLibre v6. Ver `docs/cierre_gcp.md`.
+Los comentarios posteriores sobre «solo Mundo portado» describen una etapa anterior.
+
 This file provides guidance to Claude Code (claude.ai/code) when working with this repository.
 
 ## What this is
@@ -13,7 +23,12 @@ Windows/PowerShell is the primary dev environment (`.\.venv\Scripts\python`); on
 ```bash
 pip install -r requirements.txt -r requirements-maps.txt   # app; add requirements-ml.txt for models, -assistant / -acquisition as needed
 python scripts/prepare.py --raw "<HDF5 dir>" --output data   # HDF5 -> COG derivatives in data/ (required before the Pantanal view works)
-streamlit run app.py                                         # app on :8501 (Docker: port 8080, `docker compose up --build -d`)
+streamlit run app.py                                         # old Streamlit app on :8501 (Docker: port 8080) - being replaced, see below
+
+# New frontend (React/MapLibre, replacing Streamlit - "Mundo" view is the only one ported so far):
+pip install -r requirements-api.txt
+python -m uvicorn api.main:app --port 8010                   # FastAPI backend, reads the same catalog/*.json|csv.gz as the Streamlit views
+cd web && npm install && npm run dev                         # Vite dev server (proxies /api to :8010, see web/vite.config.js)
 
 python -m unittest discover -s tests -v                      # all tests
 python -m unittest tests.test_science -v                     # one module

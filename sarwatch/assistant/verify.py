@@ -1,7 +1,7 @@
 """Output verification: every number must trace to tool facts; every link to known sources; no banned claims."""
 import re
 
-NUMBER = re.compile(r"(?<![\w/])[-−+]?\d{1,3}(?:[.,]\d{3})*(?:[.,]\d+)?(?![\w/])")
+NUMBER = re.compile(r"(?<![\w/])[-−+]?\d+(?:[.,]\d{3})*(?:[.,]\d+)?(?![\w/])")
 URL = re.compile(r"https?://\S+")
 BANNED = ["inundación confirmada", "inundacion confirmada", "detectamos una inundación", "se confirma la inundación", "daño confirmado", "alerta de inundación", "99,9 % de precisión", "99.9 % de precisión", "probabilidad de inundación", "predecimos", "pronosticamos que habrá"]
 # Tokens that look numeric but are part of names, units or dates and are always allowed.

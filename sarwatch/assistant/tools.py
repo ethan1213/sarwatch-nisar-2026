@@ -80,6 +80,21 @@ def tool_postfire(context):
     return {"facts": facts, "sources": ["docs/postfire_benchmark.json", "docs/postfuego/01_problematica.md"], "text": text}
 
 
+def tool_fire_impacts(context):
+    reference = _load("catalog/fire_impacts_reference.json")
+    if not reference or context.get("region") != "Región Metropolitana":
+        return {"facts": {}, "sources": [], "text": "No hay estimación experimental de emisiones y relieve para este lugar."}
+    e = reference["emissions"]
+    facts = {"co2_t": round(e["total_co2_t"], 1), "low_t": round(e["sensitivity_low_t"], 1),
+             "high_t": round(e["sensitivity_high_t"], 1), "rainfall_interval_minutes": 15}
+    text = (f"El escenario experimental estima {facts['co2_t']} t de CO₂ bruto durante la combustión, "
+            f"con sensibilidad {facts['low_t']}–{facts['high_t']} t. No es medición atmosférica ni intervalo de confianza. "
+            "La señal óptica requiere confirmar el perímetro de incendio y los supuestos de combustible. "
+            "El DEM produce un ranking relativo, no profundidad en metros ni rutas seguras. "
+            "El volumen está pendiente de intensidad pico observada en intervalos de 15 minutos. Sin validación de terreno; no es una alerta operativa.")
+    return {"facts": facts, "sources": ["catalog/fire_impacts_reference.json", e["source"]], "text": text}
+
+
 def tool_forecast(context):
     reference = _load(PREDICTION_REFERENCE)
     base = "Todavía no podemos predecir inundaciones, daños o cambios futuros con este conjunto."

@@ -57,3 +57,26 @@ Prototipo exploratorio: filtrado de finitos positivos y fill values declarados. 
 Selector de Pantanal, Región Metropolitana y Valparaíso continental. Chile incluye límites comunales CIREN, mapa base y satelital de contexto, consulta de puntos, pronóstico y candidatos NISAR CMR. No se presentan candidatos como series SAR procesadas. Ver docs/chile_y_mapas.md.
 
 Los entornos urbanos de Santiago y Valparaíso/Viña del Mar incluyen capas NISAR reales del 5 y 17 octubre 2026, verificadas mediante checksum oficial, con HH/HV, diferencia y valores por punto. Son recortes urbanos; no equivalen a cobertura completa de las regiones. Los originales permanecen en data_raw/chile y derivados en data/metropolitana y data/valparaiso, fuera de Git.
+# Publicación React + FastAPI en GCP
+
+La interfaz React incluye Pantanal, Región Metropolitana, Valparaíso, Mundo, calor/infrarrojo,
+PostFuego y laboratorio experimental CO₂/DEM. El proceso web publicado usa FastAPI, sin Streamlit.
+Estado, validaciones y límites: [docs/cierre_gcp.md](docs/cierre_gcp.md).
+
+```powershell
+# Aplicación completa en local, usando los derivados verificados existentes:
+cd web
+npm ci
+npm run build
+cd ..
+docker build -t sarwatch-nisar:local .
+docker build -f Dockerfile.deploy -t sarwatch-nisar:demo .
+docker build -f Dockerfile.cloud -t sarwatch-nisar:cloud .
+docker run --rm -p 127.0.0.1:8090:8080 sarwatch-nisar:cloud
+# En otra terminal:
+.\.venv\Scripts\python scripts/check_api.py http://127.0.0.1:8090
+# Redespliegue: scripts/deploy_gcp.ps1 -GcloudPath <ruta-a-gcloud.cmd>
+```
+
+El límite autorizado es US$300 de crédito total. Mantener cuenta en prueba gratuita;
+no actualizarla a pago. Alertas de presupuesto no equivalen a un corte automático.

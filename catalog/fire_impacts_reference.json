@@ -1,0 +1,645 @@
+{
+  "aoi": "metropolitana",
+  "generated_utc": "2026-11-15T00:35:31.071410+00:00",
+  "input_sha256": {
+    "wildfire/severity.tif": "1fc4e5ec6099cc060095c4829815366742d12fec671e25ec26277a4d3d093f3a",
+    "covariates/worldcover.tif": "a7a1dbc0dbd36c4fd697e596dc933186c4b2c373a0759e2ac9af1295714cb7cf",
+    "covariates/dem.tif": "7813bf761024d270547241ed9c6900690ccfb1af9a6cf2c4301eb638bb9b2eb5",
+    "covariates/slope.tif": "690e95feffaf21069d35a04177491670eec35ff11e981a5fc183e0487a42c5c9"
+  },
+  "pixel_area_m2": 400.0,
+  "emissions": {
+    "method": "IPCC 2006 ecuación 2.27 + supuestos experimentales",
+    "source": "https://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/4_Volume4/V4_02_Ch2_Generic.pdf",
+    "severity_factors_assumption": {
+      "1": 0.15,
+      "2": 0.4,
+      "3": 0.7,
+      "4": 1.0
+    },
+    "rows": [
+      {
+        "worldcover": 10,
+        "fuel": "bosque templado (supuesto local)",
+        "severity": 1,
+        "area_ha": 2400.92,
+        "co2_t": 28478.848708799997,
+        "sensitivity_low_t": 0.0,
+        "sensitivity_high_t": 63733.621859999985
+      },
+      {
+        "worldcover": 10,
+        "fuel": "bosque templado (supuesto local)",
+        "severity": 2,
+        "area_ha": 127.84,
+        "co2_t": 4043.7121536000004,
+        "sensitivity_low_t": 0.0,
+        "sensitivity_high_t": 9049.53792
+      },
+      {
+        "worldcover": 10,
+        "fuel": "bosque templado (supuesto local)",
+        "severity": 3,
+        "area_ha": 13.0,
+        "co2_t": 719.60616,
+        "sensitivity_low_t": 0.0,
+        "sensitivity_high_t": 1610.427
+      },
+      {
+        "worldcover": 10,
+        "fuel": "bosque templado (supuesto local)",
+        "severity": 4,
+        "area_ha": 0.2,
+        "co2_t": 15.815520000000001,
+        "sensitivity_low_t": 0.0,
+        "sensitivity_high_t": 35.394
+      },
+      {
+        "worldcover": 20,
+        "fuel": "matorral (factor gaseoso de sabana, supuesto)",
+        "severity": 1,
+        "area_ha": 8607.92,
+        "co2_t": 29782.413289199998,
+        "sensitivity_low_t": 10388.1239352,
+        "sensitivity_high_t": 51384.6341232
+      },
+      {
+        "worldcover": 20,
+        "fuel": "matorral (factor gaseoso de sabana, supuesto)",
+        "severity": 2,
+        "area_ha": 601.2,
+        "co2_t": 5546.887632000001,
+        "sensitivity_low_t": 1934.7577920000006,
+        "sensitivity_high_t": 9570.238272
+      },
+      {
+        "worldcover": 20,
+        "fuel": "matorral (factor gaseoso de sabana, supuesto)",
+        "severity": 3,
+        "area_ha": 21.96,
+        "co2_t": 354.5690148,
+        "sensitivity_low_t": 123.67388880000001,
+        "sensitivity_high_t": 611.7502608
+      },
+      {
+        "worldcover": 30,
+        "fuel": "pastizal/sabana media-tardía (supuesto)",
+        "severity": 1,
+        "area_ha": 5589.64,
+        "co2_t": 13524.133980000002,
+        "sensitivity_low_t": 0.0,
+        "sensitivity_high_t": 28784.521936800003
+      },
+      {
+        "worldcover": 30,
+        "fuel": "pastizal/sabana media-tardía (supuesto)",
+        "severity": 2,
+        "area_ha": 548.0,
+        "co2_t": 3535.696,
+        "sensitivity_low_t": 0.0,
+        "sensitivity_high_t": 7525.3113600000015
+      },
+      {
+        "worldcover": 30,
+        "fuel": "pastizal/sabana media-tardía (supuesto)",
+        "severity": 3,
+        "area_ha": 76.2,
+        "co2_t": 860.3742,
+        "sensitivity_low_t": 0.0,
+        "sensitivity_high_t": 1831.204872
+      },
+      {
+        "worldcover": 30,
+        "fuel": "pastizal/sabana media-tardía (supuesto)",
+        "severity": 4,
+        "area_ha": 0.84,
+        "co2_t": 13.5492,
+        "sensitivity_low_t": 0.0,
+        "sensitivity_high_t": 28.837872
+      }
+    ],
+    "total_co2_t": 86875.6058584,
+    "sensitivity_low_t": 12446.555616,
+    "sensitivity_high_t": 174165.47947679998,
+    "burned_signal_area_ha": 26441.76,
+    "unmodeled_burned_area_ha": 8454.04,
+    "modeled_burned_fraction": 0.6802769558456018,
+    "severity_valid_fraction": 0.9408318341145316,
+    "limitations": [
+      "Estimación experimental de CO₂ bruto liberado durante la combustión; no medición atmosférica ni balance neto posterior.",
+      "Sin calibración ni validación de terreno en Chile; no utilizable como inventario certificado o alerta operativa.",
+      "dNBR no demuestra un incendio por sí solo; se requiere perímetro y fecha independientes.",
+      "Factores por severidad y equivalencias WorldCover/combustible son supuestos propios.",
+      "Rango de sensibilidad con SE de consumo y SD del factor gaseoso; no intervalo de confianza.",
+      "No incluye recuperación, carbono del suelo, turba, emisiones diferidas ni clases sin factor asignado."
+    ],
+    "validation_status": "experimental_unvalidated",
+    "operational": false
+  },
+  "wildfire_provenance": {
+    "aoi": "metropolitana",
+    "retrieved_utc": "2026-11-14T21:14:26.327941+00:00",
+    "pre_window": [
+      "2025-11-01",
+      "2025-11-30"
+    ],
+    "post_window": [
+      "2026-02-01",
+      "2026-02-28"
+    ],
+    "pre_items_used": [
+      {
+        "id": "S2A_MSIL2A_20251112T142811_R053_T19HCC_20251112T205410",
+        "cloud_cover": 0.00822,
+        "pixels_contributed": 5026
+      },
+      {
+        "id": "S2C_MSIL2A_20251110T142801_R053_T19HCC_20251110T175915",
+        "cloud_cover": 0.043482,
+        "pixels_contributed": 8327
+      },
+      {
+        "id": "S2B_MSIL2A_20251108T143739_R096_T19HCD_20251108T182242",
+        "cloud_cover": 0.339558,
+        "pixels_contributed": 3331923
+      },
+      {
+        "id": "S2B_MSIL2A_20251118T143739_R096_T19HCC_20251118T181719",
+        "cloud_cover": 0.365128,
+        "pixels_contributed": 2435197
+      },
+      {
+        "id": "S2B_MSIL2A_20251118T143739_R096_T19HCD_20251118T181719",
+        "cloud_cover": 0.993782,
+        "pixels_contributed": 39929
+      }
+    ],
+    "post_items_used": [
+      {
+        "id": "S2C_MSIL2A_20260211T143741_R096_T19HCC_20260211T182116",
+        "cloud_cover": 0.001257,
+        "pixels_contributed": 3407597
+      },
+      {
+        "id": "S2C_MSIL2A_20260228T142751_R053_T19HCC_20260228T191412",
+        "cloud_cover": 0.001856,
+        "pixels_contributed": 331
+      },
+      {
+        "id": "S2B_MSIL2A_20260206T143739_R096_T19HCD_20260206T195547",
+        "cloud_cover": 0.00281,
+        "pixels_contributed": 2228736
+      },
+      {
+        "id": "S2C_MSIL2A_20260218T142711_R053_T19HCC_20260218T180412",
+        "cloud_cover": 0.003209,
+        "pixels_contributed": 608
+      },
+      {
+        "id": "S2A_MSIL2A_20260223T143911_R053_T19HCC_20260223T201709",
+        "cloud_cover": 0.003346,
+        "pixels_contributed": 105
+      },
+      {
+        "id": "S2B_MSIL2A_20260223T142709_R053_T19HCC_20260223T194653",
+        "cloud_cover": 0.004522,
+        "pixels_contributed": 15
+      }
+    ],
+    "pre_valid_fraction": 0.9728044717835991,
+    "post_valid_fraction": 0.9422167312149723,
+    "severity_summary": {
+      "n": 5629106,
+      "sin_quema_o_rebrote": 0.8825667876923974,
+      "baja": 0.10227947386316762,
+      "moderada_baja": 0.012360932624114735,
+      "moderada_alta": 0.002693855827195295,
+      "alta": 9.894999312501842e-05
+    },
+    "limits": [
+      "Ventanas de fecha de ejemplo; confirmar fecha y perímetro real del incendio con CONAF/Sernageomin antes de publicar.",
+      "dNBR describe daño a la vegetación observado por óptico, no humedad ni estabilidad del suelo.",
+      "Mosaico de varias escenas por ventana (distintas fechas/orbitas/teselas); cada píxel usa la primera escena sin nubes que lo cubre, no necesariamente la misma fecha en todo el recorte.",
+      "Nubes pueden dejar huecos; revisar severity_summary.n frente al total de píxeles del AOI."
+    ]
+  },
+  "terrain": {
+    "status": "experimental_unvalidated",
+    "operational": false,
+    "raster": "metropolitana/postfire/relative_concentration.tif",
+    "n_basins": 2656,
+    "top_basins": [
+      {
+        "basin_id": 2655,
+        "area_km2": 1.22,
+        "burned_moderate_high_km2": 0.01,
+        "relief_m": 512.2437695312501,
+        "relative_index_max": 0.1016872227191925,
+        "relative_index_mean": 0.0008842367096804082
+      },
+      {
+        "basin_id": 1857,
+        "area_km2": 0.57,
+        "burned_moderate_high_km2": 0.014666666666666668,
+        "relief_m": 203.6236914062497,
+        "relative_index_max": 0.0847482904791832,
+        "relative_index_mean": 0.007733756210654974
+      },
+      {
+        "basin_id": 1540,
+        "area_km2": 25.8,
+        "burned_moderate_high_km2": 0.11623830524928923,
+        "relief_m": 1585.439328613281,
+        "relative_index_max": 0.04526079446077347,
+        "relative_index_mean": 0.0003144772199448198
+      },
+      {
+        "basin_id": 910,
+        "area_km2": 0.19,
+        "burned_moderate_high_km2": 0.0096,
+        "relief_m": 263.877197265625,
+        "relative_index_max": 0.04022090882062912,
+        "relative_index_mean": 0.0034236242063343525
+      },
+      {
+        "basin_id": 920,
+        "area_km2": 13.72,
+        "burned_moderate_high_km2": 0.007199999999999998,
+        "relief_m": 1046.48822265625,
+        "relative_index_max": 0.03014749474823475,
+        "relative_index_mean": 4.4329819502308965e-05
+      },
+      {
+        "basin_id": 685,
+        "area_km2": 16.79,
+        "burned_moderate_high_km2": 0.024904347826086953,
+        "relief_m": 1499.7126708984374,
+        "relative_index_max": 0.027702441439032555,
+        "relative_index_mean": 6.188751285662875e-05
+      },
+      {
+        "basin_id": 611,
+        "area_km2": 1.7,
+        "burned_moderate_high_km2": 0.011075000000000002,
+        "relief_m": 266.0935034179688,
+        "relative_index_max": 0.025258373469114304,
+        "relative_index_mean": 0.0004386919317767024
+      },
+      {
+        "basin_id": 1880,
+        "area_km2": 1.2,
+        "burned_moderate_high_km2": 0.0412,
+        "relief_m": 178.9047229003906,
+        "relative_index_max": 0.025014910846948624,
+        "relative_index_mean": 0.000529192911926657
+      },
+      {
+        "basin_id": 1500,
+        "area_km2": 12.58,
+        "burned_moderate_high_km2": 0.006,
+        "relief_m": 1739.6872265624997,
+        "relative_index_max": 0.024710383266210556,
+        "relative_index_mean": 4.506194090936333e-05
+      },
+      {
+        "basin_id": 1651,
+        "area_km2": 3.48,
+        "burned_moderate_high_km2": 0.0341,
+        "relief_m": 1232.6601220703126,
+        "relative_index_max": 0.023014958947896957,
+        "relative_index_mean": 0.00040465721394866705
+      },
+      {
+        "basin_id": 2085,
+        "area_km2": 6.94,
+        "burned_moderate_high_km2": 0.2932,
+        "relief_m": 370.0276086425781,
+        "relative_index_max": 0.022918211296200752,
+        "relative_index_mean": 0.0002421087265247479
+      },
+      {
+        "basin_id": 2076,
+        "area_km2": 2.23,
+        "burned_moderate_high_km2": 0.0264,
+        "relief_m": 708.192205810547,
+        "relative_index_max": 0.0214830432087183,
+        "relative_index_mean": 0.00032728564110584557
+      },
+      {
+        "basin_id": 709,
+        "area_km2": 7.84,
+        "burned_moderate_high_km2": 0.0128,
+        "relief_m": 837.2217822265626,
+        "relative_index_max": 0.021228473633527756,
+        "relative_index_mean": 8.899073145585135e-05
+      },
+      {
+        "basin_id": 552,
+        "area_km2": 3.54,
+        "burned_moderate_high_km2": 0.0036,
+        "relief_m": 476.24956787109363,
+        "relative_index_max": 0.020955964922904968,
+        "relative_index_mean": 0.00011490962788229808
+      },
+      {
+        "basin_id": 225,
+        "area_km2": 13.47,
+        "burned_moderate_high_km2": 0.02720000000000001,
+        "relief_m": 1620.0696630859372,
+        "relative_index_max": 0.019524237141013145,
+        "relative_index_mean": 6.349589966703206e-05
+      },
+      {
+        "basin_id": 2084,
+        "area_km2": 23.92,
+        "burned_moderate_high_km2": 0.0044,
+        "relief_m": 2129.23826171875,
+        "relative_index_max": 0.017724037170410156,
+        "relative_index_mean": 1.5360774341388606e-05
+      },
+      {
+        "basin_id": 2528,
+        "area_km2": 35.77,
+        "burned_moderate_high_km2": 0.0868,
+        "relief_m": 1357.9903759765625,
+        "relative_index_max": 0.017696479335427284,
+        "relative_index_mean": 1.3286175999382976e-05
+      },
+      {
+        "basin_id": 2245,
+        "area_km2": 5.98,
+        "burned_moderate_high_km2": 0.2192,
+        "relief_m": 82.13133911132815,
+        "relative_index_max": 0.015880221500992775,
+        "relative_index_mean": 0.00023925205459818244
+      },
+      {
+        "basin_id": 2168,
+        "area_km2": 0.96,
+        "burned_moderate_high_km2": 0.0076,
+        "relief_m": 580.308642578125,
+        "relative_index_max": 0.01586483046412468,
+        "relative_index_mean": 0.0002249604876851663
+      },
+      {
+        "basin_id": 2471,
+        "area_km2": 2.24,
+        "burned_moderate_high_km2": 0.005125916453537938,
+        "relief_m": 566.8370166015625,
+        "relative_index_max": 0.015620619058609009,
+        "relative_index_mean": 0.0002764360106084496
+      },
+      {
+        "basin_id": 116,
+        "area_km2": 9.2,
+        "burned_moderate_high_km2": 0.0032,
+        "relief_m": 517.947783203125,
+        "relative_index_max": 0.015155129134654999,
+        "relative_index_mean": 2.0932391635142267e-05
+      },
+      {
+        "basin_id": 212,
+        "area_km2": 5.68,
+        "burned_moderate_high_km2": 0.11520000000000002,
+        "relief_m": 320.5626000976563,
+        "relative_index_max": 0.013517295010387897,
+        "relative_index_mean": 0.00015491500380448997
+      },
+      {
+        "basin_id": 2497,
+        "area_km2": 0.88,
+        "burned_moderate_high_km2": 0.0368,
+        "relief_m": 27.947973632812477,
+        "relative_index_max": 0.013165926560759544,
+        "relative_index_mean": 0.000388384418329224
+      },
+      {
+        "basin_id": 2093,
+        "area_km2": 0.83,
+        "burned_moderate_high_km2": 0.0144,
+        "relief_m": 33.29105102539063,
+        "relative_index_max": 0.012568906880915165,
+        "relative_index_mean": 0.00022752182849217206
+      },
+      {
+        "basin_id": 2334,
+        "area_km2": 0.73,
+        "burned_moderate_high_km2": 0.012800000000000004,
+        "relief_m": 16.451301269531314,
+        "relative_index_max": 0.012537121772766113,
+        "relative_index_mean": 0.00026719504967331886
+      },
+      {
+        "basin_id": 2413,
+        "area_km2": 2.07,
+        "burned_moderate_high_km2": 0.0124,
+        "relief_m": 43.45296875000008,
+        "relative_index_max": 0.012271372601389885,
+        "relative_index_mean": 6.728293374180794e-05
+      },
+      {
+        "basin_id": 2213,
+        "area_km2": 3.9,
+        "burned_moderate_high_km2": 0.1268,
+        "relief_m": 52.204431152343716,
+        "relative_index_max": 0.012212391942739487,
+        "relative_index_mean": 0.000231782381888479
+      },
+      {
+        "basin_id": 33,
+        "area_km2": 1.12,
+        "burned_moderate_high_km2": 0.036,
+        "relief_m": 367.3391357421875,
+        "relative_index_max": 0.01211173553019762,
+        "relative_index_mean": 0.0002854086924344301
+      },
+      {
+        "basin_id": 2329,
+        "area_km2": 4.81,
+        "burned_moderate_high_km2": 0.198,
+        "relief_m": 66.35384521484377,
+        "relative_index_max": 0.011538301594555378,
+        "relative_index_mean": 0.0002509799669496715
+      },
+      {
+        "basin_id": 2328,
+        "area_km2": 3.25,
+        "burned_moderate_high_km2": 0.0564,
+        "relief_m": 108.2507397460937,
+        "relative_index_max": 0.011357586830854416,
+        "relative_index_mean": 0.0001598988746991381
+      },
+      {
+        "basin_id": 881,
+        "area_km2": 1.35,
+        "burned_moderate_high_km2": 0.0036,
+        "relief_m": 278.06449951171874,
+        "relative_index_max": 0.011301414109766483,
+        "relative_index_mean": 0.00011557849211385474
+      },
+      {
+        "basin_id": 901,
+        "area_km2": 1.2,
+        "burned_moderate_high_km2": 0.004,
+        "relief_m": 260.5018066406251,
+        "relative_index_max": 0.011195524595677853,
+        "relative_index_mean": 0.0001548680738778785
+      },
+      {
+        "basin_id": 1965,
+        "area_km2": 33.93,
+        "burned_moderate_high_km2": 0.0012,
+        "relief_m": 1864.09228515625,
+        "relative_index_max": 0.009723983705043793,
+        "relative_index_mean": 3.0549745133612305e-06
+      },
+      {
+        "basin_id": 2472,
+        "area_km2": 3.34,
+        "burned_moderate_high_km2": 0.06920000000000001,
+        "relief_m": 67.12688354492184,
+        "relative_index_max": 0.009670872241258621,
+        "relative_index_mean": 0.00012625951785594225
+      },
+      {
+        "basin_id": 44,
+        "area_km2": 1.41,
+        "burned_moderate_high_km2": 0.08203333333333333,
+        "relief_m": 19.51320068359371,
+        "relative_index_max": 0.009370210580527782,
+        "relative_index_mean": 0.0003223840903956443
+      },
+      {
+        "basin_id": 1722,
+        "area_km2": 10.05,
+        "burned_moderate_high_km2": 0.0028000000000000004,
+        "relief_m": 1456.022658691406,
+        "relative_index_max": 0.009259111247956753,
+        "relative_index_mean": 2.391178350080736e-05
+      },
+      {
+        "basin_id": 306,
+        "area_km2": 34.22,
+        "burned_moderate_high_km2": 0.14440000000000003,
+        "relief_m": 1014.7175927734376,
+        "relative_index_max": 0.009054210968315601,
+        "relative_index_mean": 1.7987555111176334e-05
+      },
+      {
+        "basin_id": 2182,
+        "area_km2": 4.49,
+        "burned_moderate_high_km2": 0.1232,
+        "relief_m": 81.1185412597656,
+        "relative_index_max": 0.00897984765470028,
+        "relative_index_mean": 0.00014675015700049698
+      },
+      {
+        "basin_id": 1823,
+        "area_km2": 2.15,
+        "burned_moderate_high_km2": 0.0028000000000000004,
+        "relief_m": 730.9439062499996,
+        "relative_index_max": 0.008923642337322235,
+        "relative_index_mean": 0.00010238448157906532
+      },
+      {
+        "basin_id": 2537,
+        "area_km2": 3.3,
+        "burned_moderate_high_km2": 0.126,
+        "relief_m": 37.47094482421875,
+        "relative_index_max": 0.008723595179617405,
+        "relative_index_mean": 0.00016910795238800347
+      },
+      {
+        "basin_id": 594,
+        "area_km2": 6.53,
+        "burned_moderate_high_km2": 0.0016,
+        "relief_m": 752.002333984375,
+        "relative_index_max": 0.008417448960244656,
+        "relative_index_mean": 1.2890427569800522e-05
+      },
+      {
+        "basin_id": 1909,
+        "area_km2": 25.18,
+        "burned_moderate_high_km2": 0.0028999999999999994,
+        "relief_m": 2597.232331542969,
+        "relative_index_max": 0.00838836096227169,
+        "relative_index_mean": 6.805678367527435e-06
+      },
+      {
+        "basin_id": 2158,
+        "area_km2": 4.32,
+        "burned_moderate_high_km2": 0.15760000000000002,
+        "relief_m": 405.54346923828126,
+        "relative_index_max": 0.008175094611942768,
+        "relative_index_mean": 0.0002110597415594384
+      },
+      {
+        "basin_id": 1064,
+        "area_km2": 12.24,
+        "burned_moderate_high_km2": 0.010434782608695651,
+        "relief_m": 947.2813940429687,
+        "relative_index_max": 0.00800703652203083,
+        "relative_index_mean": 2.9452858143486083e-05
+      },
+      {
+        "basin_id": 2450,
+        "area_km2": 1.98,
+        "burned_moderate_high_km2": 0.06960000000000001,
+        "relief_m": 28.184719238281218,
+        "relative_index_max": 0.007419266272336245,
+        "relative_index_mean": 0.00016693428915459663
+      },
+      {
+        "basin_id": 2032,
+        "area_km2": 2.34,
+        "burned_moderate_high_km2": 0.09160000000000003,
+        "relief_m": 133.35078979492187,
+        "relative_index_max": 0.0074008372612297535,
+        "relative_index_mean": 0.000150473861140199
+      },
+      {
+        "basin_id": 2090,
+        "area_km2": 3.09,
+        "burned_moderate_high_km2": 0.04599999999999999,
+        "relief_m": 46.92204223632814,
+        "relative_index_max": 0.007292167749255896,
+        "relative_index_mean": 8.917011291487142e-05
+      },
+      {
+        "basin_id": 956,
+        "area_km2": 1.5,
+        "burned_moderate_high_km2": 0.0028000000000000004,
+        "relief_m": 499.24254638671874,
+        "relative_index_max": 0.0072004534304142,
+        "relative_index_mean": 0.00014001253293827176
+      },
+      {
+        "basin_id": 2259,
+        "area_km2": 5.62,
+        "burned_moderate_high_km2": 0.0568,
+        "relief_m": 82.79059814453126,
+        "relative_index_max": 0.007151005789637566,
+        "relative_index_mean": 5.933964712312445e-05
+      },
+      {
+        "basin_id": 1448,
+        "area_km2": 14.1,
+        "burned_moderate_high_km2": 0.008769607843137255,
+        "relief_m": 1605.555458984375,
+        "relative_index_max": 0.006966846529394388,
+        "relative_index_mean": 1.8533250113250688e-05
+      }
+    ],
+    "volume": {
+      "status": "missing_i15",
+      "volume_m3": null,
+      "operational": false,
+      "reason": "Falta intensidad pico observada en intervalos de 15 minutos; no sustituir por lluvia horaria o diaria."
+    },
+    "limitations": [
+      "Índice relativo 0–1; no profundidad en metros, probabilidad, accesibilidad ni ruta segura.",
+      "DEM remuestreado y reducido; D8 sin relleno de depresiones, cuencas aproximadas.",
+      "No validado contra depósitos medidos; no cumple compuerta de publicación de modelos operativos."
+    ]
+  }
+}

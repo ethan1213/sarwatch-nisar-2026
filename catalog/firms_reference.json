@@ -1,0 +1,5183 @@
+{
+  "retrieved_utc": "2026-11-15T01:25:21.851230+00:00",
+  "mode": "public_recent_7d_NRT",
+  "source_documentation": "https://firms.modaps.eosdis.nasa.gov/content/active_fire/",
+  "historical_status": "Requiere archivo histórico autenticado; no se extrapolan focos recientes a fechas pasadas.",
+  "limitations": [
+    "Detecciones de calor, no incendios confirmados, frentes ni perímetros.",
+    "Un píxel VIIRS representa aproximadamente 375 m; no es una posición exacta del fuego.",
+    "Ausencia de detecciones no demuestra ausencia de incendio; influyen nubes y pasadas.",
+    "NRT puede cambiar al publicarse procesamiento científico estándar.",
+    "FRP en MW es potencia radiativa; no se convierte directamente a CO₂."
+  ],
+  "sources": [
+    {
+      "sensor": "VIIRS NOAA-20",
+      "url": "https://firms.modaps.eosdis.nasa.gov/data/active_fire/noaa-20-viirs-c2/csv/J1_VIIRS_C2_South_America_7d.csv",
+      "sha256": "9eb5f3ab9933a7558efbf67d033225c39bbddcb9afd3c56a14ea86326daa4ecd",
+      "bytes": 5506297
+    },
+    {
+      "sensor": "VIIRS NOAA-21",
+      "url": "https://firms.modaps.eosdis.nasa.gov/data/active_fire/noaa-21-viirs-c2/csv/J2_VIIRS_C2_South_America_7d.csv",
+      "sha256": "b1f9dcd4305c94890cf40f74ddce58d8434a7112330acb3b76c2fe628c6f8d68",
+      "bytes": 5294381
+    },
+    {
+      "sensor": "VIIRS Suomi-NPP",
+      "url": "https://firms.modaps.eosdis.nasa.gov/data/active_fire/suomi-npp-viirs-c2/csv/SUOMI_VIIRS_C2_South_America_7d.csv",
+      "sha256": "fe0401e40606fd90dd4cf24dff508a93539089a4aecf701e2a3c85851fe9bf40",
+      "bytes": 112
+    }
+  ],
+  "aois": {
+    "concepcion_penco": {
+      "label": "Concepción, Penco y entorno urbano",
+      "bbox": [
+        -73.25,
+        -36.95,
+        -72.7,
+        -36.5
+      ],
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.94933,
+              -36.8485
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 4.43,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88808,
+              -36.75772
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 8.58,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.84605,
+              -36.73105
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 5.19,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.84547,
+              -36.73385
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 3.73,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88821,
+              -36.7541
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T19:34:00Z",
+            "confidence": "l",
+            "frp_mw": 3.01,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88767,
+              -36.75573
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 7.33,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.892,
+              -36.75665
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 13.61,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88896,
+              -36.75174
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 7.33,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.12679,
+              -36.78127
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 1.04,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.95002,
+              -36.84642
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 3.63,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.89023,
+              -36.75711
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 5.49,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88654,
+              -36.75312
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 6.85,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.84608,
+              -36.73005
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 4.21,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.87821,
+              -36.78804
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T18:00:00Z",
+            "confidence": "n",
+            "frp_mw": 8.91,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88205,
+              -36.78829
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T18:00:00Z",
+            "confidence": "n",
+            "frp_mw": 8.91,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        }
+      ],
+      "detections": 15,
+      "period_observed_utc": [
+        "2026-11-10T17:53:00Z",
+        "2026-11-12T18:00:00Z"
+      ],
+      "nominal_or_high_confidence": 14
+    },
+    "biobio": {
+      "label": "Biobío · ventana regional de búsqueda (no límite administrativo)",
+      "bbox": [
+        -74.0,
+        -38.65,
+        -70.85,
+        -36.0
+      ],
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.63348,
+              -36.17828
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T04:50:00Z",
+            "confidence": "n",
+            "frp_mw": 1.67,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.39621,
+              -36.8624
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T04:50:00Z",
+            "confidence": "n",
+            "frp_mw": 5.82,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.40427,
+              -36.85995
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T04:50:00Z",
+            "confidence": "n",
+            "frp_mw": 4.63,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.63261,
+              -36.17792
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T06:31:00Z",
+            "confidence": "n",
+            "frp_mw": 0.73,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37749,
+              -36.86503
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T06:31:00Z",
+            "confidence": "n",
+            "frp_mw": 11.13,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38923,
+              -36.86913
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T06:31:00Z",
+            "confidence": "n",
+            "frp_mw": 3.63,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38422,
+              -36.8695
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T06:31:00Z",
+            "confidence": "n",
+            "frp_mw": 3.63,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37911,
+              -36.86989
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T06:31:00Z",
+            "confidence": "n",
+            "frp_mw": 11.13,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.85635,
+              -38.53447
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T18:49:00Z",
+            "confidence": "n",
+            "frp_mw": 2.4,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.49556,
+              -38.28214
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T18:49:00Z",
+            "confidence": "n",
+            "frp_mw": 2.77,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.42596,
+              -37.52313
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T18:49:00Z",
+            "confidence": "n",
+            "frp_mw": 5.84,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38085,
+              -36.8673
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T18:49:00Z",
+            "confidence": "l",
+            "frp_mw": 14.41,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.51259,
+              -36.28247
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-07T18:49:00Z",
+            "confidence": "n",
+            "frp_mw": 25.19,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.56716,
+              -36.18021
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T06:09:00Z",
+            "confidence": "n",
+            "frp_mw": 0.72,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.56802,
+              -36.18067
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T06:09:00Z",
+            "confidence": "n",
+            "frp_mw": 1.22,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37662,
+              -36.86624
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T06:09:00Z",
+            "confidence": "n",
+            "frp_mw": 10.13,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38193,
+              -36.86564
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T06:09:00Z",
+            "confidence": "n",
+            "frp_mw": 6.99,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38279,
+              -36.86941
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T06:09:00Z",
+            "confidence": "n",
+            "frp_mw": 2.82,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38768,
+              -36.86885
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T06:09:00Z",
+            "confidence": "n",
+            "frp_mw": 2.82,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37782,
+              -36.86999
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T06:09:00Z",
+            "confidence": "n",
+            "frp_mw": 1.83,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.46102,
+              -38.53712
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T18:32:00Z",
+            "confidence": "l",
+            "frp_mw": 3.31,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.91538,
+              -38.13012
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T18:32:00Z",
+            "confidence": "n",
+            "frp_mw": 8.56,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92081,
+              -38.13075
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T18:32:00Z",
+            "confidence": "n",
+            "frp_mw": 15.64,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92164,
+              -38.12711
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T18:32:00Z",
+            "confidence": "n",
+            "frp_mw": 15.64,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92699,
+              -38.12773
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-08T18:32:00Z",
+            "confidence": "n",
+            "frp_mw": 15.64,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.06872,
+              -36.08893
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-09T05:52:00Z",
+            "confidence": "n",
+            "frp_mw": 0.69,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38081,
+              -36.86654
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-09T05:52:00Z",
+            "confidence": "n",
+            "frp_mw": 17.27,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38589,
+              -36.86917
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-09T05:52:00Z",
+            "confidence": "n",
+            "frp_mw": 2.61,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38161,
+              -36.86983
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-09T05:52:00Z",
+            "confidence": "n",
+            "frp_mw": 1.16,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.21432,
+              -37.19982
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-09T05:52:00Z",
+            "confidence": "n",
+            "frp_mw": 0.71,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92424,
+              -38.12772
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-09T05:52:00Z",
+            "confidence": "n",
+            "frp_mw": 0.47,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.91987,
+              -38.1284
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-09T05:52:00Z",
+            "confidence": "n",
+            "frp_mw": 0.72,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38594,
+              -36.86592
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T05:33:00Z",
+            "confidence": "n",
+            "frp_mw": 13.69,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37968,
+              -36.86713
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T05:33:00Z",
+            "confidence": "n",
+            "frp_mw": 12.61,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38062,
+              -36.86481
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T05:33:00Z",
+            "confidence": "n",
+            "frp_mw": 9.19,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38788,
+              -36.86723
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T05:33:00Z",
+            "confidence": "n",
+            "frp_mw": 9.19,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38153,
+              -36.8685
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T05:33:00Z",
+            "confidence": "n",
+            "frp_mw": 9.19,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38908,
+              -36.87086
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T05:33:00Z",
+            "confidence": "n",
+            "frp_mw": 1.23,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.49539,
+              -37.85675
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 11.12,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.50135,
+              -37.85695
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "l",
+            "frp_mw": 11.12,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.49644,
+              -37.85888
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 9.1,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.5086,
+              -37.85934
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 9.74,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.50246,
+              -37.8591
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "l",
+            "frp_mw": 9.74,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.50851,
+              -37.8531
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 9.74,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38556,
+              -36.86954
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 8.39,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38718,
+              -36.87003
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 5.89,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.94933,
+              -36.8485
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 4.43,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88808,
+              -36.75772
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 8.58,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.84605,
+              -36.73105
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 5.19,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.84547,
+              -36.73385
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 3.73,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.47896,
+              -36.62595
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 6.67,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.50236,
+              -37.85504
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T19:34:00Z",
+            "confidence": "n",
+            "frp_mw": 3.31,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.50603,
+              -37.85599
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T19:34:00Z",
+            "confidence": "n",
+            "frp_mw": 3.31,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37161,
+              -36.86726
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T19:34:00Z",
+            "confidence": "h",
+            "frp_mw": 13.03,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37718,
+              -36.86877
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T19:34:00Z",
+            "confidence": "n",
+            "frp_mw": 13.03,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88821,
+              -36.7541
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-10T19:34:00Z",
+            "confidence": "l",
+            "frp_mw": 3.01,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38818,
+              -36.86138
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T05:14:00Z",
+            "confidence": "n",
+            "frp_mw": 8.63,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38986,
+              -36.86596
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T05:14:00Z",
+            "confidence": "n",
+            "frp_mw": 7.55,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.39034,
+              -36.86239
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T05:14:00Z",
+            "confidence": "n",
+            "frp_mw": 7.43,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38206,
+              -36.86441
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T05:14:00Z",
+            "confidence": "n",
+            "frp_mw": 7.65,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37892,
+              -36.86486
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T06:56:00Z",
+            "confidence": "n",
+            "frp_mw": 9.49,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.36993,
+              -36.86506
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T06:56:00Z",
+            "confidence": "n",
+            "frp_mw": 9.58,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38999,
+              -36.87151
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T06:56:00Z",
+            "confidence": "n",
+            "frp_mw": 2.96,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38531,
+              -36.87161
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T06:56:00Z",
+            "confidence": "n",
+            "frp_mw": 9.49,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.61156,
+              -38.26917
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 10.81,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.18412,
+              -38.02476
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 3.42,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.77186,
+              -37.77468
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 10.74,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37913,
+              -36.86681
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 13.62,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.47038,
+              -37.31099
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 5.64,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.15086,
+              -36.6007
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 5.9,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88767,
+              -36.75573
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 7.33,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.892,
+              -36.75665
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 13.61,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88896,
+              -36.75174
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 7.33,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.87318,
+              -36.43776
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 1.91,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.93655,
+              -36.45182
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 3.05,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.94141,
+              -36.4529
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 3.05,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.01668,
+              -36.42182
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "l",
+            "frp_mw": 2.05,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.94046,
+              -36.4007
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 2.44,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.94532,
+              -36.40177
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 2.44,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.54787,
+              -36.24516
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 3.43,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.55231,
+              -36.24612
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 3.43,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.52721,
+              -36.21872
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-11T19:17:00Z",
+            "confidence": "n",
+            "frp_mw": 2.89,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.39722,
+              -36.85901
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T04:55:00Z",
+            "confidence": "n",
+            "frp_mw": 4.77,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.3902,
+              -36.86101
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T04:55:00Z",
+            "confidence": "n",
+            "frp_mw": 4.77,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.39347,
+              -36.86655
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T04:55:00Z",
+            "confidence": "n",
+            "frp_mw": 1.02,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.39263,
+              -36.86247
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T04:55:00Z",
+            "confidence": "n",
+            "frp_mw": 8.4,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37968,
+              -36.86508
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 12.32,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37589,
+              -36.86532
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 13.21,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38988,
+              -36.86983
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 1.25,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38694,
+              -36.87002
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 1.25,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38412,
+              -36.8702
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 1.8,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38123,
+              -36.87039
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 1.8,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37965,
+              -36.86755
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "h",
+            "frp_mw": 9.2,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37614,
+              -36.86776
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 13.59,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38282,
+              -36.86736
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 9.2,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38924,
+              -36.87239
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 2.82,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.12679,
+              -36.78127
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 1.04,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09828,
+              -38.14587
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 2.05,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09909,
+              -38.14248
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 2.05,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.613,
+              -38.07068
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 4.45,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.0902,
+              -37.87978
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 17.29,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09478,
+              -37.88057
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 17.29,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.08857,
+              -37.88014
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 12.66,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09315,
+              -37.88092
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 12.66,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09405,
+              -37.87753
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 12.66,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09863,
+              -37.87831
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "l",
+            "frp_mw": 12.18,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.71816,
+              -37.93368
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 1.73,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.93214,
+              -37.76426
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 8.48,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37938,
+              -36.86993
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 13.75,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38379,
+              -36.87072
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 13.75,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38006,
+              -36.86641
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 2.13,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.75055,
+              -36.27606
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 3.04,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.76214,
+              -36.14853
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-12T18:55:00Z",
+            "confidence": "n",
+            "frp_mw": 2.6,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38017,
+              -36.86401
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T06:16:00Z",
+            "confidence": "n",
+            "frp_mw": 7.45,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37578,
+              -36.86445
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T06:16:00Z",
+            "confidence": "n",
+            "frp_mw": 7.45,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38127,
+              -36.86809
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T06:16:00Z",
+            "confidence": "n",
+            "frp_mw": 7.45,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37734,
+              -36.86848
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T06:16:00Z",
+            "confidence": "n",
+            "frp_mw": 7.45,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38499,
+              -36.86771
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T06:16:00Z",
+            "confidence": "n",
+            "frp_mw": 1.02,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09693,
+              -37.87207
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T06:18:00Z",
+            "confidence": "n",
+            "frp_mw": 0.4,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09763,
+              -37.87609
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T06:18:00Z",
+            "confidence": "n",
+            "frp_mw": 0.7,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.44017,
+              -38.19016
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 4.97,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.8292,
+              -37.25835
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 2.99,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37967,
+              -36.86863
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 31.42,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.83266,
+              -36.32823
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-13T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 3.91,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.87167,
+              -36.46439
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T05:59:00Z",
+            "confidence": "n",
+            "frp_mw": 0.37,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38045,
+              -36.86452
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T05:59:00Z",
+            "confidence": "n",
+            "frp_mw": 24.2,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38127,
+              -36.86789
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T05:59:00Z",
+            "confidence": "n",
+            "frp_mw": 24.2,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37696,
+              -36.8685
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T05:59:00Z",
+            "confidence": "n",
+            "frp_mw": 24.2,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38626,
+              -36.87065
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T05:59:00Z",
+            "confidence": "n",
+            "frp_mw": 2.01,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.21658,
+              -37.20057
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T05:59:00Z",
+            "confidence": "n",
+            "frp_mw": 1.16,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.93846,
+              -38.13383
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T05:59:00Z",
+            "confidence": "n",
+            "frp_mw": 0.49,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.40334,
+              -38.38816
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T18:17:00Z",
+            "confidence": "n",
+            "frp_mw": 6.1,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.22288,
+              -38.35227
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T18:17:00Z",
+            "confidence": "n",
+            "frp_mw": 4.98,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.22395,
+              -38.34769
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T18:17:00Z",
+            "confidence": "n",
+            "frp_mw": 4.98,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.84187,
+              -38.26559
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T18:17:00Z",
+            "confidence": "n",
+            "frp_mw": 2.32,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.7199,
+              -37.93254
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T18:17:00Z",
+            "confidence": "l",
+            "frp_mw": 4.85,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.24364,
+              -37.37688
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T18:17:00Z",
+            "confidence": "n",
+            "frp_mw": 6.19,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38159,
+              -36.86838
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-20",
+            "utc": "2026-11-14T18:19:00Z",
+            "confidence": "n",
+            "frp_mw": 19.29,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.62989,
+              -36.18117
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T05:31:00Z",
+            "confidence": "n",
+            "frp_mw": 1.91,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38142,
+              -36.86695
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T05:31:00Z",
+            "confidence": "n",
+            "frp_mw": 17.61,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37908,
+              -36.86885
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T05:31:00Z",
+            "confidence": "n",
+            "frp_mw": 10.25,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38426,
+              -36.8679
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T05:31:00Z",
+            "confidence": "n",
+            "frp_mw": 3.81,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38525,
+              -36.87133
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T05:31:00Z",
+            "confidence": "n",
+            "frp_mw": 3.81,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.29945,
+              -37.14373
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T05:31:00Z",
+            "confidence": "n",
+            "frp_mw": 0.62,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.29442,
+              -37.14469
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T05:31:00Z",
+            "confidence": "n",
+            "frp_mw": 0.62,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.42496,
+              -37.52592
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T17:51:00Z",
+            "confidence": "n",
+            "frp_mw": 5.67,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.42588,
+              -37.52262
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T17:51:00Z",
+            "confidence": "n",
+            "frp_mw": 13.67,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.0843,
+              -36.62919
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T17:53:00Z",
+            "confidence": "n",
+            "frp_mw": 6.03,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37749,
+              -36.86986
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T19:34:00Z",
+            "confidence": "h",
+            "frp_mw": 21.43,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.51295,
+              -36.28003
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-07T19:34:00Z",
+            "confidence": "h",
+            "frp_mw": 7.19,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.56906,
+              -36.18141
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T05:14:00Z",
+            "confidence": "n",
+            "frp_mw": 0.98,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38414,
+              -36.86554
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T05:14:00Z",
+            "confidence": "n",
+            "frp_mw": 3.83,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92117,
+              -38.12663
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T17:34:00Z",
+            "confidence": "h",
+            "frp_mw": 15.01,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92954,
+              -38.12671
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T17:34:00Z",
+            "confidence": "n",
+            "frp_mw": 15.01,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.91986,
+              -38.12846
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T17:34:00Z",
+            "confidence": "n",
+            "frp_mw": 22.83,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92819,
+              -38.12859
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T17:34:00Z",
+            "confidence": "n",
+            "frp_mw": 22.81,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.43251,
+              -37.51279
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T17:34:00Z",
+            "confidence": "n",
+            "frp_mw": 11.21,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.44122,
+              -37.51286
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T17:34:00Z",
+            "confidence": "l",
+            "frp_mw": 11.21,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.43726,
+              -37.50993
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T17:34:00Z",
+            "confidence": "n",
+            "frp_mw": 13.36,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.91702,
+              -38.12938
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 13.75,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92258,
+              -38.13068
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 13.75,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92378,
+              -38.12617
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 13.75,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92953,
+              -38.12752
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 7.26,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.3288,
+              -37.40703
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 2.49,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37753,
+              -36.86675
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 21.65,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.3829,
+              -36.86805
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 4.16,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37748,
+              -36.86717
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 26.64,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.26802,
+              -36.74585
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 5.55,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.25977,
+              -36.73418
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 7.89,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.12632,
+              -36.70921
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 3.12,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.26007,
+              -36.73506
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "n",
+            "frp_mw": 3.81,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92889,
+              -36.02822
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-08T19:14:00Z",
+            "confidence": "l",
+            "frp_mw": 7.62,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.39048,
+              -36.86604
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-09T04:55:00Z",
+            "confidence": "h",
+            "frp_mw": 13.46,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38284,
+              -36.8681
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-09T04:55:00Z",
+            "confidence": "n",
+            "frp_mw": 8.71,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.92429,
+              -38.12768
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-09T04:55:00Z",
+            "confidence": "n",
+            "frp_mw": 1.73,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.91963,
+              -38.12893
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-09T04:55:00Z",
+            "confidence": "n",
+            "frp_mw": 1.69,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37716,
+              -36.86678
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-09T06:35:00Z",
+            "confidence": "h",
+            "frp_mw": 11.28,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38125,
+              -36.86659
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-09T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 7.94,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37151,
+              -36.86702
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-09T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 11.28,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38545,
+              -36.87231
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-09T06:35:00Z",
+            "confidence": "n",
+            "frp_mw": 2.47,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37692,
+              -36.86533
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T06:16:00Z",
+            "confidence": "n",
+            "frp_mw": 10.35,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37846,
+              -36.86978
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T06:16:00Z",
+            "confidence": "n",
+            "frp_mw": 10.35,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38288,
+              -36.8694
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T06:16:00Z",
+            "confidence": "n",
+            "frp_mw": 7.0,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38741,
+              -36.87357
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T06:16:00Z",
+            "confidence": "n",
+            "frp_mw": 1.24,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.49711,
+              -37.85673
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 3.01,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.50159,
+              -37.85736
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 6.99,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.50606,
+              -37.858
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 6.99,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.5068,
+              -37.85464
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "h",
+            "frp_mw": 6.99,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.49785,
+              -37.85337
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 3.01,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.50231,
+              -37.85401
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 6.99,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.51128,
+              -37.85528
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 4.61,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37836,
+              -36.86886
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 9.3,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38264,
+              -36.86953
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 8.45,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.95002,
+              -36.84642
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 3.63,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.89023,
+              -36.75711
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 5.49,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88654,
+              -36.75312
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 6.85,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.84608,
+              -36.73005
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 4.21,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.48125,
+              -36.62578
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-10T18:38:00Z",
+            "confidence": "n",
+            "frp_mw": 10.91,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.4796,
+              -36.62655
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-11T05:59:00Z",
+            "confidence": "n",
+            "frp_mw": 0.7,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37875,
+              -36.86732
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-11T05:59:00Z",
+            "confidence": "n",
+            "frp_mw": 24.0,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38409,
+              -36.87028
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-11T05:59:00Z",
+            "confidence": "n",
+            "frp_mw": 4.14,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.3817,
+              -36.86681
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T05:37:00Z",
+            "confidence": "n",
+            "frp_mw": 22.51,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.3772,
+              -36.86756
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T05:37:00Z",
+            "confidence": "n",
+            "frp_mw": 7.46,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38711,
+              -36.86937
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T05:37:00Z",
+            "confidence": "n",
+            "frp_mw": 2.17,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38251,
+              -36.87014
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T05:37:00Z",
+            "confidence": "n",
+            "frp_mw": 2.17,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09924,
+              -38.14349
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T05:40:00Z",
+            "confidence": "n",
+            "frp_mw": 1.46,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09647,
+              -38.15097
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T05:40:00Z",
+            "confidence": "n",
+            "frp_mw": 0.66,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09199,
+              -38.15173
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T05:40:00Z",
+            "confidence": "n",
+            "frp_mw": 0.66,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.61165,
+              -38.07304
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T17:58:00Z",
+            "confidence": "n",
+            "frp_mw": 4.18,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.61575,
+              -38.07328
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T17:58:00Z",
+            "confidence": "n",
+            "frp_mw": 4.18,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.61235,
+              -38.06781
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T17:58:00Z",
+            "confidence": "l",
+            "frp_mw": 4.18,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.71769,
+              -37.93215
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T17:58:00Z",
+            "confidence": "n",
+            "frp_mw": 1.7,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09272,
+              -37.88111
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T17:58:00Z",
+            "confidence": "h",
+            "frp_mw": 13.42,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09651,
+              -37.88137
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T17:58:00Z",
+            "confidence": "h",
+            "frp_mw": 11.16,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09711,
+              -37.87629
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T17:58:00Z",
+            "confidence": "h",
+            "frp_mw": 11.16,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09332,
+              -37.87603
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T17:58:00Z",
+            "confidence": "n",
+            "frp_mw": 13.42,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.93407,
+              -37.76472
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T17:58:00Z",
+            "confidence": "n",
+            "frp_mw": 15.7,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.23682,
+              -37.71313
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T18:00:00Z",
+            "confidence": "n",
+            "frp_mw": 2.32,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.87821,
+              -36.78804
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T18:00:00Z",
+            "confidence": "n",
+            "frp_mw": 8.91,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.88205,
+              -36.78829
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T18:00:00Z",
+            "confidence": "n",
+            "frp_mw": 8.91,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.08047,
+              -36.6221
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T18:00:00Z",
+            "confidence": "n",
+            "frp_mw": 4.72,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.08097,
+              -36.61708
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T18:00:00Z",
+            "confidence": "n",
+            "frp_mw": 4.72,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.76149,
+              -36.14701
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T18:00:00Z",
+            "confidence": "h",
+            "frp_mw": 12.25,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.61449,
+              -38.07214
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T19:40:00Z",
+            "confidence": "n",
+            "frp_mw": 5.09,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.08926,
+              -37.8775
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T19:40:00Z",
+            "confidence": "h",
+            "frp_mw": 19.95,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09487,
+              -37.87916
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T19:40:00Z",
+            "confidence": "n",
+            "frp_mw": 19.95,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.93253,
+              -37.7658
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T19:40:00Z",
+            "confidence": "l",
+            "frp_mw": 5.76,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37892,
+              -36.8674
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-12T19:40:00Z",
+            "confidence": "n",
+            "frp_mw": 24.36,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38498,
+              -36.86756
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T05:20:00Z",
+            "confidence": "n",
+            "frp_mw": 15.29,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38638,
+              -36.87143
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T05:20:00Z",
+            "confidence": "n",
+            "frp_mw": 1.38,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09885,
+              -37.87533
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T05:20:00Z",
+            "confidence": "n",
+            "frp_mw": 1.32,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09442,
+              -37.87629
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T05:20:00Z",
+            "confidence": "n",
+            "frp_mw": 1.32,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.08999,
+              -37.87724
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T05:20:00Z",
+            "confidence": "n",
+            "frp_mw": 0.63,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09129,
+              -37.8812
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T05:20:00Z",
+            "confidence": "n",
+            "frp_mw": 0.71,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.4343,
+              -38.46722
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T17:41:00Z",
+            "confidence": "n",
+            "frp_mw": 3.99,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.7169,
+              -38.31651
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T17:41:00Z",
+            "confidence": "n",
+            "frp_mw": 2.88,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.6138,
+              -38.26737
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T17:41:00Z",
+            "confidence": "l",
+            "frp_mw": 7.51,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.60953,
+              -38.26426
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T17:41:00Z",
+            "confidence": "l",
+            "frp_mw": 5.12,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.9292,
+              -38.12922
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T17:41:00Z",
+            "confidence": "n",
+            "frp_mw": 8.1,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.44679,
+              -36.64499
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T17:41:00Z",
+            "confidence": "n",
+            "frp_mw": 4.61,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.09191,
+              -37.88027
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T19:19:00Z",
+            "confidence": "n",
+            "frp_mw": 7.23,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.65766,
+              -37.40392
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T19:19:00Z",
+            "confidence": "n",
+            "frp_mw": 8.93,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.65943,
+              -37.39923
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T19:19:00Z",
+            "confidence": "n",
+            "frp_mw": 37.96,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.64921,
+              -37.28018
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T19:19:00Z",
+            "confidence": "n",
+            "frp_mw": 3.93,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.82641,
+              -37.25754
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T19:19:00Z",
+            "confidence": "n",
+            "frp_mw": 4.09,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.3755,
+              -36.86567
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T19:19:00Z",
+            "confidence": "h",
+            "frp_mw": 12.27,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37935,
+              -36.86666
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T19:19:00Z",
+            "confidence": "n",
+            "frp_mw": 12.27,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.14545,
+              -36.76828
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T19:21:00Z",
+            "confidence": "n",
+            "frp_mw": 7.91,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.0477,
+              -36.60575
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-13T19:21:00Z",
+            "confidence": "n",
+            "frp_mw": 2.68,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.3866,
+              -36.86662
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T05:01:00Z",
+            "confidence": "h",
+            "frp_mw": 9.26,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38905,
+              -36.87143
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T05:01:00Z",
+            "confidence": "n",
+            "frp_mw": 9.26,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37211,
+              -36.86438
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T06:41:00Z",
+            "confidence": "n",
+            "frp_mw": 4.35,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37644,
+              -36.87064
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T06:41:00Z",
+            "confidence": "n",
+            "frp_mw": 7.99,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38514,
+              -36.87034
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T06:41:00Z",
+            "confidence": "n",
+            "frp_mw": 5.36,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38119,
+              -36.87048
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T06:41:00Z",
+            "confidence": "n",
+            "frp_mw": 5.36,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38555,
+              -36.8718
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T06:41:00Z",
+            "confidence": "n",
+            "frp_mw": 3.26,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38146,
+              -36.87192
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T06:41:00Z",
+            "confidence": "n",
+            "frp_mw": 2.96,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.73995,
+              -38.60735
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 12.94,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.74106,
+              -38.60369
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 12.94,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -72.51903,
+              -38.54482
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 4.92,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.22247,
+              -38.35051
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 13.11,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.22341,
+              -38.34689
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 5.33,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -73.43084,
+              -38.31012
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 25.73,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.68031,
+              -37.1237
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 8.21,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.7423,
+              -37.11166
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 5.84,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.91881,
+              -37.13717
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 6.76,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37576,
+              -36.86795
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 13.26,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.37994,
+              -36.86884
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 8.66,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        },
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -71.38366,
+              -36.86962
+            ]
+          },
+          "properties": {
+            "sensor": "VIIRS NOAA-21",
+            "utc": "2026-11-14T19:02:00Z",
+            "confidence": "n",
+            "frp_mw": 8.66,
+            "product_version": "2.0NRT",
+            "nominal_pixel_m": 375
+          }
+        }
+      ],
+      "detections": 269,
+      "period_observed_utc": [
+        "2026-11-07T04:50:00Z",
+        "2026-11-14T19:02:00Z"
+      ],
+      "nominal_or_high_confidence": 255
+    }
+  }
+}

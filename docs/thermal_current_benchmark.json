@@ -1,0 +1,211 @@
+{
+  "generated_utc": "2026-11-15T00:49:24.597355+00:00",
+  "method": "Cross GOES hot spots with NISAR backscatter, terrain and land cover per thermal cell; evaluate honestly.",
+  "parameters": {
+    "horizon_days": 12,
+    "min_sar_fraction": 0.5,
+    "max_water_fraction": 0.5,
+    "block_cells": 4,
+    "min_positives": 10,
+    "confident_classes": [
+      10,
+      11,
+      13
+    ]
+  },
+  "aois": {
+    "pantanal": {
+      "aoi": "pantanal",
+      "thermal_period_utc": [
+        "2026-11-13T00:00:00+00:00",
+        "2026-11-13T23:00:00+00:00"
+      ],
+      "step_minutes": 60,
+      "cells": 930,
+      "cells_with_sar": 665,
+      "cell_km": [
+        2.19,
+        2.17
+      ],
+      "sar_dates": [
+        "2026-07-05",
+        "2026-07-17",
+        "2026-08-10",
+        "2026-08-22",
+        "2026-09-03",
+        "2026-09-15",
+        "2026-09-27",
+        "2026-10-09",
+        "2026-10-21"
+      ],
+      "hotspots": {
+        "detections": 0,
+        "confident_detections": 0,
+        "days_with_hotspots": 0,
+        "cells_ever_hot": 0,
+        "cells_ever_confident": 0,
+        "cells_ever_confident_with_sar": 0,
+        "by_class": {
+          "foco procesado": 0,
+          "foco saturado": 0,
+          "foco parcialmente cubierto por nube": 0,
+          "probabilidad alta": 0,
+          "probabilidad media": 0,
+          "probabilidad baja": 0
+        }
+      },
+      "cloud_fraction": 0.0288,
+      "response": {
+        "pairs": [
+          {
+            "before": "2026-07-17",
+            "after": "2026-08-10",
+            "cells_with_heat": 0,
+            "cells_without_heat": 657
+          },
+          {
+            "before": "2026-08-10",
+            "after": "2026-08-22",
+            "cells_with_heat": 0,
+            "cells_without_heat": 657
+          },
+          {
+            "before": "2026-08-22",
+            "after": "2026-09-03",
+            "cells_with_heat": 0,
+            "cells_without_heat": 657
+          },
+          {
+            "before": "2026-09-03",
+            "after": "2026-09-15",
+            "cells_with_heat": 0,
+            "cells_without_heat": 657
+          },
+          {
+            "before": "2026-09-15",
+            "after": "2026-09-27",
+            "cells_with_heat": 0,
+            "cells_without_heat": 657
+          },
+          {
+            "before": "2026-09-27",
+            "after": "2026-10-09",
+            "cells_with_heat": 0,
+            "cells_without_heat": 657
+          },
+          {
+            "before": "2026-10-09",
+            "after": "2026-10-21",
+            "cells_with_heat": 0,
+            "cells_without_heat": 657
+          }
+        ],
+        "pooled": {},
+        "definition": "Celda con calor: al menos un foco GOES de clase procesado, saturado o probabilidad alta entre las dos pasadas. Celda sin calor: ningún foco de ninguna clase. Cambio = dB después menos dB antes, promedio zonal en potencia."
+      },
+      "anticipation": {
+        "note": "sin pasadas NISAR con ventana térmica completa antes y después"
+      }
+    },
+    "metropolitana": {
+      "aoi": "metropolitana",
+      "thermal_period_utc": [
+        "2026-11-13T00:00:00+00:00",
+        "2026-11-13T23:00:00+00:00"
+      ],
+      "step_minutes": 60,
+      "cells": 644,
+      "cells_with_sar": 474,
+      "cell_km": [
+        2.08,
+        2.66
+      ],
+      "sar_dates": [
+        "2026-10-05",
+        "2026-10-17"
+      ],
+      "hotspots": {
+        "detections": 0,
+        "confident_detections": 0,
+        "days_with_hotspots": 0,
+        "cells_ever_hot": 0,
+        "cells_ever_confident": 0,
+        "cells_ever_confident_with_sar": 0,
+        "by_class": {
+          "foco procesado": 0,
+          "foco saturado": 0,
+          "foco parcialmente cubierto por nube": 0,
+          "probabilidad alta": 0,
+          "probabilidad media": 0,
+          "probabilidad baja": 0
+        }
+      },
+      "cloud_fraction": 0.0034,
+      "response": {
+        "pairs": [
+          {
+            "before": "2026-10-05",
+            "after": "2026-10-17",
+            "cells_with_heat": 0,
+            "cells_without_heat": 474
+          }
+        ],
+        "pooled": {},
+        "definition": "Celda con calor: al menos un foco GOES de clase procesado, saturado o probabilidad alta entre las dos pasadas. Celda sin calor: ningún foco de ninguna clase. Cambio = dB después menos dB antes, promedio zonal en potencia."
+      },
+      "anticipation": {
+        "note": "sin pasadas NISAR con ventana térmica completa antes y después"
+      }
+    },
+    "valparaiso": {
+      "aoi": "valparaiso",
+      "thermal_period_utc": [
+        "2026-11-13T00:00:00+00:00",
+        "2026-11-13T23:00:00+00:00"
+      ],
+      "step_minutes": 60,
+      "cells": 459,
+      "cells_with_sar": 337,
+      "cell_km": [
+        2.07,
+        2.64
+      ],
+      "sar_dates": [
+        "2026-10-05",
+        "2026-10-17"
+      ],
+      "hotspots": {
+        "detections": 0,
+        "confident_detections": 0,
+        "days_with_hotspots": 0,
+        "cells_ever_hot": 0,
+        "cells_ever_confident": 0,
+        "cells_ever_confident_with_sar": 0,
+        "by_class": {
+          "foco procesado": 0,
+          "foco saturado": 0,
+          "foco parcialmente cubierto por nube": 0,
+          "probabilidad alta": 0,
+          "probabilidad media": 0,
+          "probabilidad baja": 0
+        }
+      },
+      "cloud_fraction": 0.5778,
+      "response": {
+        "pairs": [
+          {
+            "before": "2026-10-05",
+            "after": "2026-10-17",
+            "cells_with_heat": 0,
+            "cells_without_heat": 212
+          }
+        ],
+        "pooled": {},
+        "definition": "Celda con calor: al menos un foco GOES de clase procesado, saturado o probabilidad alta entre las dos pasadas. Celda sin calor: ningún foco de ninguna clase. Cambio = dB después menos dB antes, promedio zonal en potencia."
+      },
+      "anticipation": {
+        "note": "sin pasadas NISAR con ventana térmica completa antes y después"
+      }
+    }
+  }
+}

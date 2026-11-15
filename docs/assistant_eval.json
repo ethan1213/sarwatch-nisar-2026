@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-14T17:55:11.431534+00:00",
+  "generated_utc": "2026-11-15T01:35:36.795484+00:00",
   "acceptance": {
     "intent_accuracy": 0.9,
     "traceability": 0.95,
@@ -9,8 +9,8 @@
     {
       "generator": "reglas",
       "summary": {
-        "n": 60,
-        "passed": 60,
+        "n": 63,
+        "passed": 63,
         "intent_accuracy": 1.0,
         "traceability": 1.0,
         "abstention_and_safety": 1.0,
@@ -23,7 +23,7 @@
           "profile": "Público general",
           "expected_intent": "resumen",
           "intent": "resumen",
-          "confidence": 0.811,
+          "confidence": 0.814,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -40,7 +40,7 @@
           "profile": "Público general",
           "expected_intent": "resumen",
           "intent": "resumen",
-          "confidence": 0.864,
+          "confidence": 0.86,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -57,7 +57,7 @@
           "profile": "Público general",
           "expected_intent": "resumen",
           "intent": "resumen",
-          "confidence": 0.678,
+          "confidence": 0.652,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -74,7 +74,7 @@
           "profile": "Público general",
           "expected_intent": "resumen",
           "intent": "resumen",
-          "confidence": 0.627,
+          "confidence": 0.622,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -91,7 +91,7 @@
           "profile": "Público general",
           "expected_intent": "colores",
           "intent": "colores",
-          "confidence": 0.825,
+          "confidence": 0.823,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -108,7 +108,7 @@
           "profile": "Público general",
           "expected_intent": "colores",
           "intent": "colores",
-          "confidence": 0.77,
+          "confidence": 0.764,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -125,7 +125,7 @@
           "profile": "Público general",
           "expected_intent": "colores",
           "intent": "colores",
-          "confidence": 0.672,
+          "confidence": 0.668,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -142,7 +142,7 @@
           "profile": "Público general",
           "expected_intent": "colores",
           "intent": "colores",
-          "confidence": 0.751,
+          "confidence": 0.752,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -159,7 +159,7 @@
           "profile": "Público general",
           "expected_intent": "unidades",
           "intent": "unidades",
-          "confidence": 0.783,
+          "confidence": 0.779,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -176,7 +176,7 @@
           "profile": "Público general",
           "expected_intent": "unidades",
           "intent": "unidades",
-          "confidence": 0.671,
+          "confidence": 0.669,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -193,7 +193,7 @@
           "profile": "Público general",
           "expected_intent": "unidades",
           "intent": "unidades",
-          "confidence": 0.724,
+          "confidence": 0.72,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -210,7 +210,7 @@
           "profile": "Público general",
           "expected_intent": "unidades",
           "intent": "unidades",
-          "confidence": 0.619,
+          "confidence": 0.614,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -227,7 +227,7 @@
           "profile": "Público general",
           "expected_intent": "calidad",
           "intent": "calidad",
-          "confidence": 0.699,
+          "confidence": 0.693,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -244,7 +244,7 @@
           "profile": "Público general",
           "expected_intent": "calidad",
           "intent": "calidad",
-          "confidence": 0.687,
+          "confidence": 0.683,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -261,7 +261,7 @@
           "profile": "Público general",
           "expected_intent": "calidad",
           "intent": "calidad",
-          "confidence": 0.847,
+          "confidence": 0.844,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -278,7 +278,7 @@
           "profile": "Público general",
           "expected_intent": "calidad",
           "intent": "calidad",
-          "confidence": 0.625,
+          "confidence": 0.619,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -295,7 +295,7 @@
           "profile": "Público general",
           "expected_intent": "causa",
           "intent": "causa",
-          "confidence": 0.72,
+          "confidence": 0.716,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -312,7 +312,7 @@
           "profile": "Público general",
           "expected_intent": "causa",
           "intent": "causa",
-          "confidence": 0.692,
+          "confidence": 0.686,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -329,7 +329,7 @@
           "profile": "Público general",
           "expected_intent": "causa",
           "intent": "causa",
-          "confidence": 0.621,
+          "confidence": 0.615,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -380,7 +380,7 @@
           "profile": "Público general",
           "expected_intent": "prediccion",
           "intent": "prediccion",
-          "confidence": 0.892,
+          "confidence": 0.882,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -397,7 +397,7 @@
           "profile": "Público general",
           "expected_intent": "prediccion",
           "intent": "prediccion",
-          "confidence": 0.73,
+          "confidence": 0.713,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -414,7 +414,7 @@
           "profile": "Público general",
           "expected_intent": "prediccion",
           "intent": "prediccion",
-          "confidence": 0.794,
+          "confidence": 0.791,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -431,7 +431,7 @@
           "profile": "Público general",
           "expected_intent": "prediccion",
           "intent": "prediccion",
-          "confidence": 0.697,
+          "confidence": 0.689,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -448,7 +448,7 @@
           "profile": "Público general",
           "expected_intent": "prediccion",
           "intent": "prediccion",
-          "confidence": 0.683,
+          "confidence": 0.676,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -465,7 +465,7 @@
           "profile": "Público general",
           "expected_intent": "fuentes",
           "intent": "fuentes",
-          "confidence": 0.823,
+          "confidence": 0.821,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -482,7 +482,7 @@
           "profile": "Público general",
           "expected_intent": "fuentes",
           "intent": "fuentes",
-          "confidence": 0.582,
+          "confidence": 0.58,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -499,7 +499,7 @@
           "profile": "Público general",
           "expected_intent": "fuentes",
           "intent": "fuentes",
-          "confidence": 0.743,
+          "confidence": 0.74,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -516,7 +516,7 @@
           "profile": "Público general",
           "expected_intent": "deteccion",
           "intent": "deteccion",
-          "confidence": 0.859,
+          "confidence": 0.849,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -533,7 +533,7 @@
           "profile": "Público general",
           "expected_intent": "deteccion",
           "intent": "deteccion",
-          "confidence": 0.854,
+          "confidence": 0.85,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -550,7 +550,7 @@
           "profile": "Público general",
           "expected_intent": "deteccion",
           "intent": "deteccion",
-          "confidence": 0.722,
+          "confidence": 0.719,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -567,7 +567,7 @@
           "profile": "Público general",
           "expected_intent": "deteccion",
           "intent": "deteccion",
-          "confidence": 0.577,
+          "confidence": 0.567,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -584,7 +584,7 @@
           "profile": "Público general",
           "expected_intent": "deteccion",
           "intent": "deteccion",
-          "confidence": 0.74,
+          "confidence": 0.738,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -601,7 +601,7 @@
           "profile": "Público general",
           "expected_intent": "uso",
           "intent": "uso",
-          "confidence": 0.806,
+          "confidence": 0.804,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -618,7 +618,7 @@
           "profile": "Público general",
           "expected_intent": "uso",
           "intent": "uso",
-          "confidence": 0.785,
+          "confidence": 0.781,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -635,7 +635,7 @@
           "profile": "Público general",
           "expected_intent": "uso",
           "intent": "uso",
-          "confidence": 0.637,
+          "confidence": 0.631,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -652,7 +652,7 @@
           "profile": "Público general",
           "expected_intent": "tamano",
           "intent": "tamano",
-          "confidence": 0.752,
+          "confidence": 0.745,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -669,7 +669,7 @@
           "profile": "Público general",
           "expected_intent": "tamano",
           "intent": "tamano",
-          "confidence": 0.604,
+          "confidence": 0.6,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -686,7 +686,7 @@
           "profile": "Público general",
           "expected_intent": "tamano",
           "intent": "tamano",
-          "confidence": 0.714,
+          "confidence": 0.707,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -703,7 +703,7 @@
           "profile": "Público general",
           "expected_intent": "glosario",
           "intent": "glosario",
-          "confidence": 0.75,
+          "confidence": 0.746,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -720,7 +720,7 @@
           "profile": "Público general",
           "expected_intent": "glosario",
           "intent": "glosario",
-          "confidence": 0.694,
+          "confidence": 0.69,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -737,7 +737,7 @@
           "profile": "Público general",
           "expected_intent": "glosario",
           "intent": "glosario",
-          "confidence": 0.719,
+          "confidence": 0.714,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -754,7 +754,7 @@
           "profile": "Público general",
           "expected_intent": "glosario",
           "intent": "glosario",
-          "confidence": 0.745,
+          "confidence": 0.741,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -771,7 +771,7 @@
           "profile": "Público general",
           "expected_intent": "glosario",
           "intent": "glosario",
-          "confidence": 0.661,
+          "confidence": 0.658,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -788,7 +788,7 @@
           "profile": "Público general",
           "expected_intent": "glosario",
           "intent": "glosario",
-          "confidence": 0.739,
+          "confidence": 0.734,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -805,7 +805,7 @@
           "profile": "Público general",
           "expected_intent": "fuera_de_alcance",
           "intent": "fuera_de_alcance",
-          "confidence": 0.698,
+          "confidence": 0.693,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -822,7 +822,7 @@
           "profile": "Público general",
           "expected_intent": "fuera_de_alcance",
           "intent": "fuera_de_alcance",
-          "confidence": 0.715,
+          "confidence": 0.706,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -839,7 +839,7 @@
           "profile": "Público general",
           "expected_intent": "fuera_de_alcance",
           "intent": "fuera_de_alcance",
-          "confidence": 0.666,
+          "confidence": 0.659,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -856,7 +856,7 @@
           "profile": "Público general",
           "expected_intent": "causa",
           "intent": "causa",
-          "confidence": 0.721,
+          "confidence": 0.716,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -873,7 +873,7 @@
           "profile": "Público general",
           "expected_intent": "calidad",
           "intent": "calidad",
-          "confidence": 0.58,
+          "confidence": 0.576,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -890,7 +890,7 @@
           "profile": "Comunicaciones",
           "expected_intent": "resumen",
           "intent": "resumen",
-          "confidence": 0.793,
+          "confidence": 0.789,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -907,7 +907,7 @@
           "profile": "Ciencia",
           "expected_intent": "resumen",
           "intent": "resumen",
-          "confidence": 0.32,
+          "confidence": 0.314,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -924,7 +924,7 @@
           "profile": "Gestión territorial",
           "expected_intent": "prediccion",
           "intent": "prediccion",
-          "confidence": 0.746,
+          "confidence": 0.742,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -941,7 +941,7 @@
           "profile": "Desarrollo y datos",
           "expected_intent": "fuentes",
           "intent": "fuentes",
-          "confidence": 0.895,
+          "confidence": 0.893,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -958,7 +958,7 @@
           "profile": "Público general",
           "expected_intent": "unidades",
           "intent": "unidades",
-          "confidence": 0.646,
+          "confidence": 0.638,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -975,7 +975,7 @@
           "profile": "Público general",
           "expected_intent": "deteccion",
           "intent": "deteccion",
-          "confidence": 0.63,
+          "confidence": 0.62,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -992,7 +992,7 @@
           "profile": "Público general",
           "expected_intent": "deteccion",
           "intent": "deteccion",
-          "confidence": 0.637,
+          "confidence": 0.628,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -1009,7 +1009,7 @@
           "profile": "Público general",
           "expected_intent": "prediccion",
           "intent": "prediccion",
-          "confidence": 0.78,
+          "confidence": 0.776,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -1026,7 +1026,7 @@
           "profile": "Público general",
           "expected_intent": "glosario",
           "intent": "glosario",
-          "confidence": 0.709,
+          "confidence": 0.705,
           "generator": "reglas",
           "checks": {
             "intent": true,
@@ -1037,6 +1037,57 @@
           "passed": true,
           "problems": [],
           "answer": "COG: GeoTIFF optimizado para la nube: raster con mosaicos y pirámides que permite leer solo la ventana necesaria."
+        },
+        {
+          "question": "¿Cuánto CO2 emite este incendio?",
+          "profile": "Público general",
+          "expected_intent": "impactos_incendio",
+          "intent": "impactos_incendio",
+          "confidence": 1.0,
+          "generator": "reglas",
+          "checks": {
+            "intent": true,
+            "must_include": true,
+            "must_not_include": true,
+            "verified": true
+          },
+          "passed": true,
+          "problems": [],
+          "answer": "El escenario experimental estima 86875.6 t de CO₂ bruto durante la combustión, con sensibilidad 12446.6–174165.5 t. No es medición atmosférica ni intervalo de confianza. La señal óptica requiere confirmar el perímetro de incendio y los supuestos de combustible. El DEM produce un ranking relativo, no profundidad en metros ni rutas seguras. El volumen está pendiente de intensidad pico observada en intervalos de 15 minutos. Sin validación de terreno; no es una alerta operativa."
+        },
+        {
+          "question": "¿Qué profundidad calcula el DEM?",
+          "profile": "Público general",
+          "expected_intent": "impactos_incendio",
+          "intent": "impactos_incendio",
+          "confidence": 1.0,
+          "generator": "reglas",
+          "checks": {
+            "intent": true,
+            "must_include": true,
+            "must_not_include": true,
+            "verified": true
+          },
+          "passed": true,
+          "problems": [],
+          "answer": "El escenario experimental estima 86875.6 t de CO₂ bruto durante la combustión, con sensibilidad 12446.6–174165.5 t. No es medición atmosférica ni intervalo de confianza. La señal óptica requiere confirmar el perímetro de incendio y los supuestos de combustible. El DEM produce un ranking relativo, no profundidad en metros ni rutas seguras. El volumen está pendiente de intensidad pico observada en intervalos de 15 minutos. Sin validación de terreno; no es una alerta operativa."
+        },
+        {
+          "question": "¿Cuáles son las emisiones de carbono del Pantanal?",
+          "profile": "Público general",
+          "expected_intent": "impactos_incendio",
+          "intent": "impactos_incendio",
+          "confidence": 1.0,
+          "generator": "reglas",
+          "checks": {
+            "intent": true,
+            "must_include": true,
+            "must_not_include": true,
+            "verified": true
+          },
+          "passed": true,
+          "problems": [],
+          "answer": "No hay estimación experimental de emisiones y relieve para este lugar."
         }
       ]
     }

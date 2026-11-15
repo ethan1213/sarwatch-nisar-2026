@@ -24,3 +24,9 @@ work/
 experiments/
 models/*.bin
 models/*.txt
+
+# React frontend (web/)
+web/node_modules/
+web/dist/
+# Local conversation history may contain account information.
+CompletarNasaapp.txt

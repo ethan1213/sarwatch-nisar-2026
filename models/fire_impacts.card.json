@@ -1,0 +1,10 @@
+{
+  "name": "fire_impacts_experimental",
+  "status": "experimental_unvalidated",
+  "published_as_evaluated_layer": false,
+  "operational": false,
+  "methods": ["IPCC 2006 Eq 2.27 with explicit severity and fuel assumptions", "D8 terrain heuristic", "Gartner 2014 Eq 3 gated on observed 15-minute intensity"],
+  "evaluation": {"spatial_holdout": null, "temporal_holdout": null, "reason": "No independent field emissions or sediment-volume labels available"},
+  "sources": ["https://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/4_Volume4/V4_02_Ch2_Generic.pdf", "https://doi.org/10.1016/j.enggeo.2014.04.008"],
+  "limitations": ["Experimental laboratory view only", "No Chile calibration", "CO2 sensitivity envelope is not a confidence interval", "Terrain ranking is not deposit depth or safe access guidance", "Hourly and daily rain cannot substitute observed 15-minute peak intensity"]
+}

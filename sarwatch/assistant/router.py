@@ -40,6 +40,8 @@ def route(question, path=str(INTENTS_PATH), min_confidence=MIN_CONFIDENCE):
     text = normalize(question)
     if not text:
         return OUT_OF_SCOPE, 0.0, []
+    if any(term in text for term in ("co2", "co₂", "emision", "carbono", "profundidad", "volumen de aluvion", "volumen de sedimento")):
+        return "impactos_incendio", 1.0, [("impactos_incendio", 1.0)]
     model = _model(path)
     probabilities = model.predict_proba([text])[0]
     classes = list(model.classes_)

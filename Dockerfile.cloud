@@ -1,0 +1,17 @@
+# Complete React/FastAPI runtime over the verified data snapshot built by Dockerfile.deploy.
+# Build prerequisites: npm ci && npm run build in web/; build the local + demo images.
+ARG SNAPSHOT=sarwatch-nisar:demo
+FROM ${SNAPSHOT}
+USER root
+COPY requirements-api.txt ./
+RUN pip install --no-cache-dir -r requirements-api.txt
+COPY --chown=app:app api ./api
+COPY --chown=app:app sarwatch ./sarwatch
+COPY --chown=app:app catalog ./catalog
+COPY --chown=app:app web/dist ./web/dist
+COPY --chown=app:app data/thermal ./data/thermal
+COPY --chown=app:app data/metropolitana/thermal ./data/metropolitana/thermal
+COPY --chown=app:app data/valparaiso/thermal ./data/valparaiso/thermal
+USER 10001
+HEALTHCHECK --interval=30s --timeout=5s --start-period=30s CMD python -c "import os,urllib.request; urllib.request.urlopen('http://127.0.0.1:'+os.getenv('PORT','8080')+'/api/health',timeout=3)"
+CMD ["sh", "-c", "exec uvicorn api.main:app --host 0.0.0.0 --port $PORT --limit-concurrency 12"]

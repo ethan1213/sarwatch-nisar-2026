@@ -58,3 +58,6 @@
 {"question": "¿Cuál es el F1 del clasificador?", "intent": "deteccion", "must_include": ["F1"], "must_not_include": []}
 {"question": "¿Funciona la persistencia como pronóstico?", "intent": "prediccion", "must_include": ["persistencia"], "must_not_include": []}
 {"question": "¿Qué es un COG?", "intent": "glosario", "must_include": ["GeoTIFF"], "must_not_include": []}
+{"question": "¿Cuánto CO2 emite este incendio?", "region": "Región Metropolitana", "intent": "impactos_incendio", "must_include": ["experimental", "sensibilidad", "no es medición"], "must_not_include": ["alerta operativa confirmada"]}
+{"question": "¿Qué profundidad calcula el DEM?", "region": "Región Metropolitana", "intent": "impactos_incendio", "must_include": ["ranking relativo", "no profundidad", "15 minutos"], "must_not_include": ["ruta segura garantizada"]}
+{"question": "¿Cuáles son las emisiones de carbono del Pantanal?", "intent": "impactos_incendio", "must_include": ["No hay estimación experimental"], "must_not_include": ["86875"]}

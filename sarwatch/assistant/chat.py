@@ -17,6 +17,7 @@ INTENT_TOOLS = {
     "fuentes": [tools.tool_sources],
     "deteccion": [tools.tool_detection],
     "postfuego": [tools.tool_postfire],
+    "impactos_incendio": [tools.tool_fire_impacts],
     "uso": [tools.tool_usage],
     "tamano": [tools.tool_storage],
     "glosario": [],
