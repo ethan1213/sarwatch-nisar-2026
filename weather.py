@@ -49,3 +49,34 @@ def fetch_river_discharge(latitude, longitude, start, end):
     if "time" not in daily or "river_discharge" not in daily or not daily["time"] or len(daily["time"]) != len(daily["river_discharge"]):
         raise ValueError("Respuesta de caudal incompleta")
     return {"provider":"Open-Meteo Flood API (GloFAS)", "kind":"modelled river discharge", "retrieved_utc":datetime.now(timezone.utc).isoformat(), "requested_latitude":latitude, "requested_longitude":longitude, "cell_latitude":payload.get("latitude"), "cell_longitude":payload.get("longitude"), "payload":payload}
+
+
+FIRE_HOURLY = ("temperature_2m", "relative_humidity_2m", "wind_speed_10m", "wind_direction_10m", "wind_gusts_10m", "vapour_pressure_deficit", "precipitation")
+
+
+def fetch_fire_weather(points, start, end):
+    """Hourly ERA5 wind, air humidity, temperature, vapour pressure deficit and rain for a list of (lat, lon).
+
+    Reanalysis on a coarse grid (the provider returns the cell it used): context for a fire detection,
+    not a station reading and not a forecast. Missing values stay null.
+    """
+    points = list(points)
+    if not points or any(not (-90 <= lat <= 90 and -180 <= lon <= 180) for lat, lon in points):
+        raise ValueError("Coordenadas ausentes o fuera de rango")
+    if not start or not end:
+        raise ValueError("Se requieren fecha inicial y final")
+    params = {"latitude": ",".join(str(lat) for lat, _ in points), "longitude": ",".join(str(lon) for _, lon in points), "start_date": start, "end_date": end, "hourly": ",".join(FIRE_HOURLY), "models": "era5", "timezone": "UTC"}
+    with urlopen("https://archive-api.open-meteo.com/v1/archive?" + urlencode(params), timeout=60) as response:
+        payload = json.load(response)
+    if isinstance(payload, dict) and payload.get("error"):
+        raise ValueError(payload.get("reason", "Error del proveedor"))
+    cells = payload if isinstance(payload, list) else [payload]
+    if len(cells) != len(points):
+        raise ValueError("El proveedor no devolvió una serie por punto")
+    for cell in cells:
+        hourly = cell.get("hourly", {})
+        if any(k not in hourly for k in ("time", *FIRE_HOURLY)) or not hourly["time"]:
+            raise ValueError("Respuesta meteorológica incompleta")
+        if any(len(hourly[k]) != len(hourly["time"]) for k in FIRE_HOURLY):
+            raise ValueError("Series meteorológicas incompatibles")
+    return {"provider": "Open-Meteo", "kind": "ERA5 reanalysis", "retrieved_utc": datetime.now(timezone.utc).isoformat(), "requested_points": points, "cells": cells}

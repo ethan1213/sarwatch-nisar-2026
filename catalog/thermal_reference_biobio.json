@@ -1,0 +1,140 @@
+{
+  "generated_utc": "2026-11-15T03:52:39.829189+00:00",
+  "source": "docs/fire_benchmark.json",
+  "aois": {
+    "biobio_fuego": {
+      "period_utc": [
+        "2026-01-01T00:00:00+00:00",
+        "2026-05-21T23:00:00+00:00"
+      ],
+      "step_minutes": 60,
+      "cell_km": [
+        2.09,
+        2.84
+      ],
+      "hotspots": {
+        "detections": 3219,
+        "confident_detections": 2492,
+        "days_with_hotspots": 101,
+        "cells_ever_hot": 550,
+        "cells_ever_confident": 496,
+        "cells_ever_confident_with_sar": 479,
+        "by_class": {
+          "foco procesado": 2271,
+          "foco saturado": 3,
+          "foco parcialmente cubierto por nube": 468,
+          "probabilidad alta": 218,
+          "probabilidad media": 36,
+          "probabilidad baja": 223
+        }
+      },
+      "cloud_fraction": 0.2981,
+      "response": {
+        "hv": {
+          "n_with_heat": 364,
+          "n_without_heat": 17905,
+          "median_change_with_heat_db": -0.07861104521759454,
+          "median_change_without_heat_db": 0.0,
+          "auc_decrease_separates_heat": 0.617938540097155,
+          "auc_bootstrap_90": [
+            0.593870189430787,
+            0.6423330167458903
+          ]
+        },
+        "hh": {
+          "n_with_heat": 364,
+          "n_without_heat": 17905,
+          "median_change_with_heat_db": -0.04219836619839956,
+          "median_change_without_heat_db": 0.0,
+          "auc_decrease_separates_heat": 0.5604934161063734,
+          "auc_bootstrap_90": [
+            0.5355438271585996,
+            0.5869665757308874
+          ]
+        }
+      },
+      "anticipation": {
+        "historial": {
+          "spatial_blocks": {
+            "roc_auc": 0.6713419928850287,
+            "average_precision": 0.08643632279313498,
+            "prevalence": 0.022916540027961826,
+            "positives": 377,
+            "n": 16451
+          },
+          "held_out_dates": {
+            "roc_auc": 0.4936476147614762,
+            "average_precision": 0.009544756439892586,
+            "prevalence": 0.008637612877895563,
+            "positives": 44,
+            "n": 5094
+          }
+        },
+        "termico": {
+          "spatial_blocks": {
+            "roc_auc": 0.8675029678717364,
+            "average_precision": 0.24282821639352914,
+            "prevalence": 0.022916540027961826,
+            "positives": 377,
+            "n": 16451
+          },
+          "held_out_dates": {
+            "roc_auc": 0.4523244824482448,
+            "average_precision": 0.009538698771874484,
+            "prevalence": 0.008637612877895563,
+            "positives": 44,
+            "n": 5094
+          }
+        },
+        "radar_terreno": {
+          "spatial_blocks": {
+            "roc_auc": 0.8884944928115952,
+            "average_precision": 0.38760735527392287,
+            "prevalence": 0.022916540027961826,
+            "positives": 377,
+            "n": 16451
+          },
+          "held_out_dates": {
+            "roc_auc": 0.6322569756975698,
+            "average_precision": 0.015528708713746025,
+            "prevalence": 0.008637612877895563,
+            "positives": 44,
+            "n": 5094
+          }
+        },
+        "todo": {
+          "spatial_blocks": {
+            "roc_auc": 0.8973390311190056,
+            "average_precision": 0.41107397206919727,
+            "prevalence": 0.022916540027961826,
+            "positives": 377,
+            "n": 16451
+          },
+          "held_out_dates": {
+            "roc_auc": 0.6126372637263726,
+            "average_precision": 0.0196407035345462,
+            "prevalence": 0.008637612877895563,
+            "positives": 44,
+            "n": 5094
+          }
+        },
+        "persistencia": {
+          "spatial_blocks": {
+            "roc_auc": 0.6132986891858576,
+            "average_precision": 0.08313880423541253,
+            "prevalence": 0.022916540027961826,
+            "positives": 377,
+            "n": 16451
+          },
+          "held_out_dates": {
+            "roc_auc": 0.4935891089108911,
+            "average_precision": 0.009670432707209721,
+            "prevalence": 0.008637612877895563,
+            "positives": 44,
+            "n": 5094
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "scenes": [
+    {
+      "id": "G4275136759-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_014_003_A_159_2005_DHDH_A_20260226T105150_20260226T105226_P05023_N_F_J_001",
+      "fecha_observacion": "2026-02-26T10:51:50.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4275136759-ASF.umm_json",
+      "estimated_mib": 1693.6811037063599,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_014_003_A_159_2005_DHDH_A_20260226T105150_20260226T105226_P05023_N_F_J_001/NISAR_L2_PR_GCOV_014_003_A_159_2005_DHDH_A_20260226T105150_20260226T105226_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1757413376,
+      "md5_calculado": "886fdca52574fe56eeae5ff78ade7e3b",
+      "sha256": "4d242fb2a2d437cb7b5ed8fcb5a83f6208b7a0d54efa1e9741a2bbafbb4247a3",
+      "grid": {
+        "epsg": 32718,
+        "shape": [
+          15732,
+          16308
+        ],
+        "bounds_centers": [
+          532090.0,
+          5739850.0,
+          858230.0,
+          6054470.0
+        ]
+      },
+      "product_identification": {
+        "productVersion": "1.0.11",
+        "processingType": "Nominal",
+        "compositeReleaseId": "P05023",
+        "processingDateTime": "2026-08-10T08:51:29",
+        "granuleId": "NISAR_L2_PR_GCOV_014_003_A_159_2005_DHDH_A_20260226T105150_20260226T105226_P05023_N_F_J_001"
+      }
+    },
+    {
+      "id": "G4275139283-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_015_003_A_159_2005_DHDH_A_20260310T105150_20260310T105226_P05023_N_F_J_001",
+      "fecha_observacion": "2026-03-10T10:51:50.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4275139283-ASF.umm_json",
+      "estimated_mib": 1694.5586576461792,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_015_003_A_159_2005_DHDH_A_20260310T105150_20260310T105226_P05023_N_F_J_001/NISAR_L2_PR_GCOV_015_003_A_159_2005_DHDH_A_20260310T105150_20260310T105226_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1757413376,
+      "md5_calculado": "d51f561052c0c8e3c2cefeebb6ff14a7",
+      "sha256": "d3dffe596e99f715bff4e598243e2e5368539b3e2cb7914a0eb4251de956a1fa",
+      "grid": {
+        "epsg": 32718,
+        "shape": [
+          15732,
+          16308
+        ],
+        "bounds_centers": [
+          532090.0,
+          5739850.0,
+          858230.0,
+          6054470.0
+        ]
+      },
+      "product_identification": {
+        "productVersion": "1.0.11",
+        "processingType": "Nominal",
+        "compositeReleaseId": "P05023",
+        "processingDateTime": "2026-08-10T08:58:26",
+        "granuleId": "NISAR_L2_PR_GCOV_015_003_A_159_2005_DHDH_A_20260310T105150_20260310T105226_P05023_N_F_J_001"
+      }
+    },
+    {
+      "id": "G4275155034-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_016_003_A_159_2005_DHDH_A_20260322T105150_20260322T105227_P05023_N_F_J_001",
+      "fecha_observacion": "2026-03-22T10:51:50.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4275155034-ASF.umm_json",
+      "estimated_mib": 1730.3009061813354,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_016_003_A_159_2005_DHDH_A_20260322T105150_20260322T105227_P05023_N_F_J_001/NISAR_L2_PR_GCOV_016_003_A_159_2005_DHDH_A_20260322T105150_20260322T105227_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1795162112,
+      "md5_calculado": "c9223987b778158fb94e19e66556270f",
+      "sha256": "4df4ca9ab0e1a1c591db6a39c9b8b03617b146ba478c0fbe0847a637c3cc8bc3",
+      "grid": {
+        "epsg": 32718,
+        "shape": [
+          15732,
+          16308
+        ],
+        "bounds_centers": [
+          532090.0,
+          5739850.0,
+          858230.0,
+          6054470.0
+        ]
+      },
+      "product_identification": {
+        "productVersion": "1.0.11",
+        "processingType": "Nominal",
+        "compositeReleaseId": "P05023",
+        "processingDateTime": "2026-08-10T09:40:35",
+        "granuleId": "NISAR_L2_PR_GCOV_016_003_A_159_2005_DHDH_A_20260322T105150_20260322T105227_P05023_N_F_J_001"
+      }
+    },
+    {
+      "id": "G4275297561-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_017_003_A_159_2005_DHDH_A_20260403T105150_20260403T105227_P05023_N_F_J_001",
+      "fecha_observacion": "2026-04-03T10:51:50.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4275297561-ASF.umm_json",
+      "estimated_mib": 1730.6178932189941,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_017_003_A_159_2005_DHDH_A_20260403T105150_20260403T105227_P05023_N_F_J_001/NISAR_L2_PR_GCOV_017_003_A_159_2005_DHDH_A_20260403T105150_20260403T105227_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1795162112,
+      "md5_calculado": "206efc15e49e20de985dc889a9d20108",
+      "sha256": "4325863af29ed4faed627f33279a81b41d5de38b99daa52123ba7d074998f9ba",
+      "grid": {
+        "epsg": 32718,
+        "shape": [
+          15732,
+          16308
+        ],
+        "bounds_centers": [
+          532090.0,
+          5739850.0,
+          858230.0,
+          6054470.0
+        ]
+      },
+      "product_identification": {
+        "productVersion": "1.0.11",
+        "processingType": "Nominal",
+        "compositeReleaseId": "P05023",
+        "processingDateTime": "2026-08-10T11:52:18",
+        "granuleId": "NISAR_L2_PR_GCOV_017_003_A_159_2005_DHDH_A_20260403T105150_20260403T105227_P05023_N_F_J_001"
+      }
+    },
+    {
+      "id": "G4275304126-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_018_003_A_159_2005_DHDH_A_20260415T105150_20260415T105226_P05023_N_F_J_001",
+      "fecha_observacion": "2026-04-15T10:51:50.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4275304126-ASF.umm_json",
+      "estimated_mib": 1693.7665300369263,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_018_003_A_159_2005_DHDH_A_20260415T105150_20260415T105226_P05023_N_F_J_001/NISAR_L2_PR_GCOV_018_003_A_159_2005_DHDH_A_20260415T105150_20260415T105226_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1757413376,
+      "md5_calculado": "3b2c6f99fe03bd55e2688cae53faab33",
+      "sha256": "cb21366550ed51a5bcb877ae28de25d1d6aaaca80d39cca13c3e0a72af37813e",
+      "grid": {
+        "epsg": 32718,
+        "shape": [
+          15732,
+          16308
+        ],
+        "bounds_centers": [
+          532090.0,
+          5739850.0,
+          858230.0,
+          6054470.0
+        ]
+      },
+      "product_identification": {
+        "productVersion": "1.0.11",
+        "processingType": "Nominal",
+        "compositeReleaseId": "P05023",
+        "processingDateTime": "2026-08-10T12:28:33",
+        "granuleId": "NISAR_L2_PR_GCOV_018_003_A_159_2005_DHDH_A_20260415T105150_20260415T105226_P05023_N_F_J_001"
+      }
+    },
+    {
+      "id": "G4275305688-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_019_003_A_159_2005_DHDH_A_20260427T105150_20260427T105226_P05023_N_F_J_001",
+      "fecha_observacion": "2026-04-27T10:51:50.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4275305688-ASF.umm_json",
+      "estimated_mib": 1690.0945224761963,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_019_003_A_159_2005_DHDH_A_20260427T105150_20260427T105226_P05023_N_F_J_001/NISAR_L2_PR_GCOV_019_003_A_159_2005_DHDH_A_20260427T105150_20260427T105226_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1753219072,
+      "md5_calculado": "60363131248d823b2136f0889b6b1292",
+      "sha256": "e48b427ee50440a302cbcb38ab491e6f7b165fd9903050f2f0bda3a942483c84",
+      "grid": {
+        "epsg": 32718,
+        "shape": [
+          15732,
+          16308
+        ],
+        "bounds_centers": [
+          532090.0,
+          5739850.0,
+          858230.0,
+          6054470.0
+        ]
+      },
+      "product_identification": {
+        "productVersion": "1.0.11",
+        "processingType": "Nominal",
+        "compositeReleaseId": "P05023",
+        "processingDateTime": "2026-08-10T12:38:17",
+        "granuleId": "NISAR_L2_PR_GCOV_019_003_A_159_2005_DHDH_A_20260427T105150_20260427T105226_P05023_N_F_J_001"
+      }
+    },
+    {
+      "id": "G4275307191-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_020_003_A_159_2005_DHDH_A_20260509T105149_20260509T105226_P05023_N_F_J_001",
+      "fecha_observacion": "2026-05-09T10:51:49.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4275307191-ASF.umm_json",
+      "estimated_mib": 1726.4883308410645,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_020_003_A_159_2005_DHDH_A_20260509T105149_20260509T105226_P05023_N_F_J_001/NISAR_L2_PR_GCOV_020_003_A_159_2005_DHDH_A_20260509T105149_20260509T105226_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1790967808,
+      "md5_calculado": "bb2b7c854539bcfbe5f48b7aa42ca488",
+      "sha256": "e5df7c45b80e9e864c6deb5d64561721eca07b956e46dc64d8a8bf150d43fc87",
+      "grid": {
+        "epsg": 32718,
+        "shape": [
+          15732,
+          16308
+        ],
+        "bounds_centers": [
+          532090.0,
+          5739850.0,
+          858230.0,
+          6054470.0
+        ]
+      },
+      "product_identification": {
+        "productVersion": "1.0.11",
+        "processingType": "Nominal",
+        "compositeReleaseId": "P05023",
+        "processingDateTime": "2026-08-10T12:44:25",
+        "granuleId": "NISAR_L2_PR_GCOV_020_003_A_159_2005_DHDH_A_20260509T105149_20260509T105226_P05023_N_F_J_001"
+      }
+    },
+    {
+      "id": "G4275308917-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_023_003_A_159_2005_DHDH_A_20260614T105147_20260614T105224_P05023_N_F_J_001",
+      "fecha_observacion": "2026-06-14T10:51:47.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4275308917-ASF.umm_json",
+      "estimated_mib": 1726.3947410583496,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_023_003_A_159_2005_DHDH_A_20260614T105147_20260614T105224_P05023_N_F_J_001/NISAR_L2_PR_GCOV_023_003_A_159_2005_DHDH_A_20260614T105147_20260614T105224_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1790967808,
+      "md5_calculado": "e4f67bb83e1d72bddb42e007b1cbad71",
+      "sha256": "002974cfcbae2bd98624322ac53418ef1623e0b65c45450db78da423ac8d8810",
+      "grid": {
+        "epsg": 32718,
+        "shape": [
+          15732,
+          16308
+        ],
+        "bounds_centers": [
+          532090.0,
+          5739850.0,
+          858230.0,
+          6054470.0
+        ]
+      },
+      "product_identification": {
+        "productVersion": "1.0.11",
+        "processingType": "Nominal",
+        "compositeReleaseId": "P05023",
+        "processingDateTime": "2026-08-10T12:50:35",
+        "granuleId": "NISAR_L2_PR_GCOV_023_003_A_159_2005_DHDH_A_20260614T105147_20260614T105224_P05023_N_F_J_001"
+      }
+    },
+    {
+      "id": "G4364218397-ASF",
+      "granulo": "NISAR_L2_PR_GCOV_033_003_A_159_2005_DHDH_A_20261012T105144_20261012T105220_P05023_N_F_J_001",
+      "fecha_observacion": "2026-10-12T10:51:44.000Z",
+      "url_metadatos": "https://cmr.earthdata.nasa.gov/search/concepts/G4364218397-ASF.umm_json",
+      "estimated_mib": 1690.1011123657227,
+      "url_hdf5": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_PROVISIONAL_V1/NISAR_L2_PR_GCOV_033_003_A_159_2005_DHDH_A_20261012T105144_20261012T105220_P05023_N_F_J_001/NISAR_L2_PR_GCOV_033_003_A_159_2005_DHDH_A_20261012T105144_20261012T105220_P05023_N_F_J_001.h5",
+      "tamano_bytes": 1753219072,
+      "md5_calculado": "47528a291fa98edc3b1bf33dfb2f150a",
+      "sha256": "93ff85f6be8b11a78ccae746dec454a519e24e0d34e56140001c798e53634efb",
+      "grid": {
+        "epsg": 32718,
+        "shape": [
+          15732,
+          16308
+        ],
+        "bounds_centers": [
+          532090.0,
+          5739850.0,
+          858230.0,
+          6054470.0
+        ]
+      },
+      "product_identification": {
+        "productVersion": "1.0.11",
+        "processingType": "Nominal",
+        "compositeReleaseId": "P05023",
+        "processingDateTime": "2026-10-14T07:14:16",
+        "granuleId": "NISAR_L2_PR_GCOV_033_003_A_159_2005_DHDH_A_20261012T105144_20261012T105220_P05023_N_F_J_001"
+      }
+    }
+  ],
+  "raw_dir": "data_raw/biobio_fuego",
+  "status": "integridad verificada; cobertura y calidad espacial pendientes"
+}

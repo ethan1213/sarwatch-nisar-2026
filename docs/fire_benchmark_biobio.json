@@ -1,0 +1,432 @@
+{
+  "generated_utc": "2026-11-15T03:52:39.829189+00:00",
+  "method": "Cross GOES hot spots with NISAR backscatter, terrain and land cover per thermal cell; evaluate honestly.",
+  "parameters": {
+    "horizon_days": 12,
+    "min_sar_fraction": 0.5,
+    "max_water_fraction": 0.5,
+    "block_cells": 4,
+    "min_positives": 10,
+    "confident_classes": [
+      10,
+      11,
+      13
+    ]
+  },
+  "aois": {
+    "biobio_fuego": {
+      "aoi": "biobio_fuego",
+      "thermal_period_utc": [
+        "2026-01-01T00:00:00+00:00",
+        "2026-05-21T23:00:00+00:00"
+      ],
+      "step_minutes": 60,
+      "cells": 3096,
+      "cells_with_sar": 2821,
+      "cell_km": [
+        2.09,
+        2.84
+      ],
+      "sar_dates": [
+        "2026-02-26",
+        "2026-03-10",
+        "2026-03-22",
+        "2026-04-03",
+        "2026-04-15",
+        "2026-04-27",
+        "2026-05-09",
+        "2026-06-14",
+        "2026-10-12"
+      ],
+      "hotspots": {
+        "detections": 3219,
+        "confident_detections": 2492,
+        "days_with_hotspots": 101,
+        "cells_ever_hot": 550,
+        "cells_ever_confident": 496,
+        "cells_ever_confident_with_sar": 479,
+        "by_class": {
+          "foco procesado": 2271,
+          "foco saturado": 3,
+          "foco parcialmente cubierto por nube": 468,
+          "probabilidad alta": 218,
+          "probabilidad media": 36,
+          "probabilidad baja": 223
+        }
+      },
+      "cloud_fraction": 0.2981,
+      "response": {
+        "pairs": [
+          {
+            "before": "2026-02-26",
+            "after": "2026-03-10",
+            "cells_with_heat": 2,
+            "cells_without_heat": 1855
+          },
+          {
+            "before": "2026-03-10",
+            "after": "2026-03-22",
+            "cells_with_heat": 0,
+            "cells_without_heat": 2546
+          },
+          {
+            "before": "2026-03-22",
+            "after": "2026-04-03",
+            "cells_with_heat": 179,
+            "cells_without_heat": 2355,
+            "hv": {
+              "n_with_heat": 179,
+              "n_without_heat": 2355,
+              "median_change_with_heat_db": -1.8184372570292453,
+              "median_change_without_heat_db": -1.439237758724751,
+              "auc_decrease_separates_heat": 0.7044182708844845,
+              "auc_bootstrap_90": [
+                0.6782132393931846,
+                0.7301441127281785
+              ]
+            },
+            "hh": {
+              "n_with_heat": 179,
+              "n_without_heat": 2355,
+              "median_change_with_heat_db": -1.8433338741052543,
+              "median_change_without_heat_db": -1.5723727398534901,
+              "auc_decrease_separates_heat": 0.652264882752731,
+              "auc_bootstrap_90": [
+                0.6218288676179292,
+                0.6825477707006369
+              ]
+            }
+          },
+          {
+            "before": "2026-04-03",
+            "after": "2026-04-15",
+            "cells_with_heat": 114,
+            "cells_without_heat": 1729,
+            "hv": {
+              "n_with_heat": 114,
+              "n_without_heat": 1729,
+              "median_change_with_heat_db": -0.2583809610335459,
+              "median_change_without_heat_db": -0.24743197036241682,
+              "auc_decrease_separates_heat": 0.5160472030278125,
+              "auc_bootstrap_90": [
+                0.4750885310442097,
+                0.5615734680831634
+              ]
+            },
+            "hh": {
+              "n_with_heat": 114,
+              "n_without_heat": 1729,
+              "median_change_with_heat_db": -0.3495591593656533,
+              "median_change_without_heat_db": -0.41293358727956075,
+              "auc_decrease_separates_heat": 0.4036761945349203,
+              "auc_bootstrap_90": [
+                0.36864377543047905,
+                0.4499558613132021
+              ]
+            }
+          },
+          {
+            "before": "2026-04-15",
+            "after": "2026-04-27",
+            "cells_with_heat": 25,
+            "cells_without_heat": 1829,
+            "hv": {
+              "n_with_heat": 25,
+              "n_without_heat": 1829,
+              "median_change_with_heat_db": 0.31398644185171065,
+              "median_change_without_heat_db": 0.09568562114808543,
+              "auc_decrease_separates_heat": 0.33738655002733736,
+              "auc_bootstrap_90": [
+                0.24170147621651175,
+                0.43306178239475124
+              ]
+            },
+            "hh": {
+              "n_with_heat": 25,
+              "n_without_heat": 1829,
+              "median_change_with_heat_db": 0.6326713468294809,
+              "median_change_without_heat_db": 0.5246845202482451,
+              "auc_decrease_separates_heat": 0.4311645708037179,
+              "auc_bootstrap_90": [
+                0.3324450519409513,
+                0.5138436303991253
+              ]
+            }
+          },
+          {
+            "before": "2026-04-27",
+            "after": "2026-05-09",
+            "cells_with_heat": 13,
+            "cells_without_heat": 2533,
+            "hv": {
+              "n_with_heat": 13,
+              "n_without_heat": 2533,
+              "median_change_with_heat_db": 1.0683840308131796,
+              "median_change_without_heat_db": 0.8740346727967303,
+              "auc_decrease_separates_heat": 0.3013149503477178,
+              "auc_bootstrap_90": [
+                0.2044292265176592,
+                0.4012496583558565
+              ]
+            },
+            "hh": {
+              "n_with_heat": 13,
+              "n_without_heat": 2533,
+              "median_change_with_heat_db": 1.4781977087757392,
+              "median_change_without_heat_db": 0.9805226882263662,
+              "auc_decrease_separates_heat": 0.2708858453035318,
+              "auc_bootstrap_90": [
+                0.18329132375717455,
+                0.3714385496067296
+              ]
+            }
+          },
+          {
+            "before": "2026-05-09",
+            "after": "2026-06-14",
+            "cells_with_heat": 31,
+            "cells_without_heat": 2511,
+            "hv": {
+              "n_with_heat": 31,
+              "n_without_heat": 2511,
+              "median_change_with_heat_db": 0.17026875045751666,
+              "median_change_without_heat_db": 0.1731160260285236,
+              "auc_decrease_separates_heat": 0.49440526200845314,
+              "auc_bootstrap_90": [
+                0.40839660333243405,
+                0.5880223789519662
+              ]
+            },
+            "hh": {
+              "n_with_heat": 31,
+              "n_without_heat": 2511,
+              "median_change_with_heat_db": 0.04186436537687932,
+              "median_change_without_heat_db": 0.06567410322857725,
+              "auc_decrease_separates_heat": 0.516411659665215,
+              "auc_bootstrap_90": [
+                0.42884662324481954,
+                0.6123598103827033
+              ]
+            }
+          },
+          {
+            "before": "2026-06-14",
+            "after": "2026-10-12",
+            "cells_with_heat": 0,
+            "cells_without_heat": 2547
+          }
+        ],
+        "pooled": {
+          "hv": {
+            "n_with_heat": 364,
+            "n_without_heat": 17905,
+            "median_change_with_heat_db": -0.07861104521759454,
+            "median_change_without_heat_db": 0.0,
+            "auc_decrease_separates_heat": 0.617938540097155,
+            "auc_bootstrap_90": [
+              0.593870189430787,
+              0.6423330167458903
+            ]
+          },
+          "hh": {
+            "n_with_heat": 364,
+            "n_without_heat": 17905,
+            "median_change_with_heat_db": -0.04219836619839956,
+            "median_change_without_heat_db": 0.0,
+            "auc_decrease_separates_heat": 0.5604934161063734,
+            "auc_bootstrap_90": [
+              0.5355438271585996,
+              0.5869665757308874
+            ]
+          }
+        },
+        "definition": "Celda con calor: al menos un foco GOES de clase procesado, saturado o probabilidad alta entre las dos pasadas. Celda sin calor: ningún foco de ninguna clase. Cambio = dB después menos dB antes, promedio zonal en potencia. El conjunto resta a cada par la mediana de sus celdas sin calor, para no contar el cambio estacional entre pasadas como separación."
+      },
+      "anticipation": {
+        "horizon_days": 12,
+        "passes": [
+          {
+            "date": "2026-02-26",
+            "cells": 1859,
+            "hot_next": 2
+          },
+          {
+            "date": "2026-03-10",
+            "cells": 2547,
+            "hot_next": 0
+          },
+          {
+            "date": "2026-03-22",
+            "cells": 2547,
+            "hot_next": 179
+          },
+          {
+            "date": "2026-04-03",
+            "cells": 2547,
+            "hot_next": 127
+          },
+          {
+            "date": "2026-04-15",
+            "cells": 1857,
+            "hot_next": 25
+          },
+          {
+            "date": "2026-04-27",
+            "cells": 2547,
+            "hot_next": 13
+          },
+          {
+            "date": "2026-05-09",
+            "cells": 2547,
+            "hot_next": 31
+          }
+        ],
+        "samples": 16451,
+        "positives": 377,
+        "split": {
+          "spatial": "5 pliegues de bloques de 4x4 celdas térmicas; el bloque retenido lo está en todas las fechas",
+          "temporal": {
+            "train_until": "2026-04-15",
+            "test_dates": [
+              "2026-04-27",
+              "2026-05-09"
+            ]
+          }
+        },
+        "models": {
+          "historial": {
+            "features": [
+              "calor_previo",
+              "vecinos_previos"
+            ],
+            "spatial_blocks": {
+              "n": 16451,
+              "positives": 377,
+              "prevalence": 0.022916540027961826,
+              "roc_auc": 0.6713419928850287,
+              "average_precision": 0.08643632279313498
+            },
+            "held_out_dates": {
+              "n": 5094,
+              "positives": 44,
+              "prevalence": 0.008637612877895563,
+              "roc_auc": 0.4936476147614762,
+              "average_precision": 0.009544756439892586
+            }
+          },
+          "termico": {
+            "features": [
+              "calor_previo",
+              "vecinos_previos",
+              "lst_dia_k",
+              "mir_menos_ir_max_k",
+              "fraccion_despejada"
+            ],
+            "spatial_blocks": {
+              "n": 16451,
+              "positives": 377,
+              "prevalence": 0.022916540027961826,
+              "roc_auc": 0.8675029678717364,
+              "average_precision": 0.24282821639352914
+            },
+            "held_out_dates": {
+              "n": 5094,
+              "positives": 44,
+              "prevalence": 0.008637612877895563,
+              "roc_auc": 0.4523244824482448,
+              "average_precision": 0.009538698771874484
+            }
+          },
+          "radar_terreno": {
+            "features": [
+              "hv_db",
+              "hh_db",
+              "hh_menos_hv_db",
+              "hv_cambio_db",
+              "elevacion_m",
+              "pendiente_grados",
+              "cob_arboles",
+              "cob_matorral",
+              "cob_pastizal",
+              "cob_cultivo",
+              "cob_urbano",
+              "cob_suelo_desnudo",
+              "cob_agua",
+              "cob_humedal"
+            ],
+            "spatial_blocks": {
+              "n": 16451,
+              "positives": 377,
+              "prevalence": 0.022916540027961826,
+              "roc_auc": 0.8884944928115952,
+              "average_precision": 0.38760735527392287
+            },
+            "held_out_dates": {
+              "n": 5094,
+              "positives": 44,
+              "prevalence": 0.008637612877895563,
+              "roc_auc": 0.6322569756975698,
+              "average_precision": 0.015528708713746025
+            }
+          },
+          "todo": {
+            "features": [
+              "calor_previo",
+              "vecinos_previos",
+              "lst_dia_k",
+              "mir_menos_ir_max_k",
+              "fraccion_despejada",
+              "hv_db",
+              "hh_db",
+              "hh_menos_hv_db",
+              "hv_cambio_db",
+              "elevacion_m",
+              "pendiente_grados",
+              "cob_arboles",
+              "cob_matorral",
+              "cob_pastizal",
+              "cob_cultivo",
+              "cob_urbano",
+              "cob_suelo_desnudo",
+              "cob_agua",
+              "cob_humedal"
+            ],
+            "spatial_blocks": {
+              "n": 16451,
+              "positives": 377,
+              "prevalence": 0.022916540027961826,
+              "roc_auc": 0.8973390311190056,
+              "average_precision": 0.41107397206919727
+            },
+            "held_out_dates": {
+              "n": 5094,
+              "positives": 44,
+              "prevalence": 0.008637612877895563,
+              "roc_auc": 0.6126372637263726,
+              "average_precision": 0.0196407035345462
+            }
+          },
+          "persistencia": {
+            "features": [
+              "calor_previo + 0,5 · vecinos_previos, sin entrenamiento"
+            ],
+            "spatial_blocks": {
+              "n": 16451,
+              "positives": 377,
+              "prevalence": 0.022916540027961826,
+              "roc_auc": 0.6132986891858576,
+              "average_precision": 0.08313880423541253
+            },
+            "held_out_dates": {
+              "n": 5094,
+              "positives": 44,
+              "prevalence": 0.008637612877895563,
+              "roc_auc": 0.4935891089108911,
+              "average_precision": 0.009670432707209721
+            }
+          }
+        }
+      }
+    }
+  }
+}

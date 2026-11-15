@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from sarwatch.ml.wildfire import nbr, dnbr, severity_class, burned_fraction, severity_summary, NODATA
+from sarwatch.ml.wildfire import boa_reflectance, nbr, dnbr, severity_class, burned_fraction, severity_summary, NODATA
 
 
 class BurnSeverity(unittest.TestCase):
@@ -11,6 +11,15 @@ class BurnSeverity(unittest.TestCase):
         delta = dnbr(pre, post)
         self.assertAlmostEqual(float(delta[0]), 2 / 3 - (-0.2))
         self.assertAlmostEqual(float(delta[1]), 0, places=6)
+
+    def test_reflectance_offset_since_baseline_04_changes_nbr(self):
+        # Healthy vegetation: reflectance 0.30 NIR, 0.10 SWIR2 -> NBR 0.5. Raw DNs (4000, 2000) give only 1/3.
+        nir, swir2 = np.array([4000, 0]), np.array([2000, 0])
+        corrected = nbr(boa_reflectance(nir, "05.12"), boa_reflectance(swir2, "05.12"))
+        self.assertAlmostEqual(float(corrected[0]), 0.5, places=5)
+        self.assertTrue(np.isnan(corrected[1]))
+        self.assertAlmostEqual(float(nbr(nir, swir2)[0]), 1 / 3, places=5)
+        self.assertAlmostEqual(float(boa_reflectance(np.array([3000]), "03.01")[0]), 0.3, places=6)
 
     def test_nan_where_undefined_and_shape_mismatch_rejected(self):
         self.assertTrue(np.isnan(nbr(np.array([0.0]), np.array([0.0]))[0]))

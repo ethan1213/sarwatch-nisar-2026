@@ -126,13 +126,16 @@ def response(radar, table, times, hot, any_heat):
         for band in ("hv", "hh"):
             delta = after[f"{band}_db"] - before[f"{band}_db"]
             with_heat, without = delta[burned & usable], delta[~touched & usable]
-            pooled[band][0].append(with_heat)
-            pooled[band][1].append(without)
+            # Centre each pair on its own cells without heat before pooling: otherwise a season-wide change
+            # between two passes (rain, drying) counts as separation when heat concentrates in that pair.
+            reference = np.nanmedian(without) if np.isfinite(without).any() else 0.0
+            pooled[band][0].append(with_heat - reference)
+            pooled[band][1].append(without - reference)
             if with_heat.size >= MIN_POSITIVES:
                 entry[band] = summary(with_heat, without)
         pairs.append(entry)
     total = {band: summary(np.concatenate(pooled[band][0]), np.concatenate(pooled[band][1])) for band in pooled if pooled[band][0] and np.concatenate(pooled[band][0]).size >= MIN_POSITIVES}
-    return {"pairs": pairs, "pooled": total, "definition": "Celda con calor: al menos un foco GOES de clase procesado, saturado o probabilidad alta entre las dos pasadas. Celda sin calor: ningún foco de ninguna clase. Cambio = dB después menos dB antes, promedio zonal en potencia."}
+    return {"pairs": pairs, "pooled": total, "definition": "Celda con calor: al menos un foco GOES de clase procesado, saturado o probabilidad alta entre las dos pasadas. Celda sin calor: ningún foco de ninguna clase. Cambio = dB después menos dB antes, promedio zonal en potencia. El conjunto resta a cada par la mediana de sus celdas sin calor, para no contar el cambio estacional entre pasadas como separación."}
 
 
 def summary(with_heat, without):

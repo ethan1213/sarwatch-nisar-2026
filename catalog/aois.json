@@ -46,6 +46,30 @@
       "estimated_download_gb": 11.68,
       "select_seconds": 0.57,
       "status": "seleccionado"
+    },
+    "concepcion_penco": {
+      "prepared_utc": "2026-11-15T03:23:48.273096+00:00",
+      "prepare_seconds": 8.1,
+      "raw_bytes": 5301600256,
+      "derived_bytes": 238034357,
+      "compression_ratio_derived_vs_float32": 0.64,
+      "status": "preparado y validado (MD5 oficial, grilla, unidades, cobertura); evaluación pendiente",
+      "n_scenes": 3
+    },
+    "biobio_fuego": {
+      "prepared_utc": "2026-11-15T03:26:17.094722+00:00",
+      "prepare_seconds": 143.5,
+      "raw_bytes": 15950938112,
+      "derived_bytes": 4606322120,
+      "compression_ratio_derived_vs_float32": 0.63,
+      "status": "preparado y validado (MD5 oficial, grilla, unidades, cobertura); evaluación pendiente",
+      "n_scenes": 9,
+      "bbox_wgs84": [
+        -73.3,
+        -37.5,
+        -71.75,
+        -36.5
+      ]
     }
   }
 }

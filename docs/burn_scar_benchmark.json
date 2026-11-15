@@ -1,0 +1,267 @@
+{
+  "aois": {
+    "concepcion_penco": {
+      "generated_utc": "2026-11-15T03:52:30.391777+00:00",
+      "aoi": "concepcion_penco",
+      "method": "Does NISAR backscatter differ between burned and unburned forest after a fire? Per radar date.",
+      "label": {
+        "source": "dNBR Sentinel-2 L2A (Planetary Computer)",
+        "pre_window": [
+          "2025-12-10",
+          "2026-01-16"
+        ],
+        "post_window": [
+          "2026-01-23",
+          "2026-02-27"
+        ],
+        "pre_valid_fraction": 0.999574060853455,
+        "post_valid_fraction": 0.993248794137025
+      },
+      "area_km2": {
+        "land_by_class": {
+          "sin_quema_o_rebrote": 1287.9,
+          "baja": 192.5,
+          "moderada_baja": 54.4,
+          "moderada_alta": 50.9,
+          "alta": 80.4
+        },
+        "forest_by_class": {
+          "sin_quema_o_rebrote": 965.3,
+          "baja": 83.1,
+          "moderada_baja": 34.3,
+          "moderada_alta": 45.4,
+          "alta": 73.7
+        }
+      },
+      "parameters": {
+        "population": "WorldCover 2021 clase 10 (árboles)",
+        "block_pixels": 128,
+        "spatial_folds": 5,
+        "max_sample_per_class": 200000,
+        "min_pixels": 1000
+      },
+      "dates": [
+        {
+          "date": "2026-02-26",
+          "valid_fraction_hv": 0.7768610709452252,
+          "median_by_class": {
+            "sin_quema_o_rebrote": {
+              "pixels_with_radar": 2271785,
+              "hv_db": -13.213,
+              "hh_db": -8.131,
+              "hh_menos_hv_db": 5.118
+            },
+            "baja": {
+              "pixels_with_radar": 196810,
+              "hv_db": -15.519,
+              "hh_db": -9.53,
+              "hh_menos_hv_db": 5.977
+            },
+            "moderada_baja": {
+              "pixels_with_radar": 83526,
+              "hv_db": -14.787,
+              "hh_db": -8.903,
+              "hh_menos_hv_db": 5.942
+            },
+            "moderada_alta": {
+              "pixels_with_radar": 111194,
+              "hv_db": -14.626,
+              "hh_db": -8.799,
+              "hh_menos_hv_db": 5.843
+            },
+            "alta": {
+              "pixels_with_radar": 183859,
+              "hv_db": -15.313,
+              "hh_db": -9.402,
+              "hh_menos_hv_db": 5.906
+            }
+          },
+          "separation_high_vs_unburned": {
+            "hv_db": {
+              "auc": 0.688,
+              "auc_by_spatial_fold": [
+                0.672,
+                0.689,
+                0.668,
+                0.707,
+                0.701
+              ],
+              "direction": "menor en quemado"
+            },
+            "hh_db": {
+              "auc": 0.626,
+              "auc_by_spatial_fold": [
+                0.62,
+                0.633,
+                0.603,
+                0.63,
+                0.637
+              ],
+              "direction": "menor en quemado"
+            },
+            "hh_menos_hv_db": {
+              "auc": 0.589,
+              "auc_by_spatial_fold": [
+                0.577,
+                0.585,
+                0.588,
+                0.603,
+                0.594
+              ],
+              "direction": "mayor en quemado"
+            }
+          }
+        },
+        {
+          "date": "2026-06-14",
+          "valid_fraction_hv": 0.9999840448795638,
+          "median_by_class": {
+            "sin_quema_o_rebrote": {
+              "pixels_with_radar": 2413302,
+              "hv_db": -11.324,
+              "hh_db": -6.102,
+              "hh_menos_hv_db": 5.208
+            },
+            "baja": {
+              "pixels_with_radar": 207783,
+              "hv_db": -12.71,
+              "hh_db": -6.511,
+              "hh_menos_hv_db": 6.193
+            },
+            "moderada_baja": {
+              "pixels_with_radar": 85643,
+              "hv_db": -12.181,
+              "hh_db": -5.652,
+              "hh_menos_hv_db": 6.55
+            },
+            "moderada_alta": {
+              "pixels_with_radar": 113507,
+              "hv_db": -11.722,
+              "hh_db": -5.209,
+              "hh_menos_hv_db": 6.582
+            },
+            "alta": {
+              "pixels_with_radar": 184268,
+              "hv_db": -11.467,
+              "hh_db": -4.971,
+              "hh_menos_hv_db": 6.558
+            }
+          },
+          "separation_high_vs_unburned": {
+            "hv_db": {
+              "auc": 0.514,
+              "auc_by_spatial_fold": [
+                0.496,
+                0.521,
+                0.485,
+                0.53,
+                0.528
+              ],
+              "direction": "menor en quemado"
+            },
+            "hh_db": {
+              "auc": 0.382,
+              "auc_by_spatial_fold": [
+                0.378,
+                0.39,
+                0.358,
+                0.378,
+                0.402
+              ],
+              "direction": "menor en quemado"
+            },
+            "hh_menos_hv_db": {
+              "auc": 0.643,
+              "auc_by_spatial_fold": [
+                0.63,
+                0.639,
+                0.642,
+                0.663,
+                0.64
+              ],
+              "direction": "mayor en quemado"
+            }
+          }
+        },
+        {
+          "date": "2026-10-12",
+          "valid_fraction_hv": 0.999983262765817,
+          "median_by_class": {
+            "sin_quema_o_rebrote": {
+              "pixels_with_radar": 2413297,
+              "hv_db": -11.339,
+              "hh_db": -5.757,
+              "hh_menos_hv_db": 5.579
+            },
+            "baja": {
+              "pixels_with_radar": 207784,
+              "hv_db": -13.084,
+              "hh_db": -6.532,
+              "hh_menos_hv_db": 6.583
+            },
+            "moderada_baja": {
+              "pixels_with_radar": 85643,
+              "hv_db": -13.303,
+              "hh_db": -6.299,
+              "hh_menos_hv_db": 7.041
+            },
+            "moderada_alta": {
+              "pixels_with_radar": 113507,
+              "hv_db": -13.387,
+              "hh_db": -6.241,
+              "hh_menos_hv_db": 7.154
+            },
+            "alta": {
+              "pixels_with_radar": 184268,
+              "hv_db": -13.505,
+              "hh_db": -6.397,
+              "hh_menos_hv_db": 7.146
+            }
+          },
+          "separation_high_vs_unburned": {
+            "hv_db": {
+              "auc": 0.71,
+              "auc_by_spatial_fold": [
+                0.699,
+                0.714,
+                0.695,
+                0.722,
+                0.719
+              ],
+              "direction": "menor en quemado"
+            },
+            "hh_db": {
+              "auc": 0.559,
+              "auc_by_spatial_fold": [
+                0.554,
+                0.57,
+                0.539,
+                0.553,
+                0.572
+              ],
+              "direction": "menor en quemado"
+            },
+            "hh_menos_hv_db": {
+              "auc": 0.668,
+              "auc_by_spatial_fold": [
+                0.659,
+                0.659,
+                0.668,
+                0.688,
+                0.666
+              ],
+              "direction": "mayor en quemado"
+            }
+          }
+        }
+      ],
+      "limits": [
+        "Corte transversal posterior al incendio: no hay pasada NISAR previa de la misma geometría, así que no mide cambio.",
+        "Los rodales quemados pudieron diferir antes del fuego (edad, especie, manejo).",
+        "dNBR también responde a cosecha, sequía estival y cambios de uso entre las dos ventanas ópticas.",
+        "WorldCover es de 2021: una plantación cosechada después sigue contando como árboles.",
+        "No es área quemada oficial; confirmar perímetro con CONAF."
+      ]
+    }
+  }
+}
