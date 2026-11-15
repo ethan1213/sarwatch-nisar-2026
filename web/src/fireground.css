@@ -106,3 +106,5 @@
 .fg-layers button small { display:block; }
 
 .fg .fire-side p,.fg .fire-side li,.fg-dialog p,.fg-dialog li { overflow-wrap:anywhere; }
+
+.fg-logo { flex:none; display:block; width:44px; height:44px; }
