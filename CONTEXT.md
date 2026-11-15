@@ -53,3 +53,14 @@ La rama `claude/relaxed-keller-ymtner` (vista "Calor y focos" con GOES-19, redis
 ## Incendios Biobío con datos reales (15 nov 2026)
 
 Nueve escenas NISAR del cuadro `003_A_159` verificadas, térmico GOES-19 de enero a mayo, viento y humedad ERA5, severidad dNBR y evaluación en `docs/fire_benchmark_biobio.json` y `docs/burn_scar_benchmark.json`. El visor lee el paquete `catalog/fire_story/` por `/api/fire/*`. La anticipación de focos supera a la persistencia pero no alcanza para llamarla predicción (AUC 0,63 en fechas retenidas, 44 casos). Plan de cierre y reparto por paquetes: `docs/plan_mvp_incendios.md`. Detalle y correcciones de método: `docs/calor_y_focos.md`.
+
+## Estado de entrega · 15 noviembre 2026
+
+El producto público usa React/MapLibre + FastAPI en Cloud Run:
+https://sarwatch-525550511866.southamerica-west1.run.app
+La entrada es una historia de incendios Biobío: qué ocurrió, qué quedó y qué podemos anticipar.
+Pantanal sale de la navegación a petición del propietario; se conserva el pipeline de investigación.
+La historia sirve el paquete versionado catalog/fire_story, sin depender de HDF5 locales.
+114 pruebas unitarias, 63 casos del asistente y 48 comprobaciones HTTP. Estado preciso y pendientes:
+docs/entrega/estado.md. Apache-2.0 autorizado por el propietario. No usar los conteos ni la descripción
+Streamlit de las secciones antiguas como estado de la demo actual.

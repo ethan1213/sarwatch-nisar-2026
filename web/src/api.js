@@ -17,6 +17,11 @@ export function siteAPI(slug) {
 
 export const fetchStudy = (slug, kind, params) => getJSON(`/study/${slug}/${kind}`, params)
 
+export const fetchFireStory = (part) => getJSON('/fire/story', part ? { part } : undefined)
+export const fireAssetUrl = (png) => `${BASE}/fire/asset/${png}`
+export const fetchFireForecast = (lat, lon) => getJSON('/fire/forecast', { lat, lon })
+export const fetchChileOverview = (slug) => getJSON(`/chile/${slug}/overview`)
+
 async function getJSON(path, params) {
   const url = new URL(BASE + path, window.location.origin)
   if (params) for (const [k, v] of Object.entries(params)) if (v !== undefined && v !== null) url.searchParams.set(k, v)

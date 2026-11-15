@@ -15,6 +15,7 @@ COPY --chown=app:app web/dist ./web/dist
 COPY --chown=app:app data/thermal ./data/thermal
 COPY --chown=app:app data/metropolitana/thermal ./data/metropolitana/thermal
 COPY --chown=app:app data/valparaiso/thermal ./data/valparaiso/thermal
+COPY --chown=app:app deploy_data/ ./data/
 USER 10001
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s CMD python -c "import os,urllib.request; urllib.request.urlopen('http://127.0.0.1:'+os.getenv('PORT','8080')+'/api/health',timeout=3)"
 CMD ["sh", "-c", "exec uvicorn api.main:app --host 0.0.0.0 --port $PORT --limit-concurrency 12"]

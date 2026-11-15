@@ -26,3 +26,6 @@
 !data/valparaiso/thermal/**
 **/__pycache__
 **/*.pyc
+
+!deploy_data
+!deploy_data/**

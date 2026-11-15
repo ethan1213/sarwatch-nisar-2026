@@ -1,8 +1,13 @@
 # SARWatch · cierre técnico del despliegue
 
-**Estado real: código comprobado en local; URL pública de Cloud Run aún pendiente.**
-La subida de la imagen sufrió una interrupción de red y se reintenta. Los originales de
-Concepción/Penco siguen descargándose; no se presentan como rásteres verificados.
+**Actualización del 15 de noviembre de 2026: aplicación publicada en Cloud Run.**
+
+URL: https://sarwatch-525550511866.southamerica-west1.run.app
+Revisión de la historia simplificada: `sarwatch-00002-4fr`, 100 % del tráfico.
+La historia Biobío se sirve desde el paquete verificable `catalog/fire_story/`, con sus capas PNG.
+No depende de completar la descarga antigua ni de tener HDF5 en el computador del visitante.
+Los comparadores generales conservan las capas verificadas de la instantánea; los nuevos COG
+solo se habilitan si pasan su propia puerta de publicación.
 
 Actualización: interfaz para público general con comparación visual de dos fechas, mapa de contexto,
 preguntas guiadas y detalle técnico plegable. Inventario CMR completo para Concepción/Penco y
@@ -12,8 +17,7 @@ regional; son observaciones, no incidentes distintos ni perímetros. Fuente `cat
 
 ## Alcance implementado
 
-React/MapLibre servido por FastAPI, sin Streamlit en el proceso publicado. Sitios: Pantanal,
-Región Metropolitana, Valparaíso y cobertura mundial. Incluye HH/HV, fechas, diferencia,
+React/MapLibre servido por FastAPI, sin Streamlit en el proceso publicado. Entrada pública: historia de incendios de Biobío. Estudios adicionales de Chile; Pantanal queda fuera de la navegación pública. Incluye HH/HV, fechas, diferencia,
 series por punto y CSV, lecturas por cinco perfiles, cambio estadístico de Chile, meteorología
 opcional, asistente verificado, PostFuego y laboratorio CO₂/DEM.
 
@@ -61,7 +65,7 @@ autenticación del operador y los recursos iniciales ya creados; no actualiza cu
 
 ## Verificación
 
-107 pruebas unitarias, 63/63 casos del asistente y 39 comprobaciones HTTP sobre la aplicación completa.
+114 pruebas unitarias, 63/63 casos del asistente y 48 comprobaciones HTTP sobre la aplicación completa.
 Frontend compilado con Vite y lint sin avisos. Memoria observada tras recorrido HTTP local: aproximadamente
 500 MiB en un contenedor limitado a 2 GiB y 1 CPU. Esto es una prueba funcional, no un ensayo de carga.
 El informe HTTP reproducible está en `docs/local_api_verification.json`; no se presenta como prueba de una URL pública.
