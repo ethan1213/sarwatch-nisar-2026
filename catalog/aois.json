@@ -70,6 +70,22 @@
         -71.75,
         -36.5
       ]
+    },
+    "metropolitana": {
+      "prepared_utc": "2026-11-15T04:12:09.483734+00:00",
+      "prepare_seconds": 5.1,
+      "raw_bytes": 3393191936,
+      "derived_bytes": 165108768,
+      "compression_ratio_derived_vs_float32": 0.58,
+      "status": "preparado; etiquetas, covariables y evaluación pendientes"
+    },
+    "valparaiso": {
+      "prepared_utc": "2026-11-15T04:12:12.910983+00:00",
+      "prepare_seconds": 3.3,
+      "raw_bytes": 3393191936,
+      "derived_bytes": 108500289,
+      "compression_ratio_derived_vs_float32": 0.6,
+      "status": "preparado; etiquetas, covariables y evaluación pendientes"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-15T01:35:36.795484+00:00",
+  "generated_utc": "2026-11-15T04:14:07.351671+00:00",
   "acceptance": {
     "intent_accuracy": 0.9,
     "traceability": 0.95,
@@ -1053,7 +1053,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "El escenario experimental estima 86875.6 t de CO₂ bruto durante la combustión, con sensibilidad 12446.6–174165.5 t. No es medición atmosférica ni intervalo de confianza. La señal óptica requiere confirmar el perímetro de incendio y los supuestos de combustible. El DEM produce un ranking relativo, no profundidad en metros ni rutas seguras. El volumen está pendiente de intensidad pico observada en intervalos de 15 minutos. Sin validación de terreno; no es una alerta operativa."
+          "answer": "El escenario experimental estima 178392.5 t de CO₂ bruto durante la combustión, con sensibilidad 27773.7–354545.6 t. No es medición atmosférica ni intervalo de confianza. La señal óptica requiere confirmar el perímetro de incendio y los supuestos de combustible. El DEM produce un ranking relativo, no profundidad en metros ni rutas seguras. El volumen está pendiente de intensidad pico observada en intervalos de 15 minutos. Sin validación de terreno; no es una alerta operativa."
         },
         {
           "question": "¿Qué profundidad calcula el DEM?",
@@ -1070,7 +1070,7 @@
           },
           "passed": true,
           "problems": [],
-          "answer": "El escenario experimental estima 86875.6 t de CO₂ bruto durante la combustión, con sensibilidad 12446.6–174165.5 t. No es medición atmosférica ni intervalo de confianza. La señal óptica requiere confirmar el perímetro de incendio y los supuestos de combustible. El DEM produce un ranking relativo, no profundidad en metros ni rutas seguras. El volumen está pendiente de intensidad pico observada en intervalos de 15 minutos. Sin validación de terreno; no es una alerta operativa."
+          "answer": "El escenario experimental estima 178392.5 t de CO₂ bruto durante la combustión, con sensibilidad 27773.7–354545.6 t. No es medición atmosférica ni intervalo de confianza. La señal óptica requiere confirmar el perímetro de incendio y los supuestos de combustible. El DEM produce un ranking relativo, no profundidad en metros ni rutas seguras. El volumen está pendiente de intensidad pico observada en intervalos de 15 minutos. Sin validación de terreno; no es una alerta operativa."
         },
         {
           "question": "¿Cuáles son las emisiones de carbono del Pantanal?",

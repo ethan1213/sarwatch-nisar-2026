@@ -84,7 +84,7 @@ Lectura. El radar y el terreno ordenan mejor que repetir dónde hubo calor, pero
 
 Tres correcciones de método hechas en esta corrida:
 
-- `scripts/fetch_fire_dnbr.py` calculaba NBR sobre números digitales sin restar el offset de 1000 que Sentinel-2 L2A lleva desde la versión de procesamiento 04.00. Eso comprime el dNBR y baja la severidad: en Concepción/Penco la señal moderada o mayor pasaba de 0,5 % a 7,8 % de los píxeles válidos con las mismas escenas. **Los resultados de Las Condes (`postfire_*`, `fire_impacts_*`) se generaron con la versión anterior y hay que regenerarlos.**
+- `scripts/fetch_fire_dnbr.py` calculaba NBR sobre números digitales sin restar el offset de 1000 que Sentinel-2 L2A lleva desde la versión de procesamiento 04.00. Eso comprime el dNBR y baja la severidad: en Concepción/Penco la señal moderada o mayor pasaba de 0,5 % a 7,8 % de los píxeles válidos con las mismas escenas. Los resultados de Las Condes (`postfire_*`, `fire_impacts_*`) se regeneraron el 15 de noviembre con la versión corregida: la señal moderada o mayor del recorte pasó de 1,5 % a 3,6 % y el CO₂ bruto del escenario, de 86.876 t a 178.393 t; los umbrales medianos de lluvia no cambiaron.
 - El mismo script elegía las seis escenas menos nubosas, que podían ser franjas angostas: la ventana posterior cubría el 60 % del recorte y dejaba fuera el 91 % de la tierra dentro de las celdas con calor. Con `--max-items 16` cubre el 99 %.
 - `scripts/evaluate_fire.py` juntaba los cambios de todos los pares sin centrar: un cambio estacional entre dos pasadas contaba como separación. El conjunto anterior (AUC 0,79) estaba inflado; centrado por par da 0,62.
 

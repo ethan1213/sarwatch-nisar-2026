@@ -80,3 +80,22 @@ def fetch_fire_weather(points, start, end):
         if any(len(hourly[k]) != len(hourly["time"]) for k in FIRE_HOURLY):
             raise ValueError("Series meteorológicas incompatibles")
     return {"provider": "Open-Meteo", "kind": "ERA5 reanalysis", "retrieved_utc": datetime.now(timezone.utc).isoformat(), "requested_points": points, "cells": cells}
+
+
+def fetch_fire_forecast(latitude, longitude, hours=48):
+    """Hourly forecast (not observation) of wind, gusts, air humidity, temperature and vapour pressure deficit."""
+    if not (-90 <= latitude <= 90 and -180 <= longitude <= 180):
+        raise ValueError("Coordenadas fuera de rango")
+    variables = FIRE_HOURLY + ("precipitation_probability",)
+    params = {"latitude": latitude, "longitude": longitude, "hourly": ",".join(variables), "forecast_hours": hours, "timezone": "UTC"}
+    with urlopen("https://api.open-meteo.com/v1/forecast?" + urlencode(params), timeout=12) as response:
+        payload = json.load(response)
+    if payload.get("error"):
+        raise ValueError(payload.get("reason", "Error del proveedor"))
+    hourly = payload.get("hourly", {})
+    if any(k not in hourly for k in ("time", *variables)) or not hourly["time"]:
+        raise ValueError("Pronóstico incompleto")
+    if any(len(hourly[k]) != len(hourly["time"]) for k in variables):
+        raise ValueError("Series de pronóstico incompatibles")
+    return {"provider": "Open-Meteo", "kind": "weather forecast", "retrieved_utc": datetime.now(timezone.utc).isoformat(), "requested_latitude": latitude, "requested_longitude": longitude,
+            "cell_latitude": payload.get("latitude"), "cell_longitude": payload.get("longitude"), "cell_elevation_m": payload.get("elevation"), "units": payload.get("hourly_units", {}), "hourly": hourly}

@@ -17,6 +17,7 @@ from fastapi.staticfiles import StaticFiles
 from api.pantanal import router as pantanal_router, create_site_router
 from api.studies import router as studies_router
 from api.chile import router as chile_router
+from api.fire import router as fire_router
 
 ROOT = Path(__file__).resolve().parents[1]
 COVERAGE = ROOT / "catalog/global/coverage_1deg.json"
@@ -32,6 +33,7 @@ app.include_router(create_site_router("valparaiso"))
 app.include_router(studies_router)
 app.include_router(chile_router)
 app.include_router(create_site_router("concepcion_penco"))
+app.include_router(fire_router)
 
 
 @lru_cache(maxsize=1)

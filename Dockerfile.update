@@ -1,0 +1,25 @@
+# Update an already published SARWatch image without the data snapshot on this machine: keeps the
+# verified derivatives baked into SNAPSHOT and replaces code, catalog, docs and the React build.
+# Built by scripts/deploy_cloudshell.sh. deploy_data/ is optional (small regenerated rasters).
+ARG SNAPSHOT
+FROM node:22-slim AS web-build
+WORKDIR /web
+COPY web/package.json web/package-lock.json ./
+RUN npm ci
+COPY web/ ./
+RUN npm run build
+
+FROM ${SNAPSHOT}
+USER root
+COPY requirements-api.txt ./
+RUN pip install --no-cache-dir -r requirements-api.txt
+COPY --chown=app:app weather.py science.py ./
+COPY --chown=app:app api ./api
+COPY --chown=app:app sarwatch ./sarwatch
+COPY --chown=app:app catalog ./catalog
+COPY --chown=app:app docs ./docs
+COPY --chown=app:app --from=web-build /web/dist ./web/dist
+COPY --chown=app:app deploy_data/ ./data/
+USER 10001
+HEALTHCHECK --interval=30s --timeout=5s --start-period=30s CMD python -c "import os,urllib.request; urllib.request.urlopen('http://127.0.0.1:'+os.getenv('PORT','8080')+'/api/health',timeout=3)"
+CMD ["sh", "-c", "exec uvicorn api.main:app --host 0.0.0.0 --port $PORT --limit-concurrency 12"]

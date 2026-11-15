@@ -49,3 +49,7 @@ Licencia y repositorio abierto; sitios en otros continentes y otros tipos de cam
 ## Fusión con el PR del módulo térmico (14 nov 2026, tarde)
 
 La rama `claude/relaxed-keller-ymtner` (vista "Calor y focos" con GOES-19, rediseño visual con `sarwatch/theme.py`, `CLAUDE.md`) fue aprobada por el propietario y fusionada a `main`. Esta sesión añadió sobre ella el módulo PostFuego (`sarwatch/ml/wildfire.py`, `hydrology.py`, `debris_flow.py`, `interferometry.py`, `sarwatch/postfire.py`) para el caso Quebrada Honda (Las Condes). Detalle y pendientes: `docs/postfuego_las_condes.md`.
+
+## Incendios Biobío con datos reales (15 nov 2026)
+
+Nueve escenas NISAR del cuadro `003_A_159` verificadas, térmico GOES-19 de enero a mayo, viento y humedad ERA5, severidad dNBR y evaluación en `docs/fire_benchmark_biobio.json` y `docs/burn_scar_benchmark.json`. El visor lee el paquete `catalog/fire_story/` por `/api/fire/*`. La anticipación de focos supera a la persistencia pero no alcanza para llamarla predicción (AUC 0,63 en fechas retenidas, 44 casos). Plan de cierre y reparto por paquetes: `docs/plan_mvp_incendios.md`. Detalle y correcciones de método: `docs/calor_y_focos.md`.

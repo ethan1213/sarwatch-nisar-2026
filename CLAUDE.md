@@ -1,5 +1,11 @@
 # CLAUDE.md
 
+## Trabajo en curso (entrega 15 nov 2026, 11:00 de Chile)
+
+Antes de cualquier cambio lee `docs/plan_mvp_incendios.md`: reparte el cierre del MVP de incendios en paquetes con archivos
+propios, contrato de la API (`/api/fire/*`), cifras citables con su JSON de origen y palabras que no se pueden usar.
+Toma un solo paquete y no toques archivos de otro.
+
 ## Estado actual de la interfaz
 
 React + FastAPI ya incluye Pantanal, Santiago, Valparaíso, Mundo, calor, PostFuego y laboratorio

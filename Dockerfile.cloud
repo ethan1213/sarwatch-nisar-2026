@@ -5,6 +5,8 @@ FROM ${SNAPSHOT}
 USER root
 COPY requirements-api.txt ./
 RUN pip install --no-cache-dir -r requirements-api.txt
+# weather.py changes with the API (api/fire.py imports the fire forecast); the snapshot's copy may be older.
+COPY --chown=app:app weather.py science.py ./
 COPY --chown=app:app api ./api
 COPY --chown=app:app sarwatch ./sarwatch
 COPY --chown=app:app catalog ./catalog

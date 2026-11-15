@@ -69,6 +69,15 @@ def check(base):
         coverage = json.loads(gzip.decompress(response.read()))
     assert len(coverage['features']) == world['n_cells']
     results.append({'path':'/api/world/cells (gzip)','status':200})
+    fire = get('/api/fire/story')
+    assert fire['during']['confident_detections'] > 0 and fire['after']['radar_dates']
+    assert get('/api/fire/story?part=before')['cells']['features'] and get('/api/fire/story?part=during')['frames']
+    after = get('/api/fire/story?part=after')
+    for layer in after['radar'] + [after['severity']]:
+        with urlopen(base.rstrip('/') + '/api/fire/asset/' + layer['png'], timeout=180) as response:
+            assert response.status == 200 and response.read(8) == b'\x89PNG\r\n\x1a\n'
+        results.append({'path': '/api/fire/asset/' + layer['png'], 'status': 200})
+    get('/api/fire/asset/desconocida.png', expected=404)
     for slug in ('concepcion_penco', 'biobio'):
         overview = get(f'/api/chile/{slug}/overview')
         assert overview['audit']['cohorts'] and overview['firms']['type'] == 'FeatureCollection'

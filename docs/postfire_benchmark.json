@@ -1,6 +1,6 @@
 {
   "aoi": "metropolitana",
-  "generated_utc": "2026-11-14T21:15:02.279651+00:00",
+  "generated_utc": "2026-11-15T04:13:41.025028+00:00",
   "coarsen_factor": 5,
   "resolution_m_native": 20.0,
   "resolution_m_hydrology": 100.0,
@@ -13,15 +13,15 @@
       "2026-02-01",
       "2026-02-28"
     ],
-    "pre_valid_fraction": 0.9728044717835991,
+    "pre_valid_fraction": 0.9727972848930223,
     "post_valid_fraction": 0.9422167312149723,
     "severity_summary": {
-      "n": 5629106,
-      "sin_quema_o_rebrote": 0.8825667876923974,
-      "baja": 0.10227947386316762,
-      "moderada_baja": 0.012360932624114735,
-      "moderada_alta": 0.002693855827195295,
-      "alta": 9.894999312501842e-05
+      "n": 5629063,
+      "sin_quema_o_rebrote": 0.7974492379992905,
+      "baja": 0.16626124099161796,
+      "moderada_baja": 0.02532570696046571,
+      "moderada_alta": 0.00881088024774283,
+      "alta": 0.0021529338008830245
     },
     "caveat": "Ventanas de fecha de ejemplo; confirmar fecha y perímetro real del incendio con CONAF/Sernageomin antes de publicar."
   },
@@ -40,9 +40,9 @@
       "era5_cross_check_mm": 13.6,
       "median_threshold_mm_30min": 19.6,
       "min_threshold_mm_30min": 6.8,
-      "fraction_rojo": 0.00010028219409418102,
-      "fraction_amarillo": 0.06330731344670569,
-      "fraction_verde": 0.9345339451884269,
+      "fraction_rojo": 0.00032591713080608835,
+      "fraction_amarillo": 0.0705401666957485,
+      "fraction_verde": 0.9270754570026721,
       "explain_median_cell": "Umbral base 20 mm/30min en ladera sana; lluvia previa lo reduce 2%; umbral efectivo 19.6 mm/30min.",
       "would_have_triggered": false
     },
@@ -66,12 +66,12 @@
       "observed_30min_mm": null,
       "note": "actualizar con la lluvia de los ultimos 3-7 dias antes de usar",
       "era5_cross_check_mm": null,
-      "median_threshold_mm_30min": 18.4,
+      "median_threshold_mm_30min": 18.3,
       "min_threshold_mm_30min": 5.6,
-      "fraction_rojo": 0.000179672264418741,
-      "fraction_amarillo": 0.09139468464258423,
-      "fraction_verde": 0.9063671839222238,
-      "explain_median_cell": "Umbral base 20 mm/30min en ladera sana; humedad NISAR lo reduce 4%; umbral efectivo 18.4 mm/30min.",
+      "fraction_rojo": 0.0006351205625964798,
+      "fraction_amarillo": 0.0993127995512706,
+      "fraction_verde": 0.8979936207153597,
+      "explain_median_cell": "Umbral base 20 mm/30min en ladera sana; humedad NISAR lo reduce 4%; umbral efectivo 18.3 mm/30min.",
       "would_have_triggered": null
     }
   },
