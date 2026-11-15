@@ -68,7 +68,7 @@ autenticación del operador y los recursos iniciales ya creados; no actualiza cu
 114 pruebas unitarias, 63/63 casos del asistente y 48 comprobaciones HTTP sobre la aplicación completa.
 Frontend compilado con Vite y lint sin avisos. Memoria observada tras recorrido HTTP local: aproximadamente
 500 MiB en un contenedor limitado a 2 GiB y 1 CPU. Esto es una prueba funcional, no un ensayo de carga.
-El informe HTTP reproducible está en `docs/local_api_verification.json`; no se presenta como prueba de una URL pública.
+El informe local está en `docs/local_api_verification.json`; el informe vigente de la URL pública, con 48 comprobaciones, está en `docs/entrega/api_publica.json`.
 
 La publicación de nuevos AOI usa revisiones inmutables en el bucket y cambia el manifiesto al final,
 después de verificar checksums, grilla, unidades y cobertura. Cloud Run los lee con un volumen de

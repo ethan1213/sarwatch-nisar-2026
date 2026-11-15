@@ -13,7 +13,9 @@
 - 114 pruebas unitarias, 63/63 del asistente, lint y build. 48 comprobaciones HTTP sobre la imagen local y las mismas 48 en la URL pública. Informe: api_publica.json.
 - Recorrido visual de los tres pasos, comparador y ancho móvil 390 px; sin desborde horizontal observado.
 - Licencia Apache-2.0 incorporada por elección explícita del propietario. Licencias de las fuentes conservadas.
-- Guion de dos minutos, resumen inglés y declaración de uso de IA en esta carpeta.
+- Guion de dos minutos, resumen inglés, declaración de uso de IA y capturas de la aplicación pública en esta carpeta.
+- Pronóstico público comprobado: HTTP 200 y 48 horas. Consola sin errores ni advertencias observados durante el recorrido público.
+- Repositorio público: https://github.com/ethan1213/sarwatch-nisar-2026 (main).
 
 ## Límites y trabajo que no se declara completo
 
@@ -23,6 +25,6 @@
 - El guion está escrito; falta lectura cronometrada y grabación narrada. No se presenta un archivo de video inexistente.
 - Deep learning y foundation models requieren entrenamiento y evaluación propios; los cuadernos no equivalen a modelos ya validados.
 - Sin prueba nueva de glaciar, ingesta continua con secretos Earthdata ni integración Vercel/Supabase. No son requisitos para abrir esta demo.
-- Apache-2.0 autoriza el código propio; las fuentes de datos conservan sus condiciones. La visibilidad pública debe comprobarse en GitHub.
+- Apache-2.0 autoriza el código propio; las fuentes de datos conservan sus condiciones. Repositorio público comprobado sin autenticación en GitHub; licencia detectada Apache-2.0.
 
 El plan original continúa en docs/plan_mvp_incendios.md. Este estado reemplaza sus instrucciones de mostrar Pantanal y de llamar «Antes» a datos posteriores a enero. No se fuerza una narrativa científica que las adquisiciones no respaldan.
