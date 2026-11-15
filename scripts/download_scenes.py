@@ -3,7 +3,14 @@ import argparse
 import json
 import os
 import shutil
+import sys
+import time
+from datetime import datetime, timezone
 from pathlib import Path
+from urllib.request import urlopen
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from sarwatch.acquisition import download_verified
 
 
 def main():
@@ -38,7 +45,33 @@ def main():
         status.write_text(json.dumps({"state": "authentication_failed"}), encoding="utf-8")
         raise SystemExit("Earthdata no autenticado")
     status.write_text(json.dumps({"state": "downloading", "scene_ids": [s["id"] for s in pending]}), encoding="utf-8")
-    files = earthaccess.download([s["url_hdf5"] for s in pending], local_path=str(target), threads=1)
+    files = []
+    session = auth.get_session()
+    try:
+        for scene in pending:
+            with urlopen(scene['url_metadatos'], timeout=60) as response:
+                metadata = json.load(response)
+            name = scene['granulo'] + '.h5'
+            official = next(item for item in metadata['DataGranule']['ArchiveAndDistributionInformation'] if item['Name'] == name)
+            if official['Checksum']['Algorithm'] != 'MD5':
+                raise ValueError('Algoritmo de checksum oficial no soportado')
+            last_report = [0.]
+            def report(downloaded, total):
+                now = time.monotonic()
+                if now - last_report[0] < 5 and downloaded != total:
+                    return
+                last_report[0] = now
+                status.write_text(json.dumps({'state': 'downloading', 'scene_id': scene['id'],
+                    'completed_files': len(files), 'total_files': len(pending), 'bytes_downloaded': downloaded,
+                    'bytes_expected': total, 'updated_utc': datetime.now(timezone.utc).isoformat()}), encoding='utf-8')
+                print(f"{scene['id']}: {downloaded/1e6:.1f}/{total/1e6:.1f} MB · parcial conservado", flush=True)
+            files.append(download_verified(session, scene['url_hdf5'], target / name,
+                int(official['SizeInBytes']), official['Checksum']['Value'].lower().zfill(32), progress=report))
+    except Exception as exc:
+        status.write_text(json.dumps({'state': 'download_failed_resumable', 'error_type': type(exc).__name__,
+            'completed_files': len(files), 'updated_utc': datetime.now(timezone.utc).isoformat()}), encoding='utf-8')
+        print('Descarga interrumpida. Los parciales se conservan. Tipo:', type(exc).__name__, flush=True)
+        raise SystemExit(1)
     state = "download_complete_unverified" if len(files) == len(pending) else "download_incomplete"
     status.write_text(json.dumps({"state": state, "scene_ids": [s["id"] for s in pending]}), encoding="utf-8")
     print(state, "->", target)
