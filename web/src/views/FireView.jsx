@@ -11,14 +11,27 @@ import FireVina2024 from '../components/FireVina2024'
 import FireOfficialPerimeters from '../components/FireOfficialPerimeters'
 
 const LAYERS = [
-  {key:'during', icon:'◉', label:'Focos y clima', source:'FIRMS / GOES-19 / Open-Meteo'},
-  {key:'scar', icon:'◈', label:'Señal de quema', source:'Sentinel-2 · comparación óptica'},
-  {key:'radar', icon:'▱', label:'Evolución NISAR', source:'GCOV · HV · feb–oct 2026'},
-  {key:'official',icon:'⬡',label:'Extensión observada',source:'Copernicus EMS · 21–25 ene 2026'},
-  {key:'terrain',icon:'△',label:'Altura y pendiente',source:'Copernicus DEM · medias por celda'},
-  {key:'before', icon:'◎', label:'Prioridad de vigilancia', source:'Modelo exploratorio · 12 días'},
+  {key:'during', icon:'◉', label:'¿Dónde se detectó calor?', source:'FIRMS / GOES-19 / Open-Meteo'},
+  {key:'scar', icon:'◈', label:'¿Qué zonas muestran cambios?', source:'Sentinel-2 · comparación óptica'},
+  {key:'radar', icon:'▱', label:'¿Cómo cambió el terreno?', source:'GCOV · HV · feb–oct 2026'},
+  {key:'official',icon:'⬡',label:'¿Qué área se cartografió?',source:'Copernicus EMS · 21–25 ene 2026'},
+  {key:'terrain',icon:'△',label:'¿Cómo es el relieve?',source:'Copernicus DEM · medias por celda'},
+  {key:'before', icon:'◎', label:'¿Qué zonas conviene revisar?', source:'Modelo exploratorio · 12 días'},
 ]
 const HEADINGS = {official:['Cómo cambió la extensión cartografiada','Delimitaciones oficiales de Copernicus EMS, con fechas de adquisición y versiones.'],terrain:['Cómo es el terreno','Altura y pendiente del DEM externo, agregadas por celda. No provienen de NISAR.'],during:['Focos y condiciones','Selecciona un punto FIRMS para consultar clima y sectores laterales al viento. El histórico de enero usa GOES-19.'],scar:['Qué señales quedaron','Señal óptica de quema. Las clases no equivalen a un perímetro oficial del incendio.'],radar:['Cómo evolucionó el terreno','Dos observaciones NISAR posteriores al incendio; desliza para compararlas.'],before:['Qué podemos anticipar','Evaluación de un índice de vigilancia. No pronostica el recorrido del frente del fuego.']}
+const MAP_HELP = {
+ during: ['Busca los puntos o celdas de calor', 'Cada marca corresponde a una detección del satélite. Consulta su fecha: no indica que haya fuego ahora.', 'Selecciona una marca para ver sus datos y el clima del lugar.'],
+ scar: ['Lee los colores sobre el terreno', 'Amarillo, naranja y rojo representan una señal óptica de cambio cada vez mayor. La causa necesita interpretación.', 'Compara la zona coloreada con las localidades del mapa.'],
+ radar: ['Compara el mismo lugar en dos fechas', 'Los tonos grises representan la intensidad de la señal radar. Una diferencia de tono indica una señal distinta, no una temperatura.', 'Arrastra la división blanca para descubrir la imagen de cada fecha.'],
+ official: ['Observa el área delimitada en naranja', 'Es la extensión cartografiada por Copernicus en la fecha seleccionada.', 'Cambia la fecha para comparar las delimitaciones disponibles.'],
+ terrain: ['Explora la altura y la inclinación', 'Los colores describen el relieve. Puedes cambiar entre altura y pendiente.', 'Selecciona una celda para consultar sus valores.'],
+ before: ['Revisa el índice de vigilancia', 'El modelo ordena zonas para estudiarlas. No es una alarma ni una probabilidad de incendio.', 'Abre los resultados para conocer cómo se evaluó.'],
+ historical: ['Compara las imágenes de Viña de 2024', 'Las imágenes ópticas muestran el lugar antes y después del incendio. Nubes y otras variaciones también afectan la comparación.', 'Usa los controles de la vista para comparar las observaciones.'],
+}
+function MapGuide({kind}) {
+ const [title,meaning,action]=MAP_HELP[kind] || MAP_HELP.radar
+ return <section className="fg-map-guide" aria-label="Cómo leer este mapa"><span className="fg-guide-symbol" aria-hidden="true">◎</span><div><strong>{title}</strong><p>{meaning}</p>{kind==='scar'&&<div className="fg-color-key"><span><i style={{background:'#f6df75'}}/>Señal baja</span><span><i style={{background:'#e98b35'}}/>Señal moderada</span><span><i style={{background:'#bd312d'}}/>Señal alta</span></div>}{kind==='official'&&<div className="fg-color-key"><span><i style={{background:'#e18b46'}}/>Área cartografiada en esta fecha</span></div>}{kind==='radar'&&<div className="fg-color-key"><span><i style={{background:'linear-gradient(90deg,#222,#eee)'}}/>Señal radar: menor → mayor</span></div>}<span className="fg-guide-action">↳ {action}</span></div></section>
+}
 function Dialog({kind,summary,capability,onClose}) {
   const ref=useRef(null)
   useEffect(()=>{ref.current.showModal()},[])
@@ -50,7 +63,7 @@ export default function FireView({onNavigate}) {
     } catch {setExportError('No pudimos exportar los datos. Reintenta cuando vuelva la conexión.')}
   }
   return <div className="fg fire">
-    <header className="fg-header"><a href="#" className="fg-brand"><img className="fg-logo" src="/favicon.svg" width="44" height="44" alt="" /><span>SARWATCH<small>ANÁLISIS TERRITORIAL PARA BRIGADAS</small></span></a><nav aria-label="Navegación principal"><button aria-current={!dialog?'page':undefined} onClick={()=>setDialog(null)}>Explorar</button><button onClick={()=>setDialog('sources')}>Fuentes y datos</button><button onClick={()=>setDialog('ai')}>Uso de IA</button></nav><span className="fg-revisit"><b>NISAR</b> · NO ES EN VIVO</span></header>
+    <header className="fg-header"><a href="#" className="fg-brand"><img className="fg-logo" src="/favicon.svg" width="44" height="44" alt="" /><span>SARWATCH<small>OBSERVA Y ENTIENDE EL TERRITORIO</small></span></a><nav aria-label="Navegación principal"><button aria-current={!dialog?'page':undefined} onClick={()=>setDialog(null)}>Explorar</button><button onClick={()=>setDialog('sources')}>Fuentes y datos</button><button onClick={()=>setDialog('ai')}>Uso de IA</button></nav><span className="fg-revisit"><b>NISAR</b> · NO ES EN VIVO</span></header>
     <div className="fg-warning"><span>◉ <strong>FUENTES Y FECHAS VISIBLES</strong> · Observaciones satelitales y pronóstico meteorológico.</span><button onClick={()=>setDialog('limits')}>Ver alcance y límites →</button></div>
     <div className="fg-workspace"><aside className="fg-sidebar"><p className="fg-kicker">ÁREA DE ESTUDIO</p><h1>{area==='biobio'?'Concepción–Penco–Tomé':'Viña del Mar'}</h1><div className="fg-area-switch"><button aria-pressed={area==='biobio'} onClick={()=>selectArea('biobio')}>Biobío<small>Incendios · enero 2026</small></button><button aria-pressed={area==='valparaiso'} onClick={()=>selectArea('valparaiso')}>Viña del Mar<small>Incendio 2024 · radar 2026</small></button></div>
       <button className="fg-mobile-controls" aria-expanded={controlsOpen} onClick={()=>setControlsOpen(v=>!v)}>Capas y fuentes · {area==='biobio'?LAYERS.find(l=>l.key===layer).label:'Radar'} ▾</button><div className={`fg-sidebar-rest ${controlsOpen?'is-open':''}`}><p className="fg-context">{area==='biobio'?'NISAR: febrero, junio y octubre de 2026. No hay observación previa al incendio de enero en esta serie.':'Sentinel-2 muestra el antes y después de febrero de 2024. NISAR de octubre de 2026 se consulta por separado.'}</p>
@@ -60,9 +73,9 @@ export default function FireView({onNavigate}) {
       <details className="fg-more"><summary>Otros estudios y código</summary><button onClick={()=>onNavigate?.('metropolitana')}>Santiago · laboratorio</button><button onClick={()=>onNavigate?.('concepcion_penco')}>Catálogo NISAR de Biobío</button><a href="https://github.com/ethan1213/sarwatch-nisar-2026" target="_blank" rel="noreferrer">Código abierto · Apache-2.0 ↗</a></details>
       <p className="fg-attribution">Proyecto independiente de Software Detective. Sin patrocinio ni respaldo institucional de NASA, ISRO o NOAA.</p></div>
     </aside>
-    <main className="fg-main"><div className="fg-toolbar"><div><p className="fg-kicker">{area==='biobio'?'ANÁLISIS PARA BRIGADAS · BIOBÍO':vinaMode==='historical'?'SENTINEL-2 · VIÑA 2024':'NISAR · CHILE CENTRAL'}</p><h2>{area==='biobio'?HEADINGS[layer][0]:vinaMode==='historical'?'Incendio de Viña · febrero de 2024':'Radar del terreno · octubre de 2026'}</h2></div><button disabled={!summary} onClick={exportEvidence}>↓ Exportar evidencia</button></div>
+    <main className="fg-main"><section className="fg-start"><div><p className="fg-kicker">EMPIEZA AQUÍ</p><h2>¿Qué quieres entender del lugar?</h2><p>Elige una pregunta. Debajo te explicamos cómo leer su mapa.</p></div>{area==='biobio'&&<div className="fg-quick-choices">{[['during','1','Ver detecciones de calor'],['official','2','Ver el área cartografiada'],['radar','3','Comparar el terreno']].map(([key,n,label])=><button key={key} aria-pressed={layer===key} onClick={()=>selectLayer(key)}><span>{n}</span>{label}</button>)}</div>}</section><div className="fg-toolbar"><div><p className="fg-kicker">{area==='biobio'?'ANÁLISIS PARA BRIGADAS · BIOBÍO':vinaMode==='historical'?'SENTINEL-2 · VIÑA 2024':'NISAR · CHILE CENTRAL'}</p><h2>{area==='biobio'?HEADINGS[layer][0]:vinaMode==='historical'?'Incendio de Viña · febrero de 2024':'Radar del terreno · octubre de 2026'}</h2></div><button disabled={!summary} onClick={exportEvidence}>↓ Exportar evidencia</button></div>
       <p className="fg-explanation">{area==='biobio'?HEADINGS[layer][1]:vinaMode==='historical'?'Comparación óptica anterior y posterior al incendio; distinta del radar NISAR de 2026.':'Observaciones del terreno en dos fechas; la causa del cambio requiere evidencia independiente.'}</p>
-      {exportError && <p role="alert">{exportError}</p>}
+      <MapGuide kind={area==='biobio'?layer:vinaMode}/>{exportError && <p role="alert">{exportError}</p>}
       {error && <div role="alert" className="fire-empty">{error}<button onClick={()=>window.location.reload()}>Reintentar</button></div>}
       {!summary&&!error && <p role="status" className="fire-empty">Cargando observaciones verificadas…</p>}
       {summary&&area==='biobio'&&layer==='official'&&<FireOfficialPerimeters/>}
