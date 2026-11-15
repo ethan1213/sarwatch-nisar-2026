@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Map } from 'maplibre-gl'
-import { CONTEXT_STYLE } from '../mapStyle'
+import { FIRE_CONTEXT_STYLE as CONTEXT_STYLE } from '../mapStyle'
 import { fireAssetUrl } from '../api'
 
 function boundsToCoordinates(bounds) {
@@ -17,7 +17,7 @@ function useRadarLayer(ref, layerId, radar, severityOn, severity) {
     if (!m || !radar) return
     const apply = () => {
       const coords = boundsToCoordinates(radar.bounds)
-      const url = fireAssetUrl(radar.png)
+      const url = radar.url || fireAssetUrl(radar.png)
       let source = m.getSource(layerId)
       if (source) source.updateImage({ url, coordinates: coords })
       else {
@@ -40,7 +40,7 @@ function useRadarLayer(ref, layerId, radar, severityOn, severity) {
       }
       if (m.getLayer('place-names')) m.moveLayer('place-names')
     }
-    if (m.isStyleLoaded()) apply()
+    if (m.getLayer('context')) apply()
     else m.once('load', apply)
   }, [ref, layerId, radar, severityOn, severity])
 }
@@ -72,8 +72,8 @@ function RadarComparator({ left, right, severityOn, severity, single = false }) 
       mapB.current.fitBounds(bounds, { padding: 10, duration: 0 })
       fitted.current = true
     }
-    if (mapA.current.isStyleLoaded() && mapB.current.isStyleLoaded()) apply()
-    else { mapA.current.once('load', () => { if (mapB.current.isStyleLoaded()) apply() }); mapB.current.once('load', () => { if (mapA.current.isStyleLoaded()) apply() }) }
+    if (mapA.current.getLayer('context') && mapB.current.getLayer('context')) apply()
+    else { mapA.current.once('load', () => { if (mapB.current.getLayer('context')) apply() }); mapB.current.once('load', () => { if (mapA.current.getLayer('context')) apply() }) }
   }, [left])
 
   useRadarLayer(mapA, 'radar-a', left, severityOn, severity)

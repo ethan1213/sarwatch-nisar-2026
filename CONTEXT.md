@@ -64,3 +64,17 @@ La historia sirve el paquete versionado catalog/fire_story, sin depender de HDF5
 114 pruebas unitarias, 63 casos del asistente y 48 comprobaciones HTTP. Estado preciso y pendientes:
 docs/entrega/estado.md. Apache-2.0 autorizado por el propietario. No usar los conteos ni la descripción
 Streamlit de las secciones antiguas como estado de la demo actual.
+
+## Actualización de producto · Figma y brigadas · 15 noviembre 2026
+
+Entrada React adaptada de Figma: panel lateral, mapa principal, clima Open-Meteo a 48 h, FIRMS
+como vista inicial y GOES de enero separado. Comparación de sectores relativos al viento con
+relieve medio por celda; no son flancos reales inferidos ni rutas seguras. Relieve 3D Mapzen +
+Esri de contexto opcional, con foco y referencias del viento. Las estadísticas siguen siendo Copernicus DEM.
+Viña incorpora Sentinel-2 real del 18 ene / 12 feb 2024 y dNBR; NISAR de octubre 2026 separado.
+Copernicus EMSR859 AOI04: cinco delimitaciones observadas del 21 al 25 ene 2026; originales con
+SHA256 y visualizaciones simplificadas a 20 m. No cubren el avance inicial 17–18.
+La etiqueta «prototipo» sale del front por instrucción del propietario. Esto no cambia las métricas
+ni valida automáticamente un pronóstico de propagación. Estado preciso: docs/figma_y_brigadas.md.
+Las capas derivadas Concepción/Penco terminaron de publicarse en GCS; receipt:
+catalog/concepcion_penco_publication.json. La API pública confirmó tres escenas y rasters_ready=true.

@@ -19,6 +19,7 @@ export default function App() {
   const label = REGIONS.find(r => r.key === region).label
   const chile = ['concepcion_penco', 'biobio'].includes(region)
   const fire = region === 'incendios'
+  if (fire) return <FireView onNavigate={setRegion} />
 
   return (
     <div className="app">

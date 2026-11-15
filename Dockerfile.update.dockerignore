@@ -8,6 +8,11 @@
 !sarwatch/**
 !catalog
 !catalog/**
+!catalog/**/
+!catalog/official_fire_perimeters/
+!catalog/official_fire_perimeters/**
+!catalog/vina_2024/
+!catalog/vina_2024/**
 !docs
 !docs/**
 !web

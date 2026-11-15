@@ -1,6 +1,10 @@
 # Estado de cierre · 15 de noviembre de 2026
 
-## Entregado
+## Actualización: plataforma para brigadas
+
+Se adaptó el diseño de Figma y el relieve 3D del video de referencia. La etiqueta «prototipo» sale del front. La vista actual incorpora FIRMS, clima a 48 horas, sectores laterales al viento, relieve 3D, cinco delimitaciones de Copernicus EMS y el caso Sentinel-2 de Viña 2024. Detalle y límites: [figma_y_brigadas.md](../figma_y_brigadas.md). El video demo_narrada.mp4 conserva la interfaz de la entrega anterior; las capturas nuevas documentan esta actualización.
+
+## Entregado anteriormente
 
 - Interfaz centrada en Biobío, tres pasos con preguntas claras, un mapa principal y detalle técnico plegado.
 - Pantanal retirado de la navegación; estudios adicionales en un menú secundario.

@@ -1,0 +1,10 @@
+import { useEffect, useMemo, useState } from 'react'
+import { siteAPI } from '../api'
+import FireAfterMap from './FireAfterMap'
+export default function FireRadarSite(){
+ const api=useMemo(()=>siteAPI('valparaiso'),[])
+ const [manifest,setManifest]=useState(null),[pol,setPol]=useState('HV'),[layers,setLayers]=useState(null),[error,setError]=useState('')
+ useEffect(()=>{let alive=true;api.fetchPantanalManifest().then(d=>{if(alive)setManifest(d)}).catch(()=>{if(alive)setError('No pudimos consultar las fechas del radar.')});return()=>{alive=false}},[api])
+ useEffect(()=>{if(!manifest)return;let alive=true;Promise.all([api.fetchPantanalLayer(0,0,pol,'single'),api.fetchPantanalLayer(manifest.scenes.length-1,manifest.scenes.length-1,pol,'single')]).then(([a,b])=>{if(alive)setLayers({pol,left:{bounds:a.bounds,url:a.png_data_url,date:manifest.scenes[0].fecha},right:{bounds:b.bounds,url:b.png_data_url,date:manifest.scenes.at(-1).fecha}})}).catch(()=>{if(alive)setError('La comparación no está disponible. Reintenta o vuelve a Biobío.')});return()=>{alive=false}},[manifest,pol,api])
+ return <div className="fire-layout"><div className="fire-map-col"><div className="fire-controls"><label>Canal del radar <select value={pol} onChange={e=>{setError('');setPol(e.target.value)}}><option>HH</option><option>HV</option></select></label></div>{error?<p role="status" className="fire-empty">{error}</p>:layers?.pol===pol?<FireAfterMap left={layers.left} right={layers.right}/>:<p role="status" className="fire-empty">Cargando comparación {pol}…</p>}<p className="fire-legend">Desliza la línea para comparar las fechas. Escala de intensidad de radar, sin temperatura ni clasificación de daño.</p></div><aside className="fire-side"><section className="fire-card"><h3>Dos fechas comparables</h3><p>Misma serie y geometría de adquisición. La señal puede variar por humedad, vegetación, construcciones y condiciones de observación.</p></section><section className="fire-card"><h3>El incendio de 2024 es anterior a NISAR</h3><p>Estas observaciones de 2026 no demuestran cómo era el lugar antes del incendio ni cuánto bosque volvió a crecer.</p></section></aside></div>
+}

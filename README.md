@@ -1,13 +1,18 @@
-# SARWatch · evidencia satelital de Biobío
+# SARWatch · análisis territorial para brigadas
 
 [**Abrir la aplicación en GCP**](https://sarwatch-525550511866.southamerica-west1.run.app)
 
-Una historia en tres preguntas: **qué ocurrió, qué quedó y qué podemos anticipar**. La entrada pública se centra en los incendios de enero de 2026 en Biobío. Cada paso muestra un mapa principal; fuentes, métodos y métricas se consultan a demanda. Pantanal no aparece en la navegación pública.
+Plataforma de análisis territorial con focos FIRMS, clima horario a 48 horas, relieve 2D/3D, inspección de sectores laterales al viento y exportación de evidencia. El diseño adapta la propuesta compartida en Figma. Biobío incluye radar NISAR, calor histórico GOES y cinco delimitaciones Copernicus EMS del 21 al 25 de enero de 2026. Viña incorpora imágenes Sentinel-2 del 18 de enero y 12 de febrero de 2024, separadas del radar de octubre de 2026. Pantanal no aparece en la navegación pública.
+
+[Funcionamiento, fuentes y alcance de los modelos](docs/figma_y_brigadas.md).
 
 - Calor GOES-19 por hora y meteorología histórica ERA5.
 - Señal de quema Sentinel-2 y evolución posterior NISAR L2 GCOV (febrero, junio y octubre).
 - Prioridad de vigilancia exploratoria, con resultados en fechas y bloques espaciales retenidos.
 - Consulta guardada de FIRMS VIIRS, separada del pronóstico meteorológico actual.
+- Elevación y pendiente por celda, relieve 3D y fotografía Esri de contexto.
+- Comparación lateral respecto al viento con alturas y pendientes; sin inferir una ruta segura.
+- Caso óptico del incendio de Viña 2024 y delimitaciones observadas de Copernicus EMS para Biobío.
 - Estudios adicionales de Chile, asistente explicativo local con cifras verificadas y herramientas reproducibles.
 
 No hay imagen NISAR anterior al incendio de enero en la geometría seleccionada. No se presenta como comparación radar antes/después del fuego. La señal óptica no es un perímetro oficial y el índice exploratorio no es una alerta operativa. No se ofrecen rutas seguras ni mediciones certificadas de emisiones. Proyecto independiente de Software Detective, sin patrocinio ni respaldo institucional de NASA, ISRO o NOAA.

@@ -1,13 +1,14 @@
 import { useEffect, useRef } from 'react'
+import useSectorOverlay from './useSectorOverlay'
 import { Map, NavigationControl } from 'maplibre-gl'
-import { CONTEXT_STYLE } from '../mapStyle'
+import { FIRE_CONTEXT_STYLE as CONTEXT_STYLE } from '../mapStyle'
 
 const HEAT_COLOR = ['step', ['get', 'heat_state'], 'rgba(60,70,82,0.25)', 1, 'rgba(227,178,60,0.55)', 2, 'rgba(209,54,31,0.92)']
 
 // Durante: 168 ~2x3 km cells coloured by whether GOES saw confident heat in them before/at the
 // current hour, plus wind arrows (map-aligned, pointing where the wind blows toward) from the
 // nearest ERA5 reanalysis points. Both update in place as the parent advances frameIndex.
-export default function FireDuringMap({ cellsGeoJSON, windGeoJSON, onCellClick, selectedCellId }) {
+export default function FireDuringMap({ cellsGeoJSON, windGeoJSON, onCellClick, selectedCellId, sectorGeometry }) {
   const el = useRef(null)
   const map = useRef(null)
   const onClickRef = useRef(onCellClick)
@@ -50,7 +51,7 @@ export default function FireDuringMap({ cellsGeoJSON, windGeoJSON, onCellClick, 
       }
       m.moveLayer('place-names')
     }
-    if (m.isStyleLoaded()) apply()
+    if (m.getLayer('context')) apply()
     else m.once('load', apply)
   }, [cellsGeoJSON])
 
@@ -82,9 +83,10 @@ export default function FireDuringMap({ cellsGeoJSON, windGeoJSON, onCellClick, 
         m.addLayer({ id:'wind-arrows', type:'line', source:'wind', paint:{'line-color':'#234b63','line-width':2,'line-opacity':0.8} })
       }
     }
-    if (m.isStyleLoaded()) apply()
+    if (m.getLayer('context')) apply()
     else m.once('load', apply)
   }, [windGeoJSON])
 
+  useSectorOverlay(map,sectorGeometry)
   return <div ref={el} className="fire-map" />
 }

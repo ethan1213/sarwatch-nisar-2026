@@ -1,22 +1,52 @@
 import { useEffect, useRef } from 'react'
-import { Map, NavigationControl } from 'maplibre-gl'
-import { CONTEXT_STYLE } from '../mapStyle'
+import { Map, NavigationControl, Marker } from 'maplibre-gl'
+import { FIRE_CONTEXT_STYLE as CONTEXT_STYLE } from '../mapStyle'
+import useSectorOverlay from './useSectorOverlay'
 
 const PRIORITY_COLOR = ['interpolate', ['linear'], ['get', 'priority'], 0, '#28506b', 0.5, '#8c6a3a', 1, '#d1361f']
 
 // Antes: 2,547 cells coloured by the exploratory surveillance-priority index for the chosen
 // pass, with an outline on cells where GOES later saw confident heat (held-out passes only).
-export default function FireBeforeMap({ cellsGeoJSON, showHot }) {
+export default function FireBeforeMap({ cellsGeoJSON, showHot, colorExpression = PRIORITY_COLOR, onCellClick, terrain3D = false, satellite = false, focus = null }) {
   const el = useRef(null)
   const map = useRef(null)
   const fitted = useRef(false)
+  const onClickRef = useRef(onCellClick)
+  useEffect(() => { onClickRef.current = onCellClick }, [onCellClick])
 
   useEffect(() => {
     const m = new Map({ container: el.current, style: CONTEXT_STYLE, center: [-72.9, -36.7], zoom: 8.5, scrollZoom: false })
     map.current = m
     m.addControl(new NavigationControl())
+    m.on('click','before-cells',e=>onClickRef.current?.(e.features[0].properties))
     return () => m.remove()
   }, [])
+
+  useEffect(() => {
+    const m=map.current
+    if(!m)return
+    const apply=()=>{
+      if(terrain3D){
+        if(!m.getSource('relief-dem')) m.addSource('relief-dem',{type:'raster-dem',tiles:['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],encoding:'terrarium',tileSize:256,maxzoom:15,attribution:'Relieve 3D: Mapzen Terrain Tiles · USGS SRTM/GMTED2010 · NOAA ETOPO1'})
+        m.setTerrain({source:'relief-dem',exaggeration:1})
+        m.jumpTo({pitch:58,bearing:-20,zoom:focus?13:Math.max(m.getZoom(),10.5),...(focus?{center:[focus.lon,focus.lat]}:{})})
+      }else{m.setTerrain(null);m.jumpTo({pitch:0,bearing:0})}
+      if(satellite){
+        if(!m.getSource('satellite-context')){
+          m.addSource('satellite-context',{type:'raster',tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],tileSize:256,attribution:'Imagen de contexto © Esri, Maxar, Earthstar Geographics; fecha variable'})
+          m.addLayer({id:'satellite-context',type:'raster',source:'satellite-context'},'place-names')
+        }
+        m.setLayoutProperty('satellite-context','visibility','visible')
+        if(m.getLayer('before-cells'))m.setPaintProperty('before-cells','fill-opacity',0.12)
+      }else{
+        if(m.getLayer('satellite-context'))m.setLayoutProperty('satellite-context','visibility','none')
+        if(m.getLayer('before-cells'))m.setPaintProperty('before-cells','fill-opacity',0.85)
+      }
+      if(m.getLayer('place-names'))m.moveLayer('place-names')
+    }
+    if(m.getLayer('context'))apply();else m.once('load',apply)
+    return ()=>m.off('load',apply)
+  },[terrain3D,satellite,focus])
 
   useEffect(() => {
     const m = map.current
@@ -27,11 +57,13 @@ export default function FireBeforeMap({ cellsGeoJSON, showHot }) {
         source.setData(cellsGeoJSON)
       } else {
         m.addSource('before-cells', { type: 'geojson', data: cellsGeoJSON })
-        m.addLayer({ id: 'before-cells', type: 'fill', source: 'before-cells', paint: { 'fill-color': PRIORITY_COLOR, 'fill-opacity': 0.85 } })
+        m.addLayer({ id: 'before-cells', type: 'fill', source: 'before-cells', paint: { 'fill-color': colorExpression, 'fill-opacity': satellite ? 0.12 : 0.85 } })
         m.addLayer({ id: 'before-hot', type: 'line', source: 'before-cells', filter: ['==', ['get', 'hot'], 1], paint: { 'line-color': '#fff', 'line-width': 2 } })
       }
-      if (!fitted.current) {
-        const pts = cellsGeoJSON.features.flatMap((f) => f.geometry.coordinates[0])
+      m.setPaintProperty('before-cells','fill-color',colorExpression)
+      m.setLayoutProperty('before-hot','visibility',showHot?'visible':'none')
+      if (!fitted.current && !focus) {
+        const pts = cellsGeoJSON.bbox ? [[cellsGeoJSON.bbox[0],cellsGeoJSON.bbox[1]],[cellsGeoJSON.bbox[2],cellsGeoJSON.bbox[3]]] : cellsGeoJSON.features.flatMap((f) => f.geometry.coordinates[0])
         if (pts.length) {
           m.fitBounds(
             [
@@ -45,9 +77,9 @@ export default function FireBeforeMap({ cellsGeoJSON, showHot }) {
       }
       m.moveLayer('place-names')
     }
-    if (m.isStyleLoaded()) apply()
+    if (m.getLayer('context')) apply()
     else m.once('load', apply)
-  }, [cellsGeoJSON])
+  }, [cellsGeoJSON, colorExpression, showHot, satellite, focus])
 
   useEffect(() => {
     const m = map.current
@@ -55,5 +87,7 @@ export default function FireBeforeMap({ cellsGeoJSON, showHot }) {
     m.setLayoutProperty('before-hot', 'visibility', showHot ? 'visible' : 'none')
   }, [showHot])
 
+  useEffect(()=>{if(!focus||!map.current)return;const marker=new Marker({color:'#d6f84c'}).setLngLat([focus.lon,focus.lat]).addTo(map.current);return()=>marker.remove()},[focus])
+  useSectorOverlay(map,focus?.windContext?.geometry)
   return <div ref={el} className="fire-map" />
 }

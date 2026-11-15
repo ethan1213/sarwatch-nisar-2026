@@ -3,6 +3,7 @@ import { fetchChileOverview, fetchFireForecast } from '../api'
 import FireDuringMap from './FireDuringMap'
 import FireTodayMap from './FireTodayMap'
 import FireWeatherCard from './FireWeatherCard'
+import FireSectorPanel from './FireSectorPanel'
 
 const COVER_LABELS = [
   ['trees', 'bosque'],
@@ -40,21 +41,23 @@ function nearestPointIndex(points, lon, lat) {
 }
 
 function cellCentroid(feature) {
-  const ring = feature.geometry.coordinates[0]
+  const full = feature.geometry.coordinates[0]
+  const ring = full.slice(0,-1)
   const lon = ring.reduce((s, p) => s + p[0], 0) / ring.length
   const lat = ring.reduce((s, p) => s + p[1], 0) / ring.length
   return [lon, lat]
 }
 
-export default function FireDuring({ data }) {
+export default function FireDuring({ data, onInspectTerrain, initialPoint = null }) {
   const [frameIndex, setFrameIndex] = useState(() => data.frames.reduce((best,f,i,all) => f.cells.length > all[best].cells.length ? i : best, 0))
   const [playing, setPlaying] = useState(false)
   const [selectedId, setSelectedId] = useState(null)
-  const [todayMode, setTodayMode] = useState(false)
+  const [todayMode, setTodayMode] = useState(true)
   const [todayOverview, setTodayOverview] = useState(null)
-  const [todayPoint, setTodayPoint] = useState(null)
+  const [todayPoint, setTodayPoint] = useState(initialPoint)
   const [todayForecast, setTodayForecast] = useState(null)
   const [forecastError, setForecastError] = useState('')
+  const [forecastHour,setForecastHour]=useState(0),[sectorReport,setSectorReport]=useState(null)
   const timer = useRef(null)
 
   const frames = data.frames
@@ -117,9 +120,10 @@ export default function FireDuring({ data }) {
     const [lon, lat] = cellCentroid(selectedFeature)
     const idx = nearestPointIndex(data.weather.points, lon, lat)
     const p = data.weather.points[idx]
-    return { t_c: p.t_c[timeIndex], rh_pct: p.rh_pct[timeIndex], wind_kmh: p.wind_kmh[timeIndex], gust_kmh: p.gust_kmh[timeIndex], vpd_kpa: p.vpd_kpa[timeIndex] }
+    return { t_c: p.t_c[timeIndex], rh_pct: p.rh_pct[timeIndex], wind_kmh: p.wind_kmh[timeIndex], gust_kmh: p.gust_kmh[timeIndex], vpd_kpa: p.vpd_kpa[timeIndex], wind_from_deg:p.wind_from_deg[timeIndex] }
   }, [selectedFeature, data, timeIndex])
 
+  const sectorUrl=todayMode?(todayPoint?`/api/fire/forecast-sectors?lat=${todayPoint.lat}&lon=${todayPoint.lon}&hour=${forecastHour}`:null):(selectedId!=null?`/api/fire/sector-context?cell_id=${selectedId}&time_utc=${encodeURIComponent(frames[frameIndex].t)}`:null)
   const frame = frames[frameIndex]
   const dayDetections = data.by_day.find((d) => frame.t.startsWith(d.date))
 
@@ -128,10 +132,10 @@ export default function FireDuring({ data }) {
       <div className="fire-map-col">
         <div className="fire-controls">
           <button className="toggle" aria-pressed={!todayMode} onClick={() => setTodayMode(false)}>
-            Enero 2026 (evento)
+            Enero 2026 · GOES-19
           </button>
           <button className="toggle fire-today-toggle" aria-pressed={todayMode} onClick={() => { setPlaying(false); setTodayMode(true) }}>
-            Detecciones recientes
+            Recientes · FIRMS VIIRS
           </button>
         </div>
 
@@ -144,13 +148,13 @@ export default function FireDuring({ data }) {
               <input aria-label="Hora de observación" type="range" min={0} max={frames.length - 1} value={frameIndex} onChange={(e) => setFrameIndex(Number(e.target.value))} />
               <time>{localTime(frame.t)} (hora Chile)</time>
             </div>
-            <FireDuringMap cellsGeoJSON={cellsGeoJSON} windGeoJSON={windGeoJSON} onCellClick={handleCellClick} selectedCellId={selectedId} />
+            <FireDuringMap cellsGeoJSON={cellsGeoJSON} windGeoJSON={windGeoJSON} onCellClick={handleCellClick} selectedCellId={selectedId} sectorGeometry={sectorReport?.url===sectorUrl?sectorReport.data.geometry:null} />
             <p className="fire-legend">Rojo intenso: celda con calor confiable en esta hora. Ámbar tenue: ya tuvo calor antes. Flechas: hacia donde sopla el viento (ERA5), largo según velocidad.</p>
           </>
         )}
 
         {todayMode && todayOverview && (
-          <FireTodayMap data={todayOverview.firms} bbox={todayOverview.audit?.bbox || [-73.6, -37.6, -72.3, -36.3]} onSelect={p => { setForecastError(''); setTodayPoint(p) }} />
+          <FireTodayMap data={todayOverview.firms} bbox={todayOverview.audit?.bbox || [-73.6, -37.6, -72.3, -36.3]} onSelect={p => { setForecastError(''); setTodayPoint(p); setForecastHour(0) }} sectorGeometry={sectorReport?.url===sectorUrl?sectorReport.data.geometry:null} />
         )}
         {todayMode && !todayOverview && <div className="fire-empty">Consultando focos recientes…</div>}
         {todayMode && <p className="fire-legend">Consulta guardada de FIRMS, sin actualización continua. Selecciona un punto para consultar el pronóstico meteorológico actual de ese lugar.</p>}
@@ -173,6 +177,7 @@ export default function FireDuring({ data }) {
             sourceLabel="Viento de reanálisis ERA5: orienta, no indica por dónde entrar."
             {...selectedWeather}
             slope_deg={selectedFeature?.properties.slope_deg}
+            elev_m={selectedFeature?.properties.elev_m}
             cover={dominantCover(selectedFeature.properties)}
           />
         )}
@@ -186,17 +191,23 @@ export default function FireDuring({ data }) {
         )}
         {todayMode && todayPoint && todayForecast && todayForecast.lat === todayPoint.lat && todayForecast.lon === todayPoint.lon && (
           <FireWeatherCard
-            title="Pronóstico del punto elegido"
-            sourceLabel={`Open-Meteo: pronóstico válido para ${todayForecast.data.hourly.time[0]} UTC; no es medición en terreno.`}
-            t_c={todayForecast.data.hourly.temperature_2m[0]}
-            rh_pct={todayForecast.data.hourly.relative_humidity_2m[0]}
-            wind_kmh={todayForecast.data.hourly.wind_speed_10m[0]}
-            gust_kmh={todayForecast.data.hourly.wind_gusts_10m[0]}
-            vpd_kpa={todayForecast.data.hourly.vapour_pressure_deficit[0]}
+            title="Clima del punto elegido"
+            sourceLabel={`Open-Meteo: pronóstico válido para ${todayForecast.data.hourly.time[forecastHour]} UTC; no es medición en terreno.`}
+            t_c={todayForecast.data.hourly.temperature_2m[forecastHour]}
+            wind_from_deg={todayForecast.data.hourly.wind_direction_10m[forecastHour]}
+            precipitation_mm={todayForecast.data.hourly.precipitation[forecastHour]}
+            precipitation_probability={todayForecast.data.hourly.precipitation_probability[forecastHour]}
+            rh_pct={todayForecast.data.hourly.relative_humidity_2m[forecastHour]}
+            wind_kmh={todayForecast.data.hourly.wind_speed_10m[forecastHour]}
+            gust_kmh={todayForecast.data.hourly.wind_gusts_10m[forecastHour]}
+            vpd_kpa={todayForecast.data.hourly.vapour_pressure_deficit[forecastHour]}
           />
         )}
         {todayMode && !todayPoint && <div className="fire-card"><p>Elige un punto de calor reciente para ver su pronóstico.</p></div>}
 
+        {todayMode&&todayPoint&&todayForecast&&todayForecast.lat===todayPoint.lat&&todayForecast.lon===todayPoint.lon&&<section className="fire-card"><label>Hora del pronóstico<input aria-label="Hora del pronóstico" type="range" min="0" max={todayForecast.data.hourly.time.length-1} value={forecastHour} onChange={e=>setForecastHour(Number(e.target.value))}/></label><p>{todayForecast.data.hourly.time[forecastHour]} UTC</p></section>}
+        {((todayMode&&todayPoint)||(!todayMode&&selectedFeature))&&<button onClick={()=>{const [lon,lat]=todayMode?[todayPoint.lon,todayPoint.lat]:cellCentroid(selectedFeature);onInspectTerrain?.({lon,lat,mode:todayMode?'forecast':'historical',windContext:sectorReport?.url===sectorUrl?sectorReport.data:null})}}>Ver este punto en relieve 3D →</button>}
+        <FireSectorPanel url={sectorUrl} onReport={setSectorReport}/>
         <details>
           <summary>Límites de esta vista</summary>
           <ul>

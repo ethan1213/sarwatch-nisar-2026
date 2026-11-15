@@ -1,0 +1,146 @@
+{
+  "activation": "EMSR859",
+  "source": "https://rapidmapping.emergency.copernicus.eu/backend/dashboard-api/public-activations/?code=EMSR859",
+  "aoi": "Conception",
+  "products": [
+    {
+      "type": "DEL",
+      "monitoring": true,
+      "monitoringNumber": 2,
+      "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR859/AOI04/DEL_MONIT02/EMSR859_AOI04_DEL_MONIT02_v1.zip",
+      "images": [
+        {
+          "sensor": "Legion",
+          "acquisition_utc": "2026-01-23T23:21:00"
+        },
+        {
+          "sensor": "Legion",
+          "acquisition_utc": "2026-01-23T23:21:00"
+        }
+      ],
+      "version": 1,
+      "observed_event_layers": [
+        {
+          "name": "EMSR859/AOI04/DEL_MONIT02/EMSR859_AOI04_DEL_MONIT02_observedEventA_v1_VT",
+          "format": "vt",
+          "sld": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT02/EMSR859_AOI04_DEL_MONIT02_observedEventA_v1.sld",
+          "json": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT02/EMSR859_AOI04_DEL_MONIT02_observedEventA_v1.json"
+        },
+        {
+          "name": "EMSR859/AOI04/DEL_MONIT02/EMSR859_AOI04_DEL_MONIT02_observedEventP_v1_VT",
+          "format": "vt",
+          "sld": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT02/EMSR859_AOI04_DEL_MONIT02_observedEventP_v1.sld",
+          "json": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT02/EMSR859_AOI04_DEL_MONIT02_observedEventP_v1.json"
+        }
+      ]
+    },
+    {
+      "type": "GRA",
+      "monitoring": false,
+      "monitoringNumber": 0,
+      "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR859/AOI04/GRA_PRODUCT/EMSR859_AOI04_GRA_PRODUCT_v2.zip",
+      "images": [
+        {
+          "sensor": "SPOT-6-7",
+          "acquisition_utc": "2026-01-25T14:46:00"
+        }
+      ],
+      "version": 2,
+      "observed_event_layers": [
+        {
+          "name": "EMSR859/AOI04/GRA_PRODUCT/EMSR859_AOI04_GRA_PRODUCT_observedEventA_v2_VT",
+          "format": "vt",
+          "sld": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/GRA_PRODUCT/EMSR859_AOI04_GRA_PRODUCT_observedEventA_v2.sld",
+          "json": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/GRA_PRODUCT/EMSR859_AOI04_GRA_PRODUCT_observedEventA_v2.json"
+        }
+      ]
+    },
+    {
+      "type": "DEL",
+      "monitoring": true,
+      "monitoringNumber": 1,
+      "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_v1.zip",
+      "images": [
+        {
+          "sensor": "Sentinel-2",
+          "acquisition_utc": "2026-01-22T14:37:00"
+        }
+      ],
+      "version": 1,
+      "observed_event_layers": [
+        {
+          "name": "EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_observedEventA_v1_VT",
+          "format": "vt",
+          "sld": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_observedEventA_v1.sld",
+          "json": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_observedEventA_v1.json"
+        },
+        {
+          "name": "EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_observedEventL_v1_VT",
+          "format": "vt",
+          "sld": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_observedEventL_v1.sld",
+          "json": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_observedEventL_v1.json"
+        },
+        {
+          "name": "EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_observedEventP_v1_VT",
+          "format": "vt",
+          "sld": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_observedEventP_v1.sld",
+          "json": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_observedEventP_v1.json"
+        }
+      ]
+    },
+    {
+      "type": "DEL",
+      "monitoring": true,
+      "monitoringNumber": 3,
+      "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR859/AOI04/DEL_MONIT03/EMSR859_AOI04_DEL_MONIT03_v1.zip",
+      "images": [
+        {
+          "sensor": "Pleiades",
+          "acquisition_utc": "2026-01-24T14:33:00"
+        }
+      ],
+      "version": 1,
+      "observed_event_layers": [
+        {
+          "name": "EMSR859/AOI04/DEL_MONIT03/EMSR859_AOI04_DEL_MONIT03_observedEventA_v1_VT",
+          "format": "vt",
+          "sld": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT03/EMSR859_AOI04_DEL_MONIT03_observedEventA_v1.sld",
+          "json": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT03/EMSR859_AOI04_DEL_MONIT03_observedEventA_v1.json"
+        },
+        {
+          "name": "EMSR859/AOI04/DEL_MONIT03/EMSR859_AOI04_DEL_MONIT03_observedEventP_v1_VT",
+          "format": "vt",
+          "sld": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT03/EMSR859_AOI04_DEL_MONIT03_observedEventP_v1.sld",
+          "json": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT03/EMSR859_AOI04_DEL_MONIT03_observedEventP_v1.json"
+        }
+      ]
+    },
+    {
+      "type": "DEL",
+      "monitoring": false,
+      "monitoringNumber": 0,
+      "downloadPath": "https://rapidmapping.emergency.copernicus.eu/backend/EMSR859/AOI04/DEL_PRODUCT/EMSR859_AOI04_DEL_PRODUCT_v2.zip",
+      "images": [
+        {
+          "sensor": "PlanetScope",
+          "acquisition_utc": "2026-01-21T15:25:00"
+        }
+      ],
+      "version": 2,
+      "observed_event_layers": [
+        {
+          "name": "EMSR859/AOI04/DEL_PRODUCT/EMSR859_AOI04_DEL_PRODUCT_observedEventA_v2_VT",
+          "format": "vt",
+          "sld": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_PRODUCT/EMSR859_AOI04_DEL_PRODUCT_observedEventA_v2.sld",
+          "json": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_PRODUCT/EMSR859_AOI04_DEL_PRODUCT_observedEventA_v2.json"
+        },
+        {
+          "name": "EMSR859/AOI04/DEL_PRODUCT/EMSR859_AOI04_DEL_PRODUCT_observedEventP_v2_VT",
+          "format": "vt",
+          "sld": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_PRODUCT/EMSR859_AOI04_DEL_PRODUCT_observedEventP_v2.sld",
+          "json": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_PRODUCT/EMSR859_AOI04_DEL_PRODUCT_observedEventP_v2.json"
+        }
+      ]
+    }
+  ]
+}

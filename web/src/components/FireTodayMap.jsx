@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react'
+import useSectorOverlay from './useSectorOverlay'
 import { Map, NavigationControl } from 'maplibre-gl'
-import { CONTEXT_STYLE } from '../mapStyle'
+import { FIRE_CONTEXT_STYLE as CONTEXT_STYLE } from '../mapStyle'
 
 // "Hoy" mode: live VIIRS points (FIRMS), click reports lat/lon up so the parent can fetch a
 // forecast for that point. Adapted from HotspotMap.jsx rather than editing it, since that
 // component is shared with ChileView (out of scope for this package).
-export default function FireTodayMap({ data, bbox, onSelect }) {
+export default function FireTodayMap({ data, bbox, onSelect, sectorGeometry }) {
   const el = useRef(null)
   const map = useRef(null)
   const onSelectRef = useRef(onSelect)
@@ -35,9 +36,10 @@ export default function FireTodayMap({ data, bbox, onSelect }) {
       }
       m.moveLayer('place-names')
     }
-    if (m.isStyleLoaded()) apply()
+    if (m.getLayer('context')) apply()
     else m.once('load', apply)
   }, [data])
 
+  useSectorOverlay(map,sectorGeometry)
   return <div ref={el} className="fire-map" />
 }

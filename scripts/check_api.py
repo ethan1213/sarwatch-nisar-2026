@@ -69,6 +69,24 @@ def check(base):
         coverage = json.loads(gzip.decompress(response.read()))
     assert len(coverage['features']) == world['n_cells']
     results.append({'path':'/api/world/cells (gzip)','status':200})
+    readiness = get('/api/fire/propagation-readiness')
+    assert readiness['spread_prediction_enabled'] is False and readiness['operational'] is False
+    assert readiness['missing_inputs'] and readiness['existing_model']['evaluation']
+    context = get('/api/fire/sector-context?cell_id=24&time_utc=2026-01-18T06%3A00Z')
+    assert context['safe_approach'] is None and context['fire_flank_prediction'] is False
+    assert len(context['geometry']['features']) in (0,3)
+    get('/api/fire/sector-context?cell_id=999999&time_utc=2026-01-18T06%3A00Z',expected=404)
+    historic=get('/api/fire/vina-2024')
+    assert historic['observations'][0]['date'][:10] < historic['fire_dates'][0] < historic['observations'][1]['date'][:10]
+    for name in historic['assets_sha256']:
+        with urlopen(base.rstrip('/')+'/api/fire/vina-2024/asset/'+name,timeout=180) as response:
+            assert response.status==200 and response.read(8)==b'\x89PNG\r\n\x1a\n'
+        results.append({'path':'/api/fire/vina-2024/asset/'+name,'status':200})
+    official=get('/api/fire/official-perimeters')
+    assert len(official['products'])==5
+    for i,p in enumerate(official['products']):
+        polygons=get('/api/fire/official-perimeters/'+str(i))
+        assert polygons['features'] and polygons['bbox']
     fire = get('/api/fire/story')
     assert fire['during']['confident_detections'] > 0 and fire['after']['radar_dates']
     assert get('/api/fire/story?part=before')['cells']['features'] and get('/api/fire/story?part=during')['frames']
@@ -83,6 +101,15 @@ def check(base):
         assert overview['audit']['cohorts'] and overview['firms']['type'] == 'FeatureCollection'
         assert all(f['properties']['confidence'] in ('l','n','h') for f in overview['firms']['features'])
         assert isinstance(overview['rasters_ready'], bool)
+        if slug=='concepcion_penco' and overview['rasters_ready']:
+            manifest=get('/api/concepcion_penco/manifest')
+            assert len(manifest['scenes'])>=2
+            last=len(manifest['scenes'])-1
+            layer=get(f'/api/concepcion_penco/layer?before=0&after={last}&pol=HV&mode=diff')
+            assert layer['png_data_url'].startswith('data:image/png;base64,')
+            bbox=manifest['bbox_wgs84']
+            series=get(f'/api/concepcion_penco/point-series?lon={(bbox[0]+bbox[2])/2}&lat={(bbox[1]+bbox[3])/2}&pol=HV')
+            assert len(series['rows'])==len(manifest['scenes'])
     print(json.dumps({'tested_utc': datetime.now(timezone.utc).isoformat(), 'base': base, 'passed': len(results), 'checks': results}, ensure_ascii=False))
 
 

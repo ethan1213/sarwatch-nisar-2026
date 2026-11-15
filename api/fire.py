@@ -64,3 +64,65 @@ def get_forecast(lat: float = Query(..., ge=-56, le=-17), lon: float = Query(...
         return _forecast(round(lat, 2), round(lon, 2), int(time.time() // 3600))
     except Exception as exc:
         raise HTTPException(502, f"Pronóstico no disponible ({type(exc).__name__})")
+
+
+@router.get("/propagation-readiness")
+def get_propagation_readiness():
+    path = Path("catalog/fire_propagation_readiness.json")
+    if not path.is_file():
+        raise HTTPException(503, "Auditoría de propagación pendiente")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+@router.get("/sector-context")
+def get_sector_context(cell_id: int = Query(..., ge=0), time_utc: str = Query(..., max_length=32)):
+    from sarwatch.ml.sector_context import context_for_cell
+    try:
+        return context_for_cell(story(), cell_id, time_utc)
+    except ValueError as exc:
+        raise HTTPException(404, str(exc))
+
+@router.get("/vina-2024")
+def get_vina_2024():
+    path=Path("catalog/vina_2024/story.json")
+    if not path.is_file():
+        raise HTTPException(503, "Comparación Sentinel-2 de 2024 en preparación")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+@router.get("/vina-2024/asset/{name}")
+def get_vina_asset(name: str):
+    report=get_vina_2024()
+    if name not in report["assets_sha256"]:
+        raise HTTPException(404, "Capa óptica desconocida")
+    return FileResponse(Path("catalog/vina_2024")/name,media_type="image/png")
+
+
+@router.get("/forecast-sectors")
+def get_forecast_sectors(lat: float=Query(...,ge=-38.65,le=-36), lon: float=Query(...,ge=-74,le=-70.85), hour: int=Query(0,ge=0,le=47)):
+    import math
+    from sarwatch.ml.sector_context import spatial_context
+    forecast=get_forecast(lat,lon)
+    h=forecast["hourly"]
+    if hour>=len(h["time"]):
+        raise HTTPException(404,"Hora no disponible")
+    direction=h["wind_direction_10m"][hour];speed=h["wind_speed_10m"][hour]
+    if direction is None or speed is None or not math.isfinite(direction) or not math.isfinite(speed):
+        raise HTTPException(404,"Sin viento válido para esa hora")
+    report=spatial_context(story(),lon,lat,direction,speed)
+    report.update({"time_utc":h["time"][hour],"weather_source":"Open-Meteo pronóstico de viento a 10 m, no observación en terreno", "wind_from_deg":direction,"wind_speed_kmh":speed,"retrieved_utc":forecast["retrieved_utc"]})
+    return report
+
+
+@router.get("/official-perimeters")
+def get_official_perimeters():
+    path=Path("catalog/official_fire_perimeters/manifest.json")
+    if not path.is_file():
+        raise HTTPException(503,"Inventario de perímetros en preparación")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+@router.get("/official-perimeters/{index}")
+def get_official_perimeter(index: int):
+    report=get_official_perimeters()
+    if not 0<=index<len(report["products"]):
+        raise HTTPException(404,"Observación no disponible")
+    return FileResponse(Path("catalog/official_fire_perimeters")/report["products"][index]["asset"],media_type="application/geo+json")

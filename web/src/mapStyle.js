@@ -8,3 +8,13 @@ export const CONTEXT_STYLE = {
   },
   layers: [{ id: 'bg', type: 'background', paint: { 'background-color': '#dfe7e5' } }, { id: 'context', type: 'raster', source: 'context', paint: { 'raster-opacity': .85 } }, { id: 'place-names', type: 'raster', source: 'names' }],
 }
+
+// Same geographic context provider; a dark canvas keeps the scientific overlays unmodified.
+export const FIRE_CONTEXT_STYLE = {
+  ...CONTEXT_STYLE,
+  sources: {
+    context: {...CONTEXT_STYLE.sources.context, tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}']},
+    names: {...CONTEXT_STYLE.sources.names, tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}']},
+  },
+  layers: [{id:'bg',type:'background',paint:{'background-color':'#091618'}}, {id:'context',type:'raster',source:'context',paint:{'raster-opacity':0.65}}, {id:'place-names',type:'raster',source:'names'}],
+}

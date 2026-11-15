@@ -1,0 +1,119 @@
+{
+  "source": "Copernicus Emergency Management Service · EMSR859 · AOI04 Concepción",
+  "retrieved_utc": "2026-11-15T06:44:49.243109+00:00",
+  "products": [
+    {
+      "file": "DEL_0.json",
+      "bytes": 20863000,
+      "n_features": 887,
+      "date_utc": "2026-01-21T15:25:00",
+      "source": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_PRODUCT/EMSR859_AOI04_DEL_PRODUCT_observedEventA_v2.json",
+      "sha256": "111aaa9caa7f655ddee0631f60f60ca45953070cb8e992950f301217e13a761c",
+      "product": "DEL",
+      "monitoring": 0,
+      "version": 2,
+      "asset": "extent_0.json",
+      "display_sha256": "49e0946dece3eec499140248034809a36d0885f4136d7ebf3e7072fbe1969738",
+      "display_features": 887,
+      "bbox": [
+        -73.02163093,
+        -36.93213828,
+        -72.86355532,
+        -36.65052706
+      ],
+      "sensor": "PlanetScope"
+    },
+    {
+      "file": "DEL_1.json",
+      "bytes": 22425885,
+      "n_features": 951,
+      "date_utc": "2026-01-22T14:37:00",
+      "source": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT01/EMSR859_AOI04_DEL_MONIT01_observedEventA_v1.json",
+      "sha256": "5260508079fb1b1bee41ee9488c902a3eac983ef0e824e0d4395d0c3247bd3ec",
+      "product": "DEL",
+      "monitoring": 1,
+      "version": 1,
+      "asset": "extent_1.json",
+      "display_sha256": "a4e47fb4d4d8018ad09cba08cd8746a9e67b9a3e9e11bdaadd0725ec7d52c704",
+      "display_features": 3506,
+      "bbox": [
+        -73.02159245,
+        -36.93213828,
+        -72.7795583,
+        -36.65052706
+      ],
+      "sensor": "Sentinel-2"
+    },
+    {
+      "file": "DEL_2.json",
+      "bytes": 19717602,
+      "n_features": 844,
+      "date_utc": "2026-01-23T23:21:00",
+      "source": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT02/EMSR859_AOI04_DEL_MONIT02_observedEventA_v1.json",
+      "sha256": "c03d8b84188830da8c8d9237da2835b0a34e0f0c7f381e26d49835583019ea90",
+      "product": "DEL",
+      "monitoring": 2,
+      "version": 1,
+      "asset": "extent_2.json",
+      "display_sha256": "88bc9530690f51024d36c1aeefa44433eadc297457808d427a53538b77933e2a",
+      "display_features": 844,
+      "bbox": [
+        -73.02163093,
+        -36.93198148,
+        -72.7795583,
+        -36.65052706
+      ],
+      "sensor": "Legion"
+    },
+    {
+      "file": "DEL_3.json",
+      "bytes": 20050924,
+      "n_features": 862,
+      "date_utc": "2026-01-24T14:33:00",
+      "source": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/DEL_MONIT03/EMSR859_AOI04_DEL_MONIT03_observedEventA_v1.json",
+      "sha256": "430ed101dde5675d71a24a4b3166d7efe55f4ab34b3a012bbeaba6652cfabfe9",
+      "product": "DEL",
+      "monitoring": 3,
+      "version": 1,
+      "asset": "extent_3.json",
+      "display_sha256": "b8c2984414b8c93665606cddac336891cfa7930f26438ae4646f927260342bde",
+      "display_features": 862,
+      "bbox": [
+        -73.02163093,
+        -36.93211066,
+        -72.77921757,
+        -36.65052706
+      ],
+      "sensor": "Pleiades"
+    },
+    {
+      "file": "GRA_0.json",
+      "bytes": 28383942,
+      "n_features": 3930,
+      "date_utc": "2026-01-25T14:46:00",
+      "source": "https://rapidmapping-viewer.s3.eu-west-1.amazonaws.com/EMSR859/AOI04/GRA_PRODUCT/EMSR859_AOI04_GRA_PRODUCT_observedEventA_v2.json",
+      "sha256": "89fd9f51aa38dd896d7616442668f671fe67abcbc60e7cd6d74f16edd92b00bb",
+      "product": "GRA",
+      "monitoring": 0,
+      "version": 2,
+      "asset": "extent_4.json",
+      "display_sha256": "6f60ead511d225823842efeb094f7acccf75837fa1e6cf141bb8ce716c76bb7c",
+      "display_features": 3930,
+      "bbox": [
+        -73.02163093,
+        -36.93208838999999,
+        -72.77921757,
+        -36.647085329999996
+      ],
+      "sensor": "SPOT-6-7"
+    }
+  ],
+  "display_simplification_m": 20,
+  "source_url": "https://mapping.emergency.copernicus.eu/activations/EMSR859/",
+  "limits": [
+    "Delimitaciones por fotointerpretación de imágenes en fechas concretas; no es un frente de fuego en tiempo real.",
+    "La primera observación es del 21 de enero; no cubre el avance inicial del 17–18.",
+    "Las diferencias entre productos también pueden reflejar sensores, visibilidad y revisión cartográfica, no solo crecimiento del incendio.",
+    "Geometrías simplificadas a 20 m para visualizar; las métricas requieren los originales."
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "status": "blocked_missing_inputs",
+  "research_inputs_complete": false,
+  "operational": false,
+  "spread_prediction_enabled": false,
+  "qualified_inputs": [
+    "initial_perimeter",
+    "validation_perimeters"
+  ],
+  "missing_inputs": [
+    "Modelo local de combustible, con equivalencias verificadas",
+    "Humedad de combustible vivo y muerto, con fecha y método",
+    "Elevación, pendiente y orientación en una grilla común",
+    "Viento temporal y espacial adecuado al motor de propagación"
+  ],
+  "reason": "Completar insumos no valida un modelo; se requiere evaluación temporal y por evento independiente.",
+  "generated_utc": "2026-11-15T06:48:01.341184+00:00",
+  "story_sha256": "2e644cf335cb778def3f6abacff3251ce33cdd5cce08c502a1c9953623f3d0e4",
+  "available_context": [
+    "GOES-19: celdas térmicas horarias, no perímetros",
+    "ERA5: viento y humedad del aire en rejilla gruesa",
+    "DEM Copernicus y WorldCover agregados por celda",
+    "NISAR: observaciones posteriores al incendio de enero",
+    "Copernicus EMSR859: delimitaciones oficiales del 21 al 25 de enero; originales verificados por SHA256"
+  ],
+  "existing_model": {
+    "name": "radar_terreno",
+    "target": "Prioridad de vigilancia de detecciones térmicas, no trayectoria del fuego",
+    "horizon_days": 12,
+    "evaluation": {
+      "historial": {
+        "spatial_blocks": {
+          "n": 16451,
+          "positives": 377,
+          "prevalence": 0.023,
+          "roc_auc": 0.671,
+          "average_precision": 0.086
+        },
+        "held_out_dates": {
+          "n": 5094,
+          "positives": 44,
+          "prevalence": 0.009,
+          "roc_auc": 0.494,
+          "average_precision": 0.01
+        }
+      },
+      "termico": {
+        "spatial_blocks": {
+          "n": 16451,
+          "positives": 377,
+          "prevalence": 0.023,
+          "roc_auc": 0.868,
+          "average_precision": 0.243
+        },
+        "held_out_dates": {
+          "n": 5094,
+          "positives": 44,
+          "prevalence": 0.009,
+          "roc_auc": 0.452,
+          "average_precision": 0.01
+        }
+      },
+      "radar_terreno": {
+        "spatial_blocks": {
+          "n": 16451,
+          "positives": 377,
+          "prevalence": 0.023,
+          "roc_auc": 0.888,
+          "average_precision": 0.388
+        },
+        "held_out_dates": {
+          "n": 5094,
+          "positives": 44,
+          "prevalence": 0.009,
+          "roc_auc": 0.632,
+          "average_precision": 0.016
+        }
+      },
+      "todo": {
+        "spatial_blocks": {
+          "n": 16451,
+          "positives": 377,
+          "prevalence": 0.023,
+          "roc_auc": 0.897,
+          "average_precision": 0.411
+        },
+        "held_out_dates": {
+          "n": 5094,
+          "positives": 44,
+          "prevalence": 0.009,
+          "roc_auc": 0.613,
+          "average_precision": 0.02
+        }
+      },
+      "persistencia": {
+        "spatial_blocks": {
+          "n": 16451,
+          "positives": 377,
+          "prevalence": 0.023,
+          "roc_auc": 0.613,
+          "average_precision": 0.083
+        },
+        "held_out_dates": {
+          "n": 5094,
+          "positives": 44,
+          "prevalence": 0.009,
+          "roc_auc": 0.494,
+          "average_precision": 0.01
+        }
+      }
+    }
+  },
+  "sources": [
+    "https://research.fs.usda.gov/treesearch/55928",
+    "https://owfflammaphelp62.firenet.gov/millerTutorials/miller-Input_a_FARSITE_Simulation.htm"
+  ]
+}

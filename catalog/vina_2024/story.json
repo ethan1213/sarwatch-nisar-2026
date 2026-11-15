@@ -1,0 +1,75 @@
+{
+  "place": "Viña del Mar y entorno · incendio de febrero de 2024",
+  "generated_utc": "2026-11-15T06:27:52.627974+00:00",
+  "source": "Sentinel-2 L2A / Copernicus, Microsoft Planetary Computer",
+  "bbox_wgs84": [
+    -71.61,
+    -33.14,
+    -71.36,
+    -32.96
+  ],
+  "resolution_m": 30,
+  "fire_dates": [
+    "2024-02-02",
+    "2024-02-03"
+  ],
+  "observations": [
+    {
+      "date": "2024-01-18T14:37:39.024000+00:00",
+      "png": "pre.png",
+      "bounds": {
+        "west": -71.615317,
+        "south": -33.145036,
+        "east": -71.354906,
+        "north": -32.955027
+      },
+      "item": "S2B_MSIL2A_20240118T143739_R096_T19HBD_20240118T201205",
+      "valid_fraction": 0.997270955165692,
+      "display": "RGB B04/B03/B02, fixed reflectance stretch 0–0.3, gamma 1.4"
+    },
+    {
+      "date": "2024-02-12T14:37:41.024000+00:00",
+      "png": "post.png",
+      "bounds": {
+        "west": -71.615317,
+        "south": -33.145036,
+        "east": -71.354906,
+        "north": -32.955027
+      },
+      "item": "S2A_MSIL2A_20240212T143741_R096_T19HBD_20240212T213153",
+      "valid_fraction": 0.9868034867041818,
+      "display": "RGB B04/B03/B02, fixed reflectance stretch 0–0.3, gamma 1.4"
+    }
+  ],
+  "severity": {
+    "png": "severity.png",
+    "bounds": {
+      "west": -71.615317,
+      "south": -33.145036,
+      "east": -71.354906,
+      "north": -32.955027
+    },
+    "label": "Señal óptica de quema, dNBR"
+  },
+  "valid_comparison_fraction": 0.8881367464783552,
+  "moderate_or_high_signal_km2": 44.87,
+  "raw_derivatives_sha256": {
+    "dnbr.tif": "3eb15a8f32ad8b885f12da2be118288abb8865e2528bb3d5d7a893912eb4db57",
+    "severity.tif": "be8fe691d0c2ab1ce791ef838e41605d969f9b09156b804c426861ecf3133564"
+  },
+  "sources": [
+    "https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a",
+    "https://cigiden.cl/producto/informe-de-danos-evento-incendios-02-y-03-de-febrero-de-2024-vina-del-mar-region-de-valparaiso/"
+  ],
+  "limits": [
+    "No es NISAR: el incendio de 2024 es anterior a esa misión.",
+    "Señal dNBR sin validación independiente contra perímetro oficial; no es superficie quemada oficial ni clasificación de daño a viviendas.",
+    "Máscara SCL excluye nubes, sombras, nieve y agua; puede haber errores de clasificación.",
+    "Imágenes de dos días distintos, con un tramo sin observación durante el incendio. No muestran una trayectoria horaria."
+  ],
+  "assets_sha256": {
+    "post.png": "861bb723d176f736dc117c43cccadb73bdd7a2d803154d276f4bc550edc6c593",
+    "pre.png": "6060ad063b171d992ef7b04bbd6aa23e583e43c94c39565b8d751020be7a1c9a",
+    "severity.png": "5e372389525cd438fbc1e55ffd240e2e36b3381520bf2135b590e5f1044c32ac"
+  }
+}
