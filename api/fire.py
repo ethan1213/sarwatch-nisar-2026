@@ -17,6 +17,14 @@ router = APIRouter(prefix="/api/fire", tags=["fire"])
 PACK = Path("catalog/fire_story")
 
 
+@router.get("/vegetation-sample")
+def get_vegetation_sample():
+    path = Path("catalog/biobio_vegetation_sample.json")
+    if not path.is_file():
+        raise HTTPException(503, "Muestra de vegetación no disponible")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 @lru_cache(maxsize=1)
 def _story(modified):
     return json.loads((PACK / "story.json").read_text(encoding="utf-8"))

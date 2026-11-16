@@ -7,10 +7,12 @@ import FireDuring from '../components/FireDuring'
 import FireAfter from '../components/FireAfter'
 import FireRadarSite from '../components/FireRadarSite'
 import FireTerrain from '../components/FireTerrain'
+import VegetationEvidence from '../components/VegetationEvidence'
 import FireVina2024 from '../components/FireVina2024'
 import FireOfficialPerimeters from '../components/FireOfficialPerimeters'
 
 const LAYERS = [
+  {key:'vegetation', icon:'♧', label:'¿Cómo cambia la vegetación?', source:'Sentinel-2 · muestra puntual 2026'},
   {key:'during', icon:'◉', label:'¿Dónde se detectó calor?', source:'FIRMS / GOES-19 / Open-Meteo'},
   {key:'scar', icon:'◈', label:'¿Qué zonas muestran cambios?', source:'Sentinel-2 · comparación óptica'},
   {key:'radar', icon:'▱', label:'¿Cómo cambió el terreno?', source:'GCOV · HV · feb–oct 2026'},
@@ -18,8 +20,9 @@ const LAYERS = [
   {key:'terrain',icon:'△',label:'¿Cómo es el relieve?',source:'Copernicus DEM · medias por celda'},
   {key:'before', icon:'◎', label:'¿Qué zonas conviene revisar?', source:'Modelo exploratorio · 12 días'},
 ]
-const HEADINGS = {official:['Cómo cambió la extensión cartografiada','Delimitaciones oficiales de Copernicus EMS, con fechas de adquisición y versiones.'],terrain:['Cómo es el terreno','Altura y pendiente del DEM externo, agregadas por celda. No provienen de NISAR.'],during:['Focos y condiciones','Selecciona un punto FIRMS para consultar clima y sectores laterales al viento. El histórico de enero usa GOES-19.'],scar:['Qué señales quedaron','Señal óptica de quema. Las clases no equivalen a un perímetro oficial del incendio.'],radar:['Cómo evolucionó el terreno','Dos observaciones NISAR posteriores al incendio; desliza para compararlas.'],before:['Qué podemos anticipar','Evaluación de un índice de vigilancia. No pronostica el recorrido del frente del fuego.']}
+const HEADINGS = {vegetation:['Vegetación a lo largo del año','Observaciones reales en un punto de Penco. Los índices ayudan a estudiar cambios; no son alertas.'],official:['Cómo cambió la extensión cartografiada','Delimitaciones oficiales de Copernicus EMS, con fechas de adquisición y versiones.'],terrain:['Cómo es el terreno','Altura y pendiente del DEM externo, agregadas por celda. No provienen de NISAR.'],during:['Focos y condiciones','Selecciona un punto FIRMS para consultar clima y sectores laterales al viento. El histórico de enero usa GOES-19.'],scar:['Qué señales quedaron','Señal óptica de quema. Las clases no equivalen a un perímetro oficial del incendio.'],radar:['Cómo evolucionó el terreno','Dos observaciones NISAR posteriores al incendio; desliza para compararlas.'],before:['Qué podemos anticipar','Evaluación de un índice de vigilancia. No pronostica el recorrido del frente del fuego.']}
 const MAP_HELP = {
+ vegetation: ['Cada punto es una observación real', 'Verde: señal de vegetación. Azul: índice sensible al agua en la vegetación. Más alto no significa más peligro.', 'Lee las fechas y compara los valores en la tabla. Los días sin medición quedan vacíos.'],
  during: ['Busca los puntos o celdas de calor', 'Cada marca corresponde a una detección del satélite. Consulta su fecha: no indica que haya fuego ahora.', 'Selecciona una marca para ver sus datos y el clima del lugar.'],
  scar: ['Lee los colores sobre el terreno', 'Amarillo, naranja y rojo representan una señal óptica de cambio cada vez mayor. La causa necesita interpretación.', 'Compara la zona coloreada con las localidades del mapa.'],
  radar: ['Compara el mismo lugar en dos fechas', 'Los tonos grises representan la intensidad de la señal radar. Una diferencia de tono indica una señal distinta, no una temperatura.', 'Arrastra la división blanca para descubrir la imagen de cada fecha.'],
@@ -51,13 +54,13 @@ export default function FireView({onNavigate}) {
   const [area,setArea]=useState('biobio'), [layer,setLayer]=useState('during'), [dialog,setDialog]=useState(null), [capability,setCapability]=useState(null)
   const part=layer==='scar'||layer==='radar'?'after':layer==='terrain'?'before':layer
   useEffect(()=>{let alive=true; fetchFireStory().then(d=>{if(alive)setSummary(d)}).catch(()=>{if(alive)setError('No pudimos cargar las observaciones. Reintenta la consulta.')}); fetch('/api/fire/propagation-readiness').then(r=>r.ok?r.json():null).then(d=>{if(alive)setCapability(d)}).catch(()=>{});return()=>{alive=false}},[])
-  useEffect(()=>{if(parts[part]||area!=='biobio'||layer==='official')return;let alive=true;fetchFireStory(part).then(d=>{if(alive)setParts(p=>({...p,[part]:d}))}).catch(()=>{if(alive)setPartError('Esta capa no pudo cargar. Puedes elegir otra o reintentar.')});return()=>{alive=false}},[part,parts,area,layer])
+  useEffect(()=>{if(parts[part]||area!=='biobio'||['official','vegetation'].includes(layer))return;let alive=true;fetchFireStory(part).then(d=>{if(alive)setParts(p=>({...p,[part]:d}))}).catch(()=>{if(alive)setPartError('Esta capa no pudo cargar. Puedes elegir otra o reintentar.')});return()=>{alive=false}},[part,parts,area,layer])
   function focusMain(){requestAnimationFrame(()=>document.querySelector('.fg-main')?.scrollIntoView({block:'start',behavior:'instant'}))}
   function selectLayer(key){setPartError('');setLayer(key);setControlsOpen(false);focusMain()}
   function selectArea(key){setArea(key);setControlsOpen(false);focusMain()}
   async function exportEvidence(){
     try {
-      const evidence=area==='biobio'?summary:await fetch(vinaMode==='historical'?'/api/fire/vina-2024':'/api/valparaiso/manifest').then(r=>{if(!r.ok)throw new Error();return r.json()})
+      const evidence=area==='biobio'?(layer==='vegetation'?await fetch('/api/fire/vegetation-sample').then(r=>{if(!r.ok)throw new Error();return r.json()}):summary):await fetch(vinaMode==='historical'?'/api/fire/vina-2024':'/api/valparaiso/manifest').then(r=>{if(!r.ok)throw new Error();return r.json()})
       const blob=new Blob([JSON.stringify({exported_utc:new Date().toISOString(),area,layer:area==='biobio'?layer:vinaMode,evidence,terrain_focus:terrainFocus,propagation:area==='biobio'?capability:{spread_prediction_enabled:false,reason:'No existe un modelo de propagación evaluado para Viña del Mar.'}},null,2)],{type:'application/json'})
       const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`sarwatch-${area}-evidencia.json`;a.click();URL.revokeObjectURL(url);setExportError('')
     } catch {setExportError('No pudimos exportar los datos. Reintenta cuando vuelva la conexión.')}
@@ -79,7 +82,8 @@ export default function FireView({onNavigate}) {
       {error && <div role="alert" className="fire-empty">{error}<button onClick={()=>window.location.reload()}>Reintentar</button></div>}
       {!summary&&!error && <p role="status" className="fire-empty">Cargando observaciones verificadas…</p>}
       {summary&&area==='biobio'&&layer==='official'&&<FireOfficialPerimeters/>}
-      {summary&&area==='biobio'&&layer!=='official'&&<>{partError?<div role="status" className="fire-empty">{partError}<button onClick={()=>{setPartError('');setParts(p=>({...p}))}}>Reintentar</button></div>:!parts[part]?<p role="status" className="fire-empty">Cargando capa…</p>:<>{layer==='during'&&<FireDuring data={parts.during} initialPoint={terrainFocus?.mode==='forecast'?terrainFocus:null} onInspectTerrain={point=>{setTerrainFocus(point);selectLayer('terrain')}}/>}{(layer==='scar'||layer==='radar')&&<FireAfter key={layer} data={parts.after} initialMode={layer}/>}{layer==='before'&&<FireBefore data={parts.before}/>} {layer==='terrain'&&<FireTerrain data={parts.before} focus={terrainFocus}/>}</>}</>}
+      {summary&&area==='biobio'&&layer==='vegetation'&&<VegetationEvidence/>}
+      {summary&&area==='biobio'&&!['official','vegetation'].includes(layer)&&<>{partError?<div role="status" className="fire-empty">{partError}<button onClick={()=>{setPartError('');setParts(p=>({...p}))}}>Reintentar</button></div>:!parts[part]?<p role="status" className="fire-empty">Cargando capa…</p>:<>{layer==='during'&&<FireDuring data={parts.during} initialPoint={terrainFocus?.mode==='forecast'?terrainFocus:null} onInspectTerrain={point=>{setTerrainFocus(point);selectLayer('terrain')}}/>}{(layer==='scar'||layer==='radar')&&<FireAfter key={layer} data={parts.after} initialMode={layer}/>}{layer==='before'&&<FireBefore data={parts.before}/>} {layer==='terrain'&&<FireTerrain data={parts.before} focus={terrainFocus}/>}</>}</>}
       {area==='valparaiso'&&(vinaMode==='historical'?<FireVina2024/>:<FireRadarSite/>)}
     </main></div>
     {dialog&&summary&&<Dialog kind={dialog} summary={summary} capability={capability} onClose={()=>setDialog(null)}/>}
