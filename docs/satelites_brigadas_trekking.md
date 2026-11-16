@@ -15,3 +15,7 @@ Investigación de fuentes, no integración implementada. Comprobar adquisición,
 Orden propuesto: 1) verificar disponibilidad GPM y SMAP en Concepción/Penco/Tomé para fechas conocidas y costos; 2) construir serie Sentinel-2 con máscara de nubes; 3) contrastar con estaciones y eventos independientes; 4) evaluar LHASA y cartografía local. Ninguna fuente autoriza por sí sola avisos operativos ni trayectorias de fuego.
 
 La ficha de lluvia actual usa el endpoint histórico del pronóstico de Open-Meteo, no IMERG; los periodos terminan en el último día UTC completo, con control de faltantes. Evitar confundir salida de modelo con pluviómetro.
+
+## Verificación CMR para Concepción, Penco y Tomé
+
+Consulta 16 noviembre 2026: área -73.2,-37.1,-72.7,-36.5; intervalo 1–15 noviembre UTC. NASA CMR devolvió 720 gránulos GPM_3IMERGHHE versión 07 (último 15 noviembre 23:30 UTC) y 105 gránulos SPL4SMGP versión 008 (último 13 noviembre 21:00 UTC). Los gránulos son globales: el resultado demuestra disponibilidad temporal en catálogo, no que cada celda local contenga un valor válido. Falta descargar, extraer la celda, comprobar máscaras, unidades y autorización; no se ha generado ninguna capa nueva.
