@@ -1,3 +1,4 @@
+import RainfallContext from './RainfallContext'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { fetchChileOverview, fetchFireForecast } from '../api'
 import FireDuringMap from './FireDuringMap'
@@ -157,7 +158,7 @@ export default function FireDuring({ data, onInspectTerrain, initialPoint = null
           <FireTodayMap data={todayOverview.firms} bbox={todayOverview.audit?.bbox || [-73.6, -37.6, -72.3, -36.3]} onSelect={p => { setForecastError(''); setTodayPoint(p); setForecastHour(0) }} sectorGeometry={sectorReport?.url===sectorUrl?sectorReport.data.geometry:null} />
         )}
         {todayMode && !todayOverview && <div className="fire-empty">Consultando focos recientes…</div>}
-        {todayMode && <p className="fire-legend">Consulta guardada de FIRMS, sin actualización continua. Selecciona un punto para consultar el pronóstico meteorológico actual de ese lugar.</p>}
+        {todayMode && <p className="fire-legend">Consulta guardada de FIRMS, sin actualización continua. Selecciona cualquier lugar del mapa para consultar lluvia y pronóstico meteorológico.</p>}
       </div>
 
       <div className="fire-side">
@@ -203,11 +204,13 @@ export default function FireDuring({ data, onInspectTerrain, initialPoint = null
             vpd_kpa={todayForecast.data.hourly.vapour_pressure_deficit[forecastHour]}
           />
         )}
-        {todayMode && !todayPoint && <div className="fire-card"><p>Elige un punto de calor reciente para ver su pronóstico.</p></div>}
+        {todayMode && todayPoint && <RainfallContext key={`${todayPoint.lat},${todayPoint.lon}`} point={todayPoint}/>}
+        {todayMode && !todayPoint && <div className="fire-card"><p>Selecciona cualquier lugar del mapa para consultar lluvia y pronóstico.</p></div>}
 
         {todayMode&&todayPoint&&todayForecast&&todayForecast.lat===todayPoint.lat&&todayForecast.lon===todayPoint.lon&&<section className="fire-card"><label>Hora del pronóstico<input aria-label="Hora del pronóstico" type="range" min="0" max={todayForecast.data.hourly.time.length-1} value={forecastHour} onChange={e=>setForecastHour(Number(e.target.value))}/></label><p>{todayForecast.data.hourly.time[forecastHour]} UTC</p></section>}
         {((todayMode&&todayPoint)||(!todayMode&&selectedFeature))&&<button onClick={()=>{const [lon,lat]=todayMode?[todayPoint.lon,todayPoint.lat]:cellCentroid(selectedFeature);onInspectTerrain?.({lon,lat,mode:todayMode?'forecast':'historical',windContext:sectorReport?.url===sectorUrl?sectorReport.data:null})}}>Ver este punto en relieve 3D →</button>}
         <FireSectorPanel url={sectorUrl} onReport={setSectorReport}/>
+        <section className="fire-card"><h3>Información oficial de Chile</h3><p>Consulta información actualizada y avisos directamente en las fuentes oficiales. Estas páginas son externas y sus datos no se han integrado a este mapa.</p><p><a href="https://www.conaf.cl/incendios/situacion-actual-y-pronostico-de-incendios/" target="_blank" rel="noreferrer">CONAF · situación y pronóstico de incendios ↗</a></p><p><a href="https://www.sernageomin.cl/visores-mineros/" target="_blank" rel="noreferrer">SERNAGEOMIN · visor de remociones ↗</a></p><p>El catastro de remociones figura como preliminar en la página del organismo. La lluvia y la pendiente aquí mostradas no son una alerta de derrumbe.</p></section>
         <details>
           <summary>Límites de esta vista</summary>
           <ul>

@@ -16,6 +16,10 @@ export default function FireTodayMap({ data, bbox, onSelect, sectorGeometry }) {
     const m = new Map({ container: el.current, style: CONTEXT_STYLE, center: [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2], zoom: 8, scrollZoom: true })
     map.current = m
     m.addControl(new NavigationControl())
+    m.on('click', (e) => {
+      if (m.getLayer('today-hotspots') && m.queryRenderedFeatures(e.point, {layers:['today-hotspots']}).length) return
+      onSelectRef.current?.({lat:e.lngLat.lat, lon:e.lngLat.lng, properties:null})
+    })
     m.on('click', 'today-hotspots', (e) => {
       const f = e.features[0]
       onSelectRef.current?.({ lat: f.geometry.coordinates[1], lon: f.geometry.coordinates[0], properties: f.properties })

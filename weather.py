@@ -99,3 +99,25 @@ def fetch_fire_forecast(latitude, longitude, hours=48):
         raise ValueError("Series de pronóstico incompatibles")
     return {"provider": "Open-Meteo", "kind": "weather forecast", "retrieved_utc": datetime.now(timezone.utc).isoformat(), "requested_latitude": latitude, "requested_longitude": longitude,
             "cell_latitude": payload.get("latitude"), "cell_longitude": payload.get("longitude"), "cell_elevation_m": payload.get("elevation"), "units": payload.get("hourly_units", {}), "hourly": hourly}
+
+
+def rainfall_context(latitude, longitude):
+    """Modelled past daily totals through the last completed UTC day."""
+    import math
+    from datetime import timedelta
+    end = datetime.now(timezone.utc).date() - timedelta(days=1)
+    params = {"latitude": latitude, "longitude": longitude, "daily": "precipitation_sum", "past_days": 92, "forecast_days": 1, "timezone": "UTC"}
+    with urlopen("https://api.open-meteo.com/v1/forecast?" + urlencode(params), timeout=20) as response:
+        payload = json.load(response)
+    daily = payload.get('daily', {})
+    if not daily.get('time') or len(daily['time']) != len(daily.get('precipitation_sum', [])):
+        raise ValueError("Historial incompleto")
+    result = {'payload': payload, 'retrieved_utc': datetime.now(timezone.utc).isoformat()}
+    by_date = dict(zip(daily['time'], daily['precipitation_sum']))
+    windows = []
+    for days in (1, 3, 7, 30, 90):
+        dates = [(end - timedelta(days=i)).isoformat() for i in range(days)]
+        values = [by_date.get(date) for date in dates]
+        valid = [v for v in values if isinstance(v, (int, float)) and math.isfinite(v) and v >= 0]
+        windows.append({'days': days, 'start_utc': dates[-1], 'end_utc': dates[0], 'valid_days': len(valid), 'total_mm': round(sum(valid), 1) if len(valid) == days else None})
+    return {'provider': 'Open-Meteo forecast API (past days)', 'kind': 'salidas históricas de modelos meteorológicos, no medición local', 'retrieved_utc': result['retrieved_utc'], 'requested_latitude': latitude, 'requested_longitude': longitude, 'cell_latitude': result['payload'].get('latitude'), 'cell_longitude': result['payload'].get('longitude'), 'windows': windows, 'limits': 'Precipitación estimada en una celda; no predice derrumbes ni humedad de combustible.'}

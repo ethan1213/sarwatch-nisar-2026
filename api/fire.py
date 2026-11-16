@@ -126,3 +126,17 @@ def get_official_perimeter(index: int):
     if not 0<=index<len(report["products"]):
         raise HTTPException(404,"Observación no disponible")
     return FileResponse(Path("catalog/official_fire_perimeters")/report["products"][index]["asset"],media_type="application/geo+json")
+
+
+@lru_cache(maxsize=256)
+def _rainfall(lat, lon, day_bucket):
+    from weather import rainfall_context
+    return rainfall_context(lat, lon)
+
+
+@router.get("/rainfall-context")
+def get_rainfall_context(lat: float = Query(..., ge=-56, le=-17), lon: float = Query(..., ge=-76, le=-66)):
+    try:
+        return _rainfall(round(lat, 2), round(lon, 2), int(time.time() // 86400))
+    except Exception:
+        raise HTTPException(502, "Historial de lluvia no disponible")
