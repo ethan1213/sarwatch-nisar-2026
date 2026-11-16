@@ -44,3 +44,14 @@ Estas referencias orientan la implementación. No equivalen a integración ni va
 - Landsat 8/9 Collection 2: reflectancia a 30 m para complementar series Sentinel-2; aplicar escala y máscara de nubes: https://www.usgs.gov/landsat-missions/landsat-surface-reflectance .
 - Consultar lluvia por cualquier punto, con ventanas completas e incompletas identificadas. Open-Meteo forecast API past_days entrega estimaciones modeladas, no estaciones. Validar frente a pluviómetros antes de alertar.
 - Antes de activar predicciones, evaluar incertidumbre y capacidad por evento independiente con revisión de especialistas locales.
+
+## Actualización implementada: recorridos y vegetación (16/11/2026)
+
+- Serie puntual Sentinel-2 en Penco: 11 adquisiciones de 2026, NDVI/NDMI, tabla de productos y gráfico sin interpolación. No cumple todavía la serie regional con baseline estacional de la entrega 2.
+- Consulta de GPX en navegador: segmentos independientes, distancia horizontal aproximada, hasta 20 puntos de consulta, cruce con polígonos reales del terreno agregado. No se extrapolan valores desde celdas vecinas fuera de cobertura.
+- Pronóstico horario 48 h y acumulados anteriores 1/3/7/30/90 días por punto elegido. No se envía el archivo GPX; solo la coordenada consultada. Consulta de puntos, no evaluación continua de cada tramo.
+- GPX admite archivo de hasta 2 MB o texto pegado, 20.000 puntos máximo; rechaza XML inválido, entidades externas y coordenadas fuera del área de consulta de Chile.
+- Pruebas del recorrido: distancia sin puentes entre segmentos, coordenadas inválidas, cobertura con huecos, muestreo acotado. Fixture sintético identificado como prueba, nunca como sendero recomendado.
+- LHASA: documentación oficial consultada en https://github.com/nasa/LHASA y https://registry.opendata.aws/nasa-landslide-project/ . La descarga en maps.nccs.nasa.gov no resolvió DNS desde el equipo el 16/11/2026. No se incorporó una capa ficticia ni se confundió el catálogo con datos descargados.
+
+Pendientes que impiden afirmar «predicción operativa terminada»: combustible local y humedad medidos; terreno y viento adecuados al motor; series regionales de vegetación; inventario local independiente de eventos; calibración y revisión especializada; evaluación temporal/espacial con falsas alarmas; consentimiento y caducidad para notificaciones. La importación GPX no elimina esos requisitos.
