@@ -1,0 +1,115 @@
+{
+  "generated_utc": "2026-11-16T17:44:01.178663+00:00",
+  "point": {
+    "lon": -72.99,
+    "lat": -36.74
+  },
+  "source": "Copernicus Sentinel-2 L2A via Microsoft Planetary Computer",
+  "observations": [
+    {
+      "date": "2026-01-22T14:37:41.025000+00:00",
+      "item": "S2C_MSIL2A_20260122T143741_R096_T18HXE_20260122T174808",
+      "cloud_scene_pct": 0.058497,
+      "scl": 4,
+      "ndvi": 0.7164,
+      "ndmi": 0.2747,
+      "baseline": "05.11"
+    },
+    {
+      "date": "2026-02-26T14:51:01.024000+00:00",
+      "item": "S2A_MSIL2A_20260226T145101_R096_T18HXE_20260226T204308",
+      "cloud_scene_pct": 2.111436,
+      "scl": 4,
+      "ndvi": 0.7314,
+      "ndmi": 0.1759,
+      "baseline": "05.12"
+    },
+    {
+      "date": "2026-03-25T14:38:01.024000+00:00",
+      "item": "S2A_MSIL2A_20260325T143801_R096_T18HXE_20260325T231909",
+      "cloud_scene_pct": 0.03898,
+      "scl": 4,
+      "ndvi": 0.7764,
+      "ndmi": 0.2681,
+      "baseline": "05.12"
+    },
+    {
+      "date": "2026-04-20T14:47:29.024000+00:00",
+      "item": "S2B_MSIL2A_20260420T144729_R139_T18HXE_20260420T182424",
+      "cloud_scene_pct": 8.966955,
+      "scl": 4,
+      "ndvi": 0.6897,
+      "ndmi": 0.202,
+      "baseline": "05.12"
+    },
+    {
+      "date": "2026-05-17T14:47:51.024000+00:00",
+      "item": "S2A_MSIL2A_20260517T144751_R139_T18HXE_20260518T020310",
+      "cloud_scene_pct": 0.006923,
+      "scl": 4,
+      "ndvi": 0.7767,
+      "ndmi": 0.3668,
+      "baseline": "05.12"
+    },
+    {
+      "date": "2026-06-21T14:37:41.025000+00:00",
+      "item": "S2C_MSIL2A_20260621T143741_R096_T18HXE_20260621T194712",
+      "cloud_scene_pct": 11.68137,
+      "scl": 4,
+      "ndvi": 0.7448,
+      "ndmi": 0.3849,
+      "baseline": "05.12"
+    },
+    {
+      "date": "2026-07-11T14:37:41.024000+00:00",
+      "item": "S2C_MSIL2A_20260711T143741_R096_T18HXE_20260711T193812",
+      "cloud_scene_pct": 1.863907,
+      "scl": 4,
+      "ndvi": 0.7446,
+      "ndmi": 0.4021,
+      "baseline": "05.12"
+    },
+    {
+      "date": "2026-08-18T14:47:29.024000+00:00",
+      "item": "S2B_MSIL2A_20260818T144729_R139_T18HXE_20260818T181703",
+      "cloud_scene_pct": 13.973583,
+      "scl": 4,
+      "ndvi": 0.71,
+      "ndmi": 0.1829,
+      "baseline": "05.12"
+    },
+    {
+      "date": "2026-09-21T14:38:01.024000+00:00",
+      "item": "S2A_MSIL2A_20260921T143801_R096_T18HXE_20260922T015510",
+      "cloud_scene_pct": 4.131382,
+      "scl": 4,
+      "ndvi": 0.67,
+      "ndmi": 0.1403,
+      "baseline": "05.13"
+    },
+    {
+      "date": "2026-10-24T14:37:49.024000+00:00",
+      "item": "S2B_MSIL2A_20261024T143749_R096_T18HXE_20261024T180839",
+      "cloud_scene_pct": 3.760272,
+      "scl": 4,
+      "ndvi": 0.6774,
+      "ndmi": 0.1673,
+      "baseline": "05.13"
+    },
+    {
+      "date": "2026-11-08T14:37:41.024000+00:00",
+      "item": "S2C_MSIL2A_20261108T143741_R096_T18HXE_20261108T174946",
+      "cloud_scene_pct": 0.01932,
+      "scl": 4,
+      "ndvi": 0.7872,
+      "ndmi": 0.1687,
+      "baseline": "05.13"
+    }
+  ],
+  "limits": [
+    "Single pixel sample, not an area or operational fuel moisture.",
+    "SCL class 4 selected; cloud mask can fail, scene coverage and revisit vary.",
+    "NDMI uses B08 10m and B11 20m sampled at a point; resolutions differ.",
+    "No calibration against local vegetation or independent events."
+  ]
+}
