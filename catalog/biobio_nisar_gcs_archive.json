@@ -1,0 +1,41 @@
+{
+  "verified_utc": "2026-11-18T00:00:23.089597+00:00",
+  "scope": "Concepcion Penco NISAR L2 GCOV original HDF5",
+  "bucket": "sarwatch-525550511866-data",
+  "verification": "local SHA-256 matched verified catalog; GCS size and MD5 matched catalog; SHA-256 stored in object metadata; gcloud validated CRC32C during upload",
+  "objects": [
+    {
+      "scene_id": "G4275136759-ASF",
+      "observation_utc": "2026-02-26T10:51:50.000Z",
+      "product_version": "1.0.11",
+      "gcs_uri": "gs://sarwatch-525550511866-data/raw/nisar/concepcion_penco/NISAR_L2_PR_GCOV_014_003_A_159_2005_DHDH_A_20260226T105150_20260226T105226_P05023_N_F_J_001.h5",
+      "generation": "1794959019390508",
+      "bytes": 1757413376,
+      "md5": "886fdca52574fe56eeae5ff78ade7e3b",
+      "sha256": "4d242fb2a2d437cb7b5ed8fcb5a83f6208b7a0d54efa1e9741a2bbafbb4247a3",
+      "gcs_crc32c_base64": "wCOyow=="
+    },
+    {
+      "scene_id": "G4275308917-ASF",
+      "observation_utc": "2026-06-14T10:51:47.000Z",
+      "product_version": "1.0.11",
+      "gcs_uri": "gs://sarwatch-525550511866-data/raw/nisar/concepcion_penco/NISAR_L2_PR_GCOV_023_003_A_159_2005_DHDH_A_20260614T105147_20260614T105224_P05023_N_F_J_001.h5",
+      "generation": "1794959577790362",
+      "bytes": 1790967808,
+      "md5": "e4f67bb83e1d72bddb42e007b1cbad71",
+      "sha256": "002974cfcbae2bd98624322ac53418ef1623e0b65c45450db78da423ac8d8810",
+      "gcs_crc32c_base64": "FeCxBQ=="
+    },
+    {
+      "scene_id": "G4364218397-ASF",
+      "observation_utc": "2026-10-12T10:51:44.000Z",
+      "product_version": "1.0.11",
+      "gcs_uri": "gs://sarwatch-525550511866-data/raw/nisar/concepcion_penco/NISAR_L2_PR_GCOV_033_003_A_159_2005_DHDH_A_20261012T105144_20261012T105220_P05023_N_F_J_001.h5",
+      "generation": "1794960000678144",
+      "bytes": 1753219072,
+      "md5": "47528a291fa98edc3b1bf33dfb2f150a",
+      "sha256": "93ff85f6be8b11a78ccae746dec454a519e24e0d34e56140001c798e53634efb",
+      "gcs_crc32c_base64": "bbZGCg=="
+    }
+  ]
+}
