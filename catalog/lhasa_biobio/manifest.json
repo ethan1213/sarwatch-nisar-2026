@@ -1,0 +1,46 @@
+{
+  "product": "NASA LHASA rainfall-triggered landslide nowcast",
+  "publisher_version": "2.1.1 (NASA repository; GeoTIFF itself has no version tag)",
+  "documentation": "https://github.com/nasa/LHASA/blob/master/README.md",
+  "source_resolution_arcsec": 30,
+  "bounds_requested_wsen": [
+    -74.0,
+    -39.0,
+    -70.0,
+    -36.0
+  ],
+  "generated_utc": "2026-11-18T00:04:20.248465+00:00",
+  "operational_alert": false,
+  "limits": [
+    "Regional model probability at about 1 km, not a slope or GPX segment measurement.",
+    "Archived dates; no guarantee that the newest file remains current.",
+    "No independent validation for Biobío and no safe-route inference.",
+    "Does not cover every type of slope failure or rockfall."
+  ],
+  "products": [
+    {
+      "date_utc": "2026-01-31T00:00:00Z",
+      "source_url": "https://portal.nccs.nasa.gov/datashare/landslides/nrt/hazard/tif/20260131T0000.tif",
+      "asset": "lhasa_20260131.tif",
+      "sha256": "660326dbde2212629985cf062970072582ab39dcd4d2438bdb5e907e305142b9",
+      "width": 481,
+      "height": 361,
+      "valid_cells": 101452,
+      "total_cells": 173641,
+      "min_probability": 0.00022528163390234113,
+      "max_probability": 0.6242001056671143
+    },
+    {
+      "date_utc": "2026-11-16T00:00:00Z",
+      "source_url": "https://portal.nccs.nasa.gov/datashare/landslides/nrt/hazard/tif/20261116T0000.tif",
+      "asset": "lhasa_20261116.tif",
+      "sha256": "07e8d264ef4bc5613cb3d2113d7ddc21346e469affaa5ae611a77c291dacd718",
+      "width": 481,
+      "height": 361,
+      "valid_cells": 101452,
+      "total_cells": 173641,
+      "min_probability": 0.00041120039531961083,
+      "max_probability": 0.13156479597091675
+    }
+  ]
+}

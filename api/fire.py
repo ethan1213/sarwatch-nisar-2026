@@ -82,6 +82,38 @@ def get_propagation_readiness():
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+@router.get("/landslide-context")
+def get_landslide_context(lat: float = Query(..., ge=-39, le=-36), lon: float = Query(..., ge=-74, le=-70)):
+    """Sample dated regional LHASA cells; never classify a trail or issue an alert."""
+    import math
+    import rasterio
+    from rasterio.transform import xy
+
+    root = Path("catalog/lhasa_biobio")
+    manifest_path = root / "manifest.json"
+    if not manifest_path.is_file():
+        raise HTTPException(503, "Archivo regional LHASA no disponible")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    observations = []
+    for product in manifest["products"]:
+        with rasterio.open(root / product["asset"]) as ds:
+            row, col = ds.index(lon, lat)
+            value = None
+            center = None
+            if 0 <= row < ds.height and 0 <= col < ds.width:
+                raw = float(ds.read(1, window=((row, row + 1), (col, col + 1)))[0, 0])
+                if math.isfinite(raw) and raw != ds.nodata:
+                    value = raw
+                    center_lon, center_lat = xy(ds.transform, row, col)
+                    center = {"lat": center_lat, "lon": center_lon}
+            observations.append({"date_utc": product["date_utc"], "probability": value,
+                                 "cell_center": center, "source_url": product["source_url"]})
+    return {"point": {"lat": lat, "lon": lon}, "product": manifest["product"],
+            "publisher_version": manifest["publisher_version"],
+            "source_resolution_arcsec": manifest["source_resolution_arcsec"],
+            "operational_alert": False, "limits": manifest["limits"], "observations": observations}
+
+
 @router.get("/sector-context")
 def get_sector_context(cell_id: int = Query(..., ge=0), time_utc: str = Query(..., max_length=32)):
     from sarwatch.ml.sector_context import context_for_cell

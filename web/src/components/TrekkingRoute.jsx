@@ -3,6 +3,26 @@ import {parseGpx,routeKm,sampleRoute,terrainAt} from '../lib/route'
 import RouteMap from './RouteMap'
 import RainfallContext from './RainfallContext'
 
+function LandslideContext({point}) {
+ const [state,setState]=useState({status:'loading'})
+ const [lon,lat]=point
+ useEffect(()=>{
+  const controller=new AbortController()
+  fetch(`/api/fire/landslide-context?lat=${lat}&lon=${lon}`,{signal:controller.signal})
+   .then(r=>{if(!r.ok)throw Error();return r.json()})
+   .then(data=>setState({status:'ready',data}))
+   .catch(e=>{if(e.name!=='AbortError')setState({status:'error'})})
+  return ()=>controller.abort()
+ },[lat,lon])
+ return <section className="fire-card"><h3>Deslizamientos · referencia regional NASA</h3>
+  {state.status==='loading'&&<p role="status">Consultando el archivo LHASA…</p>}
+  {state.status==='error'&&<p role="status">No hay datos LHASA para este punto. No se puede inferir seguridad del recorrido.</p>}
+  {state.status==='ready'&&<><p>LHASA {state.data.publisher_version}. Celdas de aproximadamente 1 km; resultados archivados por fecha, no alerta vigente. El porcentaje corresponde al modelo regional y no a la probabilidad de derrumbe en el sendero.</p>
+   <div style={{overflowX:'auto'}}><table><caption>Estimación del modelo en la celda del punto</caption><thead><tr><th>Fecha UTC</th><th>Probabilidad modelada</th></tr></thead><tbody>{state.data.observations.map(o=><tr key={o.date_utc}><td>{o.date_utc.slice(0,10)}</td><td>{o.probability===null?'Sin dato':`${(o.probability*100).toFixed(1)} %`}</td></tr>)}</tbody></table></div>
+   <p>LHASA no cubre todos los tipos de derrumbe. Estos valores no certifican transitabilidad; revisa avisos oficiales y condiciones del lugar.</p></>}
+ </section>
+}
+
 function PointWeather({point}) {
  const [data,setData]=useState(null),[error,setError]=useState(false),[attempt,setAttempt]=useState(0)
  const [lon,lat]=point
@@ -12,7 +32,7 @@ function PointWeather({point}) {
   return ()=>controller.abort()
  },[lat,lon,attempt])
  return <section className="fire-card"><h3>Próximas 48 horas · pronóstico</h3>{error?<p role="alert">No se pudo consultar el pronóstico. <button onClick={()=>{setError(false);setAttempt(n=>n+1)}}>Reintentar</button></p>:!data?<p role="status">Consultando condiciones…</p>:<><p>Open-Meteo · obtenido {data.retrieved_utc}. Celda del modelo: {data.cell_latitude}, {data.cell_longitude}. No es una estación del sendero.</p><div style={{overflowX:'auto',maxHeight:320}}><table><caption>Lluvia por hora y viento a 10 m · horas UTC</caption><thead><tr><th>Hora UTC</th><th>Lluvia (mm)</th><th>Viento (km/h)</th><th>Desde (°)</th><th>Ráfaga (km/h)</th></tr></thead><tbody>{data.hourly.time.map((t,i)=><tr key={t}><td>{t.replace('T',' ')}</td>{['precipitation','wind_speed_10m','wind_direction_10m','wind_gusts_10m'].map(k=><td key={k}>{data.hourly[k][i]??'Sin dato'}</td>)}</tr>)}</tbody></table></div></>}
- <RainfallContext point={{lat,lon}}/></section>
+ <RainfallContext point={{lat,lon}}/><LandslideContext point={point}/></section>
 }
 export default function TrekkingRoute({data}) {
  const [gpxText,setGpxText]=useState('')
