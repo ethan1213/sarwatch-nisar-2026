@@ -8,6 +8,8 @@ class LandslideContextTests(unittest.TestCase):
     def test_penco_returns_dated_regional_model_values(self):
         context = get_landslide_context(-36.73, -72.96)
         self.assertFalse(context["operational_alert"])
+        self.assertEqual(context["publisher_version"], "2.1.1")
+        self.assertIn("GeoTIFF", context["version_note"])
         self.assertEqual(context["source_resolution_arcsec"], 30)
         self.assertEqual([item["date_utc"] for item in context["observations"]],
                          ["2026-01-31T00:00:00Z", "2026-11-16T00:00:00Z"])

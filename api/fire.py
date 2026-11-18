@@ -110,6 +110,7 @@ def get_landslide_context(lat: float = Query(..., ge=-39, le=-36), lon: float = 
                                  "cell_center": center, "source_url": product["source_url"]})
     return {"point": {"lat": lat, "lon": lon}, "product": manifest["product"],
             "publisher_version": manifest["publisher_version"],
+            "version_note": manifest["version_note"],
             "source_resolution_arcsec": manifest["source_resolution_arcsec"],
             "operational_alert": False, "limits": manifest["limits"], "observations": observations}
 

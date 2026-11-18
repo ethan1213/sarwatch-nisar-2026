@@ -64,7 +64,8 @@ if __name__ == "__main__":
     products = [ingest(date) for date in DATES]
     manifest = {
         "product": "NASA LHASA rainfall-triggered landslide nowcast",
-        "publisher_version": "2.1.1 (NASA repository; GeoTIFF itself has no version tag)",
+        "publisher_version": "2.1.1",
+        "version_note": "La versión procede de la documentación NASA; el GeoTIFF no contiene una etiqueta de versión.",
         "documentation": "https://github.com/nasa/LHASA/blob/master/README.md",
         "source_resolution_arcsec": 30,
         "bounds_requested_wsen": BOUNDS,

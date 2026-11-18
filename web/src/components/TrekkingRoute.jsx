@@ -19,7 +19,7 @@ function LandslideContext({point}) {
   {state.status==='error'&&<p role="status">No hay datos LHASA para este punto. No se puede inferir seguridad del recorrido.</p>}
   {state.status==='ready'&&<><p>LHASA {state.data.publisher_version}. Celdas de aproximadamente 1 km; resultados archivados por fecha, no alerta vigente. El porcentaje corresponde al modelo regional y no a la probabilidad de derrumbe en el sendero.</p>
    <div style={{overflowX:'auto'}}><table><caption>Estimación del modelo en la celda del punto</caption><thead><tr><th>Fecha UTC</th><th>Probabilidad modelada</th></tr></thead><tbody>{state.data.observations.map(o=><tr key={o.date_utc}><td>{o.date_utc.slice(0,10)}</td><td>{o.probability===null?'Sin dato':`${(o.probability*100).toFixed(1)} %`}</td></tr>)}</tbody></table></div>
-   <p>LHASA no cubre todos los tipos de derrumbe. Estos valores no certifican transitabilidad; revisa avisos oficiales y condiciones del lugar.</p></>}
+   <p>LHASA no cubre todos los tipos de derrumbe. Estos valores no certifican transitabilidad; revisa avisos oficiales y condiciones del lugar. <a href="https://github.com/nasa/LHASA/blob/master/README.md" target="_blank" rel="noreferrer">Cómo funciona LHASA · NASA ↗</a></p></>}
  </section>
 }
 
